@@ -1,0 +1,145 @@
+
+.jumbotron-fluid {
+    background-image: url("../img/fox1.jpg");
+    height: 720px;
+    }
+
+.container-fluid {
+    background: #d9d9d9;
+    opacity: 0.9;
+    border-radius: 15px;
+    height: 400px;
+    margin: auto;
+    width: 50%;
+    border: 3px solid #1D2731;
+    padding: 10px;
+    box-shadow: 5px 10px 8px #0c0c0c;
+    font-family: 'Archivo Black', sans-serif;
+    color: #0b3c5d;
+
+}
+
+.spacer {
+    height: 75px;
+}
+
+body {
+    background-color: #328cc1;
+
+}
+
+label {
+    font-family: Helvetica;
+    color: #1D2731;
+}
+
+input {
+    border: 1px solid #1D2731;
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1D2731;
+}
+
+li {
+    float: left;
+    width: 300px;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: x-large;
+}
+
+li a:hover {
+    background-color: #0B3C5D;
+}
+
+.starFrame {
+    height: 13px;
+}
+
+.bottom {
+    height: 120px
+}
+
+
+/* Referenceed from here: https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_hover*/
+.button {
+
+    border-radius: 8px;
+    border: none;
+    color: white;
+    padding: 12px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    box-shadow: 5px 7px 4px #0c0c0c;
+}
+
+.button2 {
+    background-color: #d9b310;
+    color: white;
+    border: 2px solid #785616;
+}
+
+.button2:hover {
+    background-color: #ae8d0e;
+    color: white;
+}
+
+/* Referenced here: https://www.w3schools.com/howto/howto_css_animate_buttons.asp */
+.button:active {
+    background-color: #ae8d0e;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.up-arrow {
+    display: inline-block;
+    position: relative;
+    border: 1px solid #777777;
+    text-decoration: none;
+    border-radius: 2px;
+    padding: 20px;
+    margin-top: 50px;
+}
+.up-arrow:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 140px;
+    bottom: 100%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: black;
+}
+
+.up-arrow:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 141px;
+    bottom: 100%;
+    width: 0;
+    height: 0;
+    border: 9px solid transparent;
+    border-bottom-color: white;
+}
