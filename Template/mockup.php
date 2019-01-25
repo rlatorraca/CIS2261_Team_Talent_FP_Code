@@ -28,6 +28,7 @@ $confirm = new Button();
         <!-- Here is where we call bootstrap. !-->
 
         <title>STARS Template</title>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/demos/style.css">
@@ -36,7 +37,7 @@ $confirm = new Button();
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
         <link href="css/stars.css" rel="stylesheet">
         <script>
             // This function shows the date picker.
@@ -49,19 +50,22 @@ $confirm = new Button();
             $( function() {
                 $( document ).tooltip();
             } );
+
+            // This function manages the drop downs on the main menu.
+            $( function() {
+                $( "#menu" ).menu();
+            } );
         </script>
     </head>
     <body>
-        <nav class="navbar navbar-inverse">
             <div class="container">
-                <div class="navbar-header">
+                <div class="header">
                     <img src = "img/StarsWhiteFIN.jpg">
                 </div>
                 <ul class="starFrame">
                     <li></li>
                 </ul>
             </div>
-        </nav>
 
         <div class="jumbotron-fluid">
             <div class="spacer"></div>
@@ -100,23 +104,23 @@ $confirm = new Button();
 
                 <p><a href="#" title="That&apos;s what this widget is">Tooltips</a></p>
 
-
-
-
-                <!-- Dropdown           https://www.w3schools.com/bootstrap4/bootstrap_ref_js_dropdown.asp          !-->
-
             </div>
         </div>
-        <nav class="navbar navbar-inverse">
-            <div class="container">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Page 1</a></li>
-                    <li><a href="#">Page 2</a></li>
-                    <li><a href="#">Page 3</a></li>
-                </ul>
+        <div class="navbar">
+            <a href="#home">Home</a>
+            <a href="#news">News</a>
+            <div class="dropdown">
+                <button class="dropbtn">Dropdown
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
             </div>
-        </nav>
+        </div>
+
         <div class ="bottom"></div>
 
     </body>
