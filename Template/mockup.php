@@ -29,21 +29,25 @@ $confirm = new Button();
 
         <title>STARS Template</title>
 
-        <link rel="stylesheet" href="bootstrap-4.2.1-dist/bootstrap.min.css">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-        <link href="css/stars.css" rel="stylesheet">
-
-        <!-- Calendar Date Picker !-->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/demos/style.css">
+
+        <!-- Calendar Date Picker !-->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link href="css/stars.css" rel="stylesheet">
         <script>
+            // This function shows the date picker.
             $( function() {
                 $( "#datepicker" ).datepicker();
+            } );
+
+            // This function shows the note.
+            // Will need to add a variable to get the notes to then call.
+            $( function() {
+                $( document ).tooltip();
             } );
         </script>
     </head>
@@ -94,20 +98,9 @@ $confirm = new Button();
                 <!-- Tooltip !-->
 
 
-                <div class="container">
-                    <h3>Tooltip Example</h3>
-                    <p>The data-placement attribute specifies the tooltip position.</p>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Hooray!">Top</a>
-                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Hooray!">Bottom</a>
-                    <a href="#" data-toggle="tooltip" data-placement="left" title="Hooray!">Left</a>
-                    <a href="#" data-toggle="tooltip" data-placement="right" title="Hooray!">Right</a>
-                </div>
+                <p><a href="#" title="That&apos;s what this widget is">Tooltips</a></p>
 
-                <script>
-                    $(document).ready(function(){
-                        $('[data-toggle="tooltip"]').tooltip();
-                    });
-                </script>
+
 
 
                 <!-- Dropdown           https://www.w3schools.com/bootstrap4/bootstrap_ref_js_dropdown.asp          !-->
