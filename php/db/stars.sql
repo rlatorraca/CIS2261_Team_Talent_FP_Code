@@ -89,6 +89,7 @@ CREATE TABLE `Administrator` (
     `firstName` VARCHAR(30) NOT NULL,
     `lastName` VARCHAR(60) NOT NULL,
     `position` VARCHAR(100) NOT NULL,
+    `schoolID` INTEGER(10) NOT NULL,
     `userID` INTEGER(10) NOT NULL,
     PRIMARY KEY (`adminID`)
 );
@@ -164,7 +165,7 @@ CREATE TABLE `Semester` (
 );
 
 CREATE TABLE `User` (
-    `userID` INTEGER(10) NOT NULL,
+    `userID` INTEGER(10) NOT NULL AUTO_INCREMENT,
     `username` VARCHAR(100) NOT NULL,
     `password` VARCHAR(100) NOT NULL,
     `accessCode` INTEGER(10) NOT NULL,
@@ -201,6 +202,7 @@ ALTER TABLE `Educator` ADD FOREIGN KEY (`schoolID`) REFERENCES `School`(`schoolI
 ALTER TABLE `Educator` ADD FOREIGN KEY (`userID`) REFERENCES `User`(`userID`);
 ALTER TABLE `SupportEducator` ADD FOREIGN KEY (`schoolID`) REFERENCES `School`(`schoolID`);
 ALTER TABLE `SupportEducator` ADD FOREIGN KEY (`userID`) REFERENCES `User`(`userID`);
+ALTER TABLE `Administrator` ADD FOREIGN KEY (`schoolID`) REFERENCES `School`(`schoolID`);
 ALTER TABLE `Administrator` ADD FOREIGN KEY (`userID`) REFERENCES `User`(`userID`);
 ALTER TABLE `IndividualEducationPlan` ADD FOREIGN KEY (`supportEducatorID`) REFERENCES `SupportEducator`(`supportEducatorID`);
 ALTER TABLE `IndividualEducationPlan` ADD FOREIGN KEY (`studentID`) REFERENCES `Student`(`studentID`);
