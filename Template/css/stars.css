@@ -5,14 +5,22 @@ html, body {
     background-color: #328cc1;
     font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
+
 }
 
 
 .jumbotron-fluid {
     background-image: url("../img/fox1.jpg");
-    border-top: 10px solid #1D2731;
+    border: 10px solid #1D2731;
+    border-bottom: 0px;
     padding: 5%;
     }
+
+.container {
+    margin: auto;
+    height: 800px;
+    width: 1400px;
+}
 
 .container-fluid {
     background: #d9d9d9;
@@ -29,7 +37,6 @@ html, body {
 
 .header {
     background-color: #328cc1;
-    padding-top: 2%;
     padding-left: 2%;
 }
 
@@ -82,9 +89,9 @@ input {
 
 .dropdown-content {
     width: inherit;
-    display: none;
     position: absolute;
-    bottom: 11%;
+    display: none;
+    bottom: 21%;
     background-color: #f9f9f9;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 10;

@@ -17,7 +17,7 @@ $confirm = new Button();
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+              content="width=device-width, initial-scale=1.0>
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <!-- Fonts !-->
@@ -58,63 +58,65 @@ $confirm = new Button();
         </script>
     </head>
     <body>
-        <div class="header">
-            <img src = "img/StarsWhiteFIN.jpg">
-        </div>
-        <div class="jumbotron-fluid">
-            <div class="container-fluid">
-
-                <!-- Menu title example !-->
-                <h1>Student Menu</h1>
-                <br>
-                <form>
-                    <!-- Label and input example !-->
-                    <label>Input Label</label>
-                    <input type="text">
-                </form>
-
-                <br>
-
-                <!-- Button elements declared here. Button includes is above with button object declared. !-->
-                <?php
-                $confirm->buttonName = "Submit";
-                $confirm->buttonValue = "Confirm";
-                $confirm->buttonStyle = "font-family:sans-serif";
-                $confirm->display(); ?>
-
-                <br>
-
-                <br>
-
-                <!-- Date Picker Icon mis-aligned !-->
-
-                <p>DOB: <input type="text" id="datepicker"></p>
-
-
-
-                <!-- Tooltip !-->
-
-
-                <p><a href="#" title="That&apos;s what this widget is">Tooltips</a></p>
-
+        <div class="container">
+            <div class="header">
+                <img src = "img/StarsWhiteFIN.jpg">
             </div>
-        </div>
-        <div class="navbar">
-            <a href="#home">Home</a>
-            <a href="#news">News</a>
-            <div class="dropdown">
-                <button class="dropbtn">Dropdown
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+            <div class="jumbotron-fluid">
+                <div class="container-fluid">
+
+                    <!-- Menu title example !-->
+                    <h1>Student Menu</h1>
+                    <br>
+                    <form>
+                        <!-- Label and input example !-->
+                        <label>Input Label</label>
+                        <input type="text">
+                    </form>
+
+                    <br>
+
+                    <!-- Button elements declared here. Button includes is above with button object declared. !-->
+                    <?php
+                    $confirm->buttonName = "Submit";
+                    $confirm->buttonValue = "Confirm";
+                    $confirm->buttonStyle = "font-family:sans-serif";
+                    $confirm->display(); ?>
+
+                    <br>
+
+                    <br>
+
+                    <!-- Date Picker Icon mis-aligned !-->
+
+                    <p>DOB: <input type="text" id="datepicker"></p>
+
+
+
+                    <!-- Tooltip !-->
+
+
+                    <p><a href="#" title="That&apos;s what this widget is">Tooltips</a></p>
+
                 </div>
             </div>
-        </div>
+            <div class="navbar">
+                <a href="#home">Home</a>
+                <a href="#news">News</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Dropdown
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </div>
 
-        <div class ="bottom"></div>
+            <div class ="bottom"></div>
+        </div>
 
     </body>
 </html>
