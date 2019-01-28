@@ -58,17 +58,10 @@ $confirm = new Button();
         </script>
     </head>
     <body>
-            <div class="container">
-                <div class="header">
-                    <img src = "img/StarsWhiteFIN.jpg">
-                </div>
-                <ul class="starFrame">
-                    <li></li>
-                </ul>
-            </div>
-
+        <div class="header">
+            <img src = "img/StarsWhiteFIN.jpg">
+        </div>
         <div class="jumbotron-fluid">
-            <div class="spacer"></div>
             <div class="container-fluid">
 
                 <!-- Menu title example !-->
