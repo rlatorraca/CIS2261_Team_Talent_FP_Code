@@ -98,7 +98,6 @@ $confirm = new Button();
 
 
                     <p><a href="#" title="That&apos;s what this widget is">Tooltips</a></p>
-
                 </div>
             </div>
             <div class="navbar">
@@ -115,7 +114,6 @@ $confirm = new Button();
                     </div>
                 </div>
             </div>
-
             <div class ="bottom"></div>
         </div>
 
