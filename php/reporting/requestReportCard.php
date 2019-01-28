@@ -50,6 +50,10 @@
                 </select>
             </div>
 
-            <!--Submit button Do we consider a button class???-->
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <!-- Button elements declared here. Button includes is above with button object declared. !-->
+            <?php
+            $confirm->buttonName = "Submit";
+            $confirm->buttonValue = "Request";
+            $confirm->buttonStyle = "font-family:sans-serif";
+            $confirm->display(); ?>
 </form>
