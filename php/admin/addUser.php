@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: jgaudet109873
+ * Edited by: John Gaudet
  * Date: 1/22/2019
  * Time: 5:37 PM
  */
@@ -51,15 +51,16 @@
         //Check if query executed successfully and that the result contains data.
         if ($result) {
 
-            echo "<h2>User has been successfully added to the database</h2><br>";
-            echo "<form action='addBook.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Add Another Book</button></div></fieldset></form>";
-            echo "<form action='../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
+            echo "<h2>User has successfully been added to the database</h2><br>";
+            echo "<a href='addStudent.php?userID=" . $userID . "'>Register new Student</a>";
+            echo "<form action='addStudent.php?userID=" . $userID . "' method='get'><fieldset><div class='col-md-12'><button>Register Student with this Information</button></div></fieldset></form>";
+            echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'>Add Another User</button></div></fieldset></form>";
 
         } else {
 
             echo "<h2>Sorry, User could not be added to the database at this time</h2><br>";
-            echo "<form action='addBook.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
-            echo "<form action='../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
+            echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
+            echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
 
         }
 

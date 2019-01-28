@@ -1,9 +1,11 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: sahra
+ * Created by PhpStorm
+ * Edited by: John Gaudet
  * Date: 2019-01-27
  * Time: 8:49 PM
+ *
+ * 2019/01/28: Functionality mostly there. Able to pull user ID from prior screen but cannot use to insert into database.
  */
 ?>
 <!doctype html>
@@ -16,12 +18,13 @@
     <title>Register New Student</title>
 </head>
 <body>
-<div><?php
-    //To trigger when user submits request to add new User
-    if (isset($_GET["register"])) {
+<div>
+    <?php
+    //To trigger when user submits request to add new Student to stars database
+    if (isset($_POST["register"])) {
 
         //If details are empty, display a message and give redirect links. Otherwise, proceed.
-        if ($_GET["studentID"] == "" || $_GET["firstName"] == "" || $_GET["middleName"] == "" || $_GET["lastName"] == "") {
+        if ($_POST["studentID"] == "" || $_POST["firstName"] == "" || $_POST["middleName"] == "" || $_POST["lastName"] == "") {
             echo "<h2>Error. Form fields must not be empty before registering new student in STARS.</h2><br>";
             echo "<form action='addStudent.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
             echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
@@ -37,27 +40,27 @@
         }
 
         //Sanitize user inputs to prepare for database insert query.
-        $studentID = $database->real_escape_string($_GET["studentID"]);
-        $firstName = $database->real_escape_string($_GET["firstName"]);
-        $middleName = $database->real_escape_string($_GET["middleName"]);
-        $lastName = $database->real_escape_string($_GET["lastName"]);
-        $gender = $database->real_escape_string($_GET["gender"]);
-        $dob = $database->real_escape_string($_GET["dob"]);
-        $grade = $database->real_escape_string($_GET["grade"]);
-        $address = $database->real_escape_string($_GET["address"]);
-        $phoneNum = $database->real_escape_string($_GET["phoneNum"]);
-        $emailAddress = $database->real_escape_string($_GET["emailAddress"]);
-        $allergies = $database->real_escape_string($_GET["allergies"]);
-        $schoolID = $database->real_escape_string($_GET["schoolID"]);
-        $guardianID = $database->real_escape_string($_GET["guardianID"]);
-        $userID = $database->real_escape_string($_GET["userID"]);
-        $supportEducatorID = $database->real_escape_string($_GET["supportEducatorID"]);
+        $studentID = $database->real_escape_string($_POST["studentID"]);
+        $firstName = $database->real_escape_string($_POST["firstName"]);
+        $middleName = $database->real_escape_string($_POST["middleName"]);
+        $lastName = $database->real_escape_string($_POST["lastName"]);
+        $gender = $database->real_escape_string($_POST["gender"]);
+        $dob = $database->real_escape_string($_POST["dob"]);
+        $grade = $database->real_escape_string($_POST["grade"]);
+        $address = $database->real_escape_string($_POST["address"]);
+        $phoneNum = $database->real_escape_string($_POST["phoneNum"]);
+        $emailAddress = $database->real_escape_string($_POST["emailAddress"]);
+        $allergies = $database->real_escape_string($_POST["allergies"]);
+        $schoolID = $database->real_escape_string($_POST["schoolID"]);
+        $guardianID = $database->real_escape_string($_POST["guardianID"]);
+        $userIDFromForm = $database->real_escape_string($_POST["userID"]);
+        $supportEducatorID = $database->real_escape_string($_POST["supportEducatorID"]);
 
         //Create initial SQL query to insert form data into database
         $query = "INSERT INTO student(studentID, firstName, middleName, lastName, gender, dob, grade, address, 
                   phoneNum, emailAddress, allergies, schoolID, guardianID, userID, supportEducatorID) 
                   VALUES ('$studentID', '$firstName', '$middleName', '$lastName', '$gender', '$dob', '$grade', '$address', 
-                  '$phoneNum', '$emailAddress', '$allergies', $schoolID, $guardianID, $userID, $supportEducatorID);";
+                  '$phoneNum', '$emailAddress', '$allergies', $schoolID, $guardianID, $userIDFromForm, $supportEducatorID);";
 
         //Execute query and store result.
         $result = $database->query($query);
@@ -79,11 +82,15 @@
 
         //Close database connection
         $database->close();
+
     } else {
+
+    //Pull userID from previous setup for add user in order to populate user ID field for student
+    $userIDFromAddUserScreen = $_GET["userID"];
 
     ?>
     <p>**Please ensure all fields are filled before registering a new Student.</p>
-    <form action="addStudent.php" method="get">
+    <form action="addStudent.php" method="post">
         <fieldset>
             <legend>Student Details</legend>
             <div class="col-md-12 form-inline customDiv">
@@ -145,7 +152,8 @@
             </div>
             <div class="col-md-12 form-inline customDiv">
                 <label for="title" class="col-md-6">User ID number</label>
-                <input type="text" name="userID" class="col-md-6 form-control value=">
+                <input type="text" name="userID" class="col-md-6 form-control value="
+                       value="<?php echo $userIDFromAddUserScreen ?>" disabled="disabled">
             </div>
             <div class="col-md-12 form-inline customDiv">
                 <label for="title" class="col-md-6">Support Educator ID number</label>
@@ -153,13 +161,6 @@
             </div>
             <div class="col-md-12">
                 <input type="submit" name="register" value="Register Student">
-            </div>
-        </fieldset>
-    </form>
-    <form action="../../index.php" method="post">
-        <fieldset>
-            <div class="col-md-12">
-                <button id="customBtn">Return Home</button>
             </div>
         </fieldset>
     </form>
