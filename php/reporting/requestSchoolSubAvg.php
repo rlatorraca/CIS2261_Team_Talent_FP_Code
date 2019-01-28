@@ -49,9 +49,8 @@ Requires user, user id, user school, school id, subjects, courses associated to 
                     $cleanSchoolID = $db->real_escape_string($schoolID);
 
                     //The SQL query to populate the dropdown of subjects based on schoolID
-                    if ($resultsReturned != "All") {
-                        $query = "SELECT * FROM employee WHERE FIRST_NAME LIKE '%$cleanFName%' AND LAST_NAME LIKE '%$cleanLName%' 
-                  ORDER BY $cleanOrderBy $cleanSort LIMIT $cleanResultsReturned";
+                    if ($result) {
+                        $query = "SELECT subject.subjectName FROM subject, school WHERE school.schoolID = '69'";
                     } else {
                         //if cannot connect to db let user know, offer link back to ??????????????????
                         echo "An error has occurred.  Would you like to <a href='requestSchoolSubAvg.php'>try again?</a>";
@@ -59,9 +58,7 @@ Requires user, user id, user school, school id, subjects, courses associated to 
                         $db->close();
                     }
 
-                    // Use $db object created above and run the query() method.
                     $result = $db->query($query);
-
                     //Get the num_rows attribute of the $result object
                     //This is key to knowing if we should show the results or display an error message etc
                     $num_results = $result->num_rows;
