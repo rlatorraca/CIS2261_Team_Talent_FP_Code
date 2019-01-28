@@ -1,34 +1,36 @@
 
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #328cc1;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+
 .jumbotron-fluid {
     background-image: url("../img/fox1.jpg");
-    height: 720px;
+    border-top: 10px solid #1D2731;
+    padding: 5%;
     }
 
 .container-fluid {
     background: #d9d9d9;
     opacity: 0.9;
     border-radius: 15px;
-    height: 60%;
     margin: auto;
     width: 50%;
     border: 3px solid #1D2731;
-    padding: 10px;
+    padding: 5%;
     box-shadow: 5px 10px 8px #0c0c0c;
     font-family: 'Archivo Black', sans-serif;
     color: #0b3c5d;
-
-}
-
-.spacer {
-    height: 75px;
 }
 
 .header {
     background-color: #328cc1;
-}
-
-body {
-    background-color: #328cc1;
+    padding-top: 2%;
+    padding-left: 2%;
 }
 
 label {
@@ -41,17 +43,13 @@ input {
 
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 .navbar {
     overflow: hidden;
     background-color: #1D2731;
 }
 
 .navbar a {
-    width: 200px;
+    width: 15%;
     float: left;
     font-size: 16px;
     color: white;
@@ -61,12 +59,13 @@ body {
 }
 
 .dropdown {
+    width: 15%;
     float: left;
     overflow: hidden;
 }
 
 .dropdown .dropbtn {
-    width: 200px;
+    width: 100%;
     font-size: 16px;
     border: none;
     outline: none;
@@ -82,16 +81,17 @@ body {
 }
 
 .dropdown-content {
+    width: inherit;
     display: none;
     position: absolute;
-    bottom: 50px;
+    bottom: 11%;
     background-color: #f9f9f9;
-    min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 10;
 }
 
 .dropdown-content a {
+    width: auto;
     float: none;
     color: black;
     padding: 12px 16px;
