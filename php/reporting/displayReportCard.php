@@ -29,7 +29,10 @@
         //Thanks!
         //SQL to pull overall report card details (Report card to identify a student before the extraction of enrollment data).
         //Be sure to pull the selected student from the requestReportCard.php page to extract the correct student information
-        $query1 = "SELECT * FROM reportcard WHERE studentID = '$studentID';";
+        $query1 = "SELECT reportCardID, isRead, reportcard.studentID, schoolYear, semesterNum, student.firstName, student.lastName
+                    FROM reportcard, student 
+                    WHERE reportcard.studentID = '$studentID'
+                    AND student.studentID = reportcard.studentID;";
 
         $result1 = $database->query($query1);
 
@@ -42,7 +45,8 @@
                 $studID = $row["studentID"];
                 $schoolYear = $row["schoolYear"];
                 $semesterNum = $row["semesterNum"];
-
+                $studentFirstName = $row["firstName"];
+                $studentLastName = $row["lastName"];
             }
     ?>
     <table>
@@ -53,6 +57,7 @@
                 <td>Student ID</td>
                 <td>School Year</td>
                 <td>Semester</td>
+                <td>Student Name</td>
             </tr>
         </thead>
         <tbody>
@@ -62,6 +67,7 @@
                 <td><?php echo $studID; ?></td>
                 <td><?php echo $schoolYear; ?></td>
                 <td><?php echo $semesterNum; ?></td>
+                <td><?php echo $studentFirstName." ".$studentLastName; ?></td>
             </tr>
         </tbody>
     </table>
@@ -71,9 +77,9 @@
             echo "<p>No results</p>";
         }
             //SQL for individual Enrollments
-        $query2 = "SELECT enrollment.enrollmentID, course.courseName, subject.subjectCode, mark, attendance,
-                    notes
-                    FROM student, enrollment, course, courseoffering, subject, semester
+        $query2 = "SELECT course.courseName, subject.subjectCode, mark, attendance,
+                    notes, educator.firstName, educator.lastName
+                    FROM student, enrollment, course, courseoffering, subject, semester, educator
                     WHERE enrollment.studentID = '$studentID'
                     AND student.studentID = enrollment.studentID
                     AND enrollment.schoolYear = '$schoolYear'
@@ -82,7 +88,8 @@
                     AND semester.semesterNum = enrollment.semesterNum
                     AND course.subjectCode = subject.subjectCode
                     AND courseoffering.courseID = course.courseID
-                    AND enrollment.classID = courseoffering.classID;";
+                    AND enrollment.classID = courseoffering.classID
+                    AND courseoffering.educatorID = educator.educatorID;";
 
         $result2 = $database->query($query2);
 
@@ -92,12 +99,12 @@
             <table>
                 <thead>
                 <tr>
-                    <td>Unique Enrollment Number</td>
                     <td>Course Name</td>
                     <td>Subject</td>
                     <td>Mark</td>
                     <td>Days Missed</td>
-                    <td>Teacher Notes</td>
+                    <td>Notes</td>
+                    <td>Teacher Name</td>
                 </tr>
                 </thead>
             <?php
@@ -106,12 +113,12 @@
                 ?>
                 <tbody>
                     <tr>
-                        <td> <?php echo $row["enrollmentID"]; ?></td>
                         <td> <?php echo $row["courseName"]; ?></td>
                         <td> <?php echo $row["subjectCode"]; ?></td>
                         <td> <?php if ($row["mark"] == ""){ echo "Empty"; } else { echo $row["mark"]; } ?></td>
                         <td> <?php if ($row["attendance"] == "") { echo "0 days"; } else { echo $row["attendance"]; } ?></td>
                         <td> <?php if ($row["notes"] == "") { echo "Empty"; } else { echo $row["notes"]; } ?></td>
+                        <td> <?php echo $row["firstName"]." ".$row["lastName"]; ?></td>
                     </tr>
                 </tbody>
                 <?php } ?>
