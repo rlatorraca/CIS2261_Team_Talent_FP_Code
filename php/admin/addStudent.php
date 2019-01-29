@@ -69,14 +69,10 @@
         if ($result) {
 
             echo "<h2>Student has been successfully added to the database</h2><br>";
-            echo "<form action='addBook.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Add Another Book</button></div></fieldset></form>";
-            echo "<form action='../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
 
         } else {
 
             echo "<h2>Sorry, student could not be added to the database at this time</h2><br>";
-            echo "<form action='addBook.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
-            echo "<form action='../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
 
         }
 
