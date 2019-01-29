@@ -21,56 +21,40 @@ Requires user, user id, user school, school id, subjects, courses associated to 
     //echo "got here1";
 
     //Create a new connection object using mysqli
-    //Make connection to the database and check to ensure that a solid connection can be made
     @ $database = new mysqli('localhost', 'root', '', 'stars');
     if (mysqli_connect_errno()) {
         echo '<h2>An error has occurred.  Would you like to <a href=\'requestSchoolSubAvg.php\'>try again?</a></h2>';
         exit("</div></body></html>");
         $db->close();
     }
-
-    $query = "SELECT name FROM school WHERE schoolID > 1";
+    //create the query
+    $query = "SELECT subject.subjectName FROM subject, school WHERE school.schoolID = 69";
+   // $query = "SELECT name FROM school WHERE schoolID > 1";
 
     //Execute query and store result.
     $result = $database->query($query);
-
-    if ($result != null) {
-        // output data of row
-        while($row = mysqli_fetch_assoc($result)) {
-            echo "name: " . $row["name"]. " <br>";
-            $subject = $row["name"];
+    //if no results
+    if ($result->num_rows < 1) {
+        echo "<label for='course'>Select Course</label>
+           <select name=student ></option>";
+        {
+            echo "<option value=''>No Results</option>";
         }
-    } else {
-        echo "0 results";
-    };
+        echo "</select>";
+        //if results exist
+    } else if ($result) {
 
-    echo "<select name=student value=''>School</option>"; // list box select command
+        //while ($row = mysqli_fetch_assoc($result)) {
+        echo "<label for='course'>Select Subject</label>
+           <select name=student value=''>"; // list box select command
 
-    foreach ($database->query($query) as $row){//Array or records stored in $row
+        foreach ($database->query($query) as $row) {//Array or records stored in $row
 
-        echo "<option value=$row[id]>$row[name]</option>";
-
-        /* Option values are added by looping through the array */
-
+            echo "<option value=$row[id]>$row[name]</option>";
+            /* Option values are added by looping through the array */
+        }
+        echo "</select>";// Closing box
     }
-
-    echo "</select>";// Closing of list box
-
-
-
-
-    echo "got here4";
-    //Get the num_rows attribute of the $result object
-    //This is key to knowing if we should show the results or display an error message etc
-    $num_results = $result->num_rows;
-
-    echo "<p>Total Results: $num_results</p>";
-
-    //Check/validate if there are items in the database object
-    if ($result->num_rows > 0) {
-        echo "wow";
-    }
-
 ?>
 
 <form action="displaySchoolSubAvg.php" method="post">
