@@ -11,7 +11,7 @@
 
 <?php
 
-    //*****************attempting dropdown of school subjects**********************************************************
+    //*****************creating dropdown of school subjects**********************************************************
     //Get schoolID of user
     //$schoolID = ($_GET['schoolID']);
 
@@ -103,7 +103,7 @@
                 <!-- Here we need to use SQL queries to populate the dropdowns -->
                 <?php
                     if ($resultYear->num_rows < 1) {
-                        echo "<label for='course'>Endg</label><br>
+                        echo "<label for='course'>End</label><br>
                         <select name=student ></option>";
                         {
                             echo "<option value=''>No Results</option>";
