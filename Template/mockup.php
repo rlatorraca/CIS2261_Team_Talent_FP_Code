@@ -101,7 +101,7 @@ $confirm = new Button();
             </div>
         </div>
 
-
+    <div class = "bottom">
     <div id="footer">
         <ul id="footerMenu">
             <li class = "titleNav">List One
@@ -122,7 +122,7 @@ $confirm = new Button();
             </li>
         </ul>
     </div>
-
+    </div>
 
 
 
@@ -141,7 +141,7 @@ $confirm = new Button();
 <!--            </div>-->
 <!--        </div>-->
 <!---->
-<!--        <div class ="bottom"></div>-->
+
 
     </body>
 </html>
