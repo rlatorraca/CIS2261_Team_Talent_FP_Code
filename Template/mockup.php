@@ -100,22 +100,48 @@ $confirm = new Button();
 
             </div>
         </div>
-        <div class="navbar">
-            <a href="#home">Home</a>
-            <a href="#news">News</a>
-            <div class="dropdown">
-                <button class="dropbtn">Dropdown
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
-        </div>
 
-        <div class ="bottom"></div>
+
+    <div id="footer">
+        <ul id="footerMenu">
+            <li class = "titleNav">List One
+                <ul class = "dropupMenu">
+                    <li><a>List 1:1</a></li>
+                    <li><a>List 1:2</a></li>
+                    <li><a>List 1:3</a></li>
+                    <li><a>List 1:4</a></li>
+                </ul>
+            </li>
+            <li class = "titleNav">List Two
+                <ul class = "dropupMenu">
+                    <li><a>List 2:1</a></li>
+                    <li><a>List 2:2</a></li>
+                    <li><a>List 2:3</a></li>
+                    <li><a>List 2:4</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+<!--        <div class="navbar">-->
+<!--            <a href="#home">Home</a>-->
+<!--            <a href="#news">News</a>-->
+<!--            <div class="dropdown">-->
+<!--                <button class="dropbtn">Dropdown-->
+<!--                    <i class="fa fa-caret-down"></i>-->
+<!--                </button>-->
+<!--                <div class="dropdown-content">-->
+<!--                    <a href="#">Link 1</a>-->
+<!--                    <a href="#">Link 2</a>-->
+<!--                    <a href="#">Link 3</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!---->
+<!--        <div class ="bottom"></div>-->
 
     </body>
 </html>
