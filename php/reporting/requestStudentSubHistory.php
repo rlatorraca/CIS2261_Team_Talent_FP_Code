@@ -19,7 +19,7 @@
 <?php
     @ $database = new mysqli('localhost', 'root', '', 'stars');
     if (mysqli_connect_errno()) {
-        echo '<h2>An error has occurred.  Would you like to <a href=\'requestSchoolSubAvg.php\'>try again?</a></h2>';
+        echo '<h2>An error has occurred.  Would you like to <a href=\'requestStudentSubHistory.php\'>try again?</a></h2>';
         exit("</div></body></html>");
         $db->close();
     }

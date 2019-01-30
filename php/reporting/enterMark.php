@@ -7,61 +7,94 @@
  */
 ?>
 <!--Form to update a students mark.  Requires course name, student name, mark, attendance-->
+<?php
+    @ $database = new mysqli('localhost', 'root', '', 'stars');
+    if (mysqli_connect_errno()) {
+        echo '<h2>An error has occurred.  Would you like to <a href=\'enterMark.php\'>try again?</a></h2>';
+        exit("</div></body></html>");
+        $db->close();
+    }
+    //query to find the courses (and semester Number) the teacher has assigned to them
+    $queryCourse = $sql = "SELECT course.courseName, courseoffering.semesterNum FROM course, user, educator, courseoffering 
+                            WHERE user.userID = educator.userID 
+                            AND course.courseID = courseoffering.courseID 
+                            AND educator.userID = 14";
+    //query to find the students in the selected course
+
+    $resultCourse = $database->query($queryCourse);
+
+
+
+?>
 <form action="enterMark.php" method="post">
     <div class="form-group">
         <div class="form-row">
             <div class="col-3">
-                <label for="course">Select Course</label>
-                <select class="g" id="selectCourse" name="selectCourse">
-                    <!-- Here we need to use SQL queries to populate the dropdowns -->
-                    <?php
-                    for ($i = 0; $i <= 30; $i++) {
-                        ?>
-                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                        <?php
+                <label for="students">Select Course - Semester</label>
+                <select class="g" id="students" name="students">
+                    <!-- Using SQL to populate dropdown list of students -->
+                    <?php if ($resultCourse->num_rows > 0) {
+                        while ($row = $resultCourse->fetch_assoc()) {
+                            ?>
+                            <option><?php echo $row["courseName"]." - ".$row["semesterNum"]; ?></option><?php
+                        }
+                    } else {
+                        echo "<option>No Students</option>";
                     }
                     ?>
                 </select>
             </div>
-            <div class="col-3">
-                <label for="student">Select Student</label>
-                <select class="g" id="selectStud" name="selectStud">
-                    <!-- Here we need to use SQL queries to populate the dropdowns -->
-                    <?php
-                    for ($i = 0; $i <= 30; $i++) {
-                        ?>
-                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                        <?php
-                    }
-                    ?>
-                </select>
-            </div>
-            <div class="col-3">
-                <label for="year">Enter Mark</label>
-                <select class="g" id="selectMark" name="selectMark">
-                    <!-- Do we want to use drop down or the little up and down arrows??? -->
-                    <?php
-                    for ($i = 40; $i <= 100; $i++) {
-                        ?>
-                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                        <?php
-                    }
-                    ?>
-                </select>
-            </div>
-            <div class="col-3">
-                <label for="attendance">Enter Days Missed</label>
-                <select class="g" id="attendance" name="attendance">
-                    <?php
-                    for ($i = 0; $i <= 30; $i++) {
-                        ?>
-                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                        <?php
-                    }
-                    ?>
-                </select>
-            </div>
+        </div>
+        <div class="col-3">
+            <label for="yearStart">Start Date</label>
 
-            <!--Submit button Do we consider a button class???-->
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <select class="g" id="yearStart" name="yearStart">
+                <!-- Using SQL to populate dropdown ldate range begin -->
+                <?php if ($resultYear->num_rows > 0) {
+                    while ($row = $resultYear->fetch_assoc()) {
+                        ?>
+                        <option><?php echo $row["schoolYear"]; ?></option><?php
+                    }
+                } else {
+                    echo "<option>Unavailable</option>";
+                }
+                ?>
+            </select>
+        </div>
+        <div class="col-3">
+            <label for="yearEnd">End Date</label>
+
+            <select class="g" id="yearEnd" name="yearEnd">
+                <!-- Using SQL to populate dropdown date range end -->
+                <?php
+                    $resultYear->data_seek(0); // Resets the pointer back to the beginning.
+                    if ($resultYear->num_rows > 0) {
+                        while ($row = $resultYear->fetch_assoc()) {
+                            ?>
+                            <option><?php echo $row["schoolYear"]; ?></option><?php
+                        }
+                    } else {
+                        echo "<option>Unavailable</option>";
+                    }
+                ?>
+            </select>
+        </div>
+    </div>
 </form>
+
+
+
+
+<!-- Button elements declared here. Button includes is above with button object declared. !-->
+<!--            --><?php
+    //            $confirm->buttonName = "Submit";
+    //            $confirm->buttonValue = "Request";
+    //            $confirm->buttonStyle = "font-family:sans-serif";
+    //            $confirm->display(); ?>
+
+< <!-- Button elements declared here. Button includes is above with button object declared. !-->
+<?php
+    //    $confirm->buttonName = "Submit";
+    //    $confirm->buttonValue = "Request";
+    //    $confirm->buttonStyle = "font-family:sans-serif";
+    //    $confirm->display(); ?>
