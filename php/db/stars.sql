@@ -174,7 +174,7 @@ CREATE TABLE `User` (
 
 CREATE TABLE `ReportCard` (
     `reportCardID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `isRead` BIT(5) NOT NULL,
+    `isRead` BIT(1) NOT NULL,
     `studentID` INTEGER(10) NOT NULL,
     `schoolYear` CHAR(9) NOT NULL,
     `semesterNum` CHAR(2) NOT NULL,
@@ -248,39 +248,39 @@ INSERT INTO `stars`.`Subject` (`subjectCode`, `subjectName`) VALUES
 ('ARTS', 'Arts and Culture');
 
 INSERT INTO `stars`.`Course` (`courseID`, `courseName`, `subjectCode`) VALUES
-(010, 'Academic Math 10', 'MATH'),
-(011, 'General Math 10', 'MATH'),
-(012, 'Academic Math 11', 'MATH'),
-(013, 'General Math 11', 'MATH'),
-(014, 'Academic Math 12', 'MATH'),
-(015, 'General Math 12', 'MATH'),
-(016, 'Physics 10', 'SCIE'),
-(017, 'Physics 11', 'SCIE'),
-(018, 'Physics 12', 'SCIE'),
-(019, 'Biology 10', 'SCIE'),
-(020, 'Biology 11', 'SCIE'),
-(021, 'Chemistry 11', 'SCIE'),
-(022, 'History 10', 'HIST'),
-(023, 'History 11', 'HIST'),
-(024, 'History 12', 'HIST'),
-(025, 'French 10', 'LANG'),
-(026, 'French 11', 'LANG'),
-(027, 'French 12', 'LANG'),
-(028, 'English 10', 'ENGL'),
-(029, 'English 11', 'ENGL'),
-(030, 'English 12', 'ENGL'),
-(031, 'PhysEd 10', 'PYSD'),
-(032, 'PhysEd 11', 'PYSD'),
-(033, 'PhysEd 12', 'PYSD'),
-(034, 'Photography 10', 'ARTS'),
-(035, 'Graphic Design 11', 'ARTS'),
-(036, 'Music 12', 'ARTS');
+(10, 'Academic Math 10', 'MATH'),
+(11, 'General Math 10', 'MATH'),
+(12, 'Academic Math 11', 'MATH'),
+(13, 'General Math 11', 'MATH'),
+(14, 'Academic Math 12', 'MATH'),
+(15, 'General Math 12', 'MATH'),
+(16, 'Physics 10', 'SCIE'),
+(17, 'Physics 11', 'SCIE'),
+(18, 'Physics 12', 'SCIE'),
+(19, 'Biology 10', 'SCIE'),
+(20, 'Biology 11', 'SCIE'),
+(21, 'Chemistry 11', 'SCIE'),
+(22, 'History 10', 'HIST'),
+(23, 'History 11', 'HIST'),
+(24, 'History 12', 'HIST'),
+(25, 'French 10', 'LANG'),
+(26, 'French 11', 'LANG'),
+(27, 'French 12', 'LANG'),
+(28, 'English 10', 'ENGL'),
+(29, 'English 11', 'ENGL'),
+(30, 'English 12', 'ENGL'),
+(31, 'PhysEd 10', 'PYSD'),
+(32, 'PhysEd 11', 'PYSD'),
+(33, 'PhysEd 12', 'PYSD'),
+(34, 'Photography 10', 'ARTS'),
+(35, 'Graphic Design 11', 'ARTS'),
+(36, 'Music 12', 'ARTS');
 
 INSERT INTO `stars`.`User` (`userID`, `username`, `password`, `accessCode`) VALUES
 (1, 'studentSara@gmail.com', '123', 5),
 (2, 'studentJane@abc.com', '123', 5),
 (3, 'parentMary@abc.com', '123', 6),
-(4, 'parentJohn@abc.com', '123', 6);
+(4, 'parentJohn@abc.com', '123', 6),
 (5, 'abminWestisle@abc.com', '123', 2),
 (6, 'adminColonelGray@abc.com', '123', 2),
 (7, 'adminSouris@abc.com', '123', 2),
@@ -298,17 +298,125 @@ INSERT INTO `stars`.`User` (`userID`, `username`, `password`, `accessCode`) VALU
 (19, 'supportEducatorSam@abc.com', '123', 4),
 (20, 'parentJim@abc.com', '123', 6);
 
+INSERT INTO `stars`.`Administrator` (`adminID`, `firstName`, `lastName`, `position`, `schoolID`, `userID`) VALUES
+(1, 'John', 'Smith', 'Office Secretary', 1, 5),
+(2, 'Jane', 'Smith', 'Principal', 2, 6),
+(3, 'Jim', 'Gallant', 'Office Secretary', 3, 7);
+
 INSERT INTO `stars`.`ParentOrGuardian` (`guardianID`, `firstName`, `lastName`, `address`, `city`, `province`, `postalCode`,
                                 `phoneNum`, `emailAddress`, `userID`) VALUES
-(1, 'Mary', 'Smith', '69 Main St, ', 'Summerside', 'PE', 'C0A103', '9028881002', 'parentJason@abc.com', 3),
+(1, 'Mary', 'Smith', '69 Main St, ', 'Charlottetown', 'PE', 'C0A103', '9028881002', 'parentJason@abc.com', 3),
 (2, 'John', 'Doe', '5 Water St, ', 'Summerside', 'PE', 'C0B1L0', '9028889181', 'parentJane@abc.ca', 4),
 (3, 'Jim', 'Bob', '12 Parent St, ', 'Souris', 'PE', 'C0B1K0', '9028881234', 'parentJim@abc.com', 20);
 
+INSERT INTO `stars`.`supportEducator` (`supportEducatorID`, `firstName`, `lastName`, `position`, `specialty`, `phoneNum`,
+`emailAddress`, `userID`, `schoolID`) VALUES
+(1, 'Nancy', 'Gallant', 'TA', 'ADHD', '9021248899', 'supportEducatorNancy@abc.com', 17, 1),
+(2, 'Jim', 'Joseph', 'TA', 'Autism', '9028829999', 'supportEducatorJim@abc.com', 18, 2),
+(3, 'Sam', 'Doucette', 'Teaching Support', 'Dyslexia', '9028823456', 'supportEducatorSam@abc.com', 19, 3);
+
 INSERT INTO `stars`.`Student` (`studentID`, `firstName`, `middleName`, `lastName`, `gender`, `dob`, `grade`, `address`,
-                           `phoneNum`, `emailAddress`, `allergies`, `schoolID`, `guardianID`, `userID`) VALUES
-(100, 'Jane', 'Sue', 'Doe', 'Female', '2006-05-14', 10, '55 Water St, ', '9028888181', 'studentJane@abc.ca', 'Peanuts', 1, 3, 2),
-(101, 'Sara', 'A', 'Courtney', 'Female', '1999-01-01', 12, '12 Learning Lane', '9028821234', 'studentSara@abc.com', 'None', 2, 4, 1),
-(102, 'Joe', 'Bob', 'Jim', 'Female', '1999-01-01', 11, '12 Learning Lane', '9028821234', 'studentSara@abc.com', 'None', 2, 4, 9),
-(103, 'Sara', 'A', 'Courtney', 'Female', '1999-01-01', 11, '12 Learning Lane', '9028821234', 'studentSara@abc.com', 'None', 2, 4, 1),
-(104, 'Sara', 'A', 'Courtney', 'Female', '1999-01-01', 10, '12 Learning Lane', '9028821234', 'studentSara@abc.com', 'None', 2, 4, 1),
-(105, 'Sara', 'A', 'Courtney', 'Female', '1999-01-01', 12, '12 Learning Lane', '9028821234', 'studentSara@abc.com', 'None', 2, 4, 1),
+                           `phoneNum`, `emailAddress`, `allergies`, `schoolID`, `guardianID`, `userID`, `supportEducatorID`) VALUES
+(1, 'Jane', 'Sue', 'Doe', 'Female', '2001-05-14', 10, '55 Water St', '9028888181', 'studentJane@abc.ca', 'Peanuts, dust', 1, 3, 2, NULL),
+(2, 'Sara', 'A', 'Courtney', 'Female', '1999-01-01', 12, '12 Learning Lane', '9028821234', 'studentSara@abc.com', 'None', 2, 2, 1, 1),
+(3, 'Joe', 'Bob', 'Jim', 'Male', '1998-05-03', 11, '13 School St', '9028829999', 'studentJoe@abc.com', 'Everything', 3, 1, 9, 2),
+(4, 'John', 'Robert', 'Gaudet', 'Male', '1999-04-08', 12, '3456 Learning Lane', '9028881234', 'studentJohn@abc.com', 'None', 1, 3, 10, 3),
+(5, 'Steve', 'M', 'Martin', 'Male', '1999-10-10', 12, '1234 Learning Lane', '9028824321', 'studentSteve@abc.com', 'None', 3, NULL, 11, 1),
+(6, 'Rodrigo', 'A', 'Pires', 'Male', '1999-01-31', 12, '32 Learning Lane', '9022146789', 'studentRodrigo@abc.com', 'None', 2, NULL, 12, NULL);
+
+INSERT INTO `stars`.`Educator` (`educatorID`, `firstName`, `lastName`, `position`, `phoneNumber`, `emailAddress`, `userID`, `schoolID`) VALUES
+(1, 'Gerald', 'Caissy', 'Teacher', '9028534567', 'educatorGerald@abc.com', 14, 1),
+(2, 'Don', 'Bowers', 'Teacher', '9028881238', 'educatorDon@abc.com', 15, 2),
+(3, 'BJ', 'MacLean', 'Teacher', '9022147777', 'educatorBJ@abc.com', 16, 3);
+
+INSERT INTO `courseoffering` (`classID`, `courseID`, `educatorID`, `schoolYear`, `semesterNum`) VALUES
+(1, 10, 1, '2016/2017', '01'),
+(2, 10, 1, '2016/2017', '02'),
+(3, 12, 2, '2017/2018', '01'),
+(4, 12, 2, '2017/2018', '02'),
+(5, 14, 3, '2018/2019', '01'),
+(6, 14, 3, '2018/2019', '02'),
+(7, 16, 1, '2016/2017', '01'),
+(8, 18, 1, '2017/2018', '01'),
+(9, 18, 1, '2017/2018', '02'),
+(10, 21, 1, '2018/2019', '01'),
+(11, 23, 2, '2018/2019', '01'),
+(12, 25, 2, '2017/2018', '02'),
+(13, 29, 2, '2016/2017', '01'),
+(14, 33, 3, '2018/2019', '02'),
+(15, 36, 3, '2018/2019', '01');
+
+INSERT INTO `stars`.`enrollment` (`enrollmentID`, `mark`, `attendance`, `notes`, `classID`, `schoolYear`, `semesterNum`, `studentID`) VALUES
+(1, 98, 5, 'Good effort!', 1, '2016/2017', '01', 1),
+(2, 99, 8, 'Great work!', 2, '2016/2017', '02', 1),
+(3, 87, 9, 'Overall good student', 3, '2017/2018', '01', 1),
+(4, 77, 3, 'Good effort all around!', 4, '2017/2018', '02', 1),
+(5, 99, 5, 'Good work', 5, '2018/2019', '01', 1),
+(6, 77, 0, 'Great job. Have a good summer!', 6, '2018/2019', '02', 1),
+(7, 67, 6, 'Good effort.', 7, '2016/2017', '01', 2),
+(8, 75, 2, 'Good work', 8, '2017/2018', '01', 2),
+(9, 100, 0, 'Excellent', 9, '2017/2018', '02', 2),
+(10, 77, 5, 'Good effort', 2, '2016/2017', '02', 2),
+(11, 69, 4, 'Great effort all around', 4, '2017/2018', '02', 2),
+(12, 71, 10, 'A good effort was made', 7, '2016/2017', '01', 3),
+(13, 88, 7, 'Good work', 8, '2017/2018', '01', 3),
+(14, 92, 5, 'Excellent', 11, '2018/2019', '01', 3),
+(15, 88, 9, 'Good work', 14, '2018/2019', '02', 3),
+(16, 90, 16, 'Excellent work!', 15, '2018/2019', '01', 3),
+(17, 55, 17, 'Could have been more effort from you this semester', 1, '2016/2017', '01', 4),
+(18, 80, 0, 'Good work!', 4, '2017/2018', '02', 4),
+(19, 99, 6, 'Great work!', 9, '2017/2018', '02', 4),
+(20, 96, 5, 'Great job this semester!', 11, '2018/2019', '01', 4),
+(21, 93, 1, 'Excellent', 15, '2018/2019', '01', 5),
+(22, 66, 0, 'Good work', 5, '2018/2019', '01', 5),
+(23, 89, 4, 'Good job', 7, '2016/2017', '01', 5),
+(24, 96, 6, 'Great!', 14, '2018/2019', '02', 5),
+(25, 99, 5, 'Excellent!!', 1, '2016/2017', '01', 5),
+(26, 73, 2, 'Good work this semester', 3, '2017/2018', '01', 5),
+(27, 100, 6, 'Excellent work!!', 14, '2018/2019', '02', 6),
+(28, 97, 12, 'Great work', 12, '2017/2018', '02', 6),
+(29, 87, 13, 'Great job', 8, '2017/2018', '01', 6),
+(30, 100, 0, 'Excellent!!!!', 10, '2018/2019', '01', 6);
+
+INSERT INTO `IndividualEducationPlan` (`planID`, `reason`, `dateIssued`, `comments`, `supportEducatorID`, `studentID`)
+VALUES (1, 'Student requires extra support in Math & Sciences to remain at grade level.', '2017-10-05', 'Student has health issues that result in many missed classes', 1, 2),
+       (2, 'Student is dyslexic', '2018-06-05', 'Student requires support in literacy.  Student is permitted to take tests orally when possible and/or with extra time', 2, 3),
+       (3, 'Student has Downs Syndrome.', '2019-11-01', 'Student expectations are adjusted to match ability, please see details below:', 3, 4);
+
+INSERT INTO `stars`.`reportcard` (`reportCardID`, `isRead`, `studentID`, `schoolYear`, `semesterNum`) VALUES
+(1, 0, 1, '2016/2017', '01'),
+(2, 0, 1, '2016/2017', '02'),
+(3, 1, 1, '2017/2018', '01'),
+(4, 1, 1, '2017/2018', '02'),
+(5, 0, 1, '2018/2019', '01'),
+(6, 1, 1, '2018/2019', '02'),
+(7, 0, 2, '2016/2017', '01'),
+(8, 0, 2, '2016/2017', '02'),
+(9, 1, 2, '2017/2018', '01'),
+(10, 1, 2, '2017/2018', '02'),
+(11, 0, 2, '2018/2019', '01'),
+(12, 1, 2, '2018/2019', '02'),
+(13, 0, 3, '2016/2017', '01'),
+(14, 0, 3, '2016/2017', '02'),
+(15, 1, 3, '2017/2018', '01'),
+(16, 1, 3, '2017/2018', '02'),
+(17, 0, 3, '2018/2019', '01'),
+(18, 1, 3, '2018/2019', '02'),
+(19, 0, 4, '2016/2017', '01'),
+(20, 0, 4, '2016/2017', '02'),
+(21, 1, 4, '2017/2018', '01'),
+(22, 1, 4, '2017/2018', '02'),
+(23, 0, 4, '2018/2019', '01'),
+(24, 1, 4, '2018/2019', '02'),
+(25, 0, 5, '2016/2017', '01'),
+(26, 0, 5, '2016/2017', '02'),
+(27, 1, 5, '2017/2018', '01'),
+(28, 1, 5, '2017/2018', '02'),
+(29, 0, 5, '2018/2019', '01'),
+(30, 1, 5, '2018/2019', '02'),
+(31, 0, 6, '2016/2017', '01'),
+(32, 1, 6, '2016/2017', '02'),
+(33, 1, 6, '2017/2018', '01'),
+(34, 1, 6, '2017/2018', '02'),
+(35, 0, 6, '2018/2019', '01'),
+(36, 1, 6, '2018/2019', '02');
