@@ -63,6 +63,7 @@ $confirm = new Button();
         <img src="img/StarsWhiteFIN.jpg">
     </div>
         <div class="jumbotron-fluid">
+            <div class="spacer"></div>
             <div class="container-fluid">
 
                 <!-- Menu title example !-->
@@ -99,6 +100,7 @@ $confirm = new Button();
                 <p><a href="#" title="That&apos;s what this widget is">Tooltips</a></p>
 
             </div>
+            <div class="spacer"></div>
         </div>
 
     <div class = "bottom">

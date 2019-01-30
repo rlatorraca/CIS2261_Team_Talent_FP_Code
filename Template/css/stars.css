@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 
 html, body {
     margin: 0;
@@ -6,26 +10,31 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.spacer {
+    height: 18%;
+}
 
+/* This governs the background picture. */
 .jumbotron-fluid {
     background-image: url("../img/fox1.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     padding: 5%;
     position: center;
-    top: 105px;
+    top: 15%;
     left: 0px;
     right: 0px;
     height: 860px;
     z-index: 3;
     }
 
+/* This governs the forms or reports. */
 .container-fluid {
     background: #d9d9d9;
     opacity: 0.9;
     border-radius: 15px;
     margin: auto;
-    margin-top: 30%;
+    margin-top: 10%;
     position: relative;
     width: 70%;
     border: 3px solid #1D2731;
@@ -33,8 +42,10 @@ html, body {
     box-shadow: 5px 10px 8px #0c0c0c;
     font-family: 'Archivo Black', sans-serif;
     color: #0b3c5d;
+    overflow: auto;
 }
 
+/* Top of the page */
 .header {
     background-color: #328cc1;
     padding-left: 2%;
@@ -53,6 +64,7 @@ input {
     border: 1px solid #1D2731;
 }
 
+/* The Foot elemeents take care of the bottom navbar and all style functionality therein. */
 #footer {
     position: fixed;
     bottom: 5%;
@@ -61,7 +73,7 @@ input {
     left: 0px;
     right: 0px;
     width: 100%;
-    height: 40px;
+    height: inherit;
     /*border-top: 1px solid rgba(0, 0, 0, 0.3);*/
     background: #1D2731;
     z-index: 5;
@@ -92,6 +104,7 @@ input {
 #footerMenu li:hover {
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.3);
+    height: inherit;
 }
 
 #footerMenu li ul.dropupMenu {
@@ -118,15 +131,13 @@ input {
     padding: 12px 10px 12px 10px;
 }
 
-
+/* Settings for the main navbar */
 .titleNav {
     width: 15%;
     height: 15px;
 }
 
-.starFrame {
-    height: 13px;
-}
+/* The bottom take car of the blue space below t he nav bar and ends the page. */
 
 .bottom {
     position: fixed;
@@ -144,6 +155,7 @@ input {
 
 
 /* Referenceed from here: https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_hover*/
+/* The button styling below is for the yellow form button found throughout the site. */
 .button {
 
     border-radius: 8px;
@@ -211,4 +223,11 @@ input {
     height: 0;
     border: 9px solid transparent;
     border-bottom-color: white;
+}
+
+@media only screen and (max-width:620px) {
+    /* For mobile phones: */
+    .container-fluid, .spacer {
+        width: 100%;
+    }
 }
