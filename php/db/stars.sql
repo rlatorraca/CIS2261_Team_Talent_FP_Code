@@ -237,3 +237,20 @@ INSERT INTO `stars`.`Course` (`courseID`, `courseName`, `subjectCode`) VALUES
 (010, 'Grade 10 Academic Math', 'MATH'),
 (011, 'Grade 11 General Math', 'MATH'),
 (012, 'Grade 12 Music', 'ARTS');
+
+# UserID???
+INSERT INTO `user` (`userID`, `username`, `password`, `accessCode`) VALUES ('0', 'sahracourtney@gmail.com', '123', '5'),
+                                                                           ('0', 'parentJane@abc.com', '123', '6'),
+                                                                           ('0', 'parentJane@abc.com', '123', '6'),
+                                                                           ('0', 'parentJason@abc.com', '123', '6');
+
+INSERT INTO `parentorguardian` (`guardianID`, `firstName`, `lastName`, `address`, `city`, `province`, `postalCode`,
+                                `phoneNum`, `emailAddress`, `userID`)
+                                VALUES ('1002', 'mary', 'Smith', '69 Main St', 'Summerside', 'PE', 'c0b1m0',
+                                        '9028881002', 'parentJason@abc.com', '6972'),
+                                ('1001', 'John', 'Doe', '5 Water St ', 'Summerside', 'PE', 'C0B1L0',
+                                        '9028888181', 'parentJane@abc.ca', '6970');
+insert into `stars`.`Student` (`studentID`, `firstName`, `middleName`, `lastName`, `gender`, `dob`, `grade`, `address`,
+                           `phoneNum`, `emailAddress`, `allergies`, `schoolID`, `guardianID`, `userID`)
+                            VALUES ( 100, 'Jane', 'Sue', 'Doe', 'Female', '2006-05-14', '9', '55 Water St, Summerside, PE, C0B1L0',
+                                    '9028888181', 'parentJane@abc.ca', 'None', '69', '1001', '6970');
