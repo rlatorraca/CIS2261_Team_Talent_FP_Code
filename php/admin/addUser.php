@@ -5,15 +5,57 @@
  * Date: 1/22/2019
  * Time: 5:37 PM
  */
+
+
 ?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add User</title>
+
+    <!-- Fonts !-->
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
+
+    <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
+
+    <!-- Here is where we call bootstrap. !-->
+
+    <title>STARS: Add User</title>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <!-- Calendar Date Picker !-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <link href="../../css/stars.css" rel="stylesheet">
+    <script>
+        // This function shows the date picker.
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+
+        // This function shows the note.
+        // Will need to add a variable to get the notes to then call.
+        $( function() {
+            $( document ).tooltip();
+        } );
+
+        // This function manages the drop downs on the main menu.
+        $( function() {
+            $( "#menu" ).menu();
+        } );
+    </script>
 </head>
 <body>
 <div><?php
@@ -69,8 +111,14 @@
     } else {
 
     ?>
+    <div class="header">
+        <img src="../../img/StarsWhiteFIN.jpg">
+    </div>
+    <div class="jumbotron-fluid">
+        <div class="container-fluid">
+
     <p>**Please ensure all fields are filled before adding a new User.</p>
-    <form action="addUser.php" method="get">
+    <form action="addUser.php" method="GET">
         <fieldset>
             <legend>Book Details</legend>
             <div class="col-md-12 form-inline customDiv">
@@ -93,7 +141,7 @@
             <br>
             <div class="col-md-12 form-inline customDiv">
                 <label for="price" class="col-md-6">Access Code</label>
-                <select name="accessCode">
+                <select name="accessCode" class="form-control">
                     <option name="1">1: System Administrator</option>
                     <option name="2">2: Administrator</option>
                     <option name="3">3: Educator</option>
@@ -105,20 +153,64 @@
             <br>
             <br>
             <div class="col-md-12">
-                <input type="submit" name="add" value="Add User">
+                <?php
+
+                include("../button.class.php");
+                $confirm = new Button();
+
+                $confirm->buttonName = "add";
+                $confirm->buttonID = "addID";
+                $confirm->buttonValue = "Add User";
+                $confirm->buttonStyle = "font-family:sans-serif";
+                $confirm->display(); ?>
             </div>
         </fieldset>
     </form>
     <form action="../../index.php" method="post">
         <fieldset>
             <div class="col-md-12">
-                <button id="customBtn">Return Home</button>
+                <?php
+                    $return = new Button();
+
+                $return->buttonName = "customBtn";
+                $return->buttonName = "custom";
+                $return->buttonValue = "Return Home";
+                $return->buttonStyle = "font-family:sans-serif";
+                $return->display();
+                ?>
+<!--                <button id="customBtn">Return Home</button>-->
             </div>
         </fieldset>
     </form>
+</div>
+    </div>
+</div>
+
+<div class = "bottom">
+    <div id="footer">
+        <ul id="footerMenu">
+            <?php
+            echo '<a href="#"><li class = "titleNav">Home</li></a>';
+
+            echo '<li class = "titleNav">Add User
+                        <ul class = "dropupMenu">
+                            <a><li>Student</li></a>
+                            <a><li>Educator</li></a>
+                            <a><li>Support Educator</li></a>
+                        </ul>
+                    </li>';
+
+            echo '<a href="#"><li class = "titleNav">Edit User</li></a>';
+
+            echo '<a href="#"><li class = "titleNav">Search Students</li></a>';
+            ?>
+        </ul>
+    </div>
 </div>
 </body>
 </html>
 <?php
 }
 ?>
+
+

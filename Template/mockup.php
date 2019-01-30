@@ -63,7 +63,6 @@ $confirm = new Button();
         <img src="img/StarsWhiteFIN.jpg">
     </div>
         <div class="jumbotron-fluid">
-            <div class="spacer"></div>
             <div class="container-fluid">
 
                 <!-- Menu title example !-->
@@ -100,7 +99,6 @@ $confirm = new Button();
                 <p><a href="#" title="That&apos;s what this widget is">Tooltips</a></p>
 
             </div>
-            <div class="spacer"></div>
         </div>
 
     <div class = "bottom">
@@ -125,25 +123,5 @@ $confirm = new Button();
         </ul>
     </div>
     </div>
-
-
-
-<!--        <div class="navbar">-->
-<!--            <a href="#home">Home</a>-->
-<!--            <a href="#news">News</a>-->
-<!--            <div class="dropdown">-->
-<!--                <button class="dropbtn">Dropdown-->
-<!--                    <i class="fa fa-caret-down"></i>-->
-<!--                </button>-->
-<!--                <div class="dropdown-content">-->
-<!--                    <a href="#">Link 1</a>-->
-<!--                    <a href="#">Link 2</a>-->
-<!--                    <a href="#">Link 3</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!---->
-
-
     </body>
 </html>
