@@ -7,10 +7,9 @@
  */
 ?>
 <!--Form to update a students mark.  Requires course name, student name, mark, attendance-->
-<form action="displayReportCard.php" method="post">
+<form action="enterMark.php" method="post">
     <div class="form-group">
         <div class="form-row">
-
             <div class="col-3">
                 <label for="course">Select Course</label>
                 <select class="g" id="selectCourse" name="selectCourse">
