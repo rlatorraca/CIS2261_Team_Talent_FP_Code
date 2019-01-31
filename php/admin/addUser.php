@@ -63,7 +63,7 @@
     if (isset($_GET["add"])) {
 
         //If details are empty, display a message and give redirect links. Otherwise, proceed.
-        if ($_GET["userID"] == "" || $_GET["username"] == "" || $_GET["password"] == "" || $_GET["accessCode"] == "") {
+        if ($_GET["username"] == "" || $_GET["password"] == "" || $_GET["accessCode"] == "") {
             echo "<h2>Error. Form fields must not be empty before submitting</h2><br>";
             echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
             echo "<form action='../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
