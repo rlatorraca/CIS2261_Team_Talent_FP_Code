@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d665968c-2a54-4ef4-a752-38485972bd29" name="Default Changelist" comment="Added files and started forms">
-      <change beforePath="$PROJECT_DIR$/php/admin/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addUser.php" afterDir="false" />
-    </list>
+    <list default="true" id="d665968c-2a54-4ef4-a752-38485972bd29" name="Default Changelist" comment="Added files and started forms" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -261,7 +259,7 @@
       <workItem from="1548854516580" duration="3334000" />
       <workItem from="1548858327270" duration="5478000" />
       <workItem from="1548872885689" duration="6773000" />
-      <workItem from="1548973644238" duration="1172000" />
+      <workItem from="1548973644238" duration="2336000" />
     </task>
     <task id="LOCAL-00001" summary="Added database sql file and inserted sql code to create database.">
       <created>1548210945438</created>
@@ -281,7 +279,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55011000" />
+    <option name="totallyTimeSpent" value="56175000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -293,8 +291,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2048583" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
