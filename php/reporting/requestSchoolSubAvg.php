@@ -6,13 +6,7 @@
      * Time: 2:07 PM
      */
 
-
-    @ $database = new mysqli('localhost', 'root', '', 'stars');
-    if (mysqli_connect_errno()) {
-        echo '<h2>An error has occurred.  Would you like to <a href=\'requestSchoolSubAvg.php\'>try again?</a></h2>';
-        exit("</div></body></html>");
-        $db->close();
-    }
+    include '../dbConn.php';
     //create the query to get subjects
     $querySubject = "SELECT subject.subjectName FROM subject, school WHERE school.schoolID = 1";
     //create query to get date ranges

@@ -59,6 +59,7 @@
 </head>
 <body>
 <div><?php
+
     //To trigger when user submits request to add new User
     if (isset($_GET["add"])) {
 

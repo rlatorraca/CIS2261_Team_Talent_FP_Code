@@ -5,11 +5,7 @@
  * Date: 2019-01-29
  */
 //Make connection to the database and check to ensure that a solid connection can be made
-@ $database = new mysqli('localhost', 'root', '', 'stars');
-if (mysqli_connect_errno()) {
-    echo '<h2>Error: Could not connect to database. Please try again later.</h2>';
-    exit("</div></body></html>");
-}
+    include '../dbConn.php';
 ?>
 
 <!--Form to request to view a student's report card.  Requires student name, student ID?(how to incorporate), year & semester-->

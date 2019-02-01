@@ -16,18 +16,13 @@
 </head>
 <body>
 <?php
-
+    include '../dbConn.php';
 //Variable to hold the requested info from the prior page
 $studentIDFromForm = $_POST["selectStudent"];
 $schoolYearFromForm = $_POST["selectYear"];
 $semesterNumFromForm = $_POST["selectSemester"];
 
-//Make connection to the database and check to ensure that a solid connection can be made
-@ $database = new mysqli('localhost', 'root', '', 'stars');
-if (mysqli_connect_errno()) {
-    echo '<h2>Error: Could not connect to database. Please try again later.</h2>';
-    exit("</div></body></html>");
-}
+
 
 //SQL to pull overall report card details (Report card to identify a student before the extraction of enrollment data).
 //Be sure to pull the selected student from the requestReportCard.php page to extract the correct student information

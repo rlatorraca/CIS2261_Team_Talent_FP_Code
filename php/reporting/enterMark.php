@@ -7,13 +7,12 @@
  */
 ?>
 <!--Form to update a students mark.  Requires course name, student name, mark, attendance-->
-<?php
-    @ $database = new mysqli('localhost', 'root', '', 'stars');
-    if (mysqli_connect_errno()) {
-        echo '<h2>An error has occurred.  Would you like to <a href=\'enterMark.php\'>try again?</a></h2>';
-        exit("</div></body></html>");
-        $db->close();
-    }
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="ajax.js"></script
+
+    <?php
+        include '../dbConn.php';
     //query to find the courses (and semester Number) the teacher has assigned to them
     $queryCourse = $sql = "SELECT course.courseName, courseoffering.semesterNum FROM course, user, educator, courseoffering 
                             WHERE user.userID = educator.userID 
@@ -32,11 +31,12 @@
             <div class="col-3">
                 <label for="students">Select Course - Semester</label>
                 <select class="g" id="students" name="students">
+                    <option value=''>------- Select --------</option>
                     <!-- Using SQL to populate dropdown list of students -->
                     <?php if ($resultCourse->num_rows > 0) {
                         while ($row = $resultCourse->fetch_assoc()) {
                             ?>
-                            <option><?php echo $row["courseName"]." - ".$row["semesterNum"]; ?></option><?php
+                            <option ><?php echo $row["courseName"]." - ".$row["semesterNum"]; ?></option><?php
                         }
                     } else {
                         echo "<option>No Students</option>";
@@ -45,22 +45,17 @@
                 </select>
             </div>
         </div>
-        <div class="col-3">
-            <label for="yearStart">Start Date</label>
 
-            <select class="g" id="yearStart" name="yearStart">
-                <!-- Using SQL to populate dropdown ldate range begin -->
-                <?php if ($resultYear->num_rows > 0) {
-                    while ($row = $resultYear->fetch_assoc()) {
-                        ?>
-                        <option><?php echo $row["schoolYear"]; ?></option><?php
-                    }
-                } else {
-                    echo "<option>Unavailable</option>";
-                }
-                ?>
-            </select>
+
+        <div class="col-3">
+            <label for="studentMark">Student</label>
+
+           <select name="studentMark" id="studentMark"><option>------- Select --------</option></select>
+
         </div>
+
+
+
         <div class="col-3">
             <label for="yearEnd">End Date</label>
 

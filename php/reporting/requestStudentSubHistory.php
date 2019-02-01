@@ -17,12 +17,7 @@
 <!---->
 <!--  Create a new connection object using mysqli-->
 <?php
-    @ $database = new mysqli('localhost', 'root', '', 'stars');
-    if (mysqli_connect_errno()) {
-        echo '<h2>An error has occurred.  Would you like to <a href=\'requestStudentSubHistory.php\'>try again?</a></h2>';
-        exit("</div></body></html>");
-        $db->close();
-    }
+    include '../dbConn.php';
     //query to find the courses the teacher has assigned to them and pull all the students.
     $queryStudent = "SELECT DISTINCT student.firstName, student.lastName FROM user, student, enrollment, 
                      course, courseoffering, subject, semester, educator WHERE user.userID = educator.userID 
