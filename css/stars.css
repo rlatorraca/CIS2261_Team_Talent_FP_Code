@@ -58,6 +58,8 @@ label {
 
 input {
     border: 1px solid #1D2731;
+    font-family: 'Arial', sans-serif;
+
 }
 
 /* The Foot elemeents take care of the bottom navbar and all style functionality therein. */
