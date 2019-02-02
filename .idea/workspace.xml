@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d665968c-2a54-4ef4-a752-38485972bd29" name="Default Changelist" comment="Added files and started forms">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/admin/addStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/enterMark.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/enterMark.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -44,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/admin/addUser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+            <state relative-caret-position="787">
+              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
               <folding>
                 <element signature="e#6#99#0#PHP" expanded="true" />
               </folding>
@@ -56,8 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/admin/addStudent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="64" column="44" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
+            <state relative-caret-position="136">
+              <caret line="38" column="38" lean-forward="true" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
               <folding>
                 <element signature="e#6#224#0#PHP" expanded="true" />
               </folding>
@@ -170,20 +169,20 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="F:/2288 Internet Programming Part 2/PhpProjects/CIS_2288_Assignment2_Courtney_Sara" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/php" />
-      <recent name="C:\cis2232\CIS2261_Team_Talent_FP_Code\php\login" />
-      <recent name="C:\GitHub\CIS2261_Team_Talent2.0_FP\CIS2261_Team_Talent_FP_Code\php\admin" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\GitHub\CIS2261_Team_Talent2.0_FP\CIS2261_Team_Talent_FP_Code\php\db" />
       <recent name="$PROJECT_DIR$/php/login" />
       <recent name="C:\GitHub\CIS2261_Team_Talent2.0_FP\CIS2261_Team_Talent_FP_Code\php" />
       <recent name="C:\GitHub\CIS2261_Team_Talent2.0_FP\CIS2261_Team_Talent_FP_Code\php\reporting" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/php" />
+      <recent name="C:\cis2232\CIS2261_Team_Talent_FP_Code\php\login" />
+      <recent name="C:\GitHub\CIS2261_Team_Talent2.0_FP\CIS2261_Team_Talent_FP_Code\php\admin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -245,7 +244,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75268000" />
+    <option name="totallyTimeSpent" value="75641000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -499,8 +498,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/addUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+        <state relative-caret-position="787">
+          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
           <folding>
             <element signature="e#6#99#0#PHP" expanded="true" />
           </folding>
@@ -509,8 +508,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/addStudent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="64" column="44" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
+        <state relative-caret-position="136">
+          <caret line="38" column="38" lean-forward="true" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
           <folding>
             <element signature="e#6#224#0#PHP" expanded="true" />
           </folding>
