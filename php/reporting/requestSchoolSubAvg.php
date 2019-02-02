@@ -6,7 +6,7 @@
      * Time: 2:07 PM
      */
 
-    include '../dbConn.php';
+include '../db/dbConn.php';
     //create the query to get subjects
     $querySubject = "SELECT subject.subjectName FROM subject, school WHERE school.schoolID = 1";
     //create query to get date ranges
@@ -15,7 +15,7 @@
     $resultSubject = $database->query($querySubject);
     $resultYear = $database->query($queryYear);
 ?>
-<form action="displayReportCard.php" method="post">
+<form action="displaySchoolSubAvg.php" method="post">
     <div class="form-group">
         <div class="form-row">
             <div class="col-3">
@@ -65,6 +65,10 @@
                     ?>
                 </select>
             </div>
+        </div>
+        <div class="col-3">
+            <!--            <input type="submit" id="btn" name="submitUpdateRecord" class="btn btn-info text-center" value="submitUpdateRecord">-->
+            <button type="submit" id="getSubjectAverage" name="getSubjectAverage">Calculate</button>
         </div>
     </div>
 </form>

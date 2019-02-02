@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: sahra
@@ -11,18 +12,45 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-<script type="text/javascript" src="ajax.js"></script
+<script type="text/javascript" src="ajax.js"></script>
 
     <?php
-        include '../db/dbConn.php';
-    //query to find the courses (and semester Number) the teacher has assigned to them
-    $queryCourse = "SELECT courseoffering.classID, course.courseName, courseoffering.semesterNum FROM course, user, educator, courseoffering WHERE educator.userID = 14 AND courseoffering.educatorID = educator.educatorID AND user.userID = educator.userID AND course.courseID = courseoffering.courseID";
-    //query to find the students in the selected course
+    $msg = "";
+    if (isset($_POST['submitUpdateRecord'])) {
+	    include '../db/dbConn.php';
+	    $markInput = $_POST['markInput'];
+	    $attendence = $_POST['attendance'];
+	    $teacherNotes = $_POST['teacherNotes'];
+	    $classID = $_POST['courseSemester'];
+	    $studentID = $_POST['studentMark'];
 
-    $resultCourse = $database->query($queryCourse);
+	    $queryCourse1 = "UPDATE enrollment SET mark= $markInput, attendance = $attendence, notes= '$teacherNotes' WHERE enrollment.studentID = $studentID AND enrollment.classID = $classID;";
 
+	    //Execute query and store result.
+	    $result = $database->query($queryCourse1);
 
+	    //Check if query executed successfully and that the result contains data.
+	    if ($result == 1) {
 
+		    $msg = "<h2>Student has been updated</h2><br>";
+
+	    } else {
+
+		    $msg = "<h2>Sorry, student could not be updated to the database at this time</h2><br>";
+
+	    }
+
+	    //Close database connection
+	    $database->close();
+
+    } else {
+	    include '../db/dbConn.php';
+	    //query to find the courses (and semester Number) the teacher has assigned to them
+	    $queryCourse = "SELECT courseoffering.classID, course.courseName, courseoffering.semesterNum FROM course, user, educator, courseoffering WHERE educator.userID = 14 AND courseoffering.educatorID = educator.educatorID AND user.userID = educator.userID AND course.courseID = courseoffering.courseID";
+	    //query to find the students in the selected course
+
+	    $resultCourse = $database->query($queryCourse);
+    }
 ?>
 <form action="enterMark.php" method="post">
     <div class="form-group">
@@ -38,65 +66,46 @@
                             <option
                             value= <?php echo $row["classID"] ?> ><?php echo $row["courseName"] . " - " . $row["semesterNum"]; ?></option><?php
                         }
-
                     } else {
                         echo "<option>No Students</option>";
-
-
                     }
-
                     ?>
                 </select>
-
-
             </div>
         </div>
-
-
         <div class="col-3">
             <label for="studentMark">Student</label>
             <!--            $queryCourse =-->
 
            <select name="studentMark" id="studentMark"><option>------- Select --------</option></select>
 
+
         </div>
-
-
-
         <div class="col-3">
-            <label for="yearEnd">End Date</label>
+            <label for="markInput">Mark</label>
+            <input id="markInput" type="text" name="markInput" placeholder="Enter mark" size="15">
 
-            <select class="g" id="yearEnd" name="yearEnd">
-                <!-- Using SQL to populate dropdown date range end -->
-                <?php
-                    $resultYear->data_seek(0); // Resets the pointer back to the beginning.
-                    if ($resultYear->num_rows > 0) {
-                        while ($row = $resultYear->fetch_assoc()) {
-                            ?>
-                            <option><?php echo $row["schoolYear"]; ?></option><?php
-                        }
-                    } else {
-                        echo "<option>Unavailable</option>";
-                    }
-                ?>
-            </select>
+        </div>
+        <div class="col-3">
+            <label for="attendance">Days missed</label>
+            <input id="attendance" type="text" name="attendance" placeholder="Enter days missed" size="15">
+
+        </div>
+        <div class="col-3">
+            <label for="teacherNotes">Teacher´s notes</label><br/>
+            <textarea id="teacherNotes" name="teacherNotes" placeholder="Enter notes" cols="75" rows="4"></textarea>
+
+        </div>
+        <div class="col-3">
+            <!--            <input type="submit" id="btn" name="submitUpdateRecord" class="btn btn-info text-center" value="submitUpdateRecord">-->
+            <button type="submit" id="submitUpdateRecord" name="submitUpdateRecord">Update Record</button>
         </div>
     </div>
 </form>
 
-
-
-
-<!-- Button elements declared here. Button includes is above with button object declared. !-->
-<!--            --><?php
-    //            $confirm->buttonName = "Submit";
-    //            $confirm->buttonValue = "Request";
-    //            $confirm->buttonStyle = "font-family:sans-serif";
-    //            $confirm->display(); ?>
-
-< <!-- Button elements declared here. Button includes is above with button object declared. !-->
 <?php
-    //    $confirm->buttonName = "Submit";
-    //    $confirm->buttonValue = "Request";
-    //    $confirm->buttonStyle = "font-family:sans-serif";
-    //    $confirm->display(); ?>
+if (isset($msg)) {
+	echo "<div class='alert alert-danger'>$msg</div>";
+}
+?>
+

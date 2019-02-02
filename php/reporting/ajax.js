@@ -12,7 +12,7 @@ $(document).ready(function () {
                 }
             });
         } else {
-            $("#state").html("<option value=''>No Student in this course</option>");
+            $("#courseSemester").html("<option value=''>No Student in this course</option>");
         }
     });
 });
