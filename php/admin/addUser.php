@@ -37,6 +37,13 @@
 
 
     <link href="../../css/stars.css" rel="stylesheet">
+
+    <!--function to go back to your incomplete album form without losing previously filled fields-->
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
     <script>
         // This function shows the date picker.
         $( function() {
@@ -57,6 +64,7 @@
 </head>
 <body>
 <div><?php
+session_start();
 
         include "../db/dbConn.php";
 
@@ -66,7 +74,7 @@
         //If details are empty, display a message and give redirect links. Otherwise, proceed.
         if ($_POST["username"] == "" || $_POST["password"] == "" || $_POST["accessCode"] == "") {
             echo "<h2>Error. Form fields must not be empty before submitting</h2><br>";
-            echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
+            echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button class='btn btn-primary' onclick='goBack()'>Go Back</button></div></div></fieldset></form>";
             echo "<form action='../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
             exit("</div></body</html>");
         }
@@ -77,7 +85,7 @@
 		$password = (md5($database->real_escape_string($_POST["password"])));
         $accessCode = $database->real_escape_string($_POST["accessCode"]);
 
-
+        $_SESSION['username'] = $username;
 
 		//Create initial SQL query to insert form data into database
         $query = "INSERT INTO user(userID, username, password, accessCode) VALUES ('$userID', '$username', '$password', '$accessCode');";
@@ -96,7 +104,7 @@
         } else {
 
             echo "<h2>Sorry, User could not be added to the database at this time</h2><br>";
-            echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
+            echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button class='btn btn-primary' onclick='goBack()'>Go Back</button></div></fieldset></form>";
             echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
 
         }
@@ -137,12 +145,12 @@
             <div class="col-md-12 form-inline customDiv">
                 <label for="price" class="col-md-6">Access Code</label>
                 <select name="accessCode" class="form-control">
-                    <option name="1">1: System Administrator</option>
-                    <option name="2">2: Administrator</option>
-                    <option name="3">3: Educator</option>
-                    <option name="4">4: Support Educator</option>
-                    <option name="5">5: Student</option>
-                    <option name="6">6: Parent/Guardian</option>
+                    <option value="1">1: System Administrator</option>
+                    <option value="2">2: Administrator</option>
+                    <option value="3">3: Educator</option>
+                    <option value="4">4: Support Educator</option>
+                    <option value="5">5: Student</option>
+                    <option value="6">6: Parent/Guardian</option>
                 </select>
             </div>
             <br>

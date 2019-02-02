@@ -6,15 +6,58 @@
  */
 ?>
 <!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>View Report Card</title>
-</head>
-<body>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+
+            <meta name="viewport"
+                  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+            <!-- Fonts !-->
+            <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
+
+            <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
+
+            <!-- Here is where we call bootstrap. !-->
+
+            <title>STARS: View Report Card</title>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <link rel="stylesheet" href="/resources/demos/style.css">
+
+            <!-- Calendar Date Picker !-->
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+            <link href="../../css/stars.css" rel="stylesheet">
+            <script>
+                // This function shows the date picker.
+                $( function() {
+                    $( "#datepicker" ).datepicker();
+                } );
+
+                // This function shows the note.
+                // Will need to add a variable to get the notes to then call.
+                $( function() {
+                    $( document ).tooltip();
+                } );
+
+                // This function manages the drop downs on the main menu.
+                $( function() {
+                    $( "#menu" ).menu();
+                } );
+            </script>
+        </head>
+        <body>
+            <div class="header">
+                <img src="../../img/StarsWhiteFIN.jpg">
+            </div>
+            <div class="jumbotron-fluid">
+                <div class="container-fluid">
 <?php
     include '../db/dbConn.php';
 //Variable to hold the requested info from the prior page
@@ -48,29 +91,32 @@ if ($result1->num_rows > 0) {
         $studentLastName = $rowReportCard["lastName"];
     }
     ?>
-    <table>
+    <table class = "reportCardHead">
         <thead>
         <tr>
-            <td>Report Card Number</td>
-            <td>Seen</td>
-            <td>Student ID</td>
-            <td>School Year</td>
-            <td>Semester</td>
-            <td>Student Name</td>
+            <td><h2><?php echo $studentFirstName . " " . $studentLastName; ?></h2></td>
+            <td width="50%"></td>
+            <td><h2><?php echo $schoolYear; ?></h2></td>
+
+
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td><?php echo $reportCardNum; ?></td>
-            <td><?php if (!$isRead) {
+            <td><p><?php if ($semesterNum > 1) {
+                echo "2nd ";
+                } else {
+                echo "1st ";
+                    } ; ?>Semester</p></td>
+            <td><input type="hidden" value="<?php echo $reportCardNum; ?>">
+                <input type="hidden" value="<?php if (!$isRead) {
                     echo "No";
                 } else {
                     echo "Yes";
-                } ?></td>
-            <td><?php echo $studID; ?></td>
-            <td><?php echo $schoolYear; ?></td>
-            <td><?php echo $semesterNum; ?></td>
-            <td><?php echo $studentFirstName . " " . $studentLastName; ?></td>
+                } ?>"></td>
+            <td><input type="hidden" value="<?php echo $studID; ?>"></td>
+
+
         </tr>
         </tbody>
     </table>
@@ -103,15 +149,15 @@ $result2 = $database->query($query2);
 if ($result2->num_rows > 0) {
 
     ?>
-    <table>
+    <table class="reportCardSide">
         <thead>
         <tr>
             <td>Course Name</td>
-            <td>Subject</td>
+<!--            <td>Subject</td>-->
             <td>Mark</td>
             <td>Days Missed</td>
-            <td>Notes</td>
-            <td>Teacher Name</td>
+<!--            <td>Notes</td>-->
+<!--            <td>Teacher Name</td>-->
         </tr>
         </thead>
         <tbody>
@@ -128,8 +174,12 @@ if ($result2->num_rows > 0) {
 
             ?>
             <tr>
-                <td> <?php echo $courseName; ?></td>
-                <td> <?php echo $subjectCode; ?></td>
+                <td><p title="<?php if ($notes == "") {
+                        echo "Empty";
+                    } else {
+                        echo $notes;
+                    } ?>"><?php echo $courseName; ?></p></td>
+<!--                <td> --><?php //echo $subjectCode; ?><!--</td>-->
                 <td> <?php if ($mark == "") {
                         echo "0";
                     } else {
@@ -140,12 +190,12 @@ if ($result2->num_rows > 0) {
                     } else {
                         echo $daysMissed . " days";
                     } ?></td>
-                <td> <?php if ($notes == "") {
-                        echo "Empty";
-                    } else {
-                        echo $notes;
-                    } ?></td>
-                <td> <?php echo $educatorFirstName . " " . $educatorLastName; ?></td>
+<!--                <td> --><?php //if ($notes == "") {
+//                        echo "Empty";
+//                    } else {
+//                        echo $notes;
+//                    } ?><!--</td>-->
+<!--                <td> --><?php //echo $educatorFirstName . " " . $educatorLastName; ?><!--</td>-->
             </tr>
         <?php } ?>
         </tbody>
@@ -164,6 +214,28 @@ $database->close();
 echo "<a href='viewIEP.php?studentID=" . $studentIDFromForm . "'>View IEP</a>";
 
 ?>
-</body>
+                </div>
+                </form>
+                <?php
+                if (isset($error)) {
+                    echo "<div class='alert alert-danger'>$error</div>";
+                }
+
+
+                ?>
+            </div>
+            </div>
+            <div class = "bottom">
+                <div id="footer">
+                    <ul id="footerMenu">
+                        <?php
+                        echo '<a href="#"><li class = "titleNav">Home</li></a>';
+
+                        ?>
+                    </ul>
+                </div>
+            </div>
+
+        </body>
 </html>
 
