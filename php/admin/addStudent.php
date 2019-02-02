@@ -6,6 +6,8 @@
  * Time: 8:49 PM
  *
  * 2019/01/28: Functionality mostly there. Able to pull user ID from prior screen but cannot use to insert into database.
+ *
+ * Changed functionality approach to use username instead of userID
  */
 ?>
 <!doctype html>
@@ -20,6 +22,9 @@
 <body>
 <div>
     <?php
+
+        include "../db/dbConn.php";
+
     //To trigger when user submits request to add new Student to stars database
     if (isset($_POST["register"])) {
 
@@ -29,14 +34,6 @@
             echo "<form action='addStudent.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
             echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
             exit("</div></body</html>");
-        }
-
-        //Make connection to the database and check to ensure that a solid connection can be made
-        @ $database = new mysqli('localhost', 'root', '', 'stars');
-        if (mysqli_connect_errno()) {
-            echo '<h2>Error: Could not connect to database. Please try again later.</h2>';
-            echo "<form action='addStudent.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
-            exit("</div></body></html>");
         }
 
         //Sanitize user inputs to prepare for database insert query.
@@ -53,14 +50,30 @@
         $allergies = $database->real_escape_string($_POST["allergies"]);
         $schoolID = $database->real_escape_string($_POST["schoolID"]);
         $guardianID = $database->real_escape_string($_POST["guardianID"]);
-        $userIDFromForm = $database->real_escape_string($_POST["userID"]);
+        $usernameFromForm = $database->real_escape_string($_POST["username"]);
         $supportEducatorID = $database->real_escape_string($_POST["supportEducatorID"]);
+
+        //Query database to get the User ID based on entered username
+        $queryUsername = "SELECT userID FROM user WHERE username = '$usernameFromForm' LIMIT 1";
+
+        $resultUsernameFromQuery = $database->query($queryUsername);
+
+        if ($resultUsernameFromQuery){
+
+            while ($resultSet = $resultUsernameFromQuery->fetch_assoc()){
+
+                //Get userID from result set and apply to a variable to use in the following insert query.
+                $userID = $resultSet["userID"];
+
+            }
+
+        }
 
         //Create initial SQL query to insert form data into database
         $query = "INSERT INTO student(studentID, firstName, middleName, lastName, gender, dob, grade, address, 
                   phoneNum, emailAddress, allergies, schoolID, guardianID, userID, supportEducatorID) 
                   VALUES ('$studentID', '$firstName', '$middleName', '$lastName', '$gender', '$dob', '$grade', '$address', 
-                  '$phoneNum', '$emailAddress', '$allergies', $schoolID, $guardianID, $userIDFromForm, $supportEducatorID);";
+                  '$phoneNum', '$emailAddress', '$allergies', $schoolID, $guardianID, $userID, $supportEducatorID);";
 
         //Execute query and store result.
         $result = $database->query($query);
@@ -81,8 +94,8 @@
 
     } else {
 
-    //Pull userID from previous setup for add user in order to populate user ID field for student
-    $userIDFromAddUserScreen = $_GET["userID"];
+    //Pull username from previous setup for add user in order to populate user ID field for student
+    $usernameFromAddUserScreen = $_GET["username"];
 
     ?>
     <p>**Please ensure all fields are filled before registering a new Student.</p>
@@ -147,9 +160,9 @@
                 <input type="text" name="guardianID" class="col-md-6 form-control">
             </div>
             <div class="col-md-12 form-inline customDiv">
-                <label for="title" class="col-md-6">User ID number</label>
-                <input type="text" name="userID" class="col-md-6 form-control value="
-                       value="<?php echo $userIDFromAddUserScreen ?>" disabled="disabled">
+                <label for="title" class="col-md-6">Username</label>
+                <input type="text" name="username" class="col-md-6 form-control value="
+                       value="<?php echo $usernameFromAddUserScreen ?>" disabled="disabled">
             </div>
             <div class="col-md-12 form-inline customDiv">
                 <label for="title" class="col-md-6">Support Educator ID number</label>

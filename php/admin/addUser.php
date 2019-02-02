@@ -58,30 +58,25 @@
 <body>
 <div><?php
 
+        include "../db/dbConn.php";
+
     //To trigger when user submits request to add new User
-    if (isset($_GET["add"])) {
+    if (isset($_POST["add"])) {
 
         //If details are empty, display a message and give redirect links. Otherwise, proceed.
-        if ($_GET["username"] == "" || $_GET["password"] == "" || $_GET["accessCode"] == "") {
+        if ($_POST["username"] == "" || $_POST["password"] == "" || $_POST["accessCode"] == "") {
             echo "<h2>Error. Form fields must not be empty before submitting</h2><br>";
             echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
             echo "<form action='../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
             exit("</div></body</html>");
         }
 
-        //Make connection to the database and check to ensure that a solid connection can be made
-        @ $database = new mysqli('localhost', 'root', '', 'stars');
-        if (mysqli_connect_errno()) {
-            echo '<h2>Error: Could not connect to database. Please try again later.</h2>';
-            echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
-            exit("</div></body></html>");
-        }
-
         //Sanitize user inputs to prepare for database insert query.
-        $userID = $database->real_escape_string($_GET["userID"]);
-        $username = $database->real_escape_string($_GET["username"]);
-		$password = (md5($database->real_escape_string($_GET["password"])));
-        $accessCode = $database->real_escape_string($_GET["accessCode"]);
+        $userID = $database->real_escape_string($_POST["userID"]);
+        $username = $database->real_escape_string($_POST["username"]);
+		$password = (md5($database->real_escape_string($_POST["password"])));
+        $accessCode = $database->real_escape_string($_POST["accessCode"]);
+
 
 
 		//Create initial SQL query to insert form data into database
@@ -94,9 +89,9 @@
         if ($result) {
 
             echo "<h2>User has successfully been added to the database</h2><br>";
-            echo "<a href='addStudent.php?userID=" . $userID . "'>Register new Student</a>";
-            echo "<form action='addStudent.php?userID=" . $userID . "' method='get'><fieldset><div class='col-md-12'><button>Register Student with this Information</button></div></fieldset></form>";
-            echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'>Add Another User</button></div></fieldset></form>";
+            echo "<a href='addStudent.php?username=" . $username . "'>Register new Student</a>";
+            //echo "<form action='addStudent.php?userID=" . $userID . "' method='get'><fieldset><div class='col-md-12'><button>Register Student with this Information</button></div></fieldset></form>";
+            //echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'>Add Another User</button></div></fieldset></form>";
 
         } else {
 
@@ -118,7 +113,7 @@
         <div class="container-fluid">
 
     <p>**Please ensure all fields are filled before adding a new User.</p>
-    <form action="addUser.php" method="GET">
+    <form action="addUser.php" method="POST">
         <fieldset>
             <h2>User Details</h2>
             <div class="col-md-12 form-inline customDiv">
