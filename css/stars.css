@@ -58,7 +58,16 @@ label {
 
 input {
     border: 1px solid #1D2731;
+    font-family: 'Arial', sans-serif;
+
 }
+
+h2 {
+
+    color: #328cc1;
+
+}
+
 
 /* The Foot elemeents take care of the bottom navbar and all style functionality therein. */
 #footer {
@@ -220,6 +229,13 @@ input {
     border: 9px solid transparent;
     border-bottom-color: white;
 }
+
+.login {
+
+    width: 40%;
+}
+
+
 
 @media only screen and (max-width:620px) {
     /* For mobile phones: */

@@ -17,6 +17,8 @@
 <body>
 <?php
 
+    include "../db/dbConn.php";
+
     //StudentID pulled from the report card page.
     $studentIDFromForm = $_GET["studentID"];
 
@@ -31,7 +33,7 @@ if (mysqli_connect_errno()) {
 }
 
 //Need to work out issue with first/last name of student and support educator
-$querySelectIEP = "SELECT planID, reason, dateIssued, comments, supportEducator.firstName, supportEducator.lastName, student.firstName, student.lastName  
+$querySelectIEP = "SELECT planID, reason, dateIssued, comments, supportEducator.supFName, supportEducator.supLName, student.firstName, student.lastName  
                   FROM individualeducationplan, supporteducator, student 
                   WHERE individualeducationplan.studentID = $studentIDFromForm
                   AND student.studentID = individualeducationplan.studentID
@@ -61,8 +63,8 @@ if ($resultIEP->num_rows > 0) {
         $reason = $rowIEP["reason"];
         $dateIssued = $rowIEP["dateIssued"];
         $comments = $rowIEP["comments"];
-        $supportEducatorFirstName = $rowIEP["firstName"];
-        $supportEducatorLastName = $rowIEP["lastName"];
+        $supportEducatorFirstName = $rowIEP["supFName"];
+        $supportEducatorLastName = $rowIEP["supLName"];
         $studentFirstName = $rowIEP["firstName"];
         $studentLastName = $rowIEP["lastName"];
 

@@ -12,7 +12,7 @@
 <script type="text/javascript" src="ajax.js"></script
 
     <?php
-        include '../dbConn.php';
+        include '../db/dbConn.php';
     //query to find the courses (and semester Number) the teacher has assigned to them
     $queryCourse = $sql = "SELECT course.courseName, courseoffering.semesterNum FROM course, user, educator, courseoffering 
                             WHERE user.userID = educator.userID 

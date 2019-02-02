@@ -5,7 +5,7 @@
  * Date: 2019-01-29
  */
 //Make connection to the database and check to ensure that a solid connection can be made
-    include '../dbConn.php';
+    include '../db/dbConn.php';
 ?>
 
 <!--Form to request to view a student's report card.  Requires student name, student ID?(how to incorporate), year & semester-->

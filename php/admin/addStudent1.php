@@ -6,25 +6,68 @@
  * Time: 8:49 PM
  *
  * 2019/01/28: Functionality mostly there. Able to pull user ID from prior screen but cannot use to insert into database.
- *
- * Changed functionality approach to use username instead of userID
  */
 ?>
+
+
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register New Student</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <!-- Fonts !-->
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
+
+        <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
+
+        <!-- Here is where we call bootstrap. !-->
+
+        <title>STARS: Register New Student</title>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+
+        <!-- Calendar Date Picker !-->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+        <link href="../../css/stars.css" rel="stylesheet">
+        <script>
+            // This function shows the date picker.
+            $( function() {
+                $( "#datepicker" ).datepicker();
+            } );
+
+            // This function shows the note.
+            // Will need to add a variable to get the notes to then call.
+            $( function() {
+                $( document ).tooltip();
+            } );
+
+            // This function manages the drop downs on the main menu.
+            $( function() {
+                $( "#menu" ).menu();
+            } );
+        </script>
+    </head>
 <body>
 <div>
+
+    <div class="header">
+        <img src="../../img/StarsWhiteFIN.jpg">
+    </div>
+
+    <div class="jumbotron-fluid">
+            <div class="container-fluid">
+
     <?php
-
-        include "../db/dbConn.php";
-
     //To trigger when user submits request to add new Student to stars database
     if (isset($_POST["register"])) {
 
@@ -34,6 +77,14 @@
             echo "<form action='addStudent.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
             echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
             exit("</div></body</html>");
+        }
+
+        //Make connection to the database and check to ensure that a solid connection can be made
+        @ $database = new mysqli('localhost', 'root', '', 'stars');
+        if (mysqli_connect_errno()) {
+            echo '<h2>Error: Could not connect to database. Please try again later.</h2>';
+            echo "<form action='addStudent.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
+            exit("</div></body></html>");
         }
 
         //Sanitize user inputs to prepare for database insert query.
@@ -50,30 +101,14 @@
         $allergies = $database->real_escape_string($_POST["allergies"]);
         $schoolID = $database->real_escape_string($_POST["schoolID"]);
         $guardianID = $database->real_escape_string($_POST["guardianID"]);
-        $usernameFromForm = $database->real_escape_string($_POST["username"]);
+        $userIDFromForm = $database->real_escape_string($_POST["userID"]);
         $supportEducatorID = $database->real_escape_string($_POST["supportEducatorID"]);
-
-        //Query database to get the User ID based on entered username
-        $queryUsername = "SELECT userID FROM user WHERE username = '$usernameFromForm' LIMIT 1";
-
-        $resultUsernameFromQuery = $database->query($queryUsername);
-
-        if ($resultUsernameFromQuery){
-
-            while ($resultSet = $resultUsernameFromQuery->fetch_assoc()){
-
-                //Get userID from result set and apply to a variable to use in the following insert query.
-                $userID = $resultSet["userID"];
-
-            }
-
-        }
 
         //Create initial SQL query to insert form data into database
         $query = "INSERT INTO student(studentID, firstName, middleName, lastName, gender, dob, grade, address, 
                   phoneNum, emailAddress, allergies, schoolID, guardianID, userID, supportEducatorID) 
                   VALUES ('$studentID', '$firstName', '$middleName', '$lastName', '$gender', '$dob', '$grade', '$address', 
-                  '$phoneNum', '$emailAddress', '$allergies', $schoolID, $guardianID, $userID, $supportEducatorID);";
+                  '$phoneNum', '$emailAddress', '$allergies', $schoolID, $guardianID, $userIDFromForm, $supportEducatorID);";
 
         //Execute query and store result.
         $result = $database->query($query);
@@ -94,14 +129,14 @@
 
     } else {
 
-    //Pull username from previous setup for add user in order to populate user ID field for student
-    $usernameFromAddUserScreen = $_GET["username"];
+    //Pull userID from previous setup for add user in order to populate user ID field for student
+    $userIDFromAddUserScreen = $_GET["userID"];
 
     ?>
     <p>**Please ensure all fields are filled before registering a new Student.</p>
     <form action="addStudent.php" method="post">
         <fieldset>
-            <legend>Student Details</legend>
+            <h2>Student Details</h2>
             <div class="col-md-12 form-inline customDiv">
                 <label for="isbn" class="col-md-6">Student ID</label>
                 <input type="text" name="studentID" class="col-md-6 form-control">
@@ -160,16 +195,26 @@
                 <input type="text" name="guardianID" class="col-md-6 form-control">
             </div>
             <div class="col-md-12 form-inline customDiv">
-                <label for="title" class="col-md-6">Username</label>
-                <input type="text" name="username" class="col-md-6 form-control value="
-                       value="<?php echo $usernameFromAddUserScreen ?>" disabled="disabled">
+                <label for="title" class="col-md-6">User ID number</label>
+                <input type="text" name="userID" class="col-md-6 form-control value="
+                       value="<?php echo $userIDFromAddUserScreen ?>" disabled="disabled">
             </div>
             <div class="col-md-12 form-inline customDiv">
                 <label for="title" class="col-md-6">Support Educator ID number</label>
                 <input type="text" name="supportEducatorID" class="col-md-6 form-control value=">
             </div>
             <div class="col-md-12">
-                <input type="submit" name="register" value="Register Student">
+
+                        <?php
+
+                        include("../button.class.php");
+                        $addStudent = new Button();
+
+                        $addStudent->buttonName = "addStudent";
+                        $addStudent->buttonID = "addStudent";
+                        $addStudent->buttonValue = "Register Student";
+                        $addStudent->buttonStyle = "font-family:sans-serif";
+                        $addStudent->display(); ?>
             </div>
         </fieldset>
     </form>

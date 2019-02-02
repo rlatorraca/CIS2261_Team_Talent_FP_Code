@@ -47,8 +47,8 @@ CREATE TABLE `Student` (
 
 CREATE TABLE `ParentOrGuardian` (
     `guardianID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `firstName` VARCHAR(30) NOT NULL,
-    `lastName` VARCHAR(60) NOT NULL,
+    `parentFName` VARCHAR(30) NOT NULL,
+    `parentLName` VARCHAR(60) NOT NULL,
     `address` VARCHAR(100) NOT NULL,
     `city` VARCHAR(60) NOT NULL,
     `province` VARCHAR(30) NOT NULL,
@@ -61,8 +61,8 @@ CREATE TABLE `ParentOrGuardian` (
 
 CREATE TABLE `Educator` (
     `educatorID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `firstName` VARCHAR(30) NOT NULL,
-    `lastName` VARCHAR(60) NOT NULL,
+    `educatorFName` VARCHAR(30) NOT NULL,
+    `educatorLName` VARCHAR(60) NOT NULL,
     `position` VARCHAR(100) NOT NULL,
     `phoneNumber` CHAR(10) NOT NULL,
     `emailAddress` VARCHAR(100) NOT NULL,
@@ -73,8 +73,8 @@ CREATE TABLE `Educator` (
 
 CREATE TABLE `SupportEducator` (
     `supportEducatorID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `firstName` VARCHAR(30) NOT NULL,
-    `lastName` VARCHAR(60) NOT NULL,
+    `supFName` VARCHAR(30) NOT NULL,
+    `supLName` VARCHAR(60) NOT NULL,
     `position` VARCHAR(100) NOT NULL,
     `specialty` VARCHAR(100) NOT NULL,
     `phoneNum` CHAR(10) NOT NULL,
@@ -86,8 +86,8 @@ CREATE TABLE `SupportEducator` (
 
 CREATE TABLE `Administrator` (
     `adminID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `firstName` VARCHAR(30) NOT NULL,
-    `lastName` VARCHAR(60) NOT NULL,
+    `adminFName` VARCHAR(30) NOT NULL,
+    `adminLName` VARCHAR(60) NOT NULL,
     `position` VARCHAR(100) NOT NULL,
     `schoolID` INTEGER(10) NOT NULL,
     `userID` INTEGER(10) NOT NULL,
@@ -166,7 +166,7 @@ CREATE TABLE `Semester` (
 
 CREATE TABLE `User` (
     `userID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `username` VARCHAR(100) NOT NULL,
+    `username` VARCHAR(100) NOT NULL UNIQUE,
     `password` VARCHAR(100) NOT NULL,
     `accessCode` INTEGER(10) NOT NULL,
     PRIMARY KEY (`userID`)
@@ -298,18 +298,18 @@ INSERT INTO `stars`.`User` (`userID`, `username`, `password`, `accessCode`) VALU
 (19, 'supportEducatorSam@abc.com', '123', 4),
 (20, 'parentJim@abc.com', '123', 6);
 
-INSERT INTO `stars`.`Administrator` (`adminID`, `firstName`, `lastName`, `position`, `schoolID`, `userID`) VALUES
+INSERT INTO `stars`.`Administrator` (`adminID`, `adminFName`, `adminLName`, `position`, `schoolID`, `userID`) VALUES
 (1, 'John', 'Smith', 'Office Secretary', 1, 5),
 (2, 'Jane', 'Smith', 'Principal', 2, 6),
 (3, 'Jim', 'Gallant', 'Office Secretary', 3, 7);
 
-INSERT INTO `stars`.`ParentOrGuardian` (`guardianID`, `firstName`, `lastName`, `address`, `city`, `province`, `postalCode`,
+INSERT INTO `stars`.`ParentOrGuardian` (`guardianID`, `parentFName`, `parentLName`, `address`, `city`, `province`, `postalCode`,
                                 `phoneNum`, `emailAddress`, `userID`) VALUES
 (1, 'Mary', 'Smith', '69 Main St, ', 'Charlottetown', 'PE', 'C0A103', '9028881002', 'parentJason@abc.com', 3),
 (2, 'John', 'Doe', '5 Water St, ', 'Summerside', 'PE', 'C0B1L0', '9028889181', 'parentJane@abc.ca', 4),
 (3, 'Jim', 'Bob', '12 Parent St, ', 'Souris', 'PE', 'C0B1K0', '9028881234', 'parentJim@abc.com', 20);
 
-INSERT INTO `stars`.`supportEducator` (`supportEducatorID`, `firstName`, `lastName`, `position`, `specialty`, `phoneNum`,
+INSERT INTO `stars`.`supportEducator` (`supportEducatorID`, `supFName`, `supLName`, `position`, `specialty`, `phoneNum`,
 `emailAddress`, `userID`, `schoolID`) VALUES
 (1, 'Nancy', 'Gallant', 'TA', 'ADHD', '9021248899', 'supportEducatorNancy@abc.com', 17, 1),
 (2, 'Jim', 'Joseph', 'TA', 'Autism', '9028829999', 'supportEducatorJim@abc.com', 18, 2),
@@ -324,7 +324,7 @@ INSERT INTO `stars`.`Student` (`studentID`, `firstName`, `middleName`, `lastName
 (5, 'Steve', 'M', 'Martin', 'Male', '1999-10-10', 12, '1234 Learning Lane', '9028824321', 'studentSteve@abc.com', 'None', 3, NULL, 11, 1),
 (6, 'Rodrigo', 'A', 'Pires', 'Male', '1999-01-31', 12, '32 Learning Lane', '9022146789', 'studentRodrigo@abc.com', 'None', 2, NULL, 12, NULL);
 
-INSERT INTO `stars`.`Educator` (`educatorID`, `firstName`, `lastName`, `position`, `phoneNumber`, `emailAddress`, `userID`, `schoolID`) VALUES
+INSERT INTO `stars`.`Educator` (`educatorID`, `educatorFName`, `educatorLName`, `position`, `phoneNumber`, `emailAddress`, `userID`, `schoolID`) VALUES
 (1, 'Gerald', 'Caissy', 'Teacher', '9028534567', 'educatorGerald@abc.com', 14, 1),
 (2, 'Don', 'Bowers', 'Teacher', '9028881238', 'educatorDon@abc.com', 15, 2),
 (3, 'BJ', 'MacLean', 'Teacher', '9022147777', 'educatorBJ@abc.com', 16, 3);
