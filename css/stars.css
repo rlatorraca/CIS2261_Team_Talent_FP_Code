@@ -62,6 +62,13 @@ input {
 
 }
 
+h2 {
+
+    color: #328cc1;
+
+}
+
+
 /* The Foot elemeents take care of the bottom navbar and all style functionality therein. */
 #footer {
     position: fixed;

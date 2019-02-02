@@ -174,16 +174,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/php" />
+      <recent name="C:\cis2232\CIS2261_Team_Talent_FP_Code\php\login" />
+      <recent name="C:\GitHub\CIS2261_Team_Talent2.0_FP\CIS2261_Team_Talent_FP_Code\php\admin" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\GitHub\CIS2261_Team_Talent2.0_FP\CIS2261_Team_Talent_FP_Code\php\db" />
       <recent name="$PROJECT_DIR$/php/login" />
       <recent name="C:\GitHub\CIS2261_Team_Talent2.0_FP\CIS2261_Team_Talent_FP_Code\php" />
       <recent name="C:\GitHub\CIS2261_Team_Talent2.0_FP\CIS2261_Team_Talent_FP_Code\php\reporting" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/php" />
-      <recent name="C:\cis2232\CIS2261_Team_Talent_FP_Code\php\login" />
-      <recent name="C:\GitHub\CIS2261_Team_Talent2.0_FP\CIS2261_Team_Talent_FP_Code\php\admin" />
     </key>
   </component>
   <component name="RunDashboard">
