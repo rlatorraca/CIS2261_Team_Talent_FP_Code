@@ -221,6 +221,13 @@ input {
     border-bottom-color: white;
 }
 
+.login {
+
+    width: 40%;
+}
+
+
+
 @media only screen and (max-width:620px) {
     /* For mobile phones: */
     .container-fluid, .spacer {

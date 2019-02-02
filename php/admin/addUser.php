@@ -120,7 +120,7 @@
     <p>**Please ensure all fields are filled before adding a new User.</p>
     <form action="addUser.php" method="GET">
         <fieldset>
-            <legend>Book Details</legend>
+            <h2>User Details</h2>
             <div class="col-md-12 form-inline customDiv">
                 <label for="isbn" class="col-md-6">User ID</label>
                 <input type="text" name="userID" class="col-md-6 form-control">
