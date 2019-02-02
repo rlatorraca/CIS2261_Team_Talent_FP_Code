@@ -56,14 +56,12 @@ label {
     color: #1D2731;
 }
 
-input {
+input, select{
     border: 1px solid #1D2731;
     font-family: 'Arial', sans-serif;
-
 }
 
-select {
-    border: 1px solid #1D2731;
+p {
     font-family: 'Arial', sans-serif;
 
 }
@@ -73,6 +71,8 @@ h2 {
     color: #328cc1;
 
 }
+
+
 
 
 /* The Foot elemeents take care of the bottom navbar and all style functionality therein. */
@@ -241,6 +241,28 @@ h2 {
     width: 40%;
 }
 
+.reportCardHead {
+    width: 100%;
+    padding: 0px;
+    border-bottom: 3px solid #252525;
+}
+
+.reportCardSide {
+    border-collapse: collapse;
+
+}
+
+.reportCardSide tr {
+    border: none;
+}
+
+.reportCardSide td {
+    border-right: 3px solid #252525;
+}
+
+.reportCardSide thead {
+    font-size: medium;
+}
 
 
 @media only screen and (max-width:620px) {
