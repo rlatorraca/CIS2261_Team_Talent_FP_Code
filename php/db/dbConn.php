@@ -12,9 +12,17 @@
     //connect to the database
     @ $database = new mysqli('localhost', 'root', '', 'stars');
 
-    //confirm successful connection
+
+
+
+    // If Steve can not connect with the above line, this line will try next.
     if (mysqli_connect_errno()) {
-        echo '>try again?</a></h2>';
-        exit("</div></body></html>");
-        $db->close();
+        @ $database = new mysqli('localhost', 'root', 'root', 'stars');
+
+    //confirm successful connection
+        if (mysqli_connect_errno()) {
+            echo '>try again?</a></h2>';
+            exit("</div></body></html>");
+            $db->close();
+        }
     }

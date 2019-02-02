@@ -62,6 +62,12 @@ input {
 
 }
 
+select {
+    border: 1px solid #1D2731;
+    font-family: 'Arial', sans-serif;
+
+}
+
 h2 {
 
     color: #328cc1;
