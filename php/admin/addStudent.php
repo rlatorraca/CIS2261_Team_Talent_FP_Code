@@ -17,11 +17,21 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Register New Student</title>
+        <!-- Calendar Date Picker !-->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <title>Register New Student</title>\
+        <!--function to go back to your incomplete album form without losing previously filled fields-->
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
     </head>
     <body>
         <div>
             <?php
+                session_start();
 
                 include "../db/dbConn.php";
 
@@ -31,7 +41,7 @@
                 //If details are empty, display a message and give redirect links. Otherwise, proceed.
                 if ($_POST["firstName"] == "" || $_POST["middleName"] == "" || $_POST["lastName"] == "") {
                     echo "<h2>Error. Form fields must not be empty before registering new student in STARS.</h2><br>";
-                    echo "<form action='addStudent.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
+                    echo "<div class='col-md-12'><button class='btn btn-primary' onclick='goBack()'>Go Back</button>";
                     echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
                     exit("</div></body</html>");
                 }
@@ -51,13 +61,12 @@
                 $schoolID = $database->real_escape_string($_POST["selectSchool"]);
                 $guardianID = $database->real_escape_string($_POST["selectParentGuardian"]);
 
-                $usernameFromForm = $database->real_escape_string($_POST["username"]);
+                $usernameFromForm = $database->real_escape_string($_SESSION["username"]);
 
                 $supportEducatorID = $database->real_escape_string($_POST["selectSupportEducator"]);
 
                 //Query database to get the User ID based on entered username
                 $queryUsername = "SELECT userID FROM user WHERE username = '$usernameFromForm' LIMIT 1";
-
 
                 $resultUsernameFromQuery = $database->query($queryUsername);
                 $userID = "";
@@ -70,16 +79,13 @@
                         $userID = $resultSet["userID"];
 
                     }
-
                 }
-
 
                 //Create initial SQL query to insert form data into database
                 $query = "INSERT INTO student(firstName, middleName, lastName, gender, dob, grade, address, 
                   phoneNum, emailAddress, allergies, schoolID, guardianID, userID, supportEducatorID) 
                   VALUES ('$firstName', '$middleName', '$lastName', '$gender', '$dob', '$grade', '$address', 
                   '$phoneNum', '$emailAddress', '$allergies', $schoolID, $guardianID, $userID, $supportEducatorID);";
-
 
                 //Execute query and store result.
                 $result = $database->query($query);
@@ -90,9 +96,7 @@
                     echo "<h2>Student has been successfully added to the database</h2><br>";
 
                 } else {
-
                     echo "<h2>Sorry, student could not be added to the database at this time</h2><br>";
-
                 }
 
                 //Close database connection
@@ -101,7 +105,8 @@
             } else {
 
                 //Pull username from previous setup for add user in order to populate user ID field for student
-                $usernameFromAddUserScreen = $_GET["username"];
+                //$usernameFromAddUserScreen = $_GET["username"];
+                $_SESSION['username'];
 
             ?>
             <p>**Please ensure all fields are filled before registering a new Student.</p>
@@ -185,7 +190,7 @@
                                 if ($resultsFromParentGuardian->num_rows > 0) {
                                     while ($parentGuardianResultSet = $resultsFromParentGuardian->fetch_assoc()) {
                                         ?>
-                                        <option value="<?php echo $parentGuardianResultSet["guardianID"]; ?>">
+                                    <option value="<?php echo $parentGuardianResultSet["guardianID"]; ?>">
                                         <?php echo $parentGuardianResultSet["parentFName"] . " "
                                             . $parentGuardianResultSet["parentLName"]; ?></option><?php
                                     }
@@ -198,7 +203,8 @@
                     <div class="col-md-12 form-inline customDiv">
                         <label for="title" class="col-md-6">Username</label>
                         <input type="text" name="username" class="col-md-6 form-control value="
-                               value="<?php echo $usernameFromAddUserScreen ?>" readonly>
+                               value="<?php echo $_SESSION['username'] ?>" readonly>
+
                     </div>
                     <div class="col-md-12 form-inline customDiv">
                         <label for="title" class="col-md-6">Support Educator</label>
@@ -210,7 +216,7 @@
                                 if ($resultsSupportEducators->num_rows > 0) {
                                     while ($supportEducatorResultSet = $resultsSupportEducators->fetch_assoc()) {
                                         ?>
-                                        <option value="<?php echo $supportEducatorResultSet["supportEducatorID"] ?>">
+                                    <option value="<?php echo $supportEducatorResultSet["supportEducatorID"] ?>">
                                         <?php echo $supportEducatorResultSet["supFName"] . " "
                                             . $supportEducatorResultSet["supLName"]; ?></option><?php
                                     }
