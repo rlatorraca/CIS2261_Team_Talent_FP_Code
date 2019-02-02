@@ -29,7 +29,7 @@
                 if (isset($_POST["register"])) {
 
                 //If details are empty, display a message and give redirect links. Otherwise, proceed.
-                if ($_POST["studentID"] == "" || $_POST["firstName"] == "" || $_POST["middleName"] == "" || $_POST["lastName"] == "") {
+                if ($_POST["firstName"] == "" || $_POST["middleName"] == "" || $_POST["lastName"] == "") {
                     echo "<h2>Error. Form fields must not be empty before registering new student in STARS.</h2><br>";
                     echo "<form action='addStudent.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
                     echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
@@ -77,7 +77,7 @@
                 $query = "INSERT INTO student(studentID, firstName, middleName, lastName, gender, dob, grade, address, 
                   phoneNum, emailAddress, allergies, schoolID, guardianID, userID, supportEducatorID) 
                   VALUES ('$studentID', '$firstName', '$middleName', '$lastName', '$gender', '$dob', '$grade', '$address', 
-                  '$phoneNum', '$emailAddress', '$allergies', $schoolID, $guardianID, $userID, $supportEducatorID);";
+                  '$phoneNum', '$emailAddress', '$allergies', '$schoolID', '$guardianID', '$userID', '$supportEducatorID');";
 
                 //Execute query and store result.
                 $result = $database->query($query);
@@ -196,7 +196,7 @@
                     <div class="col-md-12 form-inline customDiv">
                         <label for="title" class="col-md-6">Username</label>
                         <input type="text" name="username" class="col-md-6 form-control value="
-                               value="<?php echo $usernameFromAddUserScreen ?>" disabled="disabled">
+                               value="<?php echo $usernameFromAddUserScreen ?>" readonly>
                     </div>
                     <div class="col-md-12 form-inline customDiv">
                         <label for="title" class="col-md-6">Support Educator</label>
