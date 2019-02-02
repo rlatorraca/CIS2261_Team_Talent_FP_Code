@@ -1,10 +1,10 @@
-$(function () {
+$(document).ready(function () {
     $("#courseSemester").change(function () {
-        var courseid = $(this).val();
-        if (courseid != "") {
+        var classID = $(this).val();
+        if (classID != "") {
             $.ajax({
-                url: "enterMark.php",
-                data: {course_id: courseID},
+                url: "getStudentEnterMark.php",
+                data: {classID: classID},
                 type: 'POST',
                 success: function (response) {
                     var resp = $.trim(response);
@@ -12,7 +12,7 @@ $(function () {
                 }
             });
         } else {
-            $("#state").html("<option value=''>------- Select --------</option>");
+            $("#state").html("<option value=''>No Student in this course</option>");
         }
     });
 });

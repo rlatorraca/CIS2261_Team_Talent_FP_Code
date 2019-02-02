@@ -8,16 +8,15 @@
 ?>
 <!--Form to update a students mark.  Requires course name, student name, mark, attendance-->
 
-<script type="text/javascript" src="jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 <script type="text/javascript" src="ajax.js"></script
 
     <?php
         include '../db/dbConn.php';
     //query to find the courses (and semester Number) the teacher has assigned to them
-    $queryCourse = $sql = "SELECT course.courseName, courseoffering.semesterNum FROM course, user, educator, courseoffering 
-                            WHERE user.userID = educator.userID 
-                            AND course.courseID = courseoffering.courseID 
-                            AND educator.userID = 14";
+    $queryCourse = "SELECT courseoffering.classID, course.courseName, courseoffering.semesterNum FROM course, user, educator, courseoffering WHERE educator.userID = 14 AND courseoffering.educatorID = educator.educatorID AND user.userID = educator.userID AND course.courseID = courseoffering.courseID";
     //query to find the students in the selected course
 
     $resultCourse = $database->query($queryCourse);
@@ -30,25 +29,33 @@
         <div class="form-row">
             <div class="col-3">
                 <label for="students">Select Course - Semester</label>
-                <select class="g" id="students" name="students">
+                <select class="g" id="courseSemester" name="courseSemester">
                     <option value=''>------- Select --------</option>
                     <!-- Using SQL to populate dropdown list of students -->
                     <?php if ($resultCourse->num_rows > 0) {
                         while ($row = $resultCourse->fetch_assoc()) {
                             ?>
-                            <option ><?php echo $row["courseName"]." - ".$row["semesterNum"]; ?></option><?php
+                            <option
+                            value= <?php echo $row["classID"] ?> ><?php echo $row["courseName"] . " - " . $row["semesterNum"]; ?></option><?php
                         }
+
                     } else {
                         echo "<option>No Students</option>";
+
+
                     }
+
                     ?>
                 </select>
+
+
             </div>
         </div>
 
 
         <div class="col-3">
             <label for="studentMark">Student</label>
+            <!--            $queryCourse =-->
 
            <select name="studentMark" id="studentMark"><option>------- Select --------</option></select>
 

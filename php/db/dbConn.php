@@ -14,7 +14,8 @@
 
     //confirm successful connection
     if (mysqli_connect_errno()) {
+        $database->close();
         echo '>try again?</a></h2>';
         exit("</div></body></html>");
-        $db->close();
+
     }
