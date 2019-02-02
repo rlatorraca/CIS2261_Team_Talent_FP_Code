@@ -56,13 +56,13 @@
                 $supportEducatorID = $database->real_escape_string($_POST["selectSupportEducator"]);
 
                 //Query database to get the User ID based on entered username
-                $queryUsername = "SELECT userID FROM user WHERE username = $usernameFromForm LIMIT 1";
+                $queryUsername = "SELECT userID FROM user WHERE username = '$usernameFromForm' LIMIT 1";
 
 
                 $resultUsernameFromQuery = $database->query($queryUsername);
                 $userID = "";
 
-                if ($resultUsernameFromQuery) {
+                if ($resultUsernameFromQuery->num_rows > 0) {
 
                     while ($resultSet = $resultUsernameFromQuery->fetch_assoc()) {
 
@@ -73,11 +73,13 @@
 
                 }
 
+
                 //Create initial SQL query to insert form data into database
-                $query = "INSERT INTO student(studentID, firstName, middleName, lastName, gender, dob, grade, address, 
+                $query = "INSERT INTO student(firstName, middleName, lastName, gender, dob, grade, address, 
                   phoneNum, emailAddress, allergies, schoolID, guardianID, userID, supportEducatorID) 
-                  VALUES ('$studentID', '$firstName', '$middleName', '$lastName', '$gender', '$dob', '$grade', '$address', 
-                  '$phoneNum', '$emailAddress', '$allergies', '$schoolID', '$guardianID', '$userID', '$supportEducatorID');";
+                  VALUES ('$firstName', '$middleName', '$lastName', '$gender', '$dob', '$grade', '$address', 
+                  '$phoneNum', '$emailAddress', '$allergies', $schoolID, $guardianID, $userID, $supportEducatorID);";
+
 
                 //Execute query and store result.
                 $result = $database->query($query);
