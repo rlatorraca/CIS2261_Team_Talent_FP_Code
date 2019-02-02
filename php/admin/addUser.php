@@ -5,8 +5,6 @@
  * Date: 1/22/2019
  * Time: 5:37 PM
  */
-
-
 ?>
 
 
@@ -82,10 +80,11 @@
         //Sanitize user inputs to prepare for database insert query.
         $userID = $database->real_escape_string($_GET["userID"]);
         $username = $database->real_escape_string($_GET["username"]);
-        $password = $database->real_escape_string($_GET["password"]);
+		$password = (md5($database->real_escape_string($_GET["password"])));
         $accessCode = $database->real_escape_string($_GET["accessCode"]);
 
-        //Create initial SQL query to insert form data into database
+
+		//Create initial SQL query to insert form data into database
         $query = "INSERT INTO user(userID, username, password, accessCode) VALUES ('$userID', '$username', '$password', '$accessCode');";
 
         //Execute query and store result.
