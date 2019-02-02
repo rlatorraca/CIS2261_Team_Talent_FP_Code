@@ -248,6 +248,8 @@ h2 {
 }
 
 .reportCardSide {
+    width: 45%;
+    padding: 0px;
     border-collapse: collapse;
 
 }
@@ -261,7 +263,21 @@ h2 {
 }
 
 .reportCardSide thead {
+    font-family: inherit;
     font-size: medium;
+}
+
+.reportCardSide label {
+    margin: auto;
+}
+
+.reportCardSide p {
+    margin: auto;
+}
+
+.container {
+    width: 100%;
+    padding: 0;
 }
 
 
