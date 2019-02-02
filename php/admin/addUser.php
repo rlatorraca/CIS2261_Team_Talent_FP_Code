@@ -137,12 +137,12 @@
             <div class="col-md-12 form-inline customDiv">
                 <label for="price" class="col-md-6">Access Code</label>
                 <select name="accessCode" class="form-control">
-                    <option name="1">1: System Administrator</option>
-                    <option name="2">2: Administrator</option>
-                    <option name="3">3: Educator</option>
-                    <option name="4">4: Support Educator</option>
-                    <option name="5">5: Student</option>
-                    <option name="6">6: Parent/Guardian</option>
+                    <option value="1">1: System Administrator</option>
+                    <option value="2">2: Administrator</option>
+                    <option value="3">3: Educator</option>
+                    <option value="4">4: Support Educator</option>
+                    <option value="5">5: Student</option>
+                    <option value="6">6: Parent/Guardian</option>
                 </select>
             </div>
             <br>
