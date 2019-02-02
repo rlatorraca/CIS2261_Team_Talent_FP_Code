@@ -16,7 +16,7 @@
 </head>
 <body>
 <?php
-    include '../dbConn.php';
+    include '../db/dbConn.php';
 //Variable to hold the requested info from the prior page
 $studentIDFromForm = $_POST["selectStudent"];
 $schoolYearFromForm = $_POST["selectYear"];
@@ -85,7 +85,7 @@ $result1->free();
 
 //SQL for individual Enrollments
 $query2 = "SELECT course.courseName, subject.subjectCode, mark, attendance,
-                    notes, educator.firstName, educator.lastName
+                    notes, educator.educatorFName, educator.educatorLName
                     FROM enrollment, course, courseoffering, subject, educator
                     WHERE enrollment.studentID = $studentIDFromForm
                     AND enrollment.schoolYear = '$schoolYearFromForm'
@@ -123,8 +123,8 @@ if ($result2->num_rows > 0) {
             $mark = $rowEnrollment["mark"];
             $daysMissed = $rowEnrollment["attendance"];
             $notes = $rowEnrollment["notes"];
-            $educatorFirstName = $rowEnrollment["firstName"];
-            $educatorLastName = $rowEnrollment["lastName"];
+            $educatorFirstName = $rowEnrollment["educatorFName"];
+            $educatorLastName = $rowEnrollment["educatorLName"];
 
             ?>
             <tr>

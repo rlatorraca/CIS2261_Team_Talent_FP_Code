@@ -68,12 +68,7 @@
             $_SESSION['isLoggedIn'] = false;
         } else {
 
-            include "dbConn.php";
-
-            if (mysqli_connect_errno()) {
-                $error = "Error: Could not connect to database. Please try again later.";
-                exit;
-            }
+            include "../db/dbConn.php";
 
             $usernamedb = $database->real_escape_string(trim($_SESSION['username']));
             $passworddb = $database->real_escape_string(md5(trim($_SESSION['password'])));
