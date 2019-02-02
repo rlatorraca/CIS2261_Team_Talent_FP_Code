@@ -8,6 +8,62 @@
     include '../db/dbConn.php';
 ?>
 
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <!-- Fonts !-->
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
+
+        <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
+
+        <!-- Here is where we call bootstrap. !-->
+
+        <title>STARS: Request Report Card</title>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+
+        <!-- Calendar Date Picker !-->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+        <link href="../../css/stars.css" rel="stylesheet">
+        <script>
+            // This function shows the date picker.
+            $( function() {
+                $( "#datepicker" ).datepicker();
+            } );
+
+            // This function shows the note.
+            // Will need to add a variable to get the notes to then call.
+            $( function() {
+                $( document ).tooltip();
+            } );
+
+            // This function manages the drop downs on the main menu.
+            $( function() {
+                $( "#menu" ).menu();
+            } );
+        </script>
+    </head>
+    <body>
+    <div class="header">
+        <img src="../../img/StarsWhiteFIN.jpg">
+    </div>
+    <div class="jumbotron-fluid">
+        <div class="container-fluid login">
+
+
+
 <!--Form to request to view a student's report card.  Requires student name, student ID?(how to incorporate), year & semester-->
 <form action="displayReportCard.php" method="post">
     <div class="form-group">
@@ -84,5 +140,37 @@
             Is it fairly different from what I have going on right here?-->
             <!--<a href='displayReportCard.php?studentID=<?php echo $selectStudent ?>&schoolYear=<?php echo $selectYear ?>&semesterNum=<?php echo $selectSemester ?>"'>View Report Card</a>-->
 
-            <button>View Report Card</button>
-</form>
+            <?php
+
+            include("../button.class.php");
+            $request = new Button();
+
+            $request->buttonName = "viewReportCard";
+            $request->buttonID = "viewReportCard";
+            $request->buttonValue = "View Report Card";
+            $requestn->buttonStyle = "font-family:sans-serif";
+            $request->display(); ?>
+        </div>
+        </form>
+        <?php
+        if (isset($error)) {
+            echo "<div class='alert alert-danger'>$error</div>";
+        }
+
+
+        ?>
+    </div>
+        </div>
+        <div class = "bottom">
+            <div id="footer">
+                <ul id="footerMenu">
+                    <?php
+                    echo '<a href="#"><li class = "titleNav">Home</li></a>';
+
+                    ?>
+                </ul>
+            </div>
+        </div>
+
+    </body>
+</html>

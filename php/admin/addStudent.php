@@ -36,6 +36,14 @@
             exit("</div></body</html>");
         }
 
+        if ($_POST["parentGuardianID"] == "none") {
+            $guardianID = null;
+        }
+
+        if ($_POST["supportEducatorID" == "none"]){
+            $supportEducatorID = null;
+        }
+
         //Sanitize user inputs to prepare for database insert query.
         $studentID = $database->real_escape_string($_POST["studentID"]);
         $firstName = $database->real_escape_string($_POST["firstName"]);
