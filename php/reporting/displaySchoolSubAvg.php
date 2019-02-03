@@ -1,14 +1,12 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: sahra
+ * Created and edited by: Team Talent 2.0
  * Date: 2019-01-27
  * Time: 9:00 PM
  */
 
 include "../db/dbConn.php";
-
-
 
 //Selected info from request page
 $subject = $_POST["subjects"];
@@ -52,10 +50,13 @@ if ($resultSetInitialQuery) {
                 //This would happen if there is no data to pull from between the selected dates or selected subject.
                 if ($row["average"] == ""){
 
+                    //Output message. To graph, use 0.00 to indicate that no average was calculated. (Or 100.00 but I don't think so??????)
                     echo "<p>Sorry, there is no school enrollment data in STARS to calculate chosen subject's average at this time.</p>";
+                    ?><p><?php echo $row["name"] . ": " . $row["subjectName"] . " = " . 0.00; ?></p><?php
 
                 } else {
 
+                    //Returned information to graph on the page.
                     ?><p><?php echo $row["name"] . ": " . $row["subjectName"] . " = " . $row["average"]; ?></p><?php
 
                 }
