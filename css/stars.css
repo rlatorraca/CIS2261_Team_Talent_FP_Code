@@ -123,7 +123,6 @@ h2 {
     width: 15%;
 }
 
-
 #footerMenu li:hover ul.dropupMenu {
     display: block;
     position: absolute;
@@ -149,7 +148,6 @@ h2 {
 }
 
 /* The bottom take car of the blue space below t he nav bar and ends the page. */
-
 .bottom {
     position: fixed;
     bottom: 0%;
@@ -163,7 +161,6 @@ h2 {
     background: #328cc1;
     z-index: 2;
 }
-
 
 /* Referenceed from here: https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_hover*/
 /* The button styling below is for the yellow form button found throughout the site. */
@@ -279,7 +276,6 @@ h2 {
     width: 100%;
     padding: 0;
 }
-
 
 @media only screen and (max-width:620px) {
     /* For mobile phones: */

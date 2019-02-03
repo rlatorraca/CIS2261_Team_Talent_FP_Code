@@ -57,7 +57,7 @@ if (isset($_POST['username'])) {
 	}
 }
 ?>
-<form action="login_base.php" method="post">
+<form action="loginBase.php" method="post">
 	<div class="form-group">
 		<label for="user">Username:</label>
 		<input type="text" name="username" id="user" placeholder="Enter your username" class="form-control"

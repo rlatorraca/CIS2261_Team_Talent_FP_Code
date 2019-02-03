@@ -12,19 +12,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <!-- Fonts !-->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
 
     <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
-
     <!-- Here is where we call bootstrap. !-->
-
-    <title>STARS: Add User</title>
+    <title>STARS - Add User</title>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
@@ -34,7 +30,6 @@
     <!-- Calendar Date Picker !-->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 
     <link href="../../css/stars.css" rel="stylesheet">
 
@@ -120,15 +115,15 @@ session_start();
     <div class="jumbotron-fluid">
         <div class="container-fluid">
 
-    <p>**Please ensure all fields are filled before adding a new User.</p>
+    <p>*Please ensure all fields are completed before adding a new User.</p>
     <form action="addUser.php" method="POST">
         <fieldset>
             <h2>User Details</h2>
-            <div class="col-md-12 form-inline customDiv">
-                <label for="isbn" class="col-md-6">User ID</label>
-                <input type="text" name="userID" class="col-md-6 form-control">
-            </div>
-            <br>
+<!--            <div class="col-md-12 form-inline customDiv">-->
+<!--                <label for="isbn" class="col-md-6">User ID</label>-->
+<!--                <input type="text" name="userID" class="col-md-6 form-control">-->
+<!--            </div>-->
+<!--            <br>-->
             <br>
             <div class="col-md-12 form-inline customDiv">
                 <label for="author" class="col-md-6">Username</label>
