@@ -10,6 +10,7 @@
      * Changed functionality approach to use username instead of userID
      */
 ?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -17,16 +18,33 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- Calendar Date Picker !-->
+
+        <!-- Fonts !-->
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
+
+        <!--Link to custom style sheet-->
+        <link href="css/stars.css" rel="stylesheet">
+
+        <!-- JQuery Links !-->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <!-- JQuery Calendar Date Picker !-->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <title>Register New Student</title>\
-        <!--function to go back to your incomplete album form without losing previously filled fields-->
+
+        <!-- Here is where we call bootstrap. !-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+
+        <!--function to go back to your incomplete form without losing previously filled fields-->
         <script>
             function goBack() {
                 window.history.back();
             }
         </script>
+
+        <title>Add Student</title>
     </head>
     <body>
         <div>

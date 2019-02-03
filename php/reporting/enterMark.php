@@ -81,6 +81,18 @@
 
 
         </div>
+<!--        <div class="col-3">-->
+<!--            <label for="markInput">Select Mark</label>-->
+<!--            <select class="form-control" id="markInput" name="markInput">-->
+<!--                --><?php
+//                    for ($i = 0; $i <= 100; $i++) {
+//                        ?>
+<!--                        <option value="--><?php //echo $i; ?><!--">--><?php //echo $i; ?><!--</option>-->
+<!--                        --><?php
+//                    }
+//                ?>
+<!--            </select>-->
+<!--        </div>-->
         <div class="col-3">
             <label for="markInput">Mark</label>
             <input id="markInput" type="text" name="markInput" placeholder="Enter mark" size="15">
