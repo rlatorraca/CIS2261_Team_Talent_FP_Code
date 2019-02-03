@@ -19,7 +19,7 @@
 <?php
     include "../db/dbConn.php";
     //query to find the courses the teacher has assigned to them and pull all the students.
-    $queryStudent = "SELECT DISTINCT student.firstName, student.lastName FROM user, student, enrollment, 
+    $queryStudent = "SELECT DISTINCT student.studentID, student.firstName, student.lastName FROM user, student, enrollment, 
                      course, courseoffering, subject, semester, educator WHERE user.userID = educator.userID 
                     AND courseoffering.educatorID = 1
                     AND student.studentID = enrollment.studentID 
@@ -27,7 +27,7 @@
                     AND enrollment.classID = courseoffering.classID";
 
     //create the query to get subjects
-    $querySubject = "SELECT subject.subjectName FROM subject, school WHERE school.schoolID = 1";
+    $querySubject = "SELECT subject.subjectCode, subject.subjectName FROM subject, school WHERE school.schoolID = 1";
     //query to pull all available school years
     $queryYear = "SELECT DISTINCT schoolYear FROM `semester`";
 
@@ -47,7 +47,7 @@
                     <?php if ($resultStudent->num_rows > 0) {
                         while ($row = $resultStudent->fetch_assoc()) {
                             ?>
-                            <option><?php echo $row["firstName"]." ".$row["lastName"]; ?></option><?php
+                            <option value="<?php echo $row["studentID"]; ?>"><?php echo $row["firstName"]." ".$row["lastName"]; ?></option><?php
                         }
                     } else {
                         echo "<option>No Students</option>";
@@ -56,7 +56,6 @@
                 </select>
             </div>
         </div>
-
         <div class="col-3">
             <label for="subjects">Select Subject</label>
             <select class="g" id="subjects" name="subjects">
@@ -64,7 +63,7 @@
                 <?php if ($resultSubject->num_rows > 0) {
                     while ($row = $resultSubject->fetch_assoc()) {
                         ?>
-                        <option><?php echo $row["subjectName"]; ?></option><?php
+                        <option value="<?php echo $row["subjectCode"]; ?>"><?php echo $row["subjectName"]; ?></option><?php
                     }
                 } else {
                     echo "<option>No Subjects</option>";
