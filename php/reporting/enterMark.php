@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: sahra
@@ -32,11 +31,11 @@
 	    //Check if query executed successfully and that the result contains data.
 	    if ($result == 1) {
 
-		    $msg = "<h2>Student has been updated</h2><br>";
+		    $msg = "<h2>Student Record has been successfully updated.</h2><br>";
 
 	    } else {
 
-		    $msg = "<h2>Sorry, student could not be updated to the database at this time</h2><br>";
+		    $msg = "<h2>Sorry, student record could not be updated to the database at this time</h2><br>";
 
 	    }
 
