@@ -8,65 +8,66 @@
 
 include "../db/dbConn.php";
 
+
+
 //Selected info from request page
 $subject = $_POST["subjects"];
 $yearStart = $_POST["yearStart"];
 $yearEnd = $_POST["yearEnd"];
 
-$querySubjectAverage = "";
+//Get distinct years from the selections
+$getSchoolYearsQuery = "SELECT DISTINCT semester.schoolYear FROM semester WHERE semester.schoolYear BETWEEN '$yearStart' AND '$yearEnd'";
 
-//Check if the user selected the same year range.
-if ($yearStart == $yearEnd){
+//Run initial query and get all school years from the database between the selected dates.
+$resultSetInitialQuery = $database->query($getSchoolYearsQuery);
 
-    $querySubjectAverage = "SELECT school.name, subject.subjectName, AVG (enrollment.mark) AS average 
+//Major if statement.
+//Gets each year selected and runs a query to perform against the database, subbing the year chosen in to be able to return distinct averages for each school year that the user desires.
+if ($resultSetInitialQuery) {
+
+    while($years = $resultSetInitialQuery->fetch_assoc()) {
+
+        $schoolYear = $years["schoolYear"];
+        echo $schoolYear;
+
+        $querySubjectAverage = "SELECT school.name, subject.subjectName, AVG (enrollment.mark) AS average 
 						FROM school, subject, enrollment, courseoffering, course, semester, student
 						WHERE school.schoolID = 1
 						AND student.schoolID = school.schoolID
 						AND subject.subjectCode = '$subject'
                         AND course.subjectCode = subject.subjectCode
-						AND semester.schoolYear = '$yearStart'
+						AND semester.schoolYear = '$schoolYear'
 					  	AND enrollment.schoolYear = semester.schoolYear
 						AND courseoffering.schoolYear = semester.schoolYear
 						AND enrollment.classID = courseoffering.classID
 						AND courseoffering.courseID = course.courseID;";
 
-} else {
+        $resultSetSubjectAverageQuery = $database->query($querySubjectAverage);
 
-    $querySubjectAverage = "SELECT school.name, subject.subjectName, AVG (enrollment.mark) AS average 
-						FROM school, subject, enrollment, courseoffering, course, semester, student
-						WHERE school.schoolID = 1
-						AND student.schoolID = school.schoolID
-						AND subject.subjectCode = '$subject'
-                        AND course.subjectCode = subject.subjectCode
-						AND semester.schoolYear BETWEEN '$yearStart' AND '$yearEnd'
-					  	AND enrollment.schoolYear = semester.schoolYear
-						AND courseoffering.schoolYear = semester.schoolYear
-						AND enrollment.classID = courseoffering.classID
-						AND courseoffering.courseID = course.courseID;";
+        if ($resultSetSubjectAverageQuery) {
 
-}
+            while ($row = $resultSetSubjectAverageQuery->fetch_assoc()) {
 
-$resultSet = $database->query($querySubjectAverage);
+                //If the results of the average calculation is empty, show the provided message to the user.
+                //This would happen if there is no data to pull from between the selected dates or selected subject.
+                if ($row["average"] == ""){
 
-if ($resultSet) {
+                    echo "<p>Sorry, there is no school enrollment data in STARS to calculate chosen subject's average at this time.</p>";
 
-	while ($row = $resultSet->fetch_assoc()) {
+                } else {
 
-	    //If the results of the average calculation is empty, show the provided message to the user.
-        //This would happen if there is no data to pull from between the selected dates or selected subject.
-	    if ($row["average"] == ""){
+                    ?><p><?php echo $row["name"] . ": " . $row["subjectName"] . " = " . $row["average"]; ?></p><?php
 
-	        echo "<p>Sorry, there is no school enrollment data in STARS to calculate chosen subject's average at this time.</p>";
+                }
+
+            }
 
         } else {
 
-            ?><p><?php echo $row["name"] . ": " . $row["subjectName"] . " = " . $row["average"]; ?></p><?php
+            echo "<p>Could not display select subject average at this time.</p>";
 
         }
-	}
 
-} else {
-
-    echo "<p>Could not display select subject average at this time.</p>";
+    }
 
 }
