@@ -28,19 +28,18 @@
     $resultSubName = $database->query($queryStudentHistory);
     //Display results or message
     if ($row = $resultSubName->fetch_assoc()) {
-?><h2><?php echo $row["firstName"] . " " . $row["lastName"] . "'s History for " . $subject; ?></h2>
-<?php
+        ?><h2><?php echo $row["firstName"] . " " . $row["lastName"] . "'s History for " . $subject; ?></h2>
+        <?php
     } else {
 
     }
 
 
-
     //$resultSubHistory>data_seek(0); // Resets the pointer back to the beginning.
-//Check/validate if there are items in the database object
-if ($resultSubHistory->num_rows > 0)
-{
-//Display results to a table
+    //Check/validate if there are items in the database object
+    if ($resultSubHistory->num_rows > 0)
+    {
+    //Display results to a table
 ?>
 <table class="table table-striped">
     <tr id="viewHeader">
@@ -48,21 +47,21 @@ if ($resultSubHistory->num_rows > 0)
         <th>Mark</th>
         <th>School Year</th>
     </tr>
-        <?php
-                while ($row = $resultSubHistory->fetch_assoc()) {
-                    ?>
-                    <tr>
-                    <td><?php echo $row['courseName'] ?></td>
-                    <td><?php echo $row['mark'] ?></td>
-                    <td><?php echo $row['schoolYear'] ?></td>
-                    </tr>
-                    <?php
-                }
-            } else {
-                ?>
-                <h2><?php echo "Subject History"?></h2><?php
-                echo "<option>Sorry, there are no marks in STARS to view in the selected subject.</option>";
-            }
+    <?php
+        while ($row = $resultSubHistory->fetch_assoc()) {
+            ?>
+            <tr>
+                <td><?php echo $row['courseName'] ?></td>
+                <td><?php echo $row['mark'] ?></td>
+                <td><?php echo $row['schoolYear'] ?></td>
+            </tr>
+            <?php
+        }
+        } else {
         ?>
+        <h2><?php echo "Subject History" ?></h2><?php
+        echo "<option>Sorry, there are no marks in STARS to view in the selected subject.</option>";
+    }
+    ?>
     </tr>
 </table>
