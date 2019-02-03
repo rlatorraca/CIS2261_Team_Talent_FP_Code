@@ -17,7 +17,7 @@
 <!---->
 <!--  Create a new connection object using mysqli-->
 <?php
-    include '../dbConn.php';
+    include "../db/dbConn.php";
     //query to find the courses the teacher has assigned to them and pull all the students.
     $queryStudent = "SELECT DISTINCT student.firstName, student.lastName FROM user, student, enrollment, 
                      course, courseoffering, subject, semester, educator WHERE user.userID = educator.userID 
@@ -25,10 +25,15 @@
                     AND student.studentID = enrollment.studentID 
                     AND course.subjectCode = subject.subjectCode AND courseoffering.courseID = course.courseID 
                     AND enrollment.classID = courseoffering.classID";
+
+    //create the query to get subjects
+    $querySubject = "SELECT subject.subjectName FROM subject, school WHERE school.schoolID = 1";
     //query to pull all available school years
-    $queryYear = "SELECT DISTINCT schoolYear FROM `semester`";;
+    $queryYear = "SELECT DISTINCT schoolYear FROM `semester`";
+
     //Execute queries and store results.
     $resultStudent = $database->query($queryStudent);
+    $resultSubject = $database->query($querySubject);
     $resultYear = $database->query($queryYear);
 
 ?>
@@ -50,6 +55,22 @@
                     ?>
                 </select>
             </div>
+        </div>
+
+        <div class="col-3">
+            <label for="subjects">Select Subject</label>
+            <select class="g" id="subjects" name="subjects">
+                <!-- Using SQL to populate dropdown list of subjects -->
+                <?php if ($resultSubject->num_rows > 0) {
+                    while ($row = $resultSubject->fetch_assoc()) {
+                        ?>
+                        <option><?php echo $row["subjectName"]; ?></option><?php
+                    }
+                } else {
+                    echo "<option>No Subjects</option>";
+                }
+                ?>
+            </select>
         </div>
         <div class="col-3">
             <label for="yearStart">Start Date</label>
@@ -85,22 +106,18 @@
                 ?>
             </select>
         </div>
+        <div class="col-md-12">
+            <?php
+
+                include("../button.class.php");
+                $confirm = new Button();
+
+                $confirm->buttonName = "viewHistory";
+                $confirm->buttonID = "viewHistory";
+                $confirm->buttonValue = "View";
+                $confirm->buttonStyle = "font-family:sans-serif";
+                $confirm->display(); ?>
+        </div>
     </div>
 </form>
 
-
-
-
-<!-- Button elements declared here. Button includes is above with button object declared. !-->
-<!--            --><?php
-    //            $confirm->buttonName = "Submit";
-    //            $confirm->buttonValue = "Request";
-    //            $confirm->buttonStyle = "font-family:sans-serif";
-    //            $confirm->display(); ?>
-
-< <!-- Button elements declared here. Button includes is above with button object declared. !-->
-<?php
-    //    $confirm->buttonName = "Submit";
-    //    $confirm->buttonValue = "Request";
-    //    $confirm->buttonStyle = "font-family:sans-serif";
-    //    $confirm->display(); ?>
