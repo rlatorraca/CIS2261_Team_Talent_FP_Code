@@ -12,42 +12,70 @@
 <?php
 
 
-$_SESSION['accessCode']
+$accessCode = 3;
 
+switch ($accessCode) {
 
-switch () {
+    case 1:
 
+        echo '<ul id="footerMenu">
+            <a href="#"><li class = "titleNav">Home</li></a>
+                <li class = "titleNav">Add User
+                    <ul class = "dropupMenu">
+                        <a><li>Student</li></a>
+                        <a><li>Educator</li></a>
+                        <a><li>Support Educator</li></a>
+                    </ul>
+                </li>
 
+                <a href="#"><li class = "titleNav">Edit User</li></a>   
 
+                <a href="#"><li class = "titleNav">Search Students</li></a>
+            
+        </ul>';
+        break;
+
+    case 2:
+
+        echo '<ul id="footerMenu">
+            <a href="#"><li class = "titleNav">Home</li></a>
+                <li class = "titleNav">Add Banana
+                    <ul class = "dropupMenu">
+                        <a><li>Student</li></a>
+                        <a><li>Educator</li></a>
+                        <a><li>Support Educator</li></a>
+                    </ul>
+                </li>
+
+                <a href="#"><li class = "titleNav">Edit User</li></a>   
+
+                <a href="#"><li class = "titleNav">Search Students</li></a>
+            
+        </ul>';
+        break;
+
+    case 3:
+
+        echo '<ul id="footerMenu">
+            <a href="#"><li class = "titleNav">Home</li></a>
+                <li class = "titleNav">Add Grape
+                    <ul class = "dropupMenu">
+                        <a><li>Student</li></a>
+                        <a><li>Educator</li></a>
+                        <a><li>Support Educator</li></a>
+                    </ul>
+                </li>
+
+                <a href="#"><li class = "titleNav">Edit User</li></a>   
+
+                <a href="#"><li class = "titleNav">Search Students</li></a>
+            
+        </ul>';
+        break;
+
+    default:
 }
 
 
 
 ?>
-
-
-
-
-
-<div class="bottom">
-    <div id="footer">
-        <ul id="footerMenu">
-            <li class="titleNav">List One
-                <ul class="dropupMenu">
-                    <li><a>List 1:1</a></li>
-                    <li><a>List 1:2</a></li>
-                    <li><a>List 1:3</a></li>
-                    <li><a>List 1:4</a></li>
-                </ul>
-            </li>
-            <li class="titleNav">List Two
-                <ul class="dropupMenu">
-                    <li><a>List 2:1</a></li>
-                    <li><a>List 2:2</a></li>
-                    <li><a>List 2:3</a></li>
-                    <li><a>List 2:4</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div>

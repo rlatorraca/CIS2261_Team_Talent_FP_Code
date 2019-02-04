@@ -113,10 +113,10 @@ session_start();
     <div class="jumbotron-fluid">
         <div class="container-fluid">
 
-    <p>*Please ensure all fields are completed before adding a new User.</p>
     <form action="addUser.php" method="POST">
         <fieldset>
             <h2>User Details</h2>
+            <p>*Please ensure all fields are completed before adding a new User.</p>
 <!--            <div class="col-md-12 form-inline customDiv">-->
 <!--                <label for="isbn" class="col-md-6">User ID</label>-->
 <!--                <input type="text" name="userID" class="col-md-6 form-control">-->
