@@ -6,12 +6,13 @@
  * Time: 8:49 PM
  */
 
+//Using session to start to begin using sessions
+session_start();
 include "../db/dbConn.php";
 
-//Get studentID from list page of students from search page.
-$studentID = 3;
-
 if (isset($_POST["updateStudent"])) {
+
+    $studentID = $_SESSION["studentID"];
 
     $firstNameFromForm = $_POST["firstName"];
     $middleNameFromForm = $_POST["middleName"];
@@ -45,6 +46,10 @@ if (isset($_POST["updateStudent"])) {
     }
 
 } else {
+
+    //Get studentID from list page of students from search page.
+    $_SESSION["studentID"] = $_GET["studentID"];
+    $studentID = $_SESSION["studentID"];
 
     $queryStudent = "SELECT * FROM student WHERE studentID = $studentID;";
 
