@@ -162,7 +162,7 @@ session_start();
             </div>
         </fieldset>
     </form>
-    <form action="../../index.php" method="post">
+<!--    <form action="../../index.php" method="post">-->
         <fieldset>
             <div class="col-md-12">
                 <?php
@@ -172,12 +172,13 @@ session_start();
                 $return->buttonName = "custom";
                 $return->buttonValue = "Return Home";
                 $return->buttonStyle = "font-family:sans-serif";
+                $return->buttonWeb = 'location.href="../../index.php"';
                 $return->display();
                 ?>
 <!--                <button id="customBtn">Return Home</button>-->
             </div>
         </fieldset>
-    </form>
+<!--    </form>-->
 </div>
     </div>
 </div>
