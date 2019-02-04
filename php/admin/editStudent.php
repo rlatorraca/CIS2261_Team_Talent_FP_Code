@@ -8,16 +8,43 @@
 
 include "../db/dbConn.php";
 
-if (isset($_POST["update"])) {
+//Get studentID from list page of students from search page.
+$studentID = 3;
+
+if (isset($_POST["updateStudent"])) {
 
     $firstNameFromForm = $_POST["firstName"];
     $middleNameFromForm = $_POST["middleName"];
     $lastNameFromForm = $_POST["lastName"];
+    $genderFromForm = $_POST["gender"];
+    $dobFromForm = $_POST["dob"];
+    $gradeFromForm = $_POST["grade"];
+    $addressFromForm = $_POST["address"];
+    $phoneNumberFromForm = $_POST["phoneNum"];
+    $emailAddressFromForm = $_POST["emailAddress"];
+    $allergiesFromForm = $_POST["allergies"];
+    $schoolIDFromForm = $_POST["selectSchool"];
+    $parentGuardianIDFromForm = $_POST["selectParentGuardian"];
+
+    $updateStudentQuery = "UPDATE student SET firstName = '$firstNameFromForm', middleName = '$middleNameFromForm', 
+                           lastName = '$lastNameFromForm', gender = '$genderFromForm', dob = '$dobFromForm', grade = '$gradeFromForm',
+                           address = '$addressFromForm', phoneNum = '$phoneNumberFromForm', emailAddress = '$emailAddressFromForm',
+                           allergies = '$allergiesFromForm', schoolID = $schoolIDFromForm, guardianID = $parentGuardianIDFromForm 
+                           WHERE studentID = $studentID;";
+
+    $resultSetFromUpdateStudent = $database->query($updateStudentQuery);
+
+    if ($resultSetFromUpdateStudent == 1){
+
+        $msg = "<h2>Student $studentID has been successfully updated in STARS.</h2><br>";
+
+    } else {
+
+        $msg = "<h2>Sorry, student $studentID could not be updated to the database at this time</h2><br>";
+
+    }
 
 } else {
-
-//Get studentID from list page of students
-    $studentID = 3;
 
     $queryStudent = "SELECT * FROM student WHERE studentID = $studentID;";
 
@@ -149,9 +176,9 @@ if (isset($_POST["update"])) {
                     <div class="col-sm-6">
                         <label for="title">Grade</label>
                         <select name="grade">
-                            <option name="10">10</option>
-                            <option name="11">11</option>
-                            <option name="12">12</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
                         </select>
                     </div>
                     <div class="col-sm-6">
@@ -168,7 +195,7 @@ if (isset($_POST["update"])) {
                     </div>
                     <div class="col-sm-6">
                         <label for="title">Email Address</label>
-                        <input type="text" name="emailAddress" form-control"
+                        <input type="text" name="emailAddress" class="form-control"
                         value="<?php echo $emailAddress; ?>">
                     </div>
                 </div>
@@ -225,36 +252,13 @@ if (isset($_POST["update"])) {
                         </select>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <label for="selectSupportEducator">Support Educator</label>
-                        <select name="selectSupportEducator">
-                            <option value=NULL>None</option>
-                            <?php
-                            //Also needs work done
-                            $querySupportEducators = "SELECT supportEducatorID, supFName, supLName FROM supporteducator";
-                            $resultsSupportEducators = $database->query($querySupportEducators);
-                            if ($resultsSupportEducators->num_rows > 0) {
-                                while ($supportEducatorResultSet = $resultsSupportEducators->fetch_assoc()) {
-                                    ?>
-                                <option value="<?php echo $supportEducatorResultSet["supportEducatorID"] ?>">
-                                    <?php echo $supportEducatorResultSet["supFName"] . " "
-                                        . $supportEducatorResultSet["supLName"]; ?></option><?php
-                                }
-                            } else {
-                                echo "<option>There are no Support Educators registered in STARS</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="submit" name="update" value="Update Student">
-                    </div>
+                <div class="col-3">
+                    <!--            <input type="submit" id="btn" name="submitUpdateRecord" class="btn btn-info text-center" value="submitUpdateRecord">-->
+                    <button type="submit" id="updateStudent" name="updateStudent">Update Student</button>
                 </div>
             </form>
         </div>
     </div>
-
     <div class="bottom">
         <div id="footer">
             <ul id="footerMenu">
@@ -281,6 +285,11 @@ if (isset($_POST["update"])) {
     </html>
     <?php
 }
+
+if (isset($msg)) {
+    echo "<div class='alert alert-danger'>$msg</div>";
+}
+
 //Close db connection
 $database->close();
 ?>
