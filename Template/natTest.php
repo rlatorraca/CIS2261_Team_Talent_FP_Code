@@ -9,7 +9,6 @@
 
     include("button.class.php");
     $confirm = new Button();
-    $confirm1 = new Button();
 ?>
 
 <!doctype html>
@@ -88,15 +87,7 @@
                     $confirm->buttonName = "Submit";
                     $confirm->buttonValue = "Confirm";
                     $confirm->buttonStyle = "font-family:sans-serif";
-                    $confirm->buttonWeb = 'location.href="http://www.cheese.com"';
-                    $confirm->display();
-
-
-
-                    $confirm1->buttonName = "Submit";
-                    $confirm1->buttonValue = "Confirm";
-                    $confirm1->buttonStyle = "font-family:sans-serif";
-                    $confirm1->display(); ?>
+                    $confirm->display(); ?>
 
                 <br>
 
@@ -115,27 +106,7 @@
             </div>
         </div>
 
-        <div class="bottom">
-            <div id="footer">
-                <ul id="footerMenu">
-                    <li class="titleNav">List One
-                        <ul class="dropupMenu">
-                            <li><a>List 1:1</a></li>
-                            <li><a>List 1:2</a></li>
-                            <li><a>List 1:3</a></li>
-                            <li><a>List 1:4</a></li>
-                        </ul>
-                    </li>
-                    <li class="titleNav">List Two
-                        <ul class="dropupMenu">
-                            <li><a>List 2:1</a></li>
-                            <li><a>List 2:2</a></li>
-                            <li><a>List 2:3</a></li>
-                            <li><a>List 2:4</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <?php include("navMenu.php"); ?>
+
     </body>
 </html>

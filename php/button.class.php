@@ -13,7 +13,7 @@ class Button
     private $buttonName;
     private $buttonValue;
     private $buttonStyle;
-    private $buttonID;
+    private $buttonWeb;
 
     // Constructor with empty values.
     function __construct()
@@ -21,6 +21,7 @@ class Button
         $this->buttonName = "";
         $this->buttonValue = "";
         $this->buttonStyle = "";
+        $this->buttonWeb = "";
     }
 
     // Magic setter method for setting each of the above mentioned attributes.
@@ -38,7 +39,7 @@ class Button
     // Displaye function when calling a button to appear.
     function display()
     {
-        echo "<input type='submit' class='button button2' value='" . $this->buttonValue . "' style='" . $this->buttonStyle . "' name='" . $this->buttonName . "' id= '" .  $this->buttonID . "'  />";
+        echo "<input type='submit' onclick='". $this->buttonWeb. "' class='button button2' value='" . $this->buttonValue . "' style='" . $this->buttonStyle . "' name='" . $this->buttonName . "' />";
     }
 
 }
