@@ -38,8 +38,6 @@
         function goBack() {
             window.history.back();
         }
-    </script>
-    <script>
         // This function shows the date picker.
         $( function() {
             $( "#datepicker" ).datepicker();

@@ -60,24 +60,24 @@
                     <!--Search form items-->
                     <form action="searchResults.php" method="get">
                         <fieldset class="border p-2">
-                            <legend class="w-auto">Student Search</legend>
-                            <div class="form-row">
-                                <div class="col-3">
+                            <h2>Student Search</h2>
+                            <div class="row">
+                                <div class="col-sm-6">
                                     <label for="firstName">First Name</label>
                                     <input type="text" class="form-control" id="firstName" name="firstName"><br>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-sm-6">
                                     <label for="lastName">Last Name</label>
                                     <input type="text" class="form-control" id="lastName" name="lastName"><br>
                                 </div>
-                                <div class="col-3">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
                                     <label for="studentID">StudentID</label>
                                     <input type="text" class="form-control" id="studentID" name="studentID"><br>
                                 </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="col-2">
+                                <div class="col-sm-6">
                                     <label for="resultsReturned">Results Returned</label>
                                     <select type="text" class="form-control year" id="resultsReturned" name="resultsReturned">
                                         <option value = "2">2</option>
@@ -87,7 +87,9 @@
                                         <option value = "9999999999999999999999999999999">All</option>
                                     </select>
                                 </div>
-                                <div class="col-2">
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
                                     <label for="orderBy">Order By</label>
                                     <select type="text" class="form-control year" id="orderBy" name="orderBy">
                                         <option value = "studentID">Student ID</option>
@@ -96,10 +98,7 @@
 
                                     </select><br>
                                 </div>
-
-                            </div>
-                            <div class="form-row">
-                                <div class="col">
+                                <div class="col-sm-6">
                                     <label for="sort">Sort</label>
                                     <select type="text" class="form-control year" id="sort" name="sort">
                                         <option value = "ASC" selected>Ascending</option>

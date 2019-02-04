@@ -44,7 +44,7 @@
             }
         </script>
 
-        <title>Add Student</title>
+        <title>STARS - Add Student</title>
     </head>
     <body>
         <div>

@@ -42,79 +42,136 @@ if (isset($_POST["update"])) {
 
     ?>
     <!doctype html>
-    <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport"
-                  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-            <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <title>Edit Student</title>
+            <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport"
+                          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+                    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+                    <!-- Fonts !-->
+                    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
+
+                    <!--Link to custom style sheet-->
+                    <link href="../../css/stars.css" rel="stylesheet">
+
+                    <!-- JQuery Links !-->
+                    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+                    <link rel="stylesheet" href="/resources/demos/style.css">
+                    <!-- JQuery Calendar Date Picker !-->
+                    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+                    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+                    <!-- Here is where we call bootstrap. !-->
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                            crossorigin="anonymous"></script>
+
+                    <!--function to go back to your incomplete form without losing previously filled fields-->
+                    <script>
+                        function goBack() {
+                            window.history.back();
+                        }
+
+                        // This function shows the date picker.
+                        $(function () {
+                            $("#datepicker").datepicker();
+                        });
+
+                        // This function shows the note.
+                        // Will need to add a variable to get the notes to then call.
+                        $(function () {
+                            $(document).tooltip();
+                        });
+
+                        // This function manages the drop downs on the main menu.
+                        $(function () {
+                            $("#menu").menu();
+                        });
+                    </script>
+                    <title>STARS - Edit Student</title>
         </head>
         <body>
-            <p>**Please ensure all fields are filled before editing a Student's details.</p>
+            <div class="header">
+                <img src="../../img/StarsWhiteFIN.jpg">
+            </div>
+            <div class="jumbotron-fluid">
+                <div class="container-fluid">
+
             <form action="editStudent.php" method="post">
-                <fieldset>
-                    <legend>Student Details</legend>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="isbn" class="col-md-6">Student ID</label>
-                        <input type="text" name="studentID" class="col-md-6 form-control" value="7">
+                    <h2>Student Details</h2>
+                    <p>**Please ensure all fields are filled before editing a Student's details.</p>
+                    <div class = "row">
+                    <div class="col-sm-6">
+                        <label for="isbn">Student ID</label>
+                        <input type="text" name="studentID" class="form-control" value="7">
                     </div>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="author" class="col-md-6">First Name</label>
-                        <input type="text" name="firstName" class="col-md-6 form-control"
+                    <div class="col-sm-6">
+                        <label for="author">First Name</label>
+                        <input type="text" name="firstName" class="form-control"
                                value="<?php echo $firstName; ?>">
                     </div>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="title" class="col-md-6">Middle Name</label>
-                        <input type="text" name="middleName" class="col-md-6 form-control"
+                    </div>
+                <div class = "row">
+                    <div class="col-sm-6">
+                        <label for="title">Middle Name</label>
+                        <input type="text" name="middleName" class="form-control"
                                value="<?php echo $middleName; ?>">
                     </div>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="title" class="col-md-6">Last Name</label>
-                        <input type="text" name="lastName" class="col-md-6 form-control"
+                    <div class="col-sm-6">
+                        <label for="title">Last Name</label>
+                        <input type="text" name="lastName" class="form-control"
                                value="<?php echo $lastName; ?>">
                     </div>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="title" class="col-md-6">Gender</label>
-                        <input type="text" name="gender" class="col-md-6 form-control"
+                </div>
+                <div class = "row">
+                    <div class="col-sm-6">
+                        <label for="title">Gender</label>
+                        <input type="text" name="gender" class="form-control"
                                value="<?php echo $gender; ?>">
                     </div>
                     <!-- Add proper date picker to allow for a date in proper format to be selected-->
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="title" class="col-md-6">Date of Birth</label>
-                        <input type="text" name="dob" class="col-md-6 form-control"
+                    <div class="col-sm-6">
+                        <label for="title">Date of Birth</label>
+                        <input type="text" name="dob" class="form-control"
                                value="<?php echo $dob; ?>">
                     </div>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="title" class="col-md-6">Grade</label>
+                </div>
+                <div class = "row">
+                    <div class="col-sm-6">
+                        <label for="title">Grade</label>
                         <select name="grade">
                             <option name="10">10</option>
                             <option name="11">11</option>
                             <option name="12">12</option>
                         </select>
                     </div>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="title" class="col-md-6">Address</label>
-                        <input type="text" name="address" class="col-md-6 form-control"
+                    <div class="col-sm-6">
+                        <label for="title">Address</label>
+                        <input type="text" name="address" class="form-control"
                                value="<?php echo $address; ?>">
                     </div>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="title" class="col-md-6">Phone Number</label>
-                        <input type="text" name="phoneNum" class="col-md-6 form-control"
+                </div>
+                <div class = "row">
+                    <div class="col-sm-6">
+                        <label for="title">Phone Number</label>
+                        <input type="text" name="phoneNum" class="form-control"
                                value="<?php echo $phoneNumber; ?>">
                     </div>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="title" class="col-md-6">Email Address</label>
-                        <input type="text" name="emailAddress" class="col-md-6 form-control"
+                    <div class="col-sm-6">
+                        <label for="title">Email Address</label>
+                        <input type="text" name="emailAddress" form-control"
                                value="<?php echo $emailAddress; ?>">
                     </div>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="title" class="col-md-6">Allergies</label>
-                        <input type="text" name="allergies" class="col-md-6 form-control"
+                </div>
+                <div class = "row">
+                    <div class="col-sm-6">
+                        <label for="title" >Allergies</label>
+                        <input type="text" name="allergies" class="form-control"
                                value="<?php echo $allergies; ?>">
                     </div>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="title" class="col-md-6">School</label>
+                    <div class="col-sm-6">
+                        <label for="title" >School</label>
                         <select name="selectSchool">
                             <?php
                             //Needs work done
@@ -132,8 +189,10 @@ if (isset($_POST["update"])) {
                             ?>
                         </select>
                     </div>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="title" class="col-md-6">Parent/Guardian</label>
+                </div>
+                <div class = "row">
+                    <div class="col-sm-6">
+                        <label for="title">Parent/Guardian</label>
                         <select name="selectParentGuardian">
                             <?php
                             //Currently working on this here (to also handle if the student has no parent/guardian listed)
@@ -152,14 +211,16 @@ if (isset($_POST["update"])) {
                             ?>
                         </select>
                     </div>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="title" class="col-md-6">Username</label>
-                        <input type="text" name="username" class="col-md-6 form-control value="
+                    <div class="col-sm-6">
+                        <label for="title">Username</label>
+                        <input type="text" name="username" class="form-control"
                                value="<?php echo $_SESSION['username'] ?>" readonly>
 
                     </div>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="title" class="col-md-6">Support Educator</label>
+                </div>
+                <div class = "row">
+                    <div class="col-sm-6">
+                        <label for="title">Support Educator</label>
                         <select name="selectSupportEducator">
                             <option value=NULL>None</option>
                             <?php
@@ -179,11 +240,36 @@ if (isset($_POST["update"])) {
                             ?>
                         </select>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-sm-6">
                         <input type="submit" name="update" value="Update Student">
                     </div>
-                </fieldset>
+                </div>
             </form>
+                </div>
+            </div>
+
+            <div class="bottom">
+                <div id="footer">
+                    <ul id="footerMenu">
+                        <li class="titleNav">List One
+                            <ul class="dropupMenu">
+                                <li><a>List 1:1</a></li>
+                                <li><a>List 1:2</a></li>
+                                <li><a>List 1:3</a></li>
+                                <li><a>List 1:4</a></li>
+                            </ul>
+                        </li>
+                        <li class="titleNav">List Two
+                            <ul class="dropupMenu">
+                                <li><a>List 2:1</a></li>
+                                <li><a>List 2:2</a></li>
+                                <li><a>List 2:3</a></li>
+                                <li><a>List 2:4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </body>
     </html>
 <?php
