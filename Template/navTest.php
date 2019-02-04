@@ -105,8 +105,11 @@
 
             </div>
         </div>
-
-    <?php include("navMenu.php"); ?>
+        <div class="bottom">
+            <div id="footer">
+                <?php include("navMenu.php"); ?>
+            </div>
+        </div>
 
     </body>
 </html>

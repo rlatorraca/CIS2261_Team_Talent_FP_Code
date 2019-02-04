@@ -18,6 +18,9 @@
 <!--  Create a new connection object using mysqli-->
 <?php
 
+//Lock down page
+include "../login/checkLoggedIn.php";
+
 //Necessary Db connection
 include "../db/dbConn.php";
 
@@ -83,7 +86,8 @@ $resultYear = $database->query($queryYear);
                 <?php if ($resultYear->num_rows > 0) {
                     while ($row = $resultYear->fetch_assoc()) {
                         ?>
-                        <option value="<?php echo $row["schoolYear"]; ?>"><?php echo $row["schoolYear"]; ?></option><?php
+                        <option
+                        value="<?php echo $row["schoolYear"]; ?>"><?php echo $row["schoolYear"]; ?></option><?php
                     }
                 } else {
                     echo "<option>Unavailable</option>";
@@ -100,7 +104,8 @@ $resultYear = $database->query($queryYear);
                 if ($resultYear->num_rows > 0) {
                     while ($row = $resultYear->fetch_assoc()) {
                         ?>
-                        <option value="<?php echo $row["schoolYear"]; ?>"><?php echo $row["schoolYear"]; ?></option><?php
+                        <option
+                        value="<?php echo $row["schoolYear"]; ?>"><?php echo $row["schoolYear"]; ?></option><?php
                     }
                 } else {
                     echo "<option>Unavailable</option>";

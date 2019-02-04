@@ -6,6 +6,10 @@
  * Time: 2:07 PM
  */
 
+//Lock down page
+include "../login/checkLoggedIn.php";
+
+//Make connection to database
 include '../db/dbConn.php';
 
 //create the query to get subjects.
@@ -27,7 +31,8 @@ $resultYear = $database->query($queryYear);
                     <?php if ($resultSubject->num_rows > 0) {
                         while ($row = $resultSubject->fetch_assoc()) {
                             ?>
-                            <option value="<?php echo $row["subjectCode"]; ?>"><?php echo $row["subjectName"]; ?></option><?php
+                            <option
+                            value="<?php echo $row["subjectCode"]; ?>"><?php echo $row["subjectName"]; ?></option><?php
                         }
                     } else {
                         echo "<option>No Subjects registered in STARS</option>";

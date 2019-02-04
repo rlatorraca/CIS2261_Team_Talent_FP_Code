@@ -5,9 +5,14 @@
  * Date: 1/22/2019
  * Time: 5:37 PM
  */
+
+//Lock down page
+include "../login/checkLoggedIn.php";
+
+//Database connection
+include "../db/dbConn.php";
+
 ?>
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,7 +26,9 @@
     <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
     <!-- Here is where we call bootstrap. !-->
     <title>STARS - Add User</title>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -38,28 +45,26 @@
         function goBack() {
             window.history.back();
         }
+
         // This function shows the date picker.
-        $( function() {
-            $( "#datepicker" ).datepicker();
-        } );
+        $(function () {
+            $("#datepicker").datepicker();
+        });
 
         // This function shows the note.
         // Will need to add a variable to get the notes to then call.
-        $( function() {
-            $( document ).tooltip();
-        } );
+        $(function () {
+            $(document).tooltip();
+        });
 
         // This function manages the drop downs on the main menu.
-        $( function() {
-            $( "#menu" ).menu();
-        } );
+        $(function () {
+            $("#menu").menu();
+        });
     </script>
 </head>
 <body>
 <div><?php
-session_start();
-
-        include "../db/dbConn.php";
 
     //To trigger when user submits request to add new User
     if (isset($_POST["add"])) {
@@ -75,12 +80,12 @@ session_start();
         //Sanitize user inputs to prepare for database insert query.
         //$userID = $database->real_escape_string($_POST["userID"]);
         $username = $database->real_escape_string($_POST["username"]);
-		$password = (md5($database->real_escape_string($_POST["password"])));
+        $password = (md5($database->real_escape_string($_POST["password"])));
         $accessCode = $database->real_escape_string($_POST["accessCode"]);
 
         $_SESSION['username'] = $username;
 
-		//Create initial SQL query to insert form data into database
+        //Create initial SQL query to insert form data into database
         $query = "INSERT INTO user(username, password, accessCode) VALUES ('$username', '$password', '$accessCode');";
 
         //Execute query and store result.
@@ -113,77 +118,77 @@ session_start();
     <div class="jumbotron-fluid">
         <div class="container-fluid">
 
-    <p>*Please ensure all fields are completed before adding a new User.</p>
-    <form action="addUser.php" method="POST">
-        <fieldset>
-            <h2>User Details</h2>
-<!--            <div class="col-md-12 form-inline customDiv">-->
-<!--                <label for="isbn" class="col-md-6">User ID</label>-->
-<!--                <input type="text" name="userID" class="col-md-6 form-control">-->
-<!--            </div>-->
-<!--            <br>-->
-            <br>
-            <div class="col-md-12 form-inline customDiv">
-                <label for="author" class="col-md-6">Username</label>
-                <input type="text" name="username" class="col-md-6 form-control">
-            </div>
-            <br>
-            <br>
-            <div class="col-md-12 form-inline customDiv">
-                <label for="title" class="col-md-6">Password</label>
-                <input type="text" name="password" class="col-md-6 form-control">
-            </div>
-            <br>
-            <br>
-            <div class="col-md-12 form-inline customDiv">
-                <label for="price" class="col-md-6">Access Code</label>
-                <select name="accessCode" class="form-control">
-                    <option value="1">1: System Administrator</option>
-                    <option value="2">2: Administrator</option>
-                    <option value="3">3: Educator</option>
-                    <option value="4">4: Support Educator</option>
-                    <option value="5">5: Student</option>
-                    <option value="6">6: Parent/Guardian</option>
-                </select>
-            </div>
-            <br>
-            <br>
-            <div class="col-md-12">
-                <?php
+            <form action="addUser.php" method="POST">
+                <fieldset>
+                    <h2>User Details</h2>
+                    <p>*Please ensure all fields are completed before adding a new User.</p>
+                    <!--            <div class="col-md-12 form-inline customDiv">-->
+                    <!--                <label for="isbn" class="col-md-6">User ID</label>-->
+                    <!--                <input type="text" name="userID" class="col-md-6 form-control">-->
+                    <!--            </div>-->
+                    <!--            <br>-->
+                    <br>
+                    <div class="col-md-12 form-inline customDiv">
+                        <label for="author" class="col-md-6">Username</label>
+                        <input type="text" name="username" class="col-md-6 form-control">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-md-12 form-inline customDiv">
+                        <label for="title" class="col-md-6">Password</label>
+                        <input type="text" name="password" class="col-md-6 form-control">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-md-12 form-inline customDiv">
+                        <label for="price" class="col-md-6">Access Code</label>
+                        <select name="accessCode" class="form-control">
+                            <option value="1">1: System Administrator</option>
+                            <option value="2">2: Administrator</option>
+                            <option value="3">3: Educator</option>
+                            <option value="4">4: Support Educator</option>
+                            <option value="5">5: Student</option>
+                            <option value="6">6: Parent/Guardian</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-md-12">
+                        <?php
 
-                include("../button.class.php");
-                $confirm = new Button();
+                        include("../button.class.php");
+                        $confirm = new Button();
 
-                $confirm->buttonName = "add";
-                $confirm->buttonID = "addID";
-                $confirm->buttonValue = "Add User";
-                $confirm->buttonStyle = "font-family:sans-serif";
-                $confirm->display(); ?>
-            </div>
-        </fieldset>
-    </form>
-<!--    <form action="../../index.php" method="post">-->
-        <fieldset>
-            <div class="col-md-12">
-                <?php
+                        $confirm->buttonName = "add";
+                        $confirm->buttonID = "addID";
+                        $confirm->buttonValue = "Add User";
+                        $confirm->buttonStyle = "font-family:sans-serif";
+                        $confirm->display(); ?>
+                    </div>
+                </fieldset>
+            </form>
+            <!--    <form action="../../index.php" method="post">-->
+            <fieldset>
+                <div class="col-md-12">
+                    <?php
                     $return = new Button();
 
-                $return->buttonName = "customBtn";
-                $return->buttonName = "custom";
-                $return->buttonValue = "Return Home";
-                $return->buttonStyle = "font-family:sans-serif";
-                $return->buttonWeb = 'location.href="../../index.php"';
-                $return->display();
-                ?>
-<!--                <button id="customBtn">Return Home</button>-->
-            </div>
-        </fieldset>
-<!--    </form>-->
-</div>
+                    $return->buttonName = "customBtn";
+                    $return->buttonName = "custom";
+                    $return->buttonValue = "Return Home";
+                    $return->buttonStyle = "font-family:sans-serif";
+                    $return->buttonWeb = 'location.href="../../index.php"';
+                    $return->display();
+                    ?>
+                    <!--                <button id="customBtn">Return Home</button>-->
+                </div>
+            </fieldset>
+            <!--    </form>-->
+        </div>
     </div>
 </div>
 
-<div class = "bottom">
+<div class="bottom">
     <div id="footer">
         <ul id="footerMenu">
             <?php
