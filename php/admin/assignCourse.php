@@ -77,6 +77,12 @@ include "../db/dbConn.php";
             <legend>Student Details</legend>
             <div class="col-md-12 form-inline customDiv">
                 <label for="subject" class="col-md-6">Subject</label>
+                <select name="subject">
+                    <?php
+
+                    ?>
+                    <option></option>
+                </select>
                 <input type="text" name="subject" class="col-md-6 form-control">
             </div>
             <div class="col-md-12 form-inline customDiv">

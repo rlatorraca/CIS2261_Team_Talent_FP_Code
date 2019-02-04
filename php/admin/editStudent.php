@@ -7,10 +7,9 @@
  */
 
 //Lock down page
-include "";
+include "../login/checkLoggedIn.php";
 
-//Using session to start to begin using sessions
-session_start();
+//Database connection
 include "../db/dbConn.php";
 
 if (isset($_POST["updateStudent"])) {
