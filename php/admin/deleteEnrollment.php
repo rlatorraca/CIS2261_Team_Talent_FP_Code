@@ -30,18 +30,18 @@ include "../db/dbConn.php";
 
 $studentID = $_GET["studentID"];
 $classID = $_GET["classID"];
-$courseID = $_GET["courseID"];
-$schoolYear = $_GET["schoolYear"];
-$semesterNum = $_GET["semesterNum"];
 
-$deleteStudentEnrollment = "DELETE enrollmentID, mark, attendance, notes, enrollment.classID, enrollment.schoolYear, 
-                            enrollment.semesterNum, enrollment.studentID
-                            FROM enrollment, student, courseoffering, course, semester 
-                            WHERE student.studentID = $studentID AND enrollment.studentID = student.studentID
-                            AND courseoffering.classID = $classID AND enrollment.classID = courseoffering.classID
-                            AND course.courseID = $courseID AND courseoffering.courseID = course.courseID
-                            AND semester.schoolYear = $schoolYear AND enrollment.schoolYear = semester.schoolYear
-                            AND semester.semesterNum = $semesterNum AND enrollment.semesterNum = semester.semesterNum";
+$deleteStudentEnrollment = "DELETE FROM enrollment 
+                            WHERE enrollment.studentID = $studentID 
+                            AND enrollment.classID = $classID;";
+
+$deleteQueryForStudentEnrollment = $database->query($deleteStudentEnrollment);
+
+if ($deleteQueryForStudentEnrollment == 1) {
+
+    echo "Student enrollment record has been successfully removed from the database.";
+
+}
 
 ?>
 </body>

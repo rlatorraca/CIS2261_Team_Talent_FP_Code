@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d665968c-2a54-4ef4-a752-38485972bd29" name="Default Changelist" comment="Added files and started forms">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/assignCourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/assignCourse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/editStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/editStudent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/deleteEnrollment.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/deleteEnrollment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/searchCourseResults.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/searchCourseResults.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/searchCourses.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/searchCourses.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -41,32 +41,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/php/admin/assignCourse.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/searchCourses.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1377">
-              <caret line="81" selection-start-line="81" selection-end-line="81" />
+            <state relative-caret-position="-36">
+              <caret line="80" column="73" lean-forward="true" selection-start-line="80" selection-start-column="73" selection-end-line="80" selection-end-column="73" />
               <folding>
-                <element signature="e#6#100#0#PHP" expanded="true" />
+                <element signature="e#10#167#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/reporting/getStudentEnterMark.php">
+        <entry file="file://$PROJECT_DIR$/php/admin/searchCourseResults.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="403">
+              <caret line="109" column="21" lean-forward="true" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="21" />
+              <folding>
+                <element signature="e#10#113#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/reporting/enterMark.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/admin/deleteEnrollment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-527">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="369">
+              <caret line="35" column="64" lean-forward="true" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -109,7 +112,6 @@
         <option value="$PROJECT_DIR$/Template/mockup.php" />
         <option value="$PROJECT_DIR$/php/admin/search.php" />
         <option value="$PROJECT_DIR$/php/admin/editUser.php" />
-        <option value="$PROJECT_DIR$/php/admin/deleteEnrollment.php" />
         <option value="$PROJECT_DIR$/php/login/checkLoggedIn.php" />
         <option value="$PROJECT_DIR$/php/admin/addUser.php" />
         <option value="$PROJECT_DIR$/php/login/login.php" />
@@ -126,9 +128,11 @@
         <option value="$PROJECT_DIR$/php/reporting/displayReportCard.php" />
         <option value="$PROJECT_DIR$/php/admin/searchStudent.php" />
         <option value="$PROJECT_DIR$/php/admin/searchResults.php" />
-        <option value="$PROJECT_DIR$/php/admin/searchCourses.php" />
         <option value="$PROJECT_DIR$/php/admin/editStudent.php" />
         <option value="$PROJECT_DIR$/php/admin/assignCourse.php" />
+        <option value="$PROJECT_DIR$/php/admin/searchCourses.php" />
+        <option value="$PROJECT_DIR$/php/admin/searchCourseResults.php" />
+        <option value="$PROJECT_DIR$/php/admin/deleteEnrollment.php" />
       </list>
     </option>
   </component>
@@ -281,7 +285,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132141000" />
+    <option name="totallyTimeSpent" value="137139000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -353,7 +357,6 @@
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8b3d36c4-8bf0-443d-bcc4-18c6902d40c7/console.sql" />
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/core-scripting.rnc" />
     <entry file="file://$PROJECT_DIR$/php/admin/editParentGuardian.php">
       <provider selected="true" editor-type-id="text-editor" />
@@ -445,16 +448,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/search.php" />
-    <entry file="file://$PROJECT_DIR$/php/admin/deleteEnrollment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#6#96#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/login/setCookie.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -515,13 +508,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/reporting/requestStudentSubHistory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/reporting/requestSchoolSubAvg.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -573,16 +559,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/searchCourses.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-end-line="135" selection-end-column="7" />
-          <folding>
-            <element signature="e#10#167#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/editStudent.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -600,6 +576,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/php/reporting/ajax.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/assignCourse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-19">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+          <folding>
+            <element signature="e#6#100#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/php/reporting/getStudentEnterMark.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -614,16 +603,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/reporting/ajax.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/assignCourse.php">
+    <entry file="file://$PROJECT_DIR$/php/reporting/requestStudentSubHistory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        <state relative-caret-position="187">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/searchCourses.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="80" column="73" lean-forward="true" selection-start-line="80" selection-start-column="73" selection-end-line="80" selection-end-column="73" />
           <folding>
-            <element signature="e#6#100#0#PHP" expanded="true" />
+            <element signature="e#10#167#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/searchCourseResults.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="109" column="21" lean-forward="true" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="21" />
+          <folding>
+            <element signature="e#10#113#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/deleteEnrollment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="35" column="64" lean-forward="true" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
         </state>
       </provider>
     </entry>
