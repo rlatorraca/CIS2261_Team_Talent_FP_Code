@@ -22,7 +22,7 @@
     if (isset($_POST["register"])) {
 
         //If details are empty, display a message and give redirect links. Otherwise, proceed.
-        if ($_POST["subject"] == "" || $_POST["schoolYear"] == "" || $_POST["semesterNum"] == "" || $_POST["classID"] == "" || $_POST["studentID"] == "") {
+        if ($_POST["subject"] == "" || $_POST["schoolYear"] == "" || $_POST["semesterNum"] == "" || $_POST["course"] == "" || $_POST["student"] == "") {
             echo "<h2>Error. Form fields must not be empty before registering new student in a course.</h2><br>";
             echo "<form action='addStudent.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
             echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
@@ -36,7 +36,7 @@
             echo "<form action='addStudent.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
             exit("</div></body></html>");
         }
-
+        //*******will need to pull the classID and StudentID somewhere
         //Sanitize user inputs to prepare for database insert query.
         $subject = $database->real_escape_string($_POST["subject"]);
         $schoolYear = $database->real_escape_string($_POST["schoolYear"]);
@@ -55,46 +55,47 @@
         if ($result) {
 
             echo "<h2>Student has been successfully register in the course.</h2><br>";
-            echo "<form action='addBook.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Add Another Book</button></div></fieldset></form>";
+            echo "<form action='assignCourse.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Assign another student</button></div></fieldset></form>";
             echo "<form action='../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
 
         } else {
 
             echo "<h2>Sorry, student could not be registered in this course at this time.</h2><br>";
-            echo "<form action='addBook.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
+            echo "<form action='assignCourse.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
             echo "<form action='../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
-
         }
 
         //Close database connection
         $database->close();
 
     } else {
-
+//********************this section needs to be drop downs
     ?>
     <p>**Please ensure all fields are filled before registering a new Student.</p>
     <form action="assignCourse.php" method="post">
         <fieldset>
             <legend>Student Details</legend>
             <div class="col-md-12 form-inline customDiv">
-                <label for="isbn" class="col-md-6">Subject</label>
+                <label for="subject" class="col-md-6">Subject</label>
                 <input type="text" name="subject" class="col-md-6 form-control">
             </div>
             <div class="col-md-12 form-inline customDiv">
-                <label for="author" class="col-md-6">School Year</label>
+                <label for="schoolYear" class="col-md-6">School Year</label>
                 <input type="text" name="schoolYear" class="col-md-6 form-control">
             </div>
             <div class="col-md-12 form-inline customDiv">
-                <label for="title" class="col-md-6">Semester</label>
+                <label for="semesterNum" class="col-md-6">Semester</label>
                 <input type="text" name="semesterNum" class="col-md-6 form-control">
             </div>
+<!--********************this section needs to use classID as hidden feild?-->
             <div class="col-md-12 form-inline customDiv">
-                <label for="title" class="col-md-6">Class ID</label>
-                <input type="text" name="classID" class="col-md-6 form-control">
+                <label for="course" class="col-md-6">Course</label>
+                <input type="text" name="course" class="col-md-6 form-control">
             </div>
+           <!--********************this section needs to display first & last name but student ID needed for SQL update?-->
             <div class="col-md-12 form-inline customDiv">
-                <label for="title" class="col-md-6">Student ID</label>
-                <input type="text" name="studentID" class="col-md-6 form-control">
+                <label for="student" class="col-md-6">Student</label>
+                <input type="text" name="student" class="col-md-6 form-control">
             </div>
             <div class="col-md-12">
                 <input type="submit" name="register" value="Register Student in Course">
