@@ -73,7 +73,7 @@ session_start();
         }
 
         //Sanitize user inputs to prepare for database insert query.
-        $userID = $database->real_escape_string($_POST["userID"]);
+        //$userID = $database->real_escape_string($_POST["userID"]);
         $username = $database->real_escape_string($_POST["username"]);
 		$password = (md5($database->real_escape_string($_POST["password"])));
         $accessCode = $database->real_escape_string($_POST["accessCode"]);
@@ -81,7 +81,7 @@ session_start();
         $_SESSION['username'] = $username;
 
 		//Create initial SQL query to insert form data into database
-        $query = "INSERT INTO user(userID, username, password, accessCode) VALUES ('$userID', '$username', '$password', '$accessCode');";
+        $query = "INSERT INTO user(username, password, accessCode) VALUES ('$username', '$password', '$accessCode');";
 
         //Execute query and store result.
         $result = $database->query($query);
