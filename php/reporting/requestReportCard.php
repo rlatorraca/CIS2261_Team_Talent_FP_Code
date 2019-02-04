@@ -148,7 +148,7 @@
             $request->buttonName = "viewReportCard";
             $request->buttonID = "viewReportCard";
             $request->buttonValue = "View Report Card";
-            $requestn->buttonStyle = "font-family:sans-serif";
+            $request->buttonStyle = "font-family:sans-serif";
             $request->display(); ?>
         </div>
         </form>

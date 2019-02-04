@@ -1,20 +1,20 @@
 <?php
-    /**
-     * Created by PhpStorm.
-     * User: sahra
-     * Date: 2019-01-27
-     * Time: 9:00 PM
-     */
+/**
+ * Created by PhpStorm.
+ * User: sahra
+ * Date: 2019-01-27
+ * Time: 9:00 PM
+ */
 
-    include "../db/dbConn.php";
+include "../db/dbConn.php";
 
-    //Selected info from request page
-    $student = $_POST["students"];
-    $subject = $_POST["subjects"];
-    $yearStart = $_POST["yearStart"];
-    $yearEnd = $_POST["yearEnd"];
+//Selected info from request page
+$student = $_POST["students"];
+$subject = $_POST["subjects"];
+$yearStart = $_POST["yearStart"];
+$yearEnd = $_POST["yearEnd"];
 
-    $queryStudentHistory = "SELECT student.studentID, student.firstName, student.lastName, course.courseName, 
+$queryStudentHistory = "SELECT student.studentID, student.firstName, student.lastName, course.courseName, 
           subject.subjectCode, subject.subjectName, enrollment.mark, enrollment.schoolYear, enrollment.semesterNum 
           FROM student, enrollment, course, courseoffering, subject 
           WHERE student.studentID = $student 
@@ -25,23 +25,22 @@
           AND subject.subjectCode = '$subject'
           AND course.subjectCode = subject.subjectCode";
 
-    $resultSubHistory = $database->query($queryStudentHistory);
-    $resultSubName = $database->query($queryStudentHistory);
+$resultSubHistory = $database->query($queryStudentHistory);
+$resultSubName = $database->query($queryStudentHistory);
 
-    //Display results or message
-    if ($row = $resultSubName->fetch_assoc()) {
-        ?><h2><?php echo $row["firstName"] . " " . $row["lastName"] . "'s History for " . $row["subjectName"]; ?></h2>
-        <?php
-    } else {
-        echo "<p>Empty</p>";
-    }
+//Display results or message
+if ($row = $resultSubName->fetch_assoc()) {
+    ?><h2><?php echo $row["firstName"] . " " . $row["lastName"] . "'s History for " . $row["subjectName"]; ?></h2>
+    <?php
+} else {
+    echo "<p>Empty</p>";
+}
 
+//$resultSubHistory>data_seek(0); // Resets the pointer back to the beginning.
+//Check/validate if there are items in the database object
+if ($resultSubHistory->num_rows > 0) {
 
-    //$resultSubHistory>data_seek(0); // Resets the pointer back to the beginning.
-    //Check/validate if there are items in the database object
-    if ($resultSubHistory->num_rows > 0) {
-
-    //Display results to a table
+//Display results to a table
 ?>
 <table class="table table-striped">
     <thead>
@@ -53,7 +52,7 @@
         </tr>
     </thead>
     <tbody>
-    <?php
+        <?php
         while ($row = $resultSubHistory->fetch_assoc()) {
             ?>
             <tr>
@@ -65,10 +64,10 @@
             <?php
         }
         } else {
+            ?>
+            <h2><?php echo "Subject History" ?></h2><?php
+            echo "<option>Sorry, there are no marks in STARS to view in the selected subject.</option>";
+        }
         ?>
-        <h2><?php echo "Subject History" ?></h2><?php
-        echo "<option>Sorry, there are no marks in STARS to view in the selected subject.</option>";
-    }
-    ?>
     </tbody>
 </table>
