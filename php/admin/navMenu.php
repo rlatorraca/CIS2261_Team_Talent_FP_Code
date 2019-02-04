@@ -12,7 +12,7 @@
 <?php
 
 
-$accessCode = 1;
+$accessCode = 2;
 
 switch ($accessCode) {
 

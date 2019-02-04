@@ -109,8 +109,7 @@
                         </div>
                         <!--Search button-->
                         <div class="row">
-                            <div class="col-md-10"></div>
-                            <div class="col-md-2">
+                            <div class="col-md-12">
                                 <?php
                                     $confirm = new Button();
 

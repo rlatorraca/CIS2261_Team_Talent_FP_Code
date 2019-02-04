@@ -124,7 +124,8 @@ h2 {
 #footerMenu li:hover {
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.3);
-    height: 9px;
+    height: inherit;
+    padding-bottom: 9px;
 }
 
 #footerMenu li ul.dropupMenu {
@@ -174,11 +175,11 @@ h2 {
 /* Referenceed from here: https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_hover*/
 /* The button styling below is for the yellow form button found throughout the site. */
 .button {
-
+    float: right;
     border-radius: 8px;
     border: none;
     color: white;
-    padding: 12px 22px;
+    padding: 7px 35px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
