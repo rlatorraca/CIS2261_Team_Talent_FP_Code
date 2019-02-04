@@ -51,8 +51,8 @@ if ($resultIEP->num_rows > 0) {
             <td>Reason for IEP</td>
             <td>Date Issued</td>
             <td>Comments</td>
-            <td>Student Name</td>
             <td>Support Educator Name</td>
+            <td>Student Name</td>
         </tr>
         </thead>
     <?php

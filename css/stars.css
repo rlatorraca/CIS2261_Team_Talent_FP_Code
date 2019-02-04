@@ -51,6 +51,15 @@ html, body {
     border-bottom: 10px solid #1D2731; ;
 }
 
+.home{
+ column-count: 2;
+}
+
+.homeTitle {
+    text-align:  center;
+    column-span: all;
+    }
+
 label {
     font-family: Helvetica;
     color: #1D2731;
