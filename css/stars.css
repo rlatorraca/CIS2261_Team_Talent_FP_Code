@@ -124,7 +124,7 @@ h2 {
 #footerMenu li:hover {
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.3);
-    height: inherit;
+    height: 9px;
 }
 
 #footerMenu li ul.dropupMenu {

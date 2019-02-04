@@ -12,7 +12,7 @@
 <?php
 
 
-$accessCode = 3;
+$accessCode = 4;
 
 switch ($accessCode) {
 
@@ -74,6 +74,11 @@ switch ($accessCode) {
         break;
 
     default:
+
+        echo '<ul id="footerMenu">
+            <a href="#"><li class = "titleNav">Home</li></a>
+        </ul>';
+        break;
 }
 
 

@@ -108,15 +108,18 @@
                             </div>
                         </div>
                         <!--Search button-->
-                        <div class="col-md-12">
-                            <?php
-                                $confirm = new Button();
+                        <div class="row">
+                            <div class="col-md-10"></div>
+                            <div class="col-md-2">
+                                <?php
+                                    $confirm = new Button();
 
-                                $confirm->buttonName = "search";
-                                $confirm->buttonID = "search";
-                                $confirm->buttonValue = "Search";
-                                $confirm->buttonStyle = "font-family:sans-serif";
-                                $confirm->display(); ?>
+                                    $confirm->buttonName = "search";
+                                    $confirm->buttonID = "search";
+                                    $confirm->buttonValue = "Search";
+                                    $confirm->buttonStyle = "font-family:sans-serif";
+                                    $confirm->display(); ?>
+                            </div>
                         </div>
                 </div>
                 </form>

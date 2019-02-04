@@ -6,6 +6,10 @@
  * Time: 9:00 PM
  */
 
+//Lock down page
+include "../login/checkLoggedIn.php";
+
+//Database connection
 include "../db/dbConn.php";
 
 //Selected info from request page
@@ -44,30 +48,30 @@ if ($resultSubHistory->num_rows > 0) {
 ?>
 <table class="table table-striped">
     <thead>
-        <tr id="viewHeader">
-            <th>Course</th>
-            <th>Mark</th>
-            <th>School Year</th>
-            <th>Semester</th>
-        </tr>
+    <tr id="viewHeader">
+        <th>Course</th>
+        <th>Mark</th>
+        <th>School Year</th>
+        <th>Semester</th>
+    </tr>
     </thead>
     <tbody>
-        <?php
-        while ($row = $resultSubHistory->fetch_assoc()) {
-            ?>
-            <tr>
-                <td><?php echo $row['courseName']; ?></td>
-                <td><?php echo $row['mark']; ?></td>
-                <td><?php echo $row['schoolYear']; ?></td>
-                <td><?php echo $row['semesterNum']; ?></td>
-            </tr>
-            <?php
-        }
-        } else {
-            ?>
-            <h2><?php echo "Subject History" ?></h2><?php
-            echo "<option>Sorry, there are no marks in STARS to view in the selected subject.</option>";
-        }
+    <?php
+    while ($row = $resultSubHistory->fetch_assoc()) {
         ?>
+        <tr>
+            <td><?php echo $row['courseName']; ?></td>
+            <td><?php echo $row['mark']; ?></td>
+            <td><?php echo $row['schoolYear']; ?></td>
+            <td><?php echo $row['semesterNum']; ?></td>
+        </tr>
+        <?php
+    }
+    } else {
+        ?>
+        <h2><?php echo "Subject History" ?></h2><?php
+        echo "<option>Sorry, there are no marks in STARS to view in the selected subject.</option>";
+    }
+    ?>
     </tbody>
 </table>

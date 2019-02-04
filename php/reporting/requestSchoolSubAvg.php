@@ -6,13 +6,17 @@
  * Time: 2:07 PM
  */
 
+//Lock down page
+include "../login/checkLoggedIn.php";
+
+//Make connection to database
 include '../db/dbConn.php';
 
 //create the query to get subjects.
 //Make sure to pull the logged in administrator's schoolID from the session to use as the required field below.
 $querySubject = "SELECT subject.subjectCode, subject.subjectName FROM subject, school WHERE school.schoolID = 1";
 //create query to get date ranges
-$queryYear = "SELECT DISTINCT schoolYear FROM `semester`";;
+$queryYear = "SELECT DISTINCT schoolYear FROM `semester`";
 //Execute queries and store results.
 $resultSubject = $database->query($querySubject);
 $resultYear = $database->query($queryYear);
@@ -27,7 +31,8 @@ $resultYear = $database->query($queryYear);
                     <?php if ($resultSubject->num_rows > 0) {
                         while ($row = $resultSubject->fetch_assoc()) {
                             ?>
-                            <option value="<?php echo $row["subjectCode"]; ?>"><?php echo $row["subjectName"]; ?></option><?php
+                            <option
+                            value="<?php echo $row["subjectCode"]; ?>"><?php echo $row["subjectName"]; ?></option><?php
                         }
                     } else {
                         echo "<option>No Subjects registered in STARS</option>";

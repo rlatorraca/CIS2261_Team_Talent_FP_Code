@@ -99,8 +99,6 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Edit</th>
-
-
                 </tr>
                 <?php
                 while ($row = $result->fetch_assoc()) {
@@ -109,12 +107,9 @@
                         <td class="smCol"><?php echo $row['studentID'] ?></td>
                         <td class="nameCol"><?php echo $row['firstName'] ?></td>
                         <td class="nameCol"><?php echo $row['lastName'] ?></td>
-
                     <?php
                         echo "<td><a href='editStudent.php?studentID=" . $row['studentID'] . "'>Edit</a></td>";
-
 ?>
-
                     </tr>
                     <?php
                 }

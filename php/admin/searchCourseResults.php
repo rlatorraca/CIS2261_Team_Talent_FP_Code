@@ -12,40 +12,34 @@
     include "../db/dbConn.php";
 
     //Get input of each item from employeeSearch
-    $fName = htmlspecialchars($_GET['firstName']);
-    $lName = htmlspecialchars($_GET['lastName']);
-    $studentID = htmlspecialchars($_GET['studentID']);
-    $resultsReturned = ($_GET['resultsReturned']);
-    $orderBy = ($_GET['orderBy']);
+    $course = ($_GET['subjects']);
     $sort = ($_GET['sort']);
 
     //Deter SQL injection
-    $cleanFName = $database->real_escape_string($fName);
-    $cleanLName = $database->real_escape_string($lName);
-    $cleanID = $database->real_escape_string($studentID);
-    $cleanResultsReturned = $database->real_escape_string($resultsReturned);
-    $cleanOrderBy = $database->real_escape_string($orderBy);
-    $cleanSort = $database->real_escape_string($sort);
+    $cleanCourse = $database->real_escape_string($course);
+    $cleanSort  = $database->real_escape_string($sort);
+
+    $cleanResultsReturned = $database->real_escape_string($cleanCourse);
+
 
     //The SQL query for the search
-            if ($resultsReturned != "All") {
-                $query = "SELECT * FROM student WHERE firstName LIKE '%$cleanFName%' AND lastName LIKE '%$cleanLName%' 
-                        AND studentID LIKE '%$cleanID'
-                  ORDER BY $cleanOrderBy $cleanSort LIMIT $cleanResultsReturned";
-            } else {
-                $query = "SELECT * FROM student WHERE firstName LIKE '%$cleanFName%' AND lastName LIKE '%$cleanLName%' 
-                        AND studentID LIKE '%$cleanID'
-                  ORDER BY $cleanOrderBy $cleanSort";
-            }
+    $query = "SELECT student.firstName, student.lastName, student.studentID 
+      FROM student, courseoffering, course, enrollment 
+      WHERE course.courseID = 12 
+      AND courseoffering.courseID = course.courseID 
+      AND enrollment.classID = courseoffering.classID 
+      AND enrollment.studentID = student.studentID 
+      ORDER By lastName $cleanSort";
 
-            // Use $db object created above and run the query() method.
-            $result = $database->query($query);
 
-            //Check/validate if there are items in the database object
-            if ($result->num_rows > 0)
-            {
-            //Validation passed, display search results to a table
-            ?>
+    // Use $db object created above and run the query() method.
+    $resultCourseSearch = $database->query($query);
+
+    //Check/validate if there are items in the database object
+    if ($resultCourseSearch->num_rows > 0)
+    {
+    //Validation passed, display search results to a table
+?>
 
 <!doctype html>
 <html lang="en">
@@ -91,68 +85,67 @@
             <div class="container-fluid">
 
 
-            <h2 class="centerStuff">Search Results</h2>
-            <!--The table-->
-            <table class="table table-striped">
-                <tr id="viewHeader">
-                    <th>Student ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Edit</th>
+                <h2 class="centerStuff">Search Results</h2>
+                <!--The table-->
+                <table class="table table-striped">
+                    <tr id="viewHeader">
+                        <th>Student ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Delete</th>
 
-
-                </tr>
-                <?php
-                while ($row = $result->fetch_assoc()) {
-                    ?>
-                    <tr>
-                        <td class="smCol"><?php echo $row['studentID'] ?></td>
-                        <td class="nameCol"><?php echo $row['firstName'] ?></td>
-                        <td class="nameCol"><?php echo $row['lastName'] ?></td>
-
-                    <?php
-                        echo "<td><a href='editStudent.php?studentID=" . $row['studentID'] . "'>Edit</a></td>";
-
-?>
 
                     </tr>
                     <?php
-                }
-                echo "</table>";
-                // if no results display message to advise user
-                } else {
-                    echo "<h5 class='centerStuff'>Sorry there are no results for your search.</h5>";
-                }
-                //Reset link
-                echo "<br><h5 class = 'centerStuff'>Start a new <a href='searchStudent.php'>Search?</a></h5>";
-                echo "</div>";
+                        while ($row = $resultCourseSearch->fetch_assoc()) {
+                            ?>
+                            <tr>
+                                <td class="smCol"><?php echo $row['studentID'] ?></td>
+                                <td class="nameCol"><?php echo $row['firstName'] ?></td>
+                                <td class="nameCol"><?php echo $row['lastName'] ?></td>
 
-                ?>
+                                <?php
+                                    echo "<td><a class = 'delete' href='editStudent.php?studentID=" . $row['studentID'] . "'>Delete</a></td>";
+                                ?>
+
+                            </tr>
+                            <?php
+                        }
+                        echo "</table>";
+                        // if no results display message to advise user
+                        } else {
+                        echo "<h5 class='centerStuff'>Sorry there are no results for your search.</h5>";
+                    }
+                        //Reset link
+                        echo "<br><h5 class = 'centerStuff'>Start a new <a href='searchStudent.php'>Search?</a></h5>";
+                        echo "</div>";
+
+                    ?>
 
 
-                <!--The bottom navbar/footer section-->
-                <div class="bottom">
-                    <div id="footer">
-                        <ul id="footerMenu">
-                            <li class="titleNav">List One
-                                <ul class="dropupMenu">
-                                    <li><a>List 1:1</a></li>
-                                    <li><a>List 1:2</a></li>
-                                    <li><a>List 1:3</a></li>
-                                    <li><a>List 1:4</a></li>
-                                </ul>
-                            </li>
-                            <li class="titleNav">List Two
-                                <ul class="dropupMenu">
-                                    <li><a>List 2:1</a></li>
-                                    <li><a>List 2:2</a></li>
-                                    <li><a>List 2:3</a></li>
-                                    <li><a>List 2:4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                    <!--The bottom navbar/footer section-->
+                    <div class="bottom">
+                        <div id="footer">
+                            <ul id="footerMenu">
+                                <li class="titleNav">List One
+                                    <ul class="dropupMenu">
+                                        <li><a>List 1:1</a></li>
+                                        <li><a>List 1:2</a></li>
+                                        <li><a>List 1:3</a></li>
+                                        <li><a>List 1:4</a></li>
+                                    </ul>
+                                </li>
+                                <li class="titleNav">List Two
+                                    <ul class="dropupMenu">
+                                        <li><a>List 2:1</a></li>
+                                        <li><a>List 2:2</a></li>
+                                        <li><a>List 2:3</a></li>
+                                        <li><a>List 2:4</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
             </div>
     </body>
 </html>
