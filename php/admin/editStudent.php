@@ -98,23 +98,29 @@ if (isset($_POST["update"])) {
             <div class="jumbotron-fluid">
                 <div class="container-fluid">
 
+                    <div class="row">
+                        <div class="col-sm-6">Testing</div>
+                        <div class="col-sm-6">Testing 2</div>
+
+                    </div>
+
             <form action="editStudent.php" method="post">
                     <h2>Student Details</h2>
                     <p>**Please ensure all fields are filled before editing a Student's details.</p>
                     <div class = "row">
                     <div class="col-sm-6">
-                        <label for="isbn">Student ID</label>
+                        <label for="studentID">Student ID</label>
                         <input type="text" name="studentID" class="form-control" value="7">
                     </div>
                     <div class="col-sm-6">
-                        <label for="author">First Name</label>
+                        <label for="firstname">First Name</label>
                         <input type="text" name="firstName" class="form-control"
                                value="<?php echo $firstName; ?>">
                     </div>
                     </div>
                 <div class = "row">
                     <div class="col-sm-6">
-                        <label for="title">Middle Name</label>
+                        <label for="middlename">Middle Name</label>
                         <input type="text" name="middleName" class="form-control"
                                value="<?php echo $middleName; ?>">
                     </div>
