@@ -8,6 +8,9 @@
 //Lock down page
 include "../login/checkLoggedIn.php";
 
+//Database connection
+include '../db/dbConn.php';
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -65,7 +68,6 @@ include "../login/checkLoggedIn.php";
         <div class="jumbotron-fluid">
             <div class="container-fluid">
                 <?php
-                include '../db/dbConn.php';
                 //Variable to hold the requested info from the prior page
                 $studentIDFromForm = $_POST["selectStudent"];
                 $schoolYearFromForm = $_POST["selectYear"];

@@ -5,6 +5,13 @@
  * Date: 2019-01-27
  * Time: 9:05 PM
  */
+
+//Lock down page
+include "../login/checkLoggedIn.php";
+
+//Database connection
+include "../db/dbConn.php";
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,13 +36,6 @@
             exit("</div></body</html>");
         }
 
-        //Make connection to the database and check to ensure that a solid connection can be made
-        @ $database = new mysqli('localhost', 'root', '', 'stars');
-        if (mysqli_connect_errno()) {
-            echo '<h2>Error: Could not connect to database. Please try again later.</h2>';
-            echo "<form action='addStudent.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
-            exit("</div></body></html>");
-        }
         //*******will need to pull the classID and StudentID somewhere
         //Sanitize user inputs to prepare for database insert query.
         $subject = $database->real_escape_string($_POST["subject"]);
@@ -69,7 +69,7 @@
         $database->close();
 
     } else {
-//********************this section needs to be drop downs
+    //********************this section needs to be drop downs
     ?>
     <p>**Please ensure all fields are filled before registering a new Student.</p>
     <form action="assignCourse.php" method="post">
@@ -87,12 +87,12 @@
                 <label for="semesterNum" class="col-md-6">Semester</label>
                 <input type="text" name="semesterNum" class="col-md-6 form-control">
             </div>
-<!--********************this section needs to use classID as hidden feild?-->
+            <!--********************this section needs to use classID as hidden feild?-->
             <div class="col-md-12 form-inline customDiv">
                 <label for="course" class="col-md-6">Course</label>
                 <input type="text" name="course" class="col-md-6 form-control">
             </div>
-           <!--********************this section needs to display first & last name but student ID needed for SQL update?-->
+            <!--********************this section needs to display first & last name but student ID needed for SQL update?-->
             <div class="col-md-12 form-inline customDiv">
                 <label for="student" class="col-md-6">Student</label>
                 <input type="text" name="student" class="col-md-6 form-control">
