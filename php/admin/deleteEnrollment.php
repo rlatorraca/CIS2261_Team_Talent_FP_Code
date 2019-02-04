@@ -8,6 +8,13 @@
  * Page to remove a student from a course.
  * To be done in case a student is added to the wrong course or the student dropped out before completing
  */
+
+//Lock down page
+include "../login/checkLoggedIn.php";
+
+//Database connection
+include "../db/dbConn.php";
+
 ?>
 <!doctype html>
 <html lang="en">
