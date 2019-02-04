@@ -75,7 +75,6 @@
 
             $query = "SELECT username, password, accessCode FROM user WHERE (username = '$usernamedb') AND (password = '$passworddb') LIMIT 1";
 
-
             //$db object created above and run the query() method. We pass it our query from above.
             $result = $database->query($query);
             $num_results = $result->num_rows;
@@ -92,7 +91,7 @@
                     include("setCookie.php");
                     echo "<p>My access code is : " . $_SESSION['accessCode'] . "<p>";
                     $error = "Logged IN";
-                    //header('Location: index.php');
+                    header('Location: ../index.php');
                 } else {
                     $error = "Login/Password incorrect";
                     exit;
