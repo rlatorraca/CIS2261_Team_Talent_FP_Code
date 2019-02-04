@@ -23,7 +23,7 @@
 
         <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
         <!-- Here is where we call bootstrap. !-->
-        <title>STARS - Search Student</title>
+        <title>STARS - Enrollments</title>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                 crossorigin="anonymous"></script>
@@ -58,81 +58,64 @@
                 <div class="container main-container" id="studentSearch">
 
                     <!--Search form items-->
-                    <form action="searchResults.php" method="get">
-                        <!--                        <fieldset class="border p-2">-->
-                        <h2>Student Search</h2>
+                    <form action="searchCourseResults.php" method="get">
+
+                        <h2>Enrollments</h2>
                         <div class="row">
-                            <div class="col-sm-6">
-                                <label for="firstName">First Name</label>
+                            <div class="col-sm-12">
+                                <label for="firstName">Select Course</label>
                                 <input type="text" class="form-control" id="firstName" name="firstName"><br>
                             </div>
-                            <div class="col-sm-6">
-                                <label for="lastName">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName"><br>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <label for="studentID">StudentID</label>
-                                <input type="text" class="form-control" id="studentID" name="studentID"><br>
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="resultsReturned">Results Returned</label>
-                                <select type="text" class="form-control year" id="resultsReturned"
-                                        name="resultsReturned">
-                                    <option value="2">2</option>
-                                    <option value="5" selected>5</option>
-                                    <option value="10">10</option>
-                                    <option value="15">15</option>
-                                    <option value="9999999999999999999999999999999">All</option>
-                                </select>
-                            </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6">
-                                <label for="orderBy">Order By</label>
-                                <select type="text" class="form-control year" id="orderBy" name="orderBy">
-                                    <option value="studentID">Student ID</option>
-                                    <option value="firstName">First Name</option>
-                                    <option value="lastName" selected>Last Name</option>
-
-                                </select><br>
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="sort">Sort</label>
-                                <select type="text" class="form-control year" id="sort" name="sort">
-                                    <option value="ASC" selected>Ascending</option>
-                                    <option value="DESC">Descending</option>
-                                </select>
-                            </div>
+                        <div class="col-sm-12">
+                            <label for="sort">Sort</label>
+                            <select type="text" class="form-control year" id="sort" name="sort">
+                                <option value="ASC" selected>Ascending</option>
+                                <option value="DESC">Descending</option>
+                            </select>
                         </div>
-                     </form>
+                        </div>
+                        <!--Search button-->
+                        <div class="row">
+                        <div class="col-md-12">
+                            <?php
+                                $confirm = new Button();
+
+                                $confirm->buttonName = "search";
+                                $confirm->buttonID = "search";
+                                $confirm->buttonValue = "Search";
+                                $confirm->buttonStyle = "font-family:sans-serif";
+                                $confirm->display(); ?>
+                        </div>
+                        </div>
                 </div>
+                </form>
             </div>
-            <!--The bottom navbar/footer section-->
-            <div class="bottom">
-                <div id="footer">
-                    <ul id="footerMenu">
-                        <li class="titleNav">List One
-                            <ul class="dropupMenu">
-                                <li><a>List 1:1</a></li>
-                                <li><a>List 1:2</a></li>
-                                <li><a>List 1:3</a></li>
-                                <li><a>List 1:4</a></li>
-                            </ul>
-                        </li>
-                        <li class="titleNav">List Two
-                            <ul class="dropupMenu">
-                                <li><a>List 2:1</a></li>
-                                <li><a>List 2:2</a></li>
-                                <li><a>List 2:3</a></li>
-                                <li><a>List 2:4</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+        </div>
+        <!--The bottom navbar/footer section-->
+        <div class="bottom">
+            <div id="footer">
+                <ul id="footerMenu">
+                    <li class="titleNav">List One
+                        <ul class="dropupMenu">
+                            <li><a>List 1:1</a></li>
+                            <li><a>List 1:2</a></li>
+                            <li><a>List 1:3</a></li>
+                            <li><a>List 1:4</a></li>
+                        </ul>
+                    </li>
+                    <li class="titleNav">List Two
+                        <ul class="dropupMenu">
+                            <li><a>List 2:1</a></li>
+                            <li><a>List 2:2</a></li>
+                            <li><a>List 2:3</a></li>
+                            <li><a>List 2:4</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
+        </div>
         </div>
     </body>
 </html>
