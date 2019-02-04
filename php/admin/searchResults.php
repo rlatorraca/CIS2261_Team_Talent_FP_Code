@@ -99,7 +99,7 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Edit</th>
-                    <th>Delete</th>
+
 
                 </tr>
                 <?php
@@ -112,8 +112,7 @@
 
                     <?php
                         echo "<td><a href='editStudent.php?studentID=" . $row['studentID'] . "'>Edit</a></td>";
-                        echo "<td><a class = 'delete' href='deleteStudent.php?studentID=" . $row['studentID'] . "'>Delete</a></td>";
-    $result->free();
+
 ?>
 
                     </tr>
