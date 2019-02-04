@@ -11,21 +11,21 @@
 
     include "../db/dbConn.php";
 
-    //Get input of each item from employeeSearch
-    $course = ($_GET['subjects']);
+    //Get input of each item from search
+    $classID = ($_GET['subjects']);
     $sort = ($_GET['sort']);
 
     //Deter SQL injection
-    $cleanCourse = $database->real_escape_string($course);
+    $cleanClassID = $database->real_escape_string($classID);
     $cleanSort  = $database->real_escape_string($sort);
 
-    $cleanResultsReturned = $database->real_escape_string($cleanCourse);
+    $cleanResultsReturned = $database->real_escape_string($cleanClassID);
 
 
     //The SQL query for the search
     $query = "SELECT student.firstName, student.lastName, student.studentID 
       FROM student, courseoffering, course, enrollment 
-      WHERE course.courseID = 12 
+      WHERE enrollment.classID = $cleanClassID 
       AND courseoffering.courseID = course.courseID 
       AND enrollment.classID = courseoffering.classID 
       AND enrollment.studentID = student.studentID 

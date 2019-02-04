@@ -2,29 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d665968c-2a54-4ef4-a752-38485972bd29" name="Default Changelist" comment="Added files and started forms">
-      <change afterPath="$PROJECT_DIR$/php/login/checkLoggedIn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/natTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Template/navTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/navMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/Template/navMenu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/stars.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/stars.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/assignCourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/assignCourse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8b3d36c4-8bf0-443d-bcc4-18c6902d40c7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8b3d36c4-8bf0-443d-bcc4-18c6902d40c7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/admin/searchCourseResults.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/searchCourseResults.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/admin/searchCourses.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/searchCourses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/searchResults.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/searchResults.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/searchStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/searchStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/login/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/login/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/login/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/login/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/displayReportCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/displayReportCard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/displaySchoolSubAvg.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/displaySchoolSubAvg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/displayStudentSubHistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/displayStudentSubHistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/enterMark.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/enterMark.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/getStudentEnterMark.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/getStudentEnterMark.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/requestReportCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/requestReportCard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/requestSchoolSubAvg.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/requestSchoolSubAvg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/requestStudentSubHistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/requestStudentSubHistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/viewIEP.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/viewIEP.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -62,40 +42,25 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/php/admin/searchCourses.php">
+        <entry file="file://$PROJECT_DIR$/php/admin/searchCourseResults.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" lean-forward="true" selection-end-line="135" selection-end-column="7" />
+            <state relative-caret-position="289">
+              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
               <folding>
-                <element signature="e#10#167#0#PHP" expanded="true" />
+                <element signature="e#10#113#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/admin/searchCourseResults.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/admin/searchResults.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1598">
-              <caret line="124" column="34" selection-start-line="124" selection-start-column="34" selection-end-line="124" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/reporting/displaySchoolSubAvg.php">
+        <entry file="file://$PROJECT_DIR$/php/admin/searchCourses.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+              <caret line="54" selection-start-line="54" selection-end-line="54" />
+              <folding>
+                <element signature="e#10#167#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,6 +123,7 @@
         <option value="$PROJECT_DIR$/php/admin/searchStudent.php" />
         <option value="$PROJECT_DIR$/php/admin/searchResults.php" />
         <option value="$PROJECT_DIR$/php/admin/searchCourses.php" />
+        <option value="$PROJECT_DIR$/php/admin/searchCourseResults.php" />
       </list>
     </option>
   </component>
@@ -198,6 +164,12 @@
               <item name="CIS2261_Team_Talent_FP_Code" type="462c0819:PsiDirectoryNode" />
               <item name="php" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CIS2261_Team_Talent_FP_Code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CIS2261_Team_Talent_FP_Code" type="462c0819:PsiDirectoryNode" />
+              <item name="php" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CIS2261_Team_Talent_FP_Code" type="b2602c69:ProjectViewProjectNode" />
@@ -304,7 +276,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131088000" />
+    <option name="totallyTimeSpent" value="133453000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -324,8 +296,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.3285968" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info active="true" anchor="bottom" id="Find" order="2" sideWeight="0.49959514" visible="true" weight="0.4259928" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.3285968" />
+      <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49959514" weight="0.4259928" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.3285968" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -376,7 +348,6 @@
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8b3d36c4-8bf0-443d-bcc4-18c6902d40c7/console.sql" />
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/core-scripting.rnc" />
     <entry file="file://$PROJECT_DIR$/php/admin/editParentGuardian.php">
       <provider selected="true" editor-type-id="text-editor" />
@@ -395,13 +366,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="31" column="17" lean-forward="true" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/db/stars.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-193">
-          <caret line="316" lean-forward="true" selection-start-line="316" selection-end-line="316" />
         </state>
       </provider>
     </entry>
@@ -583,23 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/reporting/getStudentEnterMark.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#179#265#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/reporting/enterMark.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/reporting/displayStudentSubHistory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -634,19 +581,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/php/db/stars.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4862">
+          <caret line="316" selection-start-line="316" selection-end-line="316" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/searchResults.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="124" column="34" selection-start-line="124" selection-start-column="34" selection-end-line="124" selection-end-column="34" />
+        <state relative-caret-position="136">
+          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding>
+            <element signature="e#10#113#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/reporting/getStudentEnterMark.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/reporting/enterMark.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-349">
+          <caret line="28" column="37" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/searchCourses.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-end-line="135" selection-end-column="7" />
+        <state relative-caret-position="204">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
           <folding>
             <element signature="e#10#167#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/searchCourseResults.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding>
+            <element signature="e#10#113#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
