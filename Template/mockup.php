@@ -7,7 +7,7 @@
      * Time: 12:09 AM
      */
 
-    include("button.class.php");
+    include("XXXbutton.class.php");
     $confirm = new Button();
     $confirm1 = new Button();
 ?>

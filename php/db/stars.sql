@@ -4,8 +4,8 @@ use stars;
 
 /*create a user in database*/
 grant select, insert, update, delete, alter on stars.*
-to 'cis2261_admin'@'localhost'
-identified by 'stars-innovation';
+    to 'cis2261_admin'@'localhost'
+    identified by 'stars-innovation';
 flush privileges;
 
 SET FOREIGN_KEY_CHECKS = 0;
@@ -27,170 +27,170 @@ DROP TABLE IF EXISTS `ReportCard`;
 SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE `Student` (
-    `studentID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `firstName` VARCHAR(30) NOT NULL,
-    `middleName` VARCHAR(30) NOT NULL,
-    `lastName` VARCHAR(60) NOT NULL,
-    `gender` VARCHAR(50) NOT NULL,
-    `dob` CHAR(10) NOT NULL,
-    `grade` INTEGER(10) NOT NULL,
-    `address` VARCHAR(100) NOT NULL,
-    `phoneNum` CHAR(10) NOT NULL,
-    `emailAddress` VARCHAR(100) NOT NULL,
-    `allergies` VARCHAR(500) NOT NULL,
-    `schoolID` INTEGER(10) NOT NULL,
-    `guardianID` INTEGER(10),
-    `userID` INTEGER(10) NOT NULL,
-    `supportEducatorID` INTEGER(10),
-    PRIMARY KEY (`studentID`)
+                           `studentID` INTEGER(10) NOT NULL AUTO_INCREMENT,
+                           `firstName` VARCHAR(30) NOT NULL,
+                           `middleName` VARCHAR(30) NOT NULL,
+                           `lastName` VARCHAR(60) NOT NULL,
+                           `gender` VARCHAR(50) NOT NULL,
+                           `dob` CHAR(10) NOT NULL,
+                           `grade` INTEGER(10) NOT NULL,
+                           `address` VARCHAR(100) NOT NULL,
+                           `phoneNum` CHAR(10) NOT NULL,
+                           `emailAddress` VARCHAR(100) NOT NULL,
+                           `allergies` VARCHAR(500) NOT NULL,
+                           `schoolID` INTEGER(10) NOT NULL,
+                           `guardianID` INTEGER(10),
+                           `userID` INTEGER(10) NOT NULL,
+                           `supportEducatorID` INTEGER(10),
+                           PRIMARY KEY (`studentID`)
 );
 
 CREATE TABLE `ParentOrGuardian` (
-    `guardianID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `parentFName` VARCHAR(30) NOT NULL,
-    `parentLName` VARCHAR(60) NOT NULL,
-    `address` VARCHAR(100) NOT NULL,
-    `city` VARCHAR(60) NOT NULL,
-    `province` VARCHAR(30) NOT NULL,
-    `postalCode` CHAR(6) NOT NULL,
-    `phoneNum` CHAR(10) NOT NULL,
-    `emailAddress` VARCHAR(100) NOT NULL,
-    `userID` INTEGER(10) NOT NULL,
-    PRIMARY KEY (`guardianID`)
+                                    `guardianID` INTEGER(10) NOT NULL AUTO_INCREMENT,
+                                    `parentFName` VARCHAR(30) NOT NULL,
+                                    `parentLName` VARCHAR(60) NOT NULL,
+                                    `address` VARCHAR(100) NOT NULL,
+                                    `city` VARCHAR(60) NOT NULL,
+                                    `province` VARCHAR(30) NOT NULL,
+                                    `postalCode` CHAR(6) NOT NULL,
+                                    `phoneNum` CHAR(10) NOT NULL,
+                                    `emailAddress` VARCHAR(100) NOT NULL,
+                                    `userID` INTEGER(10) NOT NULL,
+                                    PRIMARY KEY (`guardianID`)
 );
 
 CREATE TABLE `Educator` (
-    `educatorID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `educatorFName` VARCHAR(30) NOT NULL,
-    `educatorLName` VARCHAR(60) NOT NULL,
-    `position` VARCHAR(100) NOT NULL,
-    `phoneNumber` CHAR(10) NOT NULL,
-    `emailAddress` VARCHAR(100) NOT NULL,
-    `userID` INTEGER(10) NOT NULL,
-    `schoolID` INTEGER(10) NOT NULL,
-    PRIMARY KEY (`educatorID`)
+                            `educatorID` INTEGER(10) NOT NULL AUTO_INCREMENT,
+                            `educatorFName` VARCHAR(30) NOT NULL,
+                            `educatorLName` VARCHAR(60) NOT NULL,
+                            `position` VARCHAR(100) NOT NULL,
+                            `phoneNumber` CHAR(10) NOT NULL,
+                            `emailAddress` VARCHAR(100) NOT NULL,
+                            `userID` INTEGER(10) NOT NULL,
+                            `schoolID` INTEGER(10) NOT NULL,
+                            PRIMARY KEY (`educatorID`)
 );
 
 CREATE TABLE `SupportEducator` (
-    `supportEducatorID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `supFName` VARCHAR(30) NOT NULL,
-    `supLName` VARCHAR(60) NOT NULL,
-    `position` VARCHAR(100) NOT NULL,
-    `specialty` VARCHAR(100) NOT NULL,
-    `phoneNum` CHAR(10) NOT NULL,
-    `emailAddress` VARCHAR(100) NOT NULL,
-    `userID` INTEGER(10) NOT NULL,
-    `schoolID` INTEGER(10) NOT NULL,
-    PRIMARY KEY (`supportEducatorID`)
+                                   `supportEducatorID` INTEGER(10) NOT NULL AUTO_INCREMENT,
+                                   `supFName` VARCHAR(30) NOT NULL,
+                                   `supLName` VARCHAR(60) NOT NULL,
+                                   `position` VARCHAR(100) NOT NULL,
+                                   `specialty` VARCHAR(100) NOT NULL,
+                                   `phoneNum` CHAR(10) NOT NULL,
+                                   `emailAddress` VARCHAR(100) NOT NULL,
+                                   `userID` INTEGER(10) NOT NULL,
+                                   `schoolID` INTEGER(10) NOT NULL,
+                                   PRIMARY KEY (`supportEducatorID`)
 );
 
 CREATE TABLE `Administrator` (
-    `adminID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `adminFName` VARCHAR(30) NOT NULL,
-    `adminLName` VARCHAR(60) NOT NULL,
-    `position` VARCHAR(100) NOT NULL,
-    `schoolID` INTEGER(10) NOT NULL,
-    `userID` INTEGER(10) NOT NULL,
-    PRIMARY KEY (`adminID`)
+                                 `adminID` INTEGER(10) NOT NULL AUTO_INCREMENT,
+                                 `adminFName` VARCHAR(30) NOT NULL,
+                                 `adminLName` VARCHAR(60) NOT NULL,
+                                 `position` VARCHAR(100) NOT NULL,
+                                 `schoolID` INTEGER(10) NOT NULL,
+                                 `userID` INTEGER(10) NOT NULL,
+                                 PRIMARY KEY (`adminID`)
 );
 
 CREATE TABLE `IndividualEducationPlan` (
-    `planID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `reason` VARCHAR(100) NOT NULL,
-    `dateIssued` CHAR(10) NOT NULL,
-    `comments` VARCHAR(500) NOT NULL,
-    `supportEducatorID` INTEGER(10) NOT NULL,
-    `studentID` INTEGER(10) NOT NULL,
-    PRIMARY KEY (`planID`)
+                                           `planID` INTEGER(10) NOT NULL AUTO_INCREMENT,
+                                           `reason` VARCHAR(100) NOT NULL,
+                                           `dateIssued` CHAR(10) NOT NULL,
+                                           `comments` VARCHAR(500) NOT NULL,
+                                           `supportEducatorID` INTEGER(10) NOT NULL,
+                                           `studentID` INTEGER(10) NOT NULL,
+                                           PRIMARY KEY (`planID`)
 );
 
 CREATE TABLE `Course` (
-    `courseID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `courseName` VARCHAR(100) NOT NULL,
-    `subjectCode` CHAR(4) NOT NULL,
-    PRIMARY KEY (`courseID`)
+                          `courseID` INTEGER(10) NOT NULL AUTO_INCREMENT,
+                          `courseName` VARCHAR(100) NOT NULL,
+                          `subjectCode` CHAR(4) NOT NULL,
+                          PRIMARY KEY (`courseID`)
 );
 
 CREATE TABLE `Subject` (
-    `subjectCode` CHAR(4) NOT NULL,
-    `subjectName` VARCHAR(40) NOT NULL,
-    PRIMARY KEY (`subjectCode`)
+                           `subjectCode` CHAR(4) NOT NULL,
+                           `subjectName` VARCHAR(40) NOT NULL,
+                           PRIMARY KEY (`subjectCode`)
 );
 
 CREATE TABLE `CourseOffering` (
-    `classID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `courseID` INTEGER(10) NOT NULL,
-    `educatorID` INTEGER(10) NOT NULL,
-    `schoolYear` CHAR(9) NOT NULL,
-    `semesterNum` CHAR(2) NOT NULL,
-    PRIMARY KEY (`classID`)
+                                  `classID` INTEGER(10) NOT NULL AUTO_INCREMENT,
+                                  `courseID` INTEGER(10) NOT NULL,
+                                  `educatorID` INTEGER(10) NOT NULL,
+                                  `schoolYear` CHAR(9) NOT NULL,
+                                  `semesterNum` CHAR(2) NOT NULL,
+                                  PRIMARY KEY (`classID`)
 );
 
 CREATE TABLE `Enrollment` (
-    `enrollmentID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `mark` INTEGER(5),
-    `attendance` INTEGER(5),
-    `notes` VARCHAR(500),
-    `classID` INTEGER(10) NOT NULL,
-    `schoolYear` CHAR(9) NOT NULL,
-    `semesterNum` CHAR(2) NOT NULL,
-    `studentID` INTEGER(10) NOT NULL,
-    PRIMARY KEY (`enrollmentID`)
+                              `enrollmentID` INTEGER(10) NOT NULL AUTO_INCREMENT,
+                              `mark` INTEGER(5),
+                              `attendance` INTEGER(5),
+                              `notes` VARCHAR(500),
+                              `classID` INTEGER(10) NOT NULL,
+                              `schoolYear` CHAR(9) NOT NULL,
+                              `semesterNum` CHAR(2) NOT NULL,
+                              `studentID` INTEGER(10) NOT NULL,
+                              PRIMARY KEY (`enrollmentID`)
 );
 
 CREATE TABLE `School` (
-    `schoolID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(100) NOT NULL,
-    `district` VARCHAR(30) NOT NULL,
-    `address` VARCHAR(100) NOT NULL,
-    `city` VARCHAR(60) NOT NULL,
-    `province` VARCHAR(30) NOT NULL,
-    `postalCode` CHAR(6) NOT NULL,
-    `phoneNum` CHAR(10) NOT NULL,
-    `emailAddress` VARCHAR(100) NOT NULL,
-    PRIMARY KEY (`schoolID`)
+                          `schoolID` INTEGER(10) NOT NULL AUTO_INCREMENT,
+                          `name` VARCHAR(100) NOT NULL,
+                          `district` VARCHAR(30) NOT NULL,
+                          `address` VARCHAR(100) NOT NULL,
+                          `city` VARCHAR(60) NOT NULL,
+                          `province` VARCHAR(30) NOT NULL,
+                          `postalCode` CHAR(6) NOT NULL,
+                          `phoneNum` CHAR(10) NOT NULL,
+                          `emailAddress` VARCHAR(100) NOT NULL,
+                          PRIMARY KEY (`schoolID`)
 );
 
 CREATE TABLE `AccessLevel` (
-    `accessCode` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `level` VARCHAR(50) NOT NULL,
-    PRIMARY KEY (`accessCode`)
+                               `accessCode` INTEGER(10) NOT NULL AUTO_INCREMENT,
+                               `level` VARCHAR(50) NOT NULL,
+                               PRIMARY KEY (`accessCode`)
 );
 
 CREATE TABLE `Semester` (
-    `schoolYear` CHAR(9) NOT NULL,
-    `semesterNum` CHAR(2) NOT NULL,
-    `startDate` CHAR(10) NOT NULL,
-    `endDate` CHAR(10) NOT NULL
+                            `schoolYear` CHAR(9) NOT NULL,
+                            `semesterNum` CHAR(2) NOT NULL,
+                            `startDate` CHAR(10) NOT NULL,
+                            `endDate` CHAR(10) NOT NULL
 );
 
 CREATE TABLE `User` (
-    `userID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `username` VARCHAR(100) NOT NULL UNIQUE,
-    `password` VARCHAR(100) NOT NULL,
-    `accessCode` INTEGER(10) NOT NULL,
-    PRIMARY KEY (`userID`)
+                        `userID` INTEGER(10) NOT NULL AUTO_INCREMENT,
+                        `username` VARCHAR(100) NOT NULL UNIQUE,
+                        `password` VARCHAR(100) NOT NULL,
+                        `accessCode` INTEGER(10) NOT NULL,
+                        PRIMARY KEY (`userID`)
 );
 
 CREATE TABLE `ReportCard` (
-    `reportCardID` INTEGER(10) NOT NULL AUTO_INCREMENT,
-    `isRead` BIT(1) NOT NULL,
-    `studentID` INTEGER(10) NOT NULL,
-    `schoolYear` CHAR(9) NOT NULL,
-    `semesterNum` CHAR(2) NOT NULL,
-    PRIMARY KEY (`reportCardID`)
+                              `reportCardID` INTEGER(10) NOT NULL AUTO_INCREMENT,
+                              `isRead` BIT(1) NOT NULL,
+                              `studentID` INTEGER(10) NOT NULL,
+                              `schoolYear` CHAR(9) NOT NULL,
+                              `semesterNum` CHAR(2) NOT NULL,
+                              PRIMARY KEY (`reportCardID`)
 );
 
 ALTER TABLE `Semester` ADD CONSTRAINT PK_SEMESTER PRIMARY KEY (`schoolYear`, `semesterNum`);
 
 ALTER TABLE `Enrollment` ADD CONSTRAINT FK_ENROLLMENT FOREIGN KEY (`schoolYear`, `semesterNum`)
-REFERENCES `Semester` (`schoolYear`, `semesterNum`);
+    REFERENCES `Semester` (`schoolYear`, `semesterNum`);
 
 ALTER TABLE `CourseOffering` ADD CONSTRAINT FK_COURSEOFFERING FOREIGN KEY (`schoolYear`, `semesterNum`)
-REFERENCES `Semester` (`schoolYear`, `semesterNum`);
+    REFERENCES `Semester` (`schoolYear`, `semesterNum`);
 
 ALTER TABLE `ReportCard` ADD CONSTRAINT FK_REPORTCARD FOREIGN KEY (`schoolYear`, `semesterNum`)
-REFERENCES `Semester` (`schoolYear`, `semesterNum`);
+    REFERENCES `Semester` (`schoolYear`, `semesterNum`);
 
 ALTER TABLE `Student` ADD FOREIGN KEY (`userID`) REFERENCES `User`(`userID`);
 ALTER TABLE `Student` ADD FOREIGN KEY (`guardianID`) REFERENCES `ParentOrGuardian`(`guardianID`);
@@ -277,26 +277,26 @@ INSERT INTO `stars`.`Course` (`courseID`, `courseName`, `subjectCode`) VALUES
 (36, 'Music 12', 'ARTS');
 
 INSERT INTO `stars`.`User` (`userID`, `username`, `password`, `accessCode`) VALUES
-(1, 'studentSara@gmail.com', '123', 5),
-(2, 'studentJane@abc.com', '123', 5),
-(3, 'parentMary@abc.com', '123', 6),
-(4, 'parentJohn@abc.com', '123', 6),
-(5, 'abminWestisle@abc.com', '123', 2),
-(6, 'adminColonelGray@abc.com', '123', 2),
-(7, 'adminSouris@abc.com', '123', 2),
-(8, 'systemadmin@abc.com', '123', 1),
-(9, 'studentJoe@abc.com', '123', 5),
-(10, 'studentJohn@abc.com', '123', 5),
-(11, 'studentSteve@abc.com', '123', 5),
-(12, 'studentRodrigo@abc.com', '123', 5),
-(13, 'educatorJoey@abc.com', '123', 3),
-(14, 'educatorGerald@abc.com', '123', 3),
-(15, 'educatorDon@abc.com', '123', 3),
-(16, 'educatorBJ@abc.com', '123', 3),
-(17, 'supportEducatorNancy@abc.com', '123', 4),
-(18, 'supportEducatorJim@abc.com', '123', 4),
-(19, 'supportEducatorSam@abc.com', '123', 4),
-(20, 'parentJim@abc.com', '123', 6);
+(1, 'studentSara@gmail.com', '202cb962ac59075b964b07152d234b70', 5),
+(2, 'studentJane@abc.com', '202cb962ac59075b964b07152d234b70', 5),
+(3, 'parentMary@abc.com', '202cb962ac59075b964b07152d234b70', 6),
+(4, 'parentJohn@abc.com', '202cb962ac59075b964b07152d234b70', 6),
+(5, 'abminWestisle@abc.com', '202cb962ac59075b964b07152d234b70', 2),
+(6, 'adminColonelGray@abc.com', '202cb962ac59075b964b07152d234b70', 2),
+(7, 'adminSouris@abc.com', '202cb962ac59075b964b07152d234b70', 2),
+(8, 'systemadmin@abc.com', '202cb962ac59075b964b07152d234b70', 1),
+(9, 'studentJoe@abc.com', '202cb962ac59075b964b07152d234b70', 5),
+(10, 'studentJohn@abc.com', '202cb962ac59075b964b07152d234b70', 5),
+(11, 'studentSteve@abc.com', '202cb962ac59075b964b07152d234b70', 5),
+(12, 'studentRodrigo@abc.com', '202cb962ac59075b964b07152d234b70', 5),
+(13, 'educatorJoey@abc.com', '202cb962ac59075b964b07152d234b70', 3),
+(14, 'educatorGerald@abc.com', '202cb962ac59075b964b07152d234b70', 3),
+(15, 'educatorDon@abc.com', '202cb962ac59075b964b07152d234b70', 3),
+(16, 'educatorBJ@abc.com', '202cb962ac59075b964b07152d234b70', 3),
+(17, 'supportEducatorNancy@abc.com', '202cb962ac59075b964b07152d234b70', 4),
+(18, 'supportEducatorJim@abc.com', '202cb962ac59075b964b07152d234b70', 4),
+(19, 'supportEducatorSam@abc.com', '202cb962ac59075b964b07152d234b70', 4),
+(20, 'parentJim@abc.com', '202cb962ac59075b964b07152d234b70', 6);
 
 INSERT INTO `stars`.`Administrator` (`adminID`, `adminFName`, `adminLName`, `position`, `schoolID`, `userID`) VALUES
 (1, 'John', 'Smith', 'Office Secretary', 1, 5),
@@ -304,19 +304,19 @@ INSERT INTO `stars`.`Administrator` (`adminID`, `adminFName`, `adminLName`, `pos
 (3, 'Jim', 'Gallant', 'Office Secretary', 3, 7);
 
 INSERT INTO `stars`.`ParentOrGuardian` (`guardianID`, `parentFName`, `parentLName`, `address`, `city`, `province`, `postalCode`,
-                                `phoneNum`, `emailAddress`, `userID`) VALUES
+                                        `phoneNum`, `emailAddress`, `userID`) VALUES
 (1, 'Mary', 'Smith', '69 Main St, ', 'Charlottetown', 'PE', 'C0A103', '9028881002', 'parentJason@abc.com', 3),
 (2, 'John', 'Doe', '5 Water St, ', 'Summerside', 'PE', 'C0B1L0', '9028889181', 'parentJane@abc.ca', 4),
 (3, 'Jim', 'Bob', '12 Parent St, ', 'Souris', 'PE', 'C0B1K0', '9028881234', 'parentJim@abc.com', 20);
 
 INSERT INTO `stars`.`supportEducator` (`supportEducatorID`, `supFName`, `supLName`, `position`, `specialty`, `phoneNum`,
-`emailAddress`, `userID`, `schoolID`) VALUES
+                                       `emailAddress`, `userID`, `schoolID`) VALUES
 (1, 'Nancy', 'Gallant', 'TA', 'ADHD', '9021248899', 'supportEducatorNancy@abc.com', 17, 1),
 (2, 'Jim', 'Joseph', 'TA', 'Autism', '9028829999', 'supportEducatorJim@abc.com', 18, 2),
 (3, 'Sam', 'Doucette', 'Teaching Support', 'Dyslexia', '9028823456', 'supportEducatorSam@abc.com', 19, 3);
 
 INSERT INTO `stars`.`Student` (`studentID`, `firstName`, `middleName`, `lastName`, `gender`, `dob`, `grade`, `address`,
-                           `phoneNum`, `emailAddress`, `allergies`, `schoolID`, `guardianID`, `userID`, `supportEducatorID`) VALUES
+                               `phoneNum`, `emailAddress`, `allergies`, `schoolID`, `guardianID`, `userID`, `supportEducatorID`) VALUES
 (1, 'Jane', 'Sue', 'Doe', 'Female', '2001-05-14', 10, '55 Water St', '9028888181', 'studentJane@abc.ca', 'Peanuts, dust', 1, 3, 2, NULL),
 (2, 'Sara', 'A', 'Courtney', 'Female', '1999-01-01', 12, '12 Learning Lane', '9028821234', 'studentSara@abc.com', 'None', 2, 2, 1, 1),
 (3, 'Joe', 'Bob', 'Jim', 'Male', '1998-05-03', 11, '13 School St', '9028829999', 'studentJoe@abc.com', 'Everything', 3, 1, 9, 2),

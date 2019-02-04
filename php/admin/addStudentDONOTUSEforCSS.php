@@ -75,7 +75,7 @@
         if ($_POST["studentID"] == "" || $_POST["firstName"] == "" || $_POST["middleName"] == "" || $_POST["lastName"] == "") {
             echo "<h2>Error. Form fields must not be empty before registering new student in STARS.</h2><br>";
             echo "<form action='addStudent.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
-            echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
+            echo "<form action='../../Template/index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
             exit("</div></body</html>");
         }
 

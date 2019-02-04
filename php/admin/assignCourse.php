@@ -32,7 +32,7 @@ include "../db/dbConn.php";
         if ($_POST["subject"] == "" || $_POST["schoolYear"] == "" || $_POST["semesterNum"] == "" || $_POST["course"] == "" || $_POST["student"] == "") {
             echo "<h2>Error. Form fields must not be empty before registering new student in a course.</h2><br>";
             echo "<form action='addStudent.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
-            echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
+            echo "<form action='../../Template/index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
             exit("</div></body</html>");
         }
 
@@ -56,13 +56,13 @@ include "../db/dbConn.php";
 
             echo "<h2>Student has been successfully register in the course.</h2><br>";
             echo "<form action='assignCourse.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Assign another student</button></div></fieldset></form>";
-            echo "<form action='../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
+            echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
 
         } else {
 
             echo "<h2>Sorry, student could not be registered in this course at this time.</h2><br>";
             echo "<form action='assignCourse.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Try Again</button></div></fieldset></form>";
-            echo "<form action='../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
+            echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
         }
 
         //Close database connection
