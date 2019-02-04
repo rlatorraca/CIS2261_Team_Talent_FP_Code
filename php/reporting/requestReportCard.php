@@ -5,6 +5,7 @@
  * Date: 2019-01-29
  */
 //Make connection to the database and check to ensure that a solid connection can be made
+    include "../login/checkLoggedIn.php";
     include '../db/dbConn.php';
 ?>
 
