@@ -18,6 +18,9 @@
 <!--  Create a new connection object using mysqli-->
 <?php
 
+//Lock down page
+include "../login/checkLoggedIn.php";
+
 //Necessary Db connection
 include "../db/dbConn.php";
 

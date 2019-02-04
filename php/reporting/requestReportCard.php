@@ -4,8 +4,10 @@
  * Edited by: John Gaudet
  * Date: 2019-01-29
  */
-//Make connection to the database and check to ensure that a solid connection can be made
+//Lock down page
     include "../login/checkLoggedIn.php";
+
+//Make connection to the database and check to ensure that a solid connection can be made
     include '../db/dbConn.php';
 ?>
 

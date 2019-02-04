@@ -6,6 +6,10 @@
  * Time: 9:00 PM
  */
 
+//Lock down page
+include "../login/checkLoggedIn.php";
+
+//Database connection
 include "../db/dbConn.php";
 
 //Selected info from request page

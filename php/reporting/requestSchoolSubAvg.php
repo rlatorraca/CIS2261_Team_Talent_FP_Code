@@ -6,6 +6,10 @@
  * Time: 2:07 PM
  */
 
+//Lock down page
+include "../login/checkLoggedIn.php";
+
+//Make connection to database
 include '../db/dbConn.php';
 
 //create the query to get subjects.

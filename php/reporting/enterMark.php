@@ -5,6 +5,10 @@
  * Date: 2019-01-27
  * Time: 9:05 PM
  */
+
+//Lock down page
+include "../login/checkLoggedIn.php";
+
 ?>
 <!--Form to update a students mark.  Requires course name, student name, mark, attendance-->
 

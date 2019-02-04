@@ -4,6 +4,10 @@
  * Edited by: John Gaudet
  * Date: 2019-01-29
  */
+
+//Lock down page
+include "../login/checkLoggedIn.php";
+
 ?>
 <!doctype html>
 <html lang="en">
