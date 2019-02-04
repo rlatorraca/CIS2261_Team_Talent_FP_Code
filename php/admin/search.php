@@ -59,91 +59,80 @@
 
                     <!--Search form items-->
                     <form action="searchResults.php" method="get">
-<!--                        <fieldset class="border p-2">-->
-                            <h2>Student Search</h2>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="firstName">First Name</label>
-                                    <input type="text" class="form-control" id="firstName" name="firstName"><br>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="lastName">Last Name</label>
-                                    <input type="text" class="form-control" id="lastName" name="lastName"><br>
-                                </div>
+                        <!--                        <fieldset class="border p-2">-->
+                        <h2>Student Search</h2>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName"><br>
                             </div>
-
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="studentID">StudentID</label>
-                                    <input type="text" class="form-control" id="studentID" name="studentID"><br>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="resultsReturned">Results Returned</label>
-                                    <select type="text" class="form-control year" id="resultsReturned" name="resultsReturned">
-                                        <option value = "2">2</option>
-                                        <option value = "5" selected>5</option>
-                                        <option value = "10">10</option>
-                                        <option value = "15">15</option>
-                                        <option value = "9999999999999999999999999999999">All</option>
-                                    </select>
-                                </div>
+                            <div class="col-sm-6">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName"><br>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="orderBy">Order By</label>
-                                    <select type="text" class="form-control year" id="orderBy" name="orderBy">
-                                        <option value = "studentID">Student ID</option>
-                                        <option value = "firstName">First Name</option>
-                                        <option value = "lastName" selected>Last Name</option>
+                        </div>
 
-                                    </select><br>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="sort">Sort</label>
-                                    <select type="text" class="form-control year" id="sort" name="sort">
-                                        <option value = "ASC" selected>Ascending</option>
-                                        <option value = "DESC" >Descending</option>
-                                    </select>
-                                </div>
-                                <!--Submit button-->
-                                <div class="col-md-12">
-                                    <?php
-                                        $confirm = new Button();
-
-                                        $confirm->buttonName = "search";
-                                        $confirm->buttonID = "search";
-                                        $confirm->buttonValue = "Search";
-                                        $confirm->buttonStyle = "font-family:sans-serif";
-                                        $confirm->display(); ?>
-                                </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="studentID">StudentID</label>
+                                <input type="text" class="form-control" id="studentID" name="studentID"><br>
                             </div>
-<!--                        </fieldset>-->
-                    </form>
+                            <div class="col-sm-6">
+                                <label for="resultsReturned">Results Returned</label>
+                                <select type="text" class="form-control year" id="resultsReturned"
+                                        name="resultsReturned">
+                                    <option value="2">2</option>
+                                    <option value="5" selected>5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="9999999999999999999999999999999">All</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="orderBy">Order By</label>
+                                <select type="text" class="form-control year" id="orderBy" name="orderBy">
+                                    <option value="studentID">Student ID</option>
+                                    <option value="firstName">First Name</option>
+                                    <option value="lastName" selected>Last Name</option>
+
+                                </select><br>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="sort">Sort</label>
+                                <select type="text" class="form-control year" id="sort" name="sort">
+                                    <option value="ASC" selected>Ascending</option>
+                                    <option value="DESC">Descending</option>
+                                </select>
+                            </div>
+                        </div>
+                     </form>
                 </div>
             </div>
-<!--The bottom navbar/footer section-->
-                <div class="bottom">
-                    <div id="footer">
-                        <ul id="footerMenu">
-                            <li class="titleNav">List One
-                                <ul class="dropupMenu">
-                                    <li><a>List 1:1</a></li>
-                                    <li><a>List 1:2</a></li>
-                                    <li><a>List 1:3</a></li>
-                                    <li><a>List 1:4</a></li>
-                                </ul>
-                            </li>
-                            <li class="titleNav">List Two
-                                <ul class="dropupMenu">
-                                    <li><a>List 2:1</a></li>
-                                    <li><a>List 2:2</a></li>
-                                    <li><a>List 2:3</a></li>
-                                    <li><a>List 2:4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+            <!--The bottom navbar/footer section-->
+            <div class="bottom">
+                <div id="footer">
+                    <ul id="footerMenu">
+                        <li class="titleNav">List One
+                            <ul class="dropupMenu">
+                                <li><a>List 1:1</a></li>
+                                <li><a>List 1:2</a></li>
+                                <li><a>List 1:3</a></li>
+                                <li><a>List 1:4</a></li>
+                            </ul>
+                        </li>
+                        <li class="titleNav">List Two
+                            <ul class="dropupMenu">
+                                <li><a>List 2:1</a></li>
+                                <li><a>List 2:2</a></li>
+                                <li><a>List 2:3</a></li>
+                                <li><a>List 2:4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </div>
     </body>
 </html>
