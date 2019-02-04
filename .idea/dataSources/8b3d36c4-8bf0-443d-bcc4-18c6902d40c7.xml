@@ -4946,6 +4946,7 @@
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1130" parent="333" name="level">
@@ -4963,15 +4964,16 @@
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1133" parent="334" name="firstName">
+    <column id="1133" parent="334" name="adminFName">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1134" parent="334" name="lastName">
+    <column id="1134" parent="334" name="adminLName">
       <Position>3</Position>
       <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
@@ -5024,6 +5026,7 @@
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1144" parent="335" name="courseName">
@@ -5057,6 +5060,7 @@
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1150" parent="336" name="courseID">
@@ -5125,15 +5129,16 @@ semesterNum</RefColNames>
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1162" parent="337" name="firstName">
+    <column id="1162" parent="337" name="educatorFName">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1163" parent="337" name="lastName">
+    <column id="1163" parent="337" name="educatorLName">
       <Position>3</Position>
       <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
@@ -5198,6 +5203,7 @@ semesterNum</RefColNames>
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1175" parent="338" name="mark">
@@ -5281,6 +5287,7 @@ semesterNum</RefColNames>
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1190" parent="339" name="reason">
@@ -5342,15 +5349,16 @@ semesterNum</RefColNames>
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1201" parent="340" name="firstName">
+    <column id="1201" parent="340" name="parentFName">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1202" parent="340" name="lastName">
+    <column id="1202" parent="340" name="parentLName">
       <Position>3</Position>
       <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
@@ -5417,11 +5425,12 @@ semesterNum</RefColNames>
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1214" parent="341" name="isRead">
       <Position>2</Position>
-      <DataType>bit(5)|0s</DataType>
+      <DataType>bit(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -5475,6 +5484,7 @@ semesterNum</RefColNames>
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1224" parent="342" name="name">
@@ -5564,6 +5574,7 @@ semesterNum</ColNames>
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1239" parent="344" name="firstName">
@@ -5714,15 +5725,16 @@ semesterNum</ColNames>
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1266" parent="346" name="firstName">
+    <column id="1266" parent="346" name="supFName">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1267" parent="346" name="lastName">
+    <column id="1267" parent="346" name="supLName">
       <Position>3</Position>
       <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
@@ -5814,16 +5826,25 @@ semesterNum</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="1283" parent="347" name="accessCode">
+    <index id="1283" parent="347" name="username">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="1284" parent="347" name="accessCode">
       <ColNames>accessCode</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1284" parent="347" name="PRIMARY">
+    <key id="1285" parent="347" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="1285" parent="347" name="user_ibfk_1">
+    <key id="1286" parent="347" name="username">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>username</UnderlyingIndexName>
+    </key>
+    <foreign-key id="1287" parent="347" name="user_ibfk_1">
       <ColNames>accessCode</ColNames>
       <RefSchemaName>stars</RefSchemaName>
       <RefTableName>accesslevel</RefTableName>

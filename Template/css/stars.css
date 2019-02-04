@@ -101,6 +101,7 @@ input {
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.3);
     height: inherit;
+    padding-bottom: 9px;
 }
 
 #footerMenu li ul.dropupMenu {
@@ -146,7 +147,7 @@ input {
     height: 40px;
     /*border-top: 1px solid rgba(0, 0, 0, 0.3);*/
     background: #328cc1;
-    z-index: 2;
+    z-index: 12;
 }
 
 
