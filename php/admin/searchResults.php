@@ -124,7 +124,7 @@
                     echo "<h5 class='centerStuff'>Sorry there are no results for your search.</h5>";
                 }
                 //Reset link
-                echo "<br><h5 class = 'centerStuff'>Start a new <a href='search.php'>Search?</a></h5>";
+                echo "<br><h5 class = 'centerStuff'>Start a new <a href='searchStudent.php'>Search?</a></h5>";
                 echo "</div>";
 
                 ?>
