@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d665968c-2a54-4ef4-a752-38485972bd29" name="Default Changelist" comment="Added files and started forms">
+      <change afterPath="$PROJECT_DIR$/php/login/checkLoggedIn.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/reporting/requestReportCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/requestReportCard.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -41,10 +42,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/php/admin/addUser.php">
+        <entry file="file://$PROJECT_DIR$/php/reporting/requestReportCard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-680">
-              <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+            <state relative-caret-position="102">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -92,7 +93,6 @@
         <option value="$PROJECT_DIR$/php/reporting/displaySchoolSubAvg.php" />
         <option value="$PROJECT_DIR$/php/reporting/displayStudentSubHistory.php" />
         <option value="$PROJECT_DIR$/php/reporting/requestStudentSubHistory.php" />
-        <option value="$PROJECT_DIR$/php/reporting/requestReportCard.php" />
         <option value="$PROJECT_DIR$/php/admin/search.php" />
         <option value="$PROJECT_DIR$/php/admin/searchResults.php" />
         <option value="$PROJECT_DIR$/php/admin/addStudent.php" />
@@ -102,11 +102,13 @@
         <option value="$PROJECT_DIR$/php/login/login.php" />
         <option value="$PROJECT_DIR$/php/admin/deleteEnrollment.php" />
         <option value="$PROJECT_DIR$/php/admin/addUser.php" />
+        <option value="$PROJECT_DIR$/php/login/checkLoggedIn.php" />
+        <option value="$PROJECT_DIR$/php/reporting/requestReportCard.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="Xampp" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="22" />
     <option name="width" value="1460" />
     <option name="height" value="920" />
@@ -160,11 +162,6 @@
               <item name="CIS2261_Team_Talent_FP_Code" type="462c0819:PsiDirectoryNode" />
               <item name="php" type="462c0819:PsiDirectoryNode" />
               <item name="reporting" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CIS2261_Team_Talent_FP_Code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CIS2261_Team_Talent_FP_Code" type="462c0819:PsiDirectoryNode" />
-              <item name="Template" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -239,7 +236,7 @@
       <workItem from="1549249948389" duration="4473000" />
       <workItem from="1549263025307" duration="1790000" />
       <workItem from="1549287317540" duration="2265000" />
-      <workItem from="1549290201672" duration="4820000" />
+      <workItem from="1549290201672" duration="6119000" />
     </task>
     <task id="LOCAL-00001" summary="Added database sql file and inserted sql code to create database.">
       <created>1548210945438</created>
@@ -259,7 +256,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126894000" />
+    <option name="totallyTimeSpent" value="128193000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -331,7 +328,6 @@
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/php/admin/addSupportEd.php" />
     <entry file="file://$PROJECT_DIR$/php/admin/deleteSupportEd.php" />
     <entry file="file://$PROJECT_DIR$/php/admin/editSupportEd.php" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8b3d36c4-8bf0-443d-bcc4-18c6902d40c7/console.sql" />
@@ -387,7 +383,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Template/reworked.php" />
-    <entry file="file://$PROJECT_DIR$/php/login/setCookie.php" />
     <entry file="file://$PROJECT_DIR$/img/fox1.jpg" />
     <entry file="file://$PROJECT_DIR$/img/fox.jpg" />
     <entry file="file://$PROJECT_DIR$/img/StarsWhiteFIN.gif" />
@@ -428,13 +423,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/addStudent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-265">
-          <caret line="41" column="31" lean-forward="true" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Template/mockup.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1955">
@@ -452,16 +440,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/stars.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/login/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="1" column="3" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-          <folding>
-            <element signature="e#6#99#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/login/logout.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -504,23 +482,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/reporting/enterMark.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="108" column="14" lean-forward="true" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/search.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1467" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/reporting/requestReportCard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/reporting/displayReportCard.php">
@@ -542,8 +506,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/addUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-680">
-          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+        <state relative-caret-position="272">
+          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/addStudent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="76" column="57" selection-start-line="76" selection-start-column="57" selection-end-line="76" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/login/setCookie.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/reporting/enterMark.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="681">
+          <caret line="108" column="14" lean-forward="true" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/login/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="88" column="51" lean-forward="true" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
+          <folding>
+            <element signature="e#6#99#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/login/checkLoggedIn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+          <folding>
+            <element signature="e#6#96#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/reporting/requestReportCard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
