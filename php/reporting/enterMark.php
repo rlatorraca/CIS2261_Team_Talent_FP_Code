@@ -9,6 +9,9 @@
 //Lock down page
 include "../login/checkLoggedIn.php";
 
+//Database connection
+include '../db/dbConn.php';
+
 ?>
 <!--Form to update a students mark.  Requires course name, student name, mark, attendance-->
 
@@ -17,43 +20,42 @@ include "../login/checkLoggedIn.php";
         crossorigin="anonymous"></script>
 <script type="text/javascript" src="ajax.js"></script>
 
-    <?php
-    $msg = "";
-    if (isset($_POST['submitUpdateRecord'])) {
-	    include '../db/dbConn.php';
-	    $markInput = $_POST['markInput'];
-	    $attendence = $_POST['attendance'];
-	    $teacherNotes = $_POST['teacherNotes'];
-	    $classID = $_POST['courseSemester'];
-	    $studentID = $_POST['studentMark'];
+<?php
+$msg = "";
+if (isset($_POST['submitUpdateRecord'])) {
+    $markInput = $_POST['markInput'];
+    $attendence = $_POST['attendance'];
+    $teacherNotes = $_POST['teacherNotes'];
+    $classID = $_POST['courseSemester'];
+    $studentID = $_POST['studentMark'];
 
-	    $queryCourse1 = "UPDATE enrollment SET mark= $markInput, attendance = $attendence, notes= '$teacherNotes' WHERE enrollment.studentID = $studentID AND enrollment.classID = $classID;";
+    $queryCourse1 = "UPDATE enrollment SET mark= $markInput, attendance = $attendence, notes= '$teacherNotes' WHERE enrollment.studentID = $studentID AND enrollment.classID = $classID;";
 
-	    //Execute query and store result.
-	    $result = $database->query($queryCourse1);
+    //Execute query and store result.
+    $result = $database->query($queryCourse1);
 
-	    //Check if query executed successfully and that the result contains data.
-	    if ($result == 1) {
+    //Check if query executed successfully and that the result contains data.
+    if ($result == 1) {
 
-		    $msg = "<h2>Student Record has been successfully updated.</h2><br>";
-
-	    } else {
-
-		    $msg = "<h2>Sorry, student record could not be updated to the database at this time</h2><br>";
-
-	    }
-
-	    //Close database connection
-	    $database->close();
+        $msg = "<h2>Student Record has been successfully updated.</h2><br>";
 
     } else {
-	    include '../db/dbConn.php';
-	    //query to find the courses (and semester Number) the teacher has assigned to them
-	    $queryCourse = "SELECT courseoffering.classID, course.courseName, courseoffering.semesterNum FROM course, user, educator, courseoffering WHERE educator.userID = 14 AND courseoffering.educatorID = educator.educatorID AND user.userID = educator.userID AND course.courseID = courseoffering.courseID";
-	    //query to find the students in the selected course
 
-	    $resultCourse = $database->query($queryCourse);
+        $msg = "<h2>Sorry, student record could not be updated to the database at this time</h2><br>";
+
     }
+
+    //Close database connection
+    $database->close();
+
+} else {
+    include '../db/dbConn.php';
+    //query to find the courses (and semester Number) the teacher has assigned to them
+    $queryCourse = "SELECT courseoffering.classID, course.courseName, courseoffering.semesterNum FROM course, user, educator, courseoffering WHERE educator.userID = 14 AND courseoffering.educatorID = educator.educatorID AND user.userID = educator.userID AND course.courseID = courseoffering.courseID";
+    //query to find the students in the selected course
+
+    $resultCourse = $database->query($queryCourse);
+}
 ?>
 <form action="enterMark.php" method="post">
     <div class="form-group">
@@ -80,22 +82,24 @@ include "../login/checkLoggedIn.php";
             <label for="studentMark">Student</label>
             <!--            $queryCourse =-->
 
-           <select name="studentMark" id="studentMark"><option>------- Select --------</option></select>
+            <select name="studentMark" id="studentMark">
+                <option>------- Select --------</option>
+            </select>
 
 
         </div>
-<!--        <div class="col-3">-->
-<!--            <label for="markInput">Select Mark</label>-->
-<!--            <select class="form-control" id="markInput" name="markInput">-->
-<!--                --><?php
-//                    for ($i = 0; $i <= 100; $i++) {
-//                        ?>
-<!--                        <option value="--><?php //echo $i; ?><!--">--><?php //echo $i; ?><!--</option>-->
-<!--                        --><?php
-//                    }
-//                ?>
-<!--            </select>-->
-<!--        </div>-->
+        <!--        <div class="col-3">-->
+        <!--            <label for="markInput">Select Mark</label>-->
+        <!--            <select class="form-control" id="markInput" name="markInput">-->
+        <!--                --><?php
+        //                    for ($i = 0; $i <= 100; $i++) {
+        //                        ?>
+        <!--                        <option value="--><?php //echo $i; ?><!--">--><?php //echo $i; ?><!--</option>-->
+        <!--                        --><?php
+        //                    }
+        //                ?>
+        <!--            </select>-->
+        <!--        </div>-->
         <div class="col-3">
             <label for="markInput">Mark</label>
             <input id="markInput" type="text" name="markInput" placeholder="Enter mark" size="15">
@@ -120,7 +124,7 @@ include "../login/checkLoggedIn.php";
 
 <?php
 if (isset($msg)) {
-	echo "<div class='alert alert-danger'>$msg</div>";
+    echo "<div class='alert alert-danger'>$msg</div>";
 }
 ?>
 
