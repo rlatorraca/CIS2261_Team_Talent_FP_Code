@@ -144,7 +144,7 @@ if (isset($_POST['username'])) {
         </form>
         <?php
         if (isset($error)) {
-            echo "<div class='alert alert-danger'>$error</div>";
+            echo "<br><br><div class='alert alert-danger'>$error</div>";
         }
 
 

@@ -122,7 +122,7 @@
 
         <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
         <!-- Here is where we call bootstrap. !-->
-        <title>STARS - Search Student</title>
+        <title>STARS - Assign Mark</title>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                 crossorigin="anonymous"></script>
@@ -156,7 +156,7 @@
                 <!--Main container and contents-->
                 <div class="container main-container" id="studentSearch">
                     <form action="enterMark.php" method="post">
-                        <h2>Enter Mark</h2>
+                        <h2>Assign Mark</h2>
                         <div class="form-group">
 
                             <div class="row">
@@ -227,7 +227,18 @@
                             <br>
                             <!--Search button-->
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-3">
+                                    <?php
+                                        $confirm = new Button();
+
+                                        $confirm->buttonName = "reset";
+                                        $confirm->buttonID = "reset";
+                                        $confirm->buttonValue = "Reset";
+                                        $confirm->buttonStyle = "font-family:sans-serif";
+                                        $confirm->display(); ?>
+
+                                </div>
+                                <div class="col-md-3">
                                     <?php
                                         $confirm = new Button();
 
@@ -236,8 +247,10 @@
                                         $confirm->buttonValue = "Enter";
                                         $confirm->buttonStyle = "font-family:sans-serif";
                                         $confirm->display(); ?>
-                                </div>
                             </div>
+                            </div>
+
+
                     </form>
                     <?php
                         if (isset($msg)) {
@@ -245,6 +258,13 @@
                         }
 
                     ?>
+                </div>
+            </div>
+        </div>
+            <!--The bottom navbar/footer section-->
+            <div class="bottom">
+                <div id="footer">
+                    <?php include("../../navMenu.php"); ?>
                 </div>
             </div>
     </body>
