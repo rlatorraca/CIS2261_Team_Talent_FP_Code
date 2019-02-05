@@ -7,6 +7,12 @@
  * Time: 12:09 AM
  */
 
+//Lock down page
+include "../login/checkLoggedIn.php";
+
+//Ensure only admin/system admin staff can view and use page
+include "../login/authenticateAdminPages.php";
+
 include("../button.class.php");
 $confirm = new Button();
 

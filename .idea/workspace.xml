@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d665968c-2a54-4ef4-a752-38485972bd29" name="Default Changelist" comment="Added files and started forms">
-      <change afterPath="$PROJECT_DIR$/php/login/authenticateAdminPages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/searchCourses.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/searchCourses.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,7 +38,17 @@
     </checked>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/admin/searchCourses.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -94,12 +102,12 @@
         <option value="$PROJECT_DIR$/php/admin/searchResults.php" />
         <option value="$PROJECT_DIR$/php/admin/editStudent.php" />
         <option value="$PROJECT_DIR$/php/admin/assignCourse.php" />
-        <option value="$PROJECT_DIR$/php/admin/searchCourses.php" />
         <option value="$PROJECT_DIR$/php/admin/searchCourseResults.php" />
         <option value="$PROJECT_DIR$/php/admin/deleteEnrollment.php" />
         <option value="$PROJECT_DIR$/php/admin/addStudent.php" />
         <option value="$PROJECT_DIR$/php/admin/addUser.php" />
         <option value="$PROJECT_DIR$/php/login/authenticateAdminPages.php" />
+        <option value="$PROJECT_DIR$/php/admin/searchCourses.php" />
       </list>
     </option>
   </component>
@@ -228,7 +236,7 @@
       <workItem from="1549263025307" duration="1790000" />
       <workItem from="1549287317540" duration="2265000" />
       <workItem from="1549290201672" duration="8984000" />
-      <workItem from="1549373119094" duration="2533000" />
+      <workItem from="1549373119094" duration="2796000" />
     </task>
     <task id="LOCAL-00001" summary="Added database sql file and inserted sql code to create database.">
       <created>1548210945438</created>
@@ -248,7 +256,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139672000" />
+    <option name="totallyTimeSpent" value="139935000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -261,6 +269,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22851002" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -507,13 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/searchCourses.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="80" column="73" selection-start-line="80" selection-start-column="73" selection-end-line="80" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/addStudent.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -561,6 +563,13 @@
           <folding>
             <element signature="e#6#99#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/searchCourses.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
