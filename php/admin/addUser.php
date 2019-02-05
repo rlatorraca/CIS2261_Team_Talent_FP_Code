@@ -103,7 +103,7 @@ include "../db/dbConn.php";
 
             echo "<h2>Sorry, User could not be added to the database at this time</h2><br>";
             echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button class='btn btn-primary' onclick='goBack()'>Go Back</button></div></fieldset></form>";
-            echo "<form action='../../Template/index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
+            echo "<form action='/index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
 
         }
 

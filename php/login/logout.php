@@ -14,6 +14,6 @@ session_start();
 session_destroy();
 
 // Change location page
-header("Location: ../index.php");
+header('Location: /CIS2261_Team_Talent_FP_Code/index.php');
 
 ?>

@@ -91,7 +91,7 @@ if (isset($_POST['username'])) {
                 include("setCookie.php");
                 echo "<p>My access code is : " . $_SESSION['accessCode'] . "<p>";
                 $error = "Logged IN";
-                header('Location: ../index.php');
+                header('Location: /CIS2261_Team_Talent_FP_Code/index.php');
             } else {
                 $error = "Login/Password incorrect";
                 exit;

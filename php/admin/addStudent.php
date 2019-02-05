@@ -129,6 +129,7 @@ include "../db/dbConn.php";
     $_SESSION['username'];
 
     ?>
+
     <p>**Please ensure all fields are filled before registering a new Student.</p>
     <form action="addStudent.php" method="post">
         <fieldset>
@@ -247,6 +248,7 @@ include "../db/dbConn.php";
                 </select>
             </div>
             <div class="col-md-12">
+<!--Register student button-->
                 <input type="submit" name="register" value="Register Student">
             </div>
         </fieldset>
