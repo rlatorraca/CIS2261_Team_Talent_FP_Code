@@ -78,12 +78,20 @@ if ($_SESSION["accessCode"] == 3) {
 
 } else if ($_SESSION["accessCode"] == 4) {
 
+    $querySupportEducator = "SELECT supportEducatorID FROM supporteducator, user 
+                              WHERE supporteducator.userID = 19;";
+
+    $queryStudent = "SELECT DISTINCT student.studentID, student.firstName, student.lastName 
+                        FROM student, supporteducator 
+                        WHERE supporteducator.supportEducatorID = 3
+                        AND student.supportEducatorID = supporteducator.supportEducatorID;";
+
 
 
 }
 
 //create the query to get subjects
-$querySubject = "SELECT subject.subjectCode, subject.subjectName FROM subject, school WHERE school.schoolID = 1";
+$querySubject = "SELECT subject.subjectCode, subject.subjectName FROM subject, school WHERE school.schoolID = $schoolID";
 //query to pull all available school years
 $queryYear = "SELECT DISTINCT schoolYear FROM `semester`";
 
