@@ -15,8 +15,6 @@ include "../login/authenticateAdminPages.php";
 //Database connection
 include "../db/dbConn.php";
 
-session_start();
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -195,7 +193,7 @@ session_start();
 
     <div class="bottom">
         <div id="footer">
-            <?php include("navMenu.php"); ?>
+            <?php include("../../navMenu.php"); ?>
         </div>
     </div>
 </body>
