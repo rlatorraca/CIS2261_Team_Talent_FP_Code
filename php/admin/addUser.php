@@ -84,8 +84,8 @@
             <div class="container-fluid">
                 <?php
                 echo "<h2>Error. Form fields must not be empty before submitting</h2><br>";
-                echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button class='btn btn-primary' onclick='goBack()'>Go Back</button></div></fieldset></form>";
-                echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
+                echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button class='btn  button button2' onclick='goBack()'>Go Back</button></div></fieldset></form>";
+                echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button class = 'btn button button2' id='customBtn'>Return Home</button></div></fieldset></form>";
                 ?>
             </div>
         </div>

@@ -181,6 +181,7 @@ h1, h2 {
 
 /* Referenceed from here: https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_hover*/
 /* The button styling below is for the yellow form button found throughout the site. */
+/*Applies basic button styling*/
 .button {
     float: right;
     border-radius: 8px;
@@ -197,8 +198,15 @@ h1, h2 {
     transition-duration: 0.4s;
     cursor: pointer;
     box-shadow: 5px 7px 4px #0c0c0c;
-}
 
+}
+.button:focus{
+    outline: none;
+}
+.button2:focus{
+    outline: none;
+}
+/*Applies specific button colorings*/
 .button2 {
     background-color: #d9b310;
     color: white;
