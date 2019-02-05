@@ -113,6 +113,12 @@ h1, h2 {
     font-size: x-large;
 }
 
+/*Removes the underline from <a> tags in the navbar.*/
+#footerMenu a {
+
+    text-decoration: none;
+}
+
 #footerMenu li {
     list-style: none;
     float: left;

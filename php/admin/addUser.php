@@ -191,27 +191,11 @@ include "../db/dbConn.php";
     </div>
 </div>
 
-<div class="bottom">
-    <div id="footer">
-        <ul id="footerMenu">
-            <?php
-            echo '<a href="#"><li class = "titleNav">Home</li></a>';
-
-            echo '<li class = "titleNav">Add User
-                        <ul class = "dropupMenu">
-                            <a><li>Student</li></a>
-                            <a><li>Educator</li></a>
-                            <a><li>Support Educator</li></a>
-                        </ul>
-                    </li>';
-
-            echo '<a href="#"><li class = "titleNav">Edit User</li></a>';
-
-            echo '<a href="#"><li class = "titleNav">Search Students</li></a>';
-            ?>
-        </ul>
+    <div class="bottom">
+        <div id="footer">
+            <?php include("navMenu.php"); ?>
+        </div>
     </div>
-</div>
 </body>
 </html>
 <?php
