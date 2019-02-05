@@ -63,15 +63,8 @@
                 <!--Login button-->
                 <div class="col-md-12">
 
-                    <a href="php/login/login.php" class="btn btn-primary btn-lg active" role="button">Login</a>
-                    <?php
-                        $confirm = new Button();
+                    <a href="php/login/login.php" class="btn button2 button" role="button">Login</a>
 
-                        $confirm->buttonName = "search";
-                        $confirm->buttonID = "search";
-                        $confirm->buttonValue = "Search";
-                        $confirm->buttonStyle = "font-family:sans-serif";
-                        $confirm->display(); ?>
                 </div>
             </div>
         </div>

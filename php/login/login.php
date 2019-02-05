@@ -129,6 +129,7 @@ if (isset($_POST['username'])) {
                     <input id="password" type="password" class="form-control" name="password"
                            placeholder="Enter your password">
                 </div>
+
                 <br>
                 <?php
 
@@ -155,7 +156,7 @@ if (isset($_POST['username'])) {
     <div id="footer">
         <ul id="footerMenu">
             <?php
-            echo '<a href="#"><li class = "titleNav">Home</li></a>';
+            echo '<a href="../../index.php"><li class = "titleNav">Home</li></a>';
 
             ?>
         </ul>
