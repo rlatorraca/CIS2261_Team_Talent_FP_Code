@@ -7,10 +7,12 @@
  */
 
 
-$accessCode = $_SESSION['accessCode'];
+
 
 if (!isset($_SESSION['accessCode'])){
     $accessCode = 0;
+} else {
+    $accessCode = $_SESSION['accessCode'];
 }
 
 
