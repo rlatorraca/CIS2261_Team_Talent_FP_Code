@@ -16,10 +16,10 @@ include "../login/authenticateAdminPages.php";
 include '../db/dbConn.php';
 
 //create the query to get subjects.
-//Make sure to pull the logged in administrator's schoolID from the session to use as the required field below.
-$querySubject = "SELECT subject.subjectCode, subject.subjectName FROM subject, school WHERE school.schoolID = 1";
+$querySubject = "SELECT subject.subjectCode, subject.subjectName FROM subject";
+
 //create query to get date ranges
-$queryYear = "SELECT DISTINCT schoolYear FROM `semester`";
+$queryYear = "SELECT DISTINCT schoolYear FROM semester";
 //Execute queries and store results.
 $resultSubject = $database->query($querySubject);
 $resultYear = $database->query($queryYear);
