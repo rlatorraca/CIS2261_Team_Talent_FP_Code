@@ -19,23 +19,20 @@
         echo "<p>Can not view this page</p>";
         echo "<a href='../../index.php'>Home</a>";
         exit();
-
     }
 
     //Database connection
     include '../db/dbConn.php';
-
 ?>
-<!--Form to update a students mark.  Requires course name, student name, mark, attendance-->
-
+<!--Form to update a students mark-->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 <script type="text/javascript" src="ajax.js"></script>
 
 <?php
-    $msg = "";
-    if (isset($_POST['submitUpdateRecord'])) {
+    $msg;
+    if (isset($_POST['enter'])) {
         $markInput = $_POST['markInput'];
         $attendence = $_POST['attendance'];
         $teacherNotes = $_POST['teacherNotes'];
@@ -53,6 +50,7 @@
 
             $msg = "<h2>Student Record has been successfully updated.</h2><br>";
 
+
         } else {
 
             $msg = "<h2>Sorry, student record could not be updated to the database at this time</h2><br>";
@@ -60,7 +58,7 @@
         }
 
         //Close database connection
-        $database->close();
+       //$database->close();
 
     } else {
 
@@ -243,12 +241,12 @@
                     </form>
                     <?php
                         if (isset($msg)) {
-                            echo "<div class='alert alert-danger'>$msg</div>";
+                            echo "<div>$msg</div>";
                         }
+
                     ?>
                 </div>
             </div>
-
     </body>
 </html>
 

@@ -20,6 +20,24 @@ $subject = $_POST["subjects"];
 $yearStart = $_POST["yearStart"];
 $yearEnd = $_POST["yearEnd"];
 
+//Get the school from the logged in administrator
+$userID = $_SESSION["userID"];
+$schoolID = 0;
+
+$querySchoolID = "SELECT administrator.schoolID FROM administrator WHERE administrator.userID = $userID";
+
+$resultSchoolID = $database->query($querySchoolID);
+
+if ($resultSchoolID) {
+
+    while ($row = $resultSchoolID->fetch_assoc()){
+
+        $schoolID = $row["schoolID"];
+
+    }
+
+}
+
 //Get distinct years from the selections
 $getSchoolYearsQuery = "SELECT DISTINCT semester.schoolYear FROM semester WHERE semester.schoolYear BETWEEN '$yearStart' AND '$yearEnd'";
 
@@ -37,7 +55,7 @@ if ($resultSetInitialQuery) {
 
         $querySubjectAverage = "SELECT school.name, subject.subjectName, AVG (enrollment.mark) AS average 
 						FROM school, subject, enrollment, courseoffering, course, semester, student
-						WHERE school.schoolID = 1
+						WHERE school.schoolID = $schoolID
 						AND student.schoolID = school.schoolID
 						AND subject.subjectCode = '$subject'
                         AND course.subjectCode = subject.subjectCode

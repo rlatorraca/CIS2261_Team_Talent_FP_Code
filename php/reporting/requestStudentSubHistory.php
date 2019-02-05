@@ -21,34 +21,27 @@
 //Lock down page
 include "../login/checkLoggedIn.php";
 
-//Locks down page for non-admin or non-educational staff. Parent/Guardians and Students are not able to view this page.
-if ($_SESSION["accessCode"] != 1 && $_SESSION["accessCode"] != 2 && $_SESSION["accessCode"] != 3) {
-
-    //Simple but requires full CSS
-    echo "<p>Can not view this page</p>";
-    echo "<a href='../../index.php'>Home</a>";
-    exit();
-
-}
-
 //Necessary Db connection
 include "../db/dbConn.php";
 
 //query to find the courses the teacher has assigned to them and pull all the students.
 $userID = $_SESSION["userID"];
 
+//Variables to store data if required (based on logged in user)
 $queryStudent = "";
 $schoolID = 0;
+$supportEducatorID = 0;
+$guardianID = 0;
 
-if ($_SESSION["accessCode"] == 3) {
+//Massive if statement to determine the SQL to select student(s) according to logged in user accessing the page.
+if ($_SESSION["accessCode"] == 1){
 
-    $queryStudent = "SELECT DISTINCT student.studentID, student.firstName, student.lastName FROM user, student, enrollment, 
+$queryStudent = "SELECT DISTINCT student.studentID, student.firstName, student.lastName FROM user, student, enrollment, 
                     course, courseoffering, subject, semester, educator 
-                    WHERE educator.userID = $userID
-                    AND user.userID = educator.userID 
-                    AND courseoffering.educatorID = educator.educatorID
+                    WHERE courseoffering.educatorID = educator.educatorID
                     AND student.studentID = enrollment.studentID 
-                    AND course.subjectCode = subject.subjectCode AND courseoffering.courseID = course.courseID 
+                    AND course.subjectCode = subject.subjectCode 
+                    AND courseoffering.courseID = course.courseID 
                     AND enrollment.classID = courseoffering.classID;";
 
 } else if ($_SESSION["accessCode"] == 2) {
@@ -76,22 +69,72 @@ if ($_SESSION["accessCode"] == 3) {
                     AND course.subjectCode = subject.subjectCode AND courseoffering.courseID = course.courseID 
                     AND enrollment.classID = courseoffering.classID;";
 
+} else if ($_SESSION["accessCode"] == 3) {
+
+    $queryStudent = "SELECT DISTINCT student.studentID, student.firstName, student.lastName FROM user, student, enrollment, 
+                    course, courseoffering, subject, semester, educator 
+                    WHERE educator.userID = $userID
+                    AND user.userID = educator.userID 
+                    AND courseoffering.educatorID = educator.educatorID
+                    AND student.studentID = enrollment.studentID 
+                    AND course.subjectCode = subject.subjectCode AND courseoffering.courseID = course.courseID 
+                    AND enrollment.classID = courseoffering.classID;";
+
 } else if ($_SESSION["accessCode"] == 4) {
 
     $querySupportEducator = "SELECT supportEducatorID FROM supporteducator, user 
-                              WHERE supporteducator.userID = 19;";
+                             WHERE supporteducator.userID = $userID;";
+
+    $resultQuerySupportEducator = $database->query($querySupportEducator);
+
+    if ($resultQuerySupportEducator) {
+
+        while ($row = $resultQuerySupportEducator->fetch_assoc()){
+
+            $supportEducatorID = $row["supportEducatorID"];
+
+        }
+
+    }
 
     $queryStudent = "SELECT DISTINCT student.studentID, student.firstName, student.lastName 
                         FROM student, supporteducator 
-                        WHERE supporteducator.supportEducatorID = 3
+                        WHERE supporteducator.supportEducatorID = $supportEducatorID
                         AND student.supportEducatorID = supporteducator.supportEducatorID;";
 
+} else if ($_SESSION["accessCode"] == 5) {
 
+    $queryStudent = "SELECT DISTINCT student.studentID, student.firstName, student.lastName 
+                        FROM student WHERE student.userID = $userID;";
+
+} else if ($_SESSION["accessCode"] == 6) {
+
+    $queryParentGuardian = "SELECT parentorguardian.guardianID FROM parentorguardian WHERE userID = $userID;";
+
+    $resultsParentGuardian = $database->query($queryParentGuardian);
+
+    if ($resultsParentGuardian) {
+
+        while ($row = $resultsParentGuardian->fetch_assoc()){
+
+            $guardianID = $row["guardianID"];
+
+        }
+
+    }
+
+    $queryStudent = "SELECT DISTINCT student.studentID, student.firstName, student.lastName FROM student, parentorguardian 
+                            WHERE parentorguardian.guardianID = $guardianID
+                            AND student.guardianID = parentorguardian.guardianID;";
 
 }
 
 //create the query to get subjects
-$querySubject = "SELECT subject.subjectCode, subject.subjectName FROM subject, school WHERE school.schoolID = $schoolID";
+//Don't need to select by school, all subjects should be available across the school system.
+//$querySubject = "SELECT subject.subjectCode, subject.subjectName FROM subject, school WHERE school.schoolID = $schoolID";
+
+$querySubject = "SELECT * FROM subject";
+
 //query to pull all available school years
 $queryYear = "SELECT DISTINCT schoolYear FROM `semester`";
 
