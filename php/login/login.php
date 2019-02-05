@@ -73,7 +73,8 @@ if (isset($_POST['username'])) {
         $usernamedb = $database->real_escape_string(trim($_SESSION['username']));
         $passworddb = $database->real_escape_string(md5(trim($_SESSION['password'])));
 
-        $query = "SELECT username, password, accessCode FROM user WHERE (username = '$usernamedb') AND (password = '$passworddb') LIMIT 1";
+        $query = "SELECT userID, username, password, accessCode FROM user 
+                  WHERE (username = '$usernamedb') AND (password = '$passworddb') LIMIT 1";
 
         //$db object created above and run the query() method. We pass it our query from above.
         $result = $database->query($query);
@@ -86,8 +87,10 @@ if (isset($_POST['username'])) {
             if ($num_results == 1) {
                 $row = $result->fetch_assoc();
                 $accessCodeDB = $row['accessCode'];
+                $userID = $row['userID'];
                 $_SESSION['isLoggedIn'] = true;
                 $_SESSION['accessCode'] = $accessCodeDB;
+                $_SESSION['userID'] = $userID;
                 include("setCookie.php");
                 echo "<p>My access code is : " . $_SESSION['accessCode'] . "<p>";
                 $error = "Logged IN";

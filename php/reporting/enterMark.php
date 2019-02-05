@@ -9,6 +9,16 @@
 //Lock down page
 include "../login/checkLoggedIn.php";
 
+//Locks down page for non-admin or educational staff. Parent/Guardians, Support Educators and Students are not able to view this page.
+if ($_SESSION["accessCode"] == 4 || $_SESSION["accessCode"] == 5 || $_SESSION["accessCode"] == 6) {
+
+    //Simple but requires full CSS
+    echo "<p>Can not view this page</p>";
+    echo "<a href='../../index.php'>Home</a>";
+    exit();
+
+}
+
 //Database connection
 include '../db/dbConn.php';
 
@@ -29,7 +39,8 @@ if (isset($_POST['submitUpdateRecord'])) {
     $classID = $_POST['courseSemester'];
     $studentID = $_POST['studentMark'];
 
-    $queryCourse1 = "UPDATE enrollment SET mark= $markInput, attendance = $attendence, notes= '$teacherNotes' WHERE enrollment.studentID = $studentID AND enrollment.classID = $classID;";
+    $queryCourse1 = "UPDATE enrollment SET mark= $markInput, attendance = $attendence, notes= '$teacherNotes' 
+                      WHERE enrollment.studentID = $studentID AND enrollment.classID = $classID;";
 
     //Execute query and store result.
     $result = $database->query($queryCourse1);
@@ -49,9 +60,17 @@ if (isset($_POST['submitUpdateRecord'])) {
     $database->close();
 
 } else {
-    include '../db/dbConn.php';
+
+    //Get logged in user's userID
+    $educatorUserID = $_SESSION['userID'];
+
     //query to find the courses (and semester Number) the teacher has assigned to them
-    $queryCourse = "SELECT courseoffering.classID, course.courseName, courseoffering.semesterNum FROM course, user, educator, courseoffering WHERE educator.userID = 14 AND courseoffering.educatorID = educator.educatorID AND user.userID = educator.userID AND course.courseID = courseoffering.courseID";
+    $queryCourse = "SELECT courseoffering.classID, course.courseName, courseoffering.semesterNum 
+                    FROM course, user, educator, courseoffering 
+                    WHERE educator.userID = $educatorUserID
+                    AND courseoffering.educatorID = educator.educatorID 
+                    AND user.userID = educator.userID 
+                    AND course.courseID = courseoffering.courseID;";
     //query to find the students in the selected course
 
     $resultCourse = $database->query($queryCourse);

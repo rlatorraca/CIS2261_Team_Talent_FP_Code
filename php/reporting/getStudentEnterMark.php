@@ -16,7 +16,11 @@ include "../login/checkLoggedIn.php";
 include("../db/dbConn.php");
 
 if (isset($_POST['classID'])) {
-    $sql = "select student.firstName, student.lastName, student.studentID from enrollment, student, courseoffering where courseoffering.classID=" . mysqli_real_escape_string($database, $_POST['classID']) . " and enrollment.classID = courseoffering.classID and student.studentID = enrollment.studentID;";
+    $sql = "SELECT student.firstName, student.lastName, student.studentID 
+            FROM enrollment, student, courseoffering 
+            WHERE courseoffering.classID=" . mysqli_real_escape_string($database, $_POST['classID']) . " 
+            AND enrollment.classID = courseoffering.classID 
+            AND student.studentID = enrollment.studentID;";
     $res = mysqli_query($database, $sql);
     if (mysqli_num_rows($res) > 0) {
         echo "<option value=''>------- Select --------</option>";
