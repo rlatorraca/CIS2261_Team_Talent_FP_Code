@@ -15,6 +15,8 @@ include "../login/authenticateAdminPages.php";
 //Database connection
 include "../db/dbConn.php";
 
+session_start();
+
 ?>
 <!doctype html>
 <html lang="en">
