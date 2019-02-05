@@ -7,6 +7,7 @@
      * Time: 12:09 AM
      */
 
+    session_start();
     include("../CIS2261_Team_Talent_FP_Code/php/button.class.php");
     $confirm = new Button();
 ?>
