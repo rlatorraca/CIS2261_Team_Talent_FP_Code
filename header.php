@@ -14,6 +14,7 @@ include 'php/db/dbConn.php';
 session_start();
 
 $_SESSION['userID'] = $loggedUser;
+$_SESSION['accessCode'] = $access;
 
 
 
