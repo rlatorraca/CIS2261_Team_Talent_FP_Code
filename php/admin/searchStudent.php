@@ -10,7 +10,7 @@
     include("../button.class.php");
     $confirm = new Button();
 
-session_start();
+    session_start();
 
 
 ?>
@@ -83,7 +83,7 @@ session_start();
                             </div>
                             <div class="col-sm-6">
                                 <label for="resultsReturned">Results Returned</label>
-                                <select type="text" class="form-control year" id="resultsReturned"
+                                <select type="text" class="form-control" id="resultsReturned"
                                         name="resultsReturned">
                                     <option value="2">2</option>
                                     <option value="5" selected>5</option>
@@ -124,15 +124,14 @@ session_start();
                                     $confirm->display(); ?>
                             </div>
                         </div>
+                    </form>
                 </div>
-                </form>
             </div>
-        </div>
-        <!--The bottom navbar/footer section-->
-        <div class="bottom">
-            <div id="footer">
-                <?php include("../../navMenu.php"); ?>
+            <!--The bottom navbar/footer section-->
+            <div class="bottom">
+                <div id="footer">
+                    <?php include("../../navMenu.php"); ?>
+                </div>
             </div>
-        </div>
     </body>
 </html>
