@@ -9,6 +9,10 @@
 
     include("../button.class.php");
     $confirm = new Button();
+
+session_start();
+
+
 ?>
 
 <!doctype html>
@@ -127,7 +131,7 @@
         <!--The bottom navbar/footer section-->
         <div class="bottom">
             <div id="footer">
-                <?php include("navMenu.php"); ?>
+                <?php include("../../navMenu.php"); ?>
             </div>
         </div>
     </body>

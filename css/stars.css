@@ -76,7 +76,7 @@ p {
 
 }
 
-h2 {
+h1, h2 {
     color: #328cc1;
 
 }
@@ -94,7 +94,7 @@ h2 {
     right: 0px;
     width: 100%;
     height: inherit;
-    /*border-top: 1px solid rgba(0, 0, 0, 0.3);*/
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
     background: #1D2731;
     z-index: 5;
 }
@@ -153,7 +153,7 @@ h2 {
 
 /* Settings for the main navbar */
 .titleNav {
-    min-width: 9%;
+    min-width: 15%;
     text-align: center;
     height: 15px;
 }

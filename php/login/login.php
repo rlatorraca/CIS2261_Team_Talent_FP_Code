@@ -146,7 +146,7 @@ if (isset($_POST['username'])) {
 
 
         ?>
-    </div>
+    </div>r
 </div>
 <div class="bottom">
     <div id="footer">
