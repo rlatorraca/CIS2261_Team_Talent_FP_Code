@@ -115,6 +115,7 @@ include "../db/dbConn.php";
     } else {
 
     ?>
+</div>
     <div class="header">
         <img src="../../img/StarsWhiteFIN.jpg">
     </div>
@@ -122,7 +123,7 @@ include "../db/dbConn.php";
         <div class="container-fluid">
 
             <form action="addUser.php" method="POST">
-                <fieldset>
+                <div class="form-group">
                     <h2>User Details</h2>
                     <p>*Please ensure all fields are completed before adding a new User.</p>
                     <!--            <div class="col-md-12 form-inline customDiv">-->
@@ -131,48 +132,54 @@ include "../db/dbConn.php";
                     <!--            </div>-->
                     <!--            <br>-->
                     <br>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="author" class="col-md-6">Username</label>
-                        <input type="text" name="username" class="col-md-6 form-control">
-                    </div>
-                    <br>
-                    <br>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="title" class="col-md-6">Password</label>
-                        <input type="text" name="password" class="col-md-6 form-control">
-                    </div>
-                    <br>
-                    <br>
-                    <div class="col-md-12 form-inline customDiv">
-                        <label for="price" class="col-md-6">Access Code</label>
-                        <select name="accessCode" class="form-control">
-                            <option value="1">1: System Administrator</option>
-                            <option value="2">2: Administrator</option>
-                            <option value="3">3: Educator</option>
-                            <option value="4">4: Support Educator</option>
-                            <option value="5">5: Student</option>
-                            <option value="6">6: Parent/Guardian</option>
-                        </select>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="col-md-12">
-                        <?php
+                    <div class="container"">
+                        <div class="row">
+                            <div class="col-md-12 form-inline customDiv">
+                                <label for="author" class="col-md-6">Username</label>
+                                <input type="text" name="username" class="col-md-6 form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12 form-inline customDiv">
+                                <label for="title" class="col-md-6">Password</label>
+                                <input type="text" name="password" class="col-md-6 form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12 form-inline customDiv">
+                                <label for="price" class="col-md-6">Access Code</label>
+                                <select name="accessCode" class="form-control">
+                                    <option value="1">1: System Administrator</option>
+                                    <option value="2">2: Administrator</option>
+                                    <option value="3">3: Educator</option>
+                                    <option value="4">4: Support Educator</option>
+                                    <option value="5">5: Student</option>
+                                    <option value="6">6: Parent/Guardian</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <?php
 
-                        include("../button.class.php");
-                        $confirm = new Button();
+                                    include("../button.class.php");
+                                    $confirm = new Button();
 
-                        $confirm->buttonName = "add";
-                        $confirm->buttonID = "addID";
-                        $confirm->buttonValue = "Add User";
-                        $confirm->buttonStyle = "font-family:sans-serif";
-                        $confirm->display(); ?>
-                    </div>
-                </fieldset>
+                                    $confirm->buttonName = "add";
+                                    $confirm->buttonID = "addID";
+                                    $confirm->buttonValue = "Add User";
+                                    $confirm->buttonStyle = "font-family:sans-serif";
+                                    $confirm->display(); ?>
+
+
             </form>
-            <!--    <form action="../../index.php" method="post">-->
-            <fieldset>
-                <div class="col-md-12">
+                        </div>
+
+        <div class="col-sm-3">
+            <form action="../../index.php" method="post">
                     <?php
                     $return = new Button();
 
@@ -180,16 +187,21 @@ include "../db/dbConn.php";
                     $return->buttonName = "custom";
                     $return->buttonValue = "Return Home";
                     $return->buttonStyle = "font-family:sans-serif";
-                    $return->buttonWeb = 'location.href="../../index.php"';
+//                    $return->buttonWeb = 'location.href="../../index.php"';
                     $return->display();
                     ?>
                     <!--                <button id="customBtn">Return Home</button>-->
-                </div>
-            </fieldset>
-            <!--    </form>-->
+            </form>
         </div>
     </div>
-</div>
+        </div>
+
+
+        </div>
+
+        </div>
+    </div>
+
 
     <div class="bottom">
         <div id="footer">

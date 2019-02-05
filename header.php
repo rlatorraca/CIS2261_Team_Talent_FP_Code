@@ -12,27 +12,36 @@ include "../login/checkLoggedIn.php";
 //Database connection
 include "../db/dbConn.php";
 
-$queryUser = "SELECT * FROM administrator WHERE adminID = $loggedUser;";
+$loggedId;
+
+$queryUser = "SELECT adminFName FROM Administrator WHERE adminID = ''";
+
+$queryUser = "SELECT * FROM administrator WHERE adminID = '$loggedUser'";
 
 
 switch ($accessCode) {
 
     case 1:
-        $querySysAdmin = "SELECT * FROM administrator WHERE adminID = $loggedUser;";
+        $loggedUser = "Admin!";
         break;
 
     case 2:
+        $queryAdmin = "SELECT adminFName FROM Administrator WHERE adminID = '$loggedId'";
+        $result = $database->query($queryAdmin);
         $loggedUser = $adminFName;
+        break;
 
-
-
+    case 3:
+    case 4:
+    case 5:
+    case 6:
 
         $queryStudent = "SELECT * FROM student WHERE studentID = $studentID;";
 
 
 
         default:
-        $loggedUser = "default";
+        $loggedUser = "!";
         break;
 
 
