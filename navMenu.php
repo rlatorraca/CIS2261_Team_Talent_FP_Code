@@ -42,7 +42,7 @@ switch ($accessCode) {
                 </li>
                 <li class = "titleNav">Enrollment
                     <ul class = "dropupMenu">
-                            <a href="php/admin/deleteEnrollment.php"><li>Un-enroll</li></a>
+                            <a href="php/admin/searchCourses.php"><li>Un-enroll</li></a>
                             <a href="php/admin/assignCourse.php"><li>Assign Course</li></a>
                     </ul>
                 </li>   
@@ -72,7 +72,7 @@ switch ($accessCode) {
                 </li>
                 <li class = "titleNav">Enrollment
                     <ul class = "dropupMenu">
-                            <a href="php/admin/deleteEnrollment.php"><li>Un-enroll</li></a>
+                            <a href="php/admin/searchCourses.php"><li>Un-enroll</li></a>
                             <a href="php/admin/assignCourse.php"><li>Assign Course</li></a>
                     </ul>
                 </li>   

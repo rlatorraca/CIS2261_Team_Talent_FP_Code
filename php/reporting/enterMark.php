@@ -109,12 +109,57 @@ if (isset($_POST['submitUpdateRecord'])) {
     $resultCourse = $database->query($queryCourse);
 }
 ?>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Fonts !-->
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
+
+        <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
+        <!-- Here is where we call bootstrap. !-->
+        <title>STARS - Search Student</title>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+
+        <!-- Calendar Date Picker !-->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <link href="../../css/stars.css" rel="stylesheet">
+
+        <!--function to go back to your incomplete album form without losing previously filled fields-->
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <div class="header">
+            <img src="../../img/StarsWhiteFIN.jpg">
+        </div>
+        <div class="jumbotron-fluid">
+            <div class="container-fluid">
+
+                <!--Main container and contents-->
+                <div class="container main-container" id="studentSearch">
 <form action="enterMark.php" method="post">
     <div class="form-group">
-        <div class="form-row">
-            <div class="col-3">
+        <div class="row">
+            <div class="col-sm-6">
                 <label for="students">Select Course - Semester</label>
-                <select class="g" id="courseSemester" name="courseSemester">
+                <select class="form-control" id="courseSemester" name="courseSemester">
                     <option value=''>------- Select --------</option>
                     <!-- Using SQL to populate dropdown list of students -->
                     <?php if ($resultCourse->num_rows > 0) {
@@ -129,12 +174,12 @@ if (isset($_POST['submitUpdateRecord'])) {
                     ?>
                 </select>
             </div>
-        </div>
-        <div class="col-3">
+
+        <div class="col-sm-3">
             <label for="studentMark">Student</label>
             <!--            $queryCourse =-->
 
-            <select name="studentMark" id="studentMark">
+            <select name="studentMark" id="studentMark" class="form-control">
                 <option>------- Select --------</option>
             </select>
 
@@ -152,6 +197,7 @@ if (isset($_POST['submitUpdateRecord'])) {
         //                ?>
         <!--            </select>-->
         <!--        </div>-->
+        </div>
         <div class="col-3">
             <label for="markInput">Mark</label>
             <input id="markInput" type="text" name="markInput" placeholder="Enter mark" size="15">

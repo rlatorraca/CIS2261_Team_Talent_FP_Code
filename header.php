@@ -12,9 +12,6 @@ include "../login/checkLoggedIn.php";
 //Database connection
 include "../db/dbConn.php";
 
-$tableName;
-$identifier;
-
 $queryUser = "SELECT * FROM administrator WHERE adminID = $loggedUser;";
 
 
