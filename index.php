@@ -42,6 +42,11 @@
         <title>STARS</title>
     </head>
     <body>
+                    <nav>
+                    <?php include "header.php"; ?>
+
+                    </nav>
+
         <div class="header">
             <img src="../CIS2261_Team_Talent_FP_Code/img/StarsWhiteFIN.jpg">
         </div>

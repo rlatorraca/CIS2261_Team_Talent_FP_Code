@@ -7,41 +7,78 @@
  */
 
 //Lock down page
-include "../login/checkLoggedIn.php";
+include "php/login/checkLoggedIn.php";
 
-//Database connection
-include "../db/dbConn.php";
+include 'php/db/dbConn.php';
 
-$loggedId;
+session_start();
+
+$_SESSION['userID'] = $loggedUser;
+
+
 
 $queryUser = "SELECT adminFName FROM Administrator WHERE adminID = ''";
 
 $queryUser = "SELECT * FROM administrator WHERE adminID = '$loggedUser'";
 
+var_dump($loggedUser);
 
-switch ($accessCode) {
+switch ($access) {
 
     case 1:
-        $loggedUser = "Admin!";
+        $queryAdmin = "SELECT USER.USER FROM Student WHERE STUDENT.userID = $loggedUser";
+
+        $result1 = $database->query($queryAdmin);
+
+        $rowName = $result1->fetch_assoc();
+        $loggedUser = $rowReportCard["adminFName"];
         break;
 
     case 2:
         $queryAdmin = "SELECT adminFName FROM Administrator WHERE adminID = '$loggedId'";
-        $result = $database->query($queryAdmin);
-        $loggedUser = $adminFName;
+
+        $result1 = $database->query($queryAdmin);
+
+        $rowName = $result1->fetch_assoc();
+        $loggedUser = $rowReportCard["adminFName"];
         break;
 
     case 3:
-    case 4:
-    case 5:
-    case 6:
+        $queryAdmin = "SELECT adminFName FROM Administrator WHERE adminID = '$loggedId'";
 
-        $queryStudent = "SELECT * FROM student WHERE studentID = $studentID;";
+        $result1 = $database->query($queryAdmin);
+
+        $rowName = $result1->fetch_assoc();
+        $loggedUser = $rowReportCard["adminFName"];
+        break;
+    case 4:
+        $queryAdmin = "SELECT adminFName FROM Administrator WHERE adminID = '$loggedId'";
+
+        $result1 = $database->query($queryAdmin);
+
+        $rowName = $result1->fetch_assoc();
+        $loggedUser = $rowReportCard["adminFName"];
+        break;
+    case 5:
+        $queryAdmin = "SELECT Student.firstName FROM Student WHERE STUDENT.userID = '$loggedUser'";
+
+        $result1 = $database->query($queryAdmin);
+
+        $rowName = $result1->fetch_assoc();
+        $loggedUser = $rowReportCard["adminFName"];
+        break;
+    case 6:
+        $queryAdmin = "SELECT adminFName FROM Administrator WHERE adminID = '$loggedId'";
+
+        $result1 = $database->query($queryAdmin);
+
+        $rowName = $result1->fetch_assoc();
+        $loggedUser = $rowReportCard["adminFName"];
+        break;
 
 
 
         default:
-        $loggedUser = "!";
         break;
 
 
@@ -49,23 +86,11 @@ switch ($accessCode) {
 
 }
 
-
-
-
-
-
-
 ?>
                 <nav>
                     <ul class="nav nav-pills pull-right">
-                        <li role="presentation">Welcome</li>
+                        <li role="presentation">Welcome<?php echo $loggedUser; var_dump($loggedUser); ?>!</li>
                         <!-- Both buttons below should never be visible at the same time -->
-                        <?php
-                        if ($_SESSION['hasAccess'] == true) {
-                            echo "<li role='presentation'>". $loggedUser  ."<a href='php/login/logout.php'>Logout</a></li>";
-                        } else {
-                            echo "<li role='presentation'>!</li>";
-                        }
-                        ?>
+
                     </ul>
                 </nav>
