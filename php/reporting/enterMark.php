@@ -12,7 +12,7 @@
     include("../button.class.php");
     $confirm = new Button();
 
-       //Locks down page for non-admin or educational staff. Parent/Guardians, Support Educators and Students are not able to view this page.
+    //Locks down page for non-admin or educational staff. Parent/Guardians, Support Educators and Students are not able to view this page.
     if ($_SESSION["accessCode"] == 4 || $_SESSION["accessCode"] == 5 || $_SESSION["accessCode"] == 6) {
 
         //Simple but requires full CSS
@@ -177,7 +177,6 @@
                                             echo "<option>No Students</option>";
                                         }
                                         ?>
-
                                     </select>
                                 </div>
 
@@ -222,33 +221,36 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label for="teacherNotes">Teacher´s notes</label><br/>
-                                    <textarea class = "form-control" id="teacherNotes" name="teacherNotes" placeholder="Enter notes" cols="75"
+                                    <textarea class="form-control" id="teacherNotes" name="teacherNotes"
+                                              placeholder="Enter notes" cols="75"
                                               rows="4"></textarea>
                                 </div>
                             </div>
+                            <br>
+                            <!--Search button-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <?php
+                                        $confirm = new Button();
 
-                                <!--Search button-->
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <?php
-                                            $confirm = new Button();
-
-                                            $confirm->buttonName = "enter";
-                                            $confirm->buttonID = "enter";
-                                            $confirm->buttonValue = "Enter";
-                                            $confirm->buttonStyle = "font-family:sans-serif";
-                                            $confirm->display(); ?>
-                                    </div>
+                                        $confirm->buttonName = "enter";
+                                        $confirm->buttonID = "enter";
+                                        $confirm->buttonValue = "Enter";
+                                        $confirm->buttonStyle = "font-family:sans-serif";
+                                        $confirm->display(); ?>
                                 </div>
-                           </form>
+                            </div>
+                    </form>
+                    <?php
+                        if (isset($msg)) {
+                            echo "<div class='alert alert-danger'>$msg</div>";
+                        }
+                    ?>
+                </div>
             </div>
-        </div>
+
     </body>
 </html>
 
-<?php
-    if ($msg == "") {
-        
-    }else{echo "<div class='alert alert-danger'>$msg</div>";}
-?>
+
 
