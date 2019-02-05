@@ -9,6 +9,9 @@
 //Lock down page
 include "../login/checkLoggedIn.php";
 
+//Ensure only admin/system admin staff can view this page.
+include "../login/authenticateAdminPages.php";
+
 //Database connection
 include "../db/dbConn.php";
 
