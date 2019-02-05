@@ -62,15 +62,48 @@ if (isset($_POST['submitUpdateRecord'])) {
 } else {
 
     //Get logged in user's userID
-    $educatorUserID = $_SESSION['userID'];
+    $userID = $_SESSION['userID'];
 
-    //query to find the courses (and semester Number) the teacher has assigned to them
-    $queryCourse = "SELECT courseoffering.classID, course.courseName, courseoffering.semesterNum 
+    //query to find the courses (and semester Number)
+    //If statement to detect whether the logged in user is an Administrator or an Educator type user.
+    $queryCourse = "";
+
+    //If statement structure to choose SELECT query to use based on logged in user's access level
+    if ($_SESSION["accessCode"] == 3) {
+
+        $queryCourse = "SELECT courseoffering.classID, course.courseName, courseoffering.semesterNum 
                     FROM course, user, educator, courseoffering 
-                    WHERE educator.userID = $educatorUserID
+                    WHERE educator.userID = $userID
                     AND courseoffering.educatorID = educator.educatorID 
                     AND user.userID = educator.userID 
                     AND course.courseID = courseoffering.courseID;";
+
+    } else if ($_SESSION["accessCode"] == 2) {
+
+        //Get logged in user's schoolID
+        $querySchool = "SELECT schoolID FROM administrator WHERE userID = $userID";
+        $schoolID = 0;
+
+        $resultSchoolID = $database->query($querySchool);
+
+        if ($resultSchoolID){
+
+            while ($row = $resultSchoolID->fetch_assoc()){
+
+                $schoolID = $row["schoolID"];
+
+            }
+
+        }
+
+        $queryCourse = "SELECT DISTINCT courseoffering.classID, course.courseName, courseoffering.semesterNum
+                    FROM course, educator, courseoffering, school
+                    WHERE school.schoolID = $schoolID
+                    AND educator.schoolID = school.schoolID
+                    AND courseoffering.educatorID = educator.educatorID
+                    AND course.courseID = courseoffering.courseID;";
+
+    }
     //query to find the students in the selected course
 
     $resultCourse = $database->query($queryCourse);
