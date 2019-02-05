@@ -62,7 +62,7 @@ include "../db/dbConn.php";
         if ($_POST["firstName"] == "" || $_POST["middleName"] == "" || $_POST["lastName"] == "") {
             echo "<h2>Error. Form fields must not be empty before registering new student in STARS.</h2><br>";
             echo "<div class='col-md-12'><button class='btn btn-primary' onclick='goBack()'>Go Back</button>";
-            echo "<form action='../../Template/index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
+            echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
             exit("</div></body</html>");
         }
 
@@ -125,8 +125,8 @@ include "../db/dbConn.php";
     } else {
 
     //Pull username from previous setup for add user in order to populate user ID field for student
-    //$usernameFromAddUserScreen = $_GET["username"];
-    $_SESSION['username'];
+    $usernameFromAddUserScreen = $_GET["username"];
+    $_SESSION['usernameFromAddUser'] = $usernameFromAddUserScreen;
 
     ?>
 
