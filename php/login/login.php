@@ -5,6 +5,8 @@
  * Date: 1/22/2019
  * Time: 5:37 PM
  */
+
+include("../button.class.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -55,7 +57,9 @@
         });
     </script>
 </head>
+
 <body>
+
 <?php
 session_start();
 
@@ -103,7 +107,7 @@ if (isset($_POST['username'])) {
     }
 }
 ?>
-    <?php include "header.php"; ?>
+    <?php include "../../header.php"; ?>
 <div class="jumbotron-fluid">
     <div class="container-fluid login">
         <form action="login.php" method="post">
@@ -131,7 +135,7 @@ if (isset($_POST['username'])) {
                 <br>
                 <?php
 
-                include("../button.class.php");
+
                 $login = new Button();
 
                 $login->buttonName = "login";

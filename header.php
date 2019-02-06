@@ -83,13 +83,15 @@ switch ($access) {
 ?>
     <div class="row header">
         <div class="col-sm-8 starnav">
-          <img src="img/StarsWhiteFIN.jpg">
+          <img src="/CIS2261_Team_Talent_FP_Code/img/StarsWhiteFIN.jpg">
         </div>
         <div class="col-sm-4 topnav">
         <nav>
             <ul class="nav nav-pills pull-right welcome">
                 <?php
+
                 if ($success == true) {
+
                     echo "<li role='presentation'>Welcome " . $loggedUser . "! &nbsp;";
 
 
@@ -99,11 +101,12 @@ switch ($access) {
                         $logout->buttonID = "logout";
                         $logout->buttonValue = "Logout";
                         $logout->buttonStyle = "font-family:sans-serif";
-                        $logout->buttonWeb = 'location.href="php/login/logout.php"';
+                        $logout->buttonWeb = 'location.href="/CIS2261_Team_Talent_FP_Code/php/login/logout.php"';
                         $logout->display();
                     echo "</li>";
                 } else {
-                    echo "<li role='presentation'>";
+
+                    echo "<li role='presentation'>Welcome! &nbsp;";
 
                         $login = new Button();
 
@@ -111,7 +114,7 @@ switch ($access) {
                         $login->buttonID = "login";
                         $login->buttonValue = "Login";
                         $login->buttonStyle = "font-family:sans-serif";
-                        $login->buttonWeb = 'location.href="php/login/login.php"';
+                        $login->buttonWeb = 'location.href="/CIS2261_Team_Talent_FP_Code/php/login/login.php"';
                         $login->display();
 
 

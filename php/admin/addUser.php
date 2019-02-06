@@ -15,6 +15,8 @@ include "../login/authenticateAdminPages.php";
 //Database connection
 include "../db/dbConn.php";
 
+include("../button.class.php");
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -145,9 +147,7 @@ if ($result) {
 
     ?>
     </div>
-    <div class="header">
-        <img src="../../img/StarsWhiteFIN.jpg">
-    </div>
+    <?php include "../../header.php"; ?>
     <div class="jumbotron-fluid">
         <div class="container-fluid">
             <?php echo "<h2>Sorry, User could not be added to the database at this time</h2><br>";
@@ -172,9 +172,7 @@ $database->close();
 
 ?>
 </div>
-<div class="header">
-    <img src="../../img/StarsWhiteFIN.jpg">
-</div>
+    <?php include "../../header.php"; ?>
 <div class="jumbotron-fluid">
     <div class="container-fluid">
 
@@ -222,7 +220,7 @@ $database->close();
                     <div class="col-sm-9">
                         <?php
 
-                        include("../button.class.php");
+
                         $confirm = new Button();
 
                         $confirm->buttonName = "add";

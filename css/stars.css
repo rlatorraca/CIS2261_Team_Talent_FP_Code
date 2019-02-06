@@ -341,3 +341,9 @@ h1, h2 {
     color: #328cc1;
 
 }
+
+.row {
+    margin-left: inherit;
+    margin-right: inherit;
+
+}
