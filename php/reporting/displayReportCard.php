@@ -132,15 +132,18 @@ include '../db/dbConn.php';
                             } else {
                                 echo "1st ";
                             }; ?>Semester</p></td>
-                    <td><input type="hidden" value="<?php echo $reportCardNum; ?>">
-                        <input type="hidden" value="<?php if (!$isRead) {
-                            echo "No";
+                    <td><input type="hidden" value="<?php echo $reportCardNum; ?>"></td>
+                    <td><input value="<?php if (!$isRead) {
+                            echo "Unread";
                         } else {
-                            echo "Yes";
-                        } ?>"></td>
+                            echo "Is Read";
+                        } ?>" readonly></td>
+                    <td><?php if (!$isRead) {
+                        echo "<form action='updateReportCard.php?reportCardNum=".$reportCardNum."'
+                              method='post'><input type='checkbox' name='signReportCard'>
+                            <input type='submit' name='Submit' value='Update'></form>";
+                        }?></td>
                     <td><input type="hidden" value="<?php echo $studID; ?>"></td>
-
-
                 </tr>
                 </tbody>
             </table>
