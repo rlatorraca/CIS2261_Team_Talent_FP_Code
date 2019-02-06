@@ -72,16 +72,16 @@
 
 
         <div class="jumbotron-fluid">
-            <div class="container-fluid">
+            <div class="container-fluid container-sizer">
 
                 <!--Main container and contents-->
-                <div class="container main-container" id="courseSearch">
+                <div class="container main-container scaler" id="courseSearch">
                     <form action="searchCourseResults.php" method="get">
                         <div class="form-group">
                         <h2>Search Courses</h2>
 
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <label for="courses">Select Course & Semester</label><br>
                                 <select type="text" class="form-control" id="courses" name="subjects">
                                     <!-- Using SQL to populate dropdown list of subjects -->
@@ -99,7 +99,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <label for="sort">Sort</label>
                                 <select type="text" class="form-control" id="sort" name="sort">
                                     <option value="ASC" selected>Ascending</option>
@@ -110,7 +110,7 @@
 
                         <!--Search button-->
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <?php
                                     $confirm = new Button();
 
