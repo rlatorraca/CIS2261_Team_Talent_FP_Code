@@ -6,57 +6,57 @@
  * Time: 11:04 AM
  */
 
-
 include 'php/db/dbConn.php';
 
-session_start();
-
 $loggedUser = "";
-
+$success = false;
+$access = 0;
 
 if (isset($_SESSION['isLoggedIn'])) {
     $success = TRUE;
-    $loggedId = $_SESSION['userID'] ;
+    $loggedId = $_SESSION['userID'];
     $access = $_SESSION['accessCode'];
 }
 
 
 switch ($access) {
 
+    //System Administrator
     case 1:
-        $queryAdmin = "SELECT USER.USER FROM Student WHERE STUDENT.userID = $loggedUser";
-
-        $result1 = $database->query($queryAdmin);
-
-        $rowName = $result1->fetch_assoc();
-        $loggedUser = $rowReportCard["adminFName"];
+        $loggedUser = "System Admin";
         break;
 
+    //Administrator
     case 2:
-        $queryAdmin = "SELECT adminFName FROM Administrator WHERE adminID = '$loggedId'";
+        $queryAdmin = "SELECT adminFName FROM administrator WHERE userID = '$loggedId'";
 
         $result1 = $database->query($queryAdmin);
 
         $rowName = $result1->fetch_assoc();
-        $loggedUser = $rowReportCard["adminFName"];
+        $loggedUser = $rowName["adminFName"];
         break;
 
+    //Educator
     case 3:
-        $queryAdmin = "SELECT adminFName FROM Administrator WHERE adminID = '$loggedId'";
+        $queryAdmin = "SELECT educatorFName FROM educator WHERE userID = '$loggedId'";
 
         $result1 = $database->query($queryAdmin);
 
         $rowName = $result1->fetch_assoc();
-        $loggedUser = $rowReportCard["adminFName"];
+        $loggedUser = $rowName["educatorFName"];
         break;
+
+    //Support Educator
     case 4:
-        $queryAdmin = "SELECT adminFName FROM Administrator WHERE adminID = '$loggedId'";
+        $queryAdmin = "SELECT supFName FROM supporteducator WHERE userID = '$loggedId'";
 
         $result1 = $database->query($queryAdmin);
 
         $rowName = $result1->fetch_assoc();
-        $loggedUser = $rowReportCard["adminFName"];
+        $loggedUser = $rowName["supFName"];
         break;
+
+    //Student
     case 5:
         $queryStu = "SELECT student.firstName FROM student WHERE student.userID = '$loggedId'";
 
@@ -65,44 +65,41 @@ switch ($access) {
         $rowName = $result1->fetch_assoc();
         $loggedUser = $rowName["firstName"];
         break;
+
+    //Parent/Guardian
     case 6:
-        $queryAdmin = "SELECT adminFName FROM Administrator WHERE adminID = '$loggedId'";
+        $queryAdmin = "SELECT parentFName FROM parentorguardian WHERE userID = '$loggedId'";
 
         $result1 = $database->query($queryAdmin);
 
         $rowName = $result1->fetch_assoc();
-        $loggedUser = $rowReportCard["adminFName"];
+        $loggedUser = $rowName["parentFName"];
         break;
-
-
-
-        default:
+    default:
         break;
 
 }
 
 ?>
-                <nav>
-                    <ul class="nav nav-pills pull-right">
-                        <?php
-                        if ($success == true) {
-                        echo "<li role='presentation'>Welcome " .$loggedUser. "!";
+<nav>
+    <ul class="nav nav-pills pull-right">
+        <?php
+        if ($success == true) {
+            echo "<li role='presentation'>Welcome " . $loggedUser . "!";
 
 
+            $logout = new Button();
 
-
-                                    $logout = new Button();
-
-                                    $logout->buttonName = "logout";
-                                    $logout->buttonID = "logout";
-                                    $logout->buttonValue = "Logout";
-                                    $logout->buttonStyle = "font-family:sans-serif";
-                                    $logout->buttonWeb = 'location.href="php/login/logout.php"';
-                                    $logout->display();
-                                    echo "</li>";
-                        } else {
-                        echo "<li role='presentation'><a href='login.php'>Login</a></li>";
-                        }
-                        ?>
-                    </ul>
-                </nav>
+            $logout->buttonName = "logout";
+            $logout->buttonID = "logout";
+            $logout->buttonValue = "Logout";
+            $logout->buttonStyle = "font-family:sans-serif";
+            $logout->buttonWeb = 'location.href="php/login/logout.php"';
+            $logout->display();
+            echo "</li>";
+        } else {
+            echo "<li role='presentation'><a href='login.php'>Login</a></li>";
+        }
+        ?>
+    </ul>
+</nav>
