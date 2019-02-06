@@ -11,10 +11,10 @@ include "php/login/checkLoggedIn.php";
 
 include 'php/db/dbConn.php';
 
-session_start();
 
-$_SESSION['userID'] = $loggedUser;
-$_SESSION['accessCode'] = $access;
+$loggedUser = $_SESSION['userID']
+
+$access =$_SESSION['accessCode']
 
 
 
