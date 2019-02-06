@@ -30,7 +30,9 @@ include "../db/dbConn.php";
 </head>
 <body>
 <?php
-
+if ($_GET["studentID"] = "" || $_GET["classID"] == ""){
+    header('Location: ../../php/admin/searchCourses.php');
+}
 $studentID = $_GET["studentID"];
 $classID = $_GET["classID"];
 
