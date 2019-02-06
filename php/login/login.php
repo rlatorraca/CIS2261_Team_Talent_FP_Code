@@ -6,7 +6,7 @@
  * Time: 5:37 PM
  */
 
-include("../button.class.php");
+include "../button.class.php" ;
 ?>
 <!doctype html>
 <html lang="en">
@@ -38,7 +38,7 @@ include("../button.class.php");
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
-    <link href="../../css/stars.css" rel="stylesheet">
+    <link href="/CIS2261_Team_Talent_FP_Code/css/stars.css" rel="stylesheet">
     <script>
         // This function shows the date picker.
         $(function () {
@@ -108,7 +108,7 @@ if (isset($_POST['username'])) {
 }
 ?>
     <?php include "../../header.php"; ?>
-<div class="jumbotron-fluid">
+    <div class="jumbotron-fluid">
     <div class="container-fluid login">
         <form action="login.php" method="post">
             <div class="form-group">
@@ -136,13 +136,13 @@ if (isset($_POST['username'])) {
                 <?php
 
 
-                $login = new Button();
+                $login2 = new Button();
 
-                $login->buttonName = "login";
-                $login->buttonID = "login";
-                $login->buttonValue = "Login";
-                $login->buttonStyle = "font-family:sans-serif";
-                $login->display(); ?>
+                $login2->buttonName = "login2";
+                $login2->buttonID = "login2";
+                $login2->buttonValue = "Login";
+                $login2->buttonStyle = "font-family:sans-serif";
+                $login2->display(); ?>
             </div>
         </form>
         <?php

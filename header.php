@@ -8,7 +8,7 @@
 
 include 'php/db/dbConn.php';
 
-$loggedUser = "";
+$loggedUser = " to STARS";
 $success = false;
 $access = 0;
 
@@ -81,7 +81,7 @@ switch ($access) {
 }
 
 ?>
-    <div class="row header">
+    <div class="row-header header">
         <div class="col-sm-8 starnav">
           <img src="/CIS2261_Team_Talent_FP_Code/img/StarsWhiteFIN.jpg">
         </div>
@@ -106,7 +106,7 @@ switch ($access) {
                     echo "</li>";
                 } else {
 
-                    echo "<li role='presentation'>Welcome! &nbsp;";
+                    echo "<li role='presentation'>Welcome" . $loggedUser . "! &nbsp;";
 
                         $login = new Button();
 

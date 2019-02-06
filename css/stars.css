@@ -66,6 +66,7 @@ html, body {
 .homeTitle {
     text-align:  center;
     column-span: all;
+    color: #328cc1;
     }
 
 label {
@@ -90,19 +91,26 @@ h1, h2 {
 
 .starnav {
     position: relative;
+    right: 0px;
     float: left;
+    /*border: 10px solid #912b88;*/
+    height: 115px;
+    top: 0px;
 }
 
 .topnav {
     position: relative;
     float: right;
-    padding-right: 3%;
+    height: 115px;
+    padding-top: 25px;
+    /*border: 10px solid #912b88;*/
+
 }
 
 .welcome {
     list-style: none;
     font-family: Helvetica, sans-serif;
-    font-size: 37px;
+    font-size: 25px;
     color: #fffbfb;
 }
 
@@ -342,8 +350,8 @@ h1, h2 {
 
 }
 
-.row {
-    margin-left: inherit;
-    margin-right: inherit;
+.row-header {
+    margin-left: 0px;
+    margin-right: 0px;
 
 }
