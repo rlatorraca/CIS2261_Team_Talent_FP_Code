@@ -67,169 +67,186 @@
         <title>STARS - Add Student</title>
     </head>
     <body>
-        <div>
+
             <div class="header">
                 <img src="../../img/StarsWhiteFIN.jpg">
             </div>
+
             <div class="jumbotron-fluid">
                 <div class="container-fluid">
                     <!--Main container and contents-->
                     <div class="container main-container" id="addStudent">
 
-                    <form action="confirmStudent.php" method="post">
-                        <h2>Student Details</h2>
-                        <p><span style="color:red">*Please ensure all form fields are filled</span></p>
-                        <fieldset>
-                            <legend>Student Details</legend>
+                        <form action="confirmStudent.php" method="post">
+                            <h2>Student Details</h2>
+                            <p><span style="color:red">*Please ensure all form fields are filled</span></p>
+                            <fieldset>
+                                <legend>Student Details</legend>
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="firstName">First Name</label>
-                                    <input type="text" class="form-control" id="firstName" name="firstName"><br>
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label for="firstName">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName"><br>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="middleName">Middle Name(s)</label>
+                                        <input type="text" class="form-control" id="middleName" name="middleName"><br>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <label for="middleName">Middle Name(s)</label>
-                                    <input type="text" class="form-control" id="middleName" name="middleName"><br>
-                                </div>
-                            </div>
 
-                            <div class="row">
-                                 <div class="col-sm-6">
-                                    <label for="lastName">Last Name</label>
-                                    <input type="text" class="form-control" id="lastName" name="lastName"><br>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName"><br>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="gender">Gender</label>
+                                        <select class="form-control" type="text" name="gender">
+                                            <option name="Male">Male</option>
+                                            <option name="Female">Female</option>
+                                            <option name="Other">Other</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <label for="gender">Gender</label>
-                                    <select class = "form-control" type = "text" name="gender">
-                                        <option name="Male">Male</option>
-                                        <option name="Female">Female</option>
-                                        <option name="Other">Other</option>
-                                    </select>
-                                </div>
-                            </div>
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="datepicker" class="col-md-6">Date of Birth</label>
-                                    <input type="text" id="datepicker" name="dob" ><br>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="datepicker" class="col-md-6">Date of Birth</label>
+                                        <input type="text" id="datepicker" name="dob"><br>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="gender">Gender</label>
+                                        <label for="grade" class="col-md-6">Grade</label>
+                                        <select class="form-control" name="grade">
+                                            <option name="10">10</option>
+                                            <option name="11">11</option>
+                                            <option name="12">12</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <label for="gender">Gender</label>
-                                    <label for="grade" class="col-md-6">Grade</label>
-                                    <select class = "form-control" name="grade">
-                                        <option name="10">10</option>
-                                        <option name="11">11</option>
-                                        <option name="12">12</option>
-                                    </select>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="address">Address</label><br/>
+                                        <textarea class="form-control" id="address" name="address"
+                                                  placeholder="Enter home address" cols="40"
+                                                  rows="4"></textarea>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="phoneNum">Phone Number</label>
+                                        <input type="text" name="phoneNum" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="address">Address</label><br/>
-                                    <textarea class="form-control" id="address" name="address"
-                                              placeholder="Enter home address" cols="75"
-                                              rows="4"></textarea>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="emailAddress">Email Address</label>
+                                        <input type="text" name="emailAddress" class="form-control">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="allergies">Allergies</label><br/>
+                                        <textarea class="form-control" id="allergies" name="allergies"
+                                                  placeholder="List allergies and any details" cols="40"
+                                                  rows="4"></textarea>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="address" class="col-md-6">Address</label>
-                                <input type="text" name="address" class="col-md-6 form-control">
-                            </div>
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="phoneNum" class="col-md-6">Phone Number</label>
-                                <input type="text" name="phoneNum" class="col-md-6 form-control">
-                            </div>
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="emailAddress" class="col-md-6">Email Address</label>
-                                <input type="text" name="emailAddress" class="col-md-6 form-control">
-                            </div>
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="allergies" class="col-md-6">Allergies</label>
-                                <input type="text" name="allergies" class="col-md-6 form-control">
-                            </div>
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="selectSchool" class="col-md-6">School</label>
-                                <select name="selectSchool">
-                                    <?php
-                                        $querySchools = "SELECT schoolID, name FROM school";
-                                        $resultFromSchoolQuery = $database->query($querySchools);
-                                        if ($resultFromSchoolQuery->num_rows > 0) {
-                                            while ($schoolResults = $resultFromSchoolQuery->fetch_assoc()) {
-                                                ?>
-                                                <option
-                                                value="<?php echo $schoolResults["schoolID"]; ?>"><?php echo $schoolResults["name"]; ?></option><?php
-                                            }
-                                        } else {
-                                            echo "<option>There are no Schools registered in STARS</option>";
-                                        }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="selectParentGuardian" class="col-md-6">Parent/Guardian</label>
-                                <select name="selectParentGuardian">
-                                    <option value=NULL>None</option>
-                                    <?php
-                                        $queryParentGuardians = "SELECT guardianID, parentFName, parentLName FROM parentorguardian";
-                                        $resultsFromParentGuardian = $database->query($queryParentGuardians);
-                                        if ($resultsFromParentGuardian->num_rows > 0) {
-                                            while ($parentGuardianResultSet = $resultsFromParentGuardian->fetch_assoc()) {
-                                                ?>
-                                            <option value="<?php echo $parentGuardianResultSet["guardianID"]; ?>">
-                                                <?php echo $parentGuardianResultSet["parentFName"] . " "
-                                                    . $parentGuardianResultSet["parentLName"]; ?></option><?php
-                                            }
-                                        } else {
-                                            echo "<option>There are no Parent/Guardians registered in STARS</option>";
-                                        }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="username" class="col-md-6">Username</label>
-                                <input type="text" name="username" class="col-md-6 form-control value="
-                                       value="<?php echo $_SESSION['username'] ?>" readonly>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="selectSchool">School</label>
+                                        <select class="form-control" name="selectSchool">
+                                            <?php
+                                                $querySchools = "SELECT schoolID, name FROM school";
+                                                $resultFromSchoolQuery = $database->query($querySchools);
+                                                if ($resultFromSchoolQuery->num_rows > 0) {
+                                                    while ($schoolResults = $resultFromSchoolQuery->fetch_assoc()) {
+                                                        ?>
+                                                        <option
+                                                        value="<?php echo $schoolResults["schoolID"]; ?>"><?php echo $schoolResults["name"]; ?></option><?php
+                                                    }
+                                                } else {
+                                                    echo "<option>There are no Schools registered in STARS</option>";
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="selectParentGuardian">Parent/Guardian</label>
+                                        <select class="form-control" name="selectParentGuardian">
+                                            <option value=NULL>None</option>
+                                            <?php
+                                                $queryParentGuardians = "SELECT guardianID, parentFName, parentLName FROM parentorguardian";
+                                                $resultsFromParentGuardian = $database->query($queryParentGuardians);
+                                                if ($resultsFromParentGuardian->num_rows > 0) {
+                                                    while ($parentGuardianResultSet = $resultsFromParentGuardian->fetch_assoc()) {
+                                                        ?>
+                                                    <option value="<?php echo $parentGuardianResultSet["guardianID"]; ?>">
+                                                        <?php echo $parentGuardianResultSet["parentFName"] . " "
+                                                            . $parentGuardianResultSet["parentLName"]; ?></option><?php
+                                                    }
+                                                } else {
+                                                    echo "<option>There are no Parent/Guardians registered in STARS</option>";
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
 
-                            </div>
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="selectSupportEducator" class="col-md-6">Support Educator</label>
-                                <select name="selectSupportEducator">
-                                    <option value=NULL>None</option>
-                                    <?php
-                                        $querySupportEducators = "SELECT supportEducatorID, supFName, supLName FROM supporteducator";
-                                        $resultsSupportEducators = $database->query($querySupportEducators);
-                                        if ($resultsSupportEducators->num_rows > 0) {
-                                            while ($supportEducatorResultSet = $resultsSupportEducators->fetch_assoc()) {
-                                                ?>
-                                            <option value="<?php echo $supportEducatorResultSet["supportEducatorID"] ?>">
-                                                <?php echo $supportEducatorResultSet["supFName"] . " "
-                                                    . $supportEducatorResultSet["supLName"]; ?></option><?php
-                                            }
-                                        } else {
-                                            echo "<option>There are no Support Educators registered in STARS</option>";
-                                        }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="username">Username</label>
+                                        <input type="text" name="username" class="form-control"
+                                               value="<?php echo $_SESSION['username'] ?>" readonly>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="selectSupportEducator">Support Educator</label>
+                                        <select name="selectSupportEducator">
+                                            <option value=NULL>None</option>
+                                            <?php
+                                                $querySupportEducators = "SELECT supportEducatorID, supFName, supLName FROM supporteducator";
+                                                $resultsSupportEducators = $database->query($querySupportEducators);
+                                                if ($resultsSupportEducators->num_rows > 0) {
+                                                    while ($supportEducatorResultSet = $resultsSupportEducators->fetch_assoc()) {
+                                                        ?>
+                                                    <option value="<?php echo $supportEducatorResultSet["supportEducatorID"] ?>">
+                                                        <?php echo $supportEducatorResultSet["supFName"] . " "
+                                                            . $supportEducatorResultSet["supLName"]; ?></option><?php
+                                                    }
+                                                } else {
+                                                    echo "<option>There are no Support Educators registered in STARS</option>";
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <!--Register student button-->
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <?php
+                                            $confirm = new Button();
 
-                                <div class="col-md-12">
-                                    <?php
-                                        $confirm = new Button();
+                                            $confirm->buttonName = "reset";
+                                            $confirm->buttonID = "reset";
+                                            $confirm->buttonValue = "Reset";
+                                            $confirm->buttonStyle = "font-family:sans-serif";
+                                            $confirm->display(); ?>
 
-                                        $confirm->buttonName = "add";
-                                        $confirm->buttonID = "add";
-                                        $confirm->buttonValue = "Add";
-                                        $confirm->buttonStyle = "font-family:sans-serif";
-                                        $confirm->display(); ?>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <?php
+                                            $confirm = new Button();
+
+                                            $confirm->buttonName = "add";
+                                            $confirm->buttonID = "add";
+                                            $confirm->buttonValue = "Add";
+                                            $confirm->buttonStyle = "font-family:sans-serif";
+                                            $confirm->display(); ?>
+                                    </div>
                                 </div>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
+                            </fieldset>
+                        </form>
+                    </div>
                 </div>
                 <!--The bottom navbar/footer section-->
                 <div class="bottom">
