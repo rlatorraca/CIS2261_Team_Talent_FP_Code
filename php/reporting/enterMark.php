@@ -16,10 +16,8 @@ $confirm = new Button();
 //Parent/Guardians, Support Educators and Students are not able to view this page.
 if ($_SESSION["accessCode"] == 4 || $_SESSION["accessCode"] == 5 || $_SESSION["accessCode"] == 6) {
 
-    //Simple but requires full CSS
-    echo "<p>Can not view this page</p>";
-    echo "<a href='../../index.php'>Home</a>";
-    exit();
+    //Redirect unauthorized user back to Home page
+    header("Location: ../../index.php");
 }
 
 //Database connection

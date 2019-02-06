@@ -12,6 +12,14 @@
 //Lock down page (Shouldn't be an actual page to visit/view)
 include "../login/checkLoggedIn.php";
 
+//Locks down page for non-admin or educational staff.
+//Parent/Guardians, Support Educators and Students are not able to view this page.
+if ($_SESSION["accessCode"] == 4 || $_SESSION["accessCode"] == 5 || $_SESSION["accessCode"] == 6) {
+
+    //Redirect unauthorized user back to Home page
+    header("Location: ../../index.php");
+}
+
 //Database connection
 include("../db/dbConn.php");
 
