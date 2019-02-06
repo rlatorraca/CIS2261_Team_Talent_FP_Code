@@ -23,18 +23,19 @@ include "../db/dbConn.php";
 </head>
 <body>
 <?php
+
+//Check to ensure that a studentID was selected from the report card page before user can access this page.
+if (!isset($_GET["studentID"])) {
+
+    echo "<p>Please request a student's report card first before viewing an Individual Education Plan.</p>";
+    exit();
+}
+
 //StudentID pulled from the report card page.
 $studentIDFromForm = $_GET["studentID"];
 
 //To ensure studentID is the accurate one
 echo $studentIDFromForm;
-
-//Make connection to the database and check to ensure that a solid connection can be made
-@ $database = new mysqli('localhost', 'root', '', 'stars');
-if (mysqli_connect_errno()) {
-    echo '<h2>Error: Could not connect to database. Please try again later.</h2>';
-    exit("</div></body></html>");
-}
 
 //Need to work out issue with first/last name of student and support educator
 $querySelectIEP = "SELECT planID, reason, dateIssued, comments, supportEducator.supFName, supportEducator.supLName, student.firstName, student.lastName  

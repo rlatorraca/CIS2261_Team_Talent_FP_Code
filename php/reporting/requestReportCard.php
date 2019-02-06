@@ -247,21 +247,24 @@ include '../db/dbConn.php';
         if (isset($error)) {
             echo "<div class='alert alert-danger'>$error</div>";
         }
-
-
         ?>
     </div>
 </div>
 <div class="bottom">
     <div id="footer">
-        <ul id="footerMenu">
-            <?php
-            echo '<a href="#"><li class = "titleNav">Home</li></a>';
-
-            ?>
-        </ul>
+        <?php include("../../navMenu.php"); ?>
     </div>
 </div>
+<!--<div class="bottom">-->
+<!--    <div id="footer">-->
+<!--        <ul id="footerMenu">-->
+<!--            --><?php
+//            echo '<a href="#"><li class = "titleNav">Home</li></a>';
+//
+//            ?>
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
 
 </body>
 </html>

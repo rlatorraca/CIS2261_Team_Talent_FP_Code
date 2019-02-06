@@ -12,7 +12,8 @@ include "../login/checkLoggedIn.php";
 include("../button.class.php");
 $confirm = new Button();
 
-//Locks down page for non-admin or educational staff. Parent/Guardians, Support Educators and Students are not able to view this page.
+//Locks down page for non-admin or educational staff.
+//Parent/Guardians, Support Educators and Students are not able to view this page.
 if ($_SESSION["accessCode"] == 4 || $_SESSION["accessCode"] == 5 || $_SESSION["accessCode"] == 6) {
 
     //Simple but requires full CSS
@@ -43,7 +44,7 @@ if (isset($_POST['enter'])) {
     $studentID = $_POST['studentMark'];
 
     $queryCourse1 = "UPDATE enrollment SET mark= $markInput, attendance = $attendance, notes= '$teacherNotes' 
-                      WHERE enrollment.studentID = $studentID AND enrollment.classID = $classID;";
+                     WHERE enrollment.studentID = $studentID AND enrollment.classID = $classID;";
 
     //Execute query and store result.
     $result = $database->query($queryCourse1);
@@ -73,16 +74,7 @@ if (isset($_POST['enter'])) {
     $queryCourse = "";
 
     //If statement structure to choose SELECT query to use based on logged in user's access level
-    if ($_SESSION["accessCode"] == 3) {
-
-        $queryCourse = "SELECT courseoffering.classID, course.courseName, courseoffering.semesterNum 
-                    FROM course, user, educator, courseoffering 
-                    WHERE educator.userID = $userID
-                    AND courseoffering.educatorID = educator.educatorID 
-                    AND user.userID = educator.userID 
-                    AND course.courseID = courseoffering.courseID;";
-
-    } else if ($_SESSION["accessCode"] == 2) {
+    if ($_SESSION["accessCode"] == 2) {
 
         //Get logged in user's schoolID
         $querySchool = "SELECT schoolID FROM administrator WHERE userID = $userID";
@@ -107,9 +99,18 @@ if (isset($_POST['enter'])) {
                     AND courseoffering.educatorID = educator.educatorID
                     AND course.courseID = courseoffering.courseID;";
 
-    }
-    //query to find the students in the selected course
+    } else if ($_SESSION["accessCode"] == 3) {
 
+        $queryCourse = "SELECT courseoffering.classID, course.courseName, courseoffering.semesterNum 
+                    FROM course, user, educator, courseoffering 
+                    WHERE educator.userID = $userID
+                    AND courseoffering.educatorID = educator.educatorID 
+                    AND user.userID = educator.userID 
+                    AND course.courseID = courseoffering.courseID;";
+
+    }
+
+    //query to find the students in the selected course
     $resultCourse = $database->query($queryCourse);
 }
 ?>

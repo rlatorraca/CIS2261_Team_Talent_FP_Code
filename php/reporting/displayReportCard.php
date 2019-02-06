@@ -69,7 +69,7 @@ include '../db/dbConn.php';
     <div class="container-fluid">
         <?php
 
-        //In the event that a user reaches this page before requesting a student's report card from the prior page.
+        //In the event that a user reaches this page before requesting a student's report card from the prior page, handle this.
         if (!isset($_POST["selectStudent"])) {
 
             echo "<p>Please request a student's report card before accessing this page.</p>";
