@@ -48,6 +48,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                 crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <!--Datepicker-->
         <script>
             $(function () {
@@ -67,91 +68,90 @@
         <title>STARS - Add Student</title>
     </head>
     <body>
-        <div>
-            <div class="header">
-                <img src="../../img/StarsWhiteFIN.jpg">
-            </div>
-            <div class="jumbotron-fluid">
-                <div class="container-fluid">
-                    <!--Main container and contents-->
-                    <div class="container main-container" id="addStudent">
+
+        <div class="header">
+            <img src="../../img/StarsWhiteFIN.jpg">
+        </div>
+
+        <div class="jumbotron-fluid">
+            <div class="container-fluid">
+                <!--Main container and contents-->
+                <div class="container container-larger" id="addStudent">
 
                     <form action="confirmStudent.php" method="post">
                         <h2>Student Details</h2>
                         <p><span style="color:red">*Please ensure all form fields are filled</span></p>
-                        <fieldset>
-                            <legend>Student Details</legend>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="middleName">Middle Name(s)</label>
+                                <input type="text" class="form-control" id="middleName" name="middleName">
+                            </div>
+                        </div>
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="firstName">First Name</label>
-                                    <input type="text" class="form-control" id="firstName" name="firstName"><br>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="middleName">Middle Name(s)</label>
-                                    <input type="text" class="form-control" id="middleName" name="middleName"><br>
-                                </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName">
                             </div>
+                            <div class="form-group col-sm-6">
+                                <label for="gender">Gender</label>
+                                <select class="form-control" type="text" name="gender">
+                                    <option name="Male">Male</option>
+                                    <option name="Female">Female</option>
+                                    <option name="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
 
-                            <div class="row">
-                                 <div class="col-sm-6">
-                                    <label for="lastName">Last Name</label>
-                                    <input type="text" class="form-control" id="lastName" name="lastName"><br>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="gender">Gender</label>
-                                    <select class = "form-control" type = "text" name="gender">
-                                        <option name="Male">Male</option>
-                                        <option name="Female">Female</option>
-                                        <option name="Other">Other</option>
-                                    </select>
-                                </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="datepicker">Date of Birth</label>
+                                <input type="text" id="datepicker" class="form-control" name="dob">
                             </div>
+                            <div class="form-group col-sm-6">
+                                <label for="grade">Grade</label>
+                                <select class="form-control" name="grade">
+                                    <option name="10">10</option>
+                                    <option name="11">11</option>
+                                    <option name="12">12</option>
+                                </select>
+                            </div>
+                        </div>
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="datepicker" class="col-md-6">Date of Birth</label>
-                                    <input type="text" id="datepicker" name="dob" ><br>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="gender">Gender</label>
-                                    <label for="grade" class="col-md-6">Grade</label>
-                                    <select class = "form-control" name="grade">
-                                        <option name="10">10</option>
-                                        <option name="11">11</option>
-                                        <option name="12">12</option>
-                                    </select>
-                                </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="address">Address</label><br/>
+                                <textarea class="form-control" id="address" name="address"
+                                          placeholder="Enter home address" cols="40"
+                                          rows="2"></textarea>
                             </div>
+                            <div class="form-group col-sm-6">
+                                <label for="phoneNum">Phone Number</label>
+                                <input type="text" name="phoneNum" class="form-control">
+                            </div>
+                        </div>
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="address">Address</label><br/>
-                                    <textarea class="form-control" id="address" name="address"
-                                              placeholder="Enter home address" cols="75"
-                                              rows="4"></textarea>
-                                </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="emailAddress">Email Address</label>
+                                <input type="text" name="emailAddress" class="form-control">
                             </div>
+                            <div class="form-group col-sm-6">
+                                <label for="allergies">Allergies</label><br/>
+                                <textarea class="form-control" id="allergies" name="allergies"
+                                          placeholder="List allergies and any details" cols="40"
+                                          rows="2"></textarea>
+                            </div>
+                        </div>
 
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="address" class="col-md-6">Address</label>
-                                <input type="text" name="address" class="col-md-6 form-control">
-                            </div>
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="phoneNum" class="col-md-6">Phone Number</label>
-                                <input type="text" name="phoneNum" class="col-md-6 form-control">
-                            </div>
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="emailAddress" class="col-md-6">Email Address</label>
-                                <input type="text" name="emailAddress" class="col-md-6 form-control">
-                            </div>
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="allergies" class="col-md-6">Allergies</label>
-                                <input type="text" name="allergies" class="col-md-6 form-control">
-                            </div>
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="selectSchool" class="col-md-6">School</label>
-                                <select name="selectSchool">
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="selectSchool">School</label>
+                                <select class="form-control" name="selectSchool">
                                     <?php
                                         $querySchools = "SELECT schoolID, name FROM school";
                                         $resultFromSchoolQuery = $database->query($querySchools);
@@ -167,9 +167,9 @@
                                     ?>
                                 </select>
                             </div>
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="selectParentGuardian" class="col-md-6">Parent/Guardian</label>
-                                <select name="selectParentGuardian">
+                            <div class="form-group col-sm-6">
+                                <label for="selectParentGuardian">Parent/Guardian</label>
+                                <select class="form-control" name="selectParentGuardian">
                                     <option value=NULL>None</option>
                                     <?php
                                         $queryParentGuardians = "SELECT guardianID, parentFName, parentLName FROM parentorguardian";
@@ -187,15 +187,17 @@
                                     ?>
                                 </select>
                             </div>
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="username" class="col-md-6">Username</label>
-                                <input type="text" name="username" class="col-md-6 form-control value="
-                                       value="<?php echo $_SESSION['username'] ?>" readonly>
+                        </div>
 
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" class="form-control"
+                                       value="<?php echo $_SESSION['username'] ?>" readonly>
                             </div>
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="selectSupportEducator" class="col-md-6">Support Educator</label>
-                                <select name="selectSupportEducator">
+                            <div class="form-group col-sm-6">
+                                <label for="selectSupportEducator">Support Educator</label>
+                                <select class = "form-control" name="selectSupportEducator">
                                     <option value=NULL>None</option>
                                     <?php
                                         $querySupportEducators = "SELECT supportEducatorID, supFName, supLName FROM supporteducator";
@@ -213,31 +215,31 @@
                                     ?>
                                 </select>
                             </div>
+                        </div>
+
+                        <!--Register student button-->
+                        <div class="row">
                             <div class="col-md-12">
-                                <!--Register student button-->
+                                <?php
+                                    $confirm = new Button();
 
-                                <div class="col-md-12">
-                                    <?php
-                                        $confirm = new Button();
-
-                                        $confirm->buttonName = "add";
-                                        $confirm->buttonID = "add";
-                                        $confirm->buttonValue = "Add";
-                                        $confirm->buttonStyle = "font-family:sans-serif";
-                                        $confirm->display(); ?>
-                                </div>
+                                    $confirm->buttonName = "add";
+                                    $confirm->buttonID = "add";
+                                    $confirm->buttonValue = "Add";
+                                    $confirm->buttonStyle = "font-family:sans-serif";
+                                    $confirm->display(); ?>
                             </div>
-                        </fieldset>
+                        </div>
                     </form>
                 </div>
-                </div>
-                <!--The bottom navbar/footer section-->
-                <div class="bottom">
-                    <div id="footer">
-                        <?php include("../../navMenu.php"); ?>
-                    </div>
+            </div>
+            <!--The bottom navbar/footer section-->
+            <div class="bottom">
+                <div id="footer">
+                    <?php include("../../navMenu.php"); ?>
                 </div>
             </div>
+        </div>
     </body>
 </html>
 

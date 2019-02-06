@@ -20,7 +20,7 @@ html, body {
     top: 15%;
     left: 0px;
     right: 0px;
-    height: 860px;
+    min-height: 1000px;
     z-index: 3;
     }
 
@@ -41,6 +41,8 @@ html, body {
     color: #0b3c5d;
     overflow: auto;
 }
+
+
 
 .container-sizer {
     max-width: 40%;
@@ -323,4 +325,12 @@ h1, h2 {
     .container-fluid, .spacer {
         width: 100%;
     }
+}
+
+.container-larger {
+    max-width: 100%;
+}
+.container-larger h2{
+    color: #328cc1;
+
 }

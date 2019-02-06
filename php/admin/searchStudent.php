@@ -25,7 +25,6 @@
         <!-- Fonts !-->
         <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
 
-        <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
         <!-- Here is where we call bootstrap. !-->
         <title>STARS - Search Student</title>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
@@ -48,9 +47,7 @@
                 window.history.back();
             }
         </script>
-
     </head>
-
     <body>
         <div class="header">
             <img src="../../img/StarsWhiteFIN.jpg">
