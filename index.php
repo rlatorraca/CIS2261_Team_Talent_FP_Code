@@ -43,16 +43,11 @@
     </head>
     <body>
 
-        <div class="row header">
-                <div class="col-sm-8">
-                    <img src="img/StarsWhiteFIN.jpg">
-                </div>
-            <div class="col-sm-4 topnav">
 
-                    <?php include "header.php"; ?>
 
-            </div>
-        </div>
+        <?php include "header.php"; ?>
+
+
         <div class="jumbotron-fluid">
             <div class="container-fluid">
 

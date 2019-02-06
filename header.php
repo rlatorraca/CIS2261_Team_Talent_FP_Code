@@ -81,37 +81,44 @@ switch ($access) {
 }
 
 ?>
-<nav>
-    <ul class="nav nav-pills pull-right">
-        <?php
-        if ($success == true) {
-            echo "<li role='presentation' class='welcome'>Welcome " . $loggedUser . "!";
+    <div class="row header">
+        <div class="col-sm-8 starnav">
+          <img src="img/StarsWhiteFIN.jpg">
+        </div>
+        <div class="col-sm-4 topnav">
+        <nav>
+            <ul class="nav nav-pills pull-right welcome">
+                <?php
+                if ($success == true) {
+                    echo "<li role='presentation'>Welcome " . $loggedUser . "! &nbsp;";
 
 
-                $logout = new Button();
+                        $logout = new Button();
 
-                $logout->buttonName = "logout";
-                $logout->buttonID = "logout";
-                $logout->buttonValue = "Logout";
-                $logout->buttonStyle = "font-family:sans-serif";
-                $logout->buttonWeb = 'location.href="php/login/logout.php"';
-                $logout->display();
-            echo "</li>";
-        } else {
-            echo "<li role='presentation'>";
+                        $logout->buttonName = "logout";
+                        $logout->buttonID = "logout";
+                        $logout->buttonValue = "Logout";
+                        $logout->buttonStyle = "font-family:sans-serif";
+                        $logout->buttonWeb = 'location.href="php/login/logout.php"';
+                        $logout->display();
+                    echo "</li>";
+                } else {
+                    echo "<li role='presentation'>";
 
-                $login = new Button();
+                        $login = new Button();
 
-                $login->buttonName = "login";
-                $login->buttonID = "login";
-                $login->buttonValue = "Login";
-                $login->buttonStyle = "font-family:sans-serif";
-                $login->buttonWeb = 'location.href="php/login/login.php"';
-                $login->display();
+                        $login->buttonName = "login";
+                        $login->buttonID = "login";
+                        $login->buttonValue = "Login";
+                        $login->buttonStyle = "font-family:sans-serif";
+                        $login->buttonWeb = 'location.href="php/login/login.php"';
+                        $login->display();
 
 
-            echo "</li>";
-        }
-        ?>
-    </ul>
-</nav>
+                    echo "</li>";
+                }
+                ?>
+            </ul>
+        </nav>
+        </div>
+    </div>

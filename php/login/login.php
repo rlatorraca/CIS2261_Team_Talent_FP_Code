@@ -103,9 +103,7 @@ if (isset($_POST['username'])) {
     }
 }
 ?>
-<div class="header">
-    <img src="../../img/StarsWhiteFIN.jpg">
-</div>
+    <?php include "header.php"; ?>
 <div class="jumbotron-fluid">
     <div class="container-fluid login">
         <form action="login.php" method="post">
