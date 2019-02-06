@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d665968c-2a54-4ef4-a752-38485972bd29" name="Default Changelist" comment="Added files and started forms">
-      <change afterPath="$PROJECT_DIR$/php/admin/addReportCard.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/about.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/help.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/viewIEP.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/viewIEP.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,10 +43,46 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/login/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="109" column="14" lean-forward="true" selection-start-line="109" selection-start-column="14" selection-end-line="109" selection-end-column="14" />
+              <folding>
+                <element signature="e#6#99#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+            <state relative-caret-position="697">
+              <caret line="41" column="28" lean-forward="true" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+              <folding>
+                <element signature="e#10#167#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/about.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="e#10#167#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/help.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="478">
+              <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
               <folding>
                 <element signature="e#10#167#0#PHP" expanded="true" />
               </folding>
@@ -54,34 +91,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/php/admin/addReportCard.php">
+        <entry file="file://$PROJECT_DIR$/php/admin/searchCourses.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="e#6#95#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="629">
+              <caret line="70" column="14" lean-forward="true" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/reporting/displayReportCard.php">
+        <entry file="file://$PROJECT_DIR$/php/admin/deleteEnrollment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+            <state relative-caret-position="102">
+              <caret line="14" column="58" lean-forward="true" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/header.php">
+        <entry file="file://$PROJECT_DIR$/php/login/authenticateAdminPages.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-              <folding>
-                <element signature="e#6#96#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="85">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/login/checkLoggedIn.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="17" column="2" lean-forward="true" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -145,7 +185,6 @@
         <option value="$PROJECT_DIR$/header.php" />
         <option value="$PROJECT_DIR$/php/admin/addUser.php" />
         <option value="$PROJECT_DIR$/php/reporting/enterMark.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/php/reporting/requestReportCard.php" />
         <option value="$PROJECT_DIR$/php/reporting/displayReportCard.php" />
         <option value="$PROJECT_DIR$/php/admin/deleteEnrollment.php" />
@@ -155,6 +194,9 @@
         <option value="$PROJECT_DIR$/php/admin/addStudent.php" />
         <option value="$PROJECT_DIR$/php/reporting/viewIEP.php" />
         <option value="$PROJECT_DIR$/php/admin/addReportCard.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/php/help.php" />
+        <option value="$PROJECT_DIR$/php/about.php" />
       </list>
     </option>
   </component>
@@ -172,12 +214,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="CIS2261_Team_Talent_FP_Code" type="b2602c69:ProjectViewProjectNode" />
               <item name="CIS2261_Team_Talent_FP_Code" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CIS2261_Team_Talent_FP_Code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CIS2261_Team_Talent_FP_Code" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CIS2261_Team_Talent_FP_Code" type="b2602c69:ProjectViewProjectNode" />
@@ -212,7 +260,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -306,7 +353,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174124000" />
+    <option name="totallyTimeSpent" value="174574000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -318,10 +365,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23352435" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23481782" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.3285968" />
@@ -378,8 +425,6 @@
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/img/fox1.jpg" />
-    <entry file="file://$PROJECT_DIR$/img/fox.jpg" />
     <entry file="file://$PROJECT_DIR$/img/StarsWhiteFIN.gif" />
     <entry file="file://$PROJECT_DIR$/img/StarsWhiteFIN.jpg" />
     <entry file="file://$PROJECT_DIR$/php/admin/addParentGuardian.php" />
@@ -515,7 +560,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/deleteEnrollment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
+        <state relative-caret-position="102">
           <caret line="14" column="58" lean-forward="true" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
         </state>
       </provider>
@@ -536,8 +581,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/login/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="111" column="14" lean-forward="true" selection-start-line="111" selection-start-column="14" selection-end-line="111" selection-end-column="14" />
+        <state relative-caret-position="510">
+          <caret line="109" column="14" lean-forward="true" selection-start-line="109" selection-start-column="14" selection-end-line="109" selection-end-column="14" />
           <folding>
             <element signature="e#6#99#0#PHP" expanded="true" />
           </folding>
@@ -567,13 +612,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
           <caret line="127" column="18" selection-start-line="127" selection-start-column="18" selection-end-line="127" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/searchCourses.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-199">
-          <caret line="70" column="14" lean-forward="true" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -649,16 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-          <folding>
-            <element signature="e#10#167#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/reporting/displayReportCard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1122">
@@ -673,6 +701,43 @@
           <folding>
             <element signature="e#6#95#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/help.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+          <folding>
+            <element signature="e#10#167#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="28" lean-forward="true" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+          <folding>
+            <element signature="e#10#167#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/about.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#10#167#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/searchCourses.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="70" column="14" lean-forward="true" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="14" />
         </state>
       </provider>
     </entry>

@@ -63,12 +63,12 @@
                         nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim
                         assum.</p>
                 </div>
-<!--                Login button-->
-<!--                <div class="col-md-12">-->
-<!---->
-<!--                    <a href="php/login/login.php" class="btn button2 button" role="button">Login</a>-->
-<!---->
-<!--                </div>-->
+                <!--                Login button-->
+                <!--                <div class="col-md-12">-->
+                <!---->
+                <!--                    <a href="php/login/login.php" class="btn button2 button" role="button">Login</a>-->
+                <!---->
+                <!--                </div>-->
             </div>
         </div>
 
