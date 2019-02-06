@@ -8,7 +8,7 @@
      */
 
     session_start();
-    include("../CIS2261_Team_Talent_FP_Code/php/button.class.php");
+    include "button.class.php";
     $confirm = new Button();
 ?>
 
@@ -24,7 +24,7 @@
         <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
 
         <!--Link to custom style sheet-->
-        <link href="../CIS2261_Team_Talent_FP_Code/css/stars.css" rel="stylesheet">
+        <link href="../css/stars.css" rel="stylesheet">
 
         <!-- JQuery Links !-->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -45,7 +45,7 @@
 
 
 
-        <?php include "header.php"; ?>
+        <?php include "../header.php"; ?>
 
 
         <div class="jumbotron-fluid">
@@ -74,7 +74,7 @@
 
         <div class="bottom">
             <div id="footer">
-                <?php include("navMenu.php"); ?>
+                <?php include("../navMenu.php"); ?>
             </div>
         </div>
     </body>
