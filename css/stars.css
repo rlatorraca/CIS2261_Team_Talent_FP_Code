@@ -85,6 +85,18 @@ h1, h2 {
 
 }
 
+.topnav {
+    position: relative;
+    float: right;
+}
+
+.welcome {
+    list-style: none;
+    font-family: Helvetica, sans-serif;
+    font-size: 25px;
+    color: #fffbfb;
+}
+
 
 
 
@@ -305,12 +317,6 @@ h1, h2 {
     width: 100%;
     padding: 0;
 }
-
-.navigator {
-    position: absolute;
-    float: right;
-}
-
 
 @media only screen and (max-width:620px) {
     /* For mobile phones: */

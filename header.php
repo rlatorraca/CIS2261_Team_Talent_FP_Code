@@ -85,7 +85,7 @@ switch ($access) {
     <ul class="nav nav-pills pull-right">
         <?php
         if ($success == true) {
-            echo "<li role='presentation'>Welcome " . $loggedUser . "!";
+            echo "<li role='presentation' class='welcome'>Welcome " . $loggedUser . "!";
 
 
                 $logout = new Button();
