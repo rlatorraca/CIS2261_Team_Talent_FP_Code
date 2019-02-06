@@ -66,8 +66,6 @@ include '../db/dbConn.php';
 </div>
 <div class="jumbotron-fluid">
     <div class="container-fluid login">
-
-
         <!--Form to request to view a student's report card.  Requires student name, student ID?(how to incorporate), year & semester-->
         <form action="displayReportCard.php" method="post">
             <div class="form-group">
@@ -75,8 +73,97 @@ include '../db/dbConn.php';
                     <div class="col-3">
                         <label for="selectStudent">Select Student</label>
                         <select class="g" id="selectStudent" name="selectStudent">
-                            <!-- Using SQL to populate dropdown list of students (includes the Student's ID, first and last names) -->
-                            <?php $query = "SELECT studentID, firstName, lastName FROM student;";
+                            <!-- Using SQL to populate dropdown list of students
+                            (includes the Student's ID, first and last names) -->
+                            <?php
+
+                            $query = "";
+                            $userID = $_SESSION["userID"];
+
+                            //Switch statement to determine the student(s) to show in the search student drop down box.
+                            //Important for the many user levels present in the STARS system.
+                            switch ($_SESSION["accessCode"]) {
+
+                                case 1:
+                                    $query = "SELECT studentID, firstName, lastName FROM student;";
+                                    break;
+                                case 2:
+                                    $querySchoolID = "SELECT schoolID FROM administrator WHERE userID = $userID;";
+
+                                    $resultSchoolID = $database->query($querySchoolID);
+
+                                    if ($resultSchoolID) {
+
+                                        while ($row = $resultSchoolID->fetch_assoc()) {
+
+                                            $schoolID = $row["schoolID"];
+
+                                        }
+
+                                    }
+
+                                    $query = "SELECT studentID, firstName, lastName FROM student, school 
+                                              WHERE school.schoolID = $schoolID AND student.schoolID = school.schoolID;";
+                                    break;
+                                case 3:
+                                    $query = "SELECT DISTINCT student.studentID, student.firstName, student.lastName 
+                                            FROM user, student, enrollment, course, courseoffering, subject, semester, educator 
+                                            WHERE educator.userID = $userID
+                                            AND user.userID = educator.userID 
+                                            AND courseoffering.educatorID = educator.educatorID
+                                            AND student.studentID = enrollment.studentID 
+                                            AND course.subjectCode = subject.subjectCode AND courseoffering.courseID = course.courseID 
+                                            AND enrollment.classID = courseoffering.classID;";
+                                    break;
+                                case 4:
+                                    $querySupportEducator = "SELECT supportEducatorID FROM supporteducator, user 
+                                                              WHERE supporteducator.userID = $userID;";
+
+                                    $resultQuerySupportEducator = $database->query($querySupportEducator);
+
+                                    if ($resultQuerySupportEducator) {
+
+                                        while ($row = $resultQuerySupportEducator->fetch_assoc()) {
+
+                                            $supportEducatorID = $row["supportEducatorID"];
+
+                                        }
+
+                                    }
+
+                                    $query = "SELECT DISTINCT student.studentID, student.firstName, student.lastName 
+                                                    FROM student, supporteducator 
+                                                    WHERE supporteducator.supportEducatorID = $supportEducatorID
+                                                    AND student.supportEducatorID = supporteducator.supportEducatorID;";
+                                    break;
+                                case 5:
+                                    $query = "SELECT DISTINCT student.studentID, student.firstName, student.lastName 
+                                                      FROM student WHERE student.userID = $userID;";
+                                    break;
+                                case 6:
+                                    $queryParentGuardian = "SELECT parentorguardian.guardianID FROM parentorguardian WHERE userID = $userID;";
+
+                                    $resultsParentGuardian = $database->query($queryParentGuardian);
+
+                                    if ($resultsParentGuardian) {
+
+                                        while ($row = $resultsParentGuardian->fetch_assoc()) {
+
+                                            $guardianID = $row["guardianID"];
+
+                                        }
+
+                                    }
+
+                                    $query = "SELECT DISTINCT student.studentID, student.firstName, student.lastName FROM student, parentorguardian 
+                                                    WHERE parentorguardian.guardianID = $guardianID
+                                                    AND student.guardianID = parentorguardian.guardianID;";
+                                    break;
+                                default:
+                                    $query = "SELECT studentID, firstName, lastName FROM student;";
+                                    break;
+                            }
+
                             $resultStudent = $database->query($query);
                             if ($resultStudent->num_rows > 0) {
                                 while ($row = $resultStudent->fetch_assoc()) {

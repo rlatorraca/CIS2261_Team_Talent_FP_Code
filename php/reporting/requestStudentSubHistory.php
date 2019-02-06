@@ -34,9 +34,9 @@ $supportEducatorID = 0;
 $guardianID = 0;
 
 //Massive if statement to determine the SQL to select student(s) according to logged in user accessing the page.
-if ($_SESSION["accessCode"] == 1){
+if ($_SESSION["accessCode"] == 1) {
 
-$queryStudent = "SELECT DISTINCT student.studentID, student.firstName, student.lastName FROM user, student, enrollment, 
+    $queryStudent = "SELECT DISTINCT student.studentID, student.firstName, student.lastName FROM user, student, enrollment, 
                     course, courseoffering, subject, semester, educator 
                     WHERE courseoffering.educatorID = educator.educatorID
                     AND student.studentID = enrollment.studentID 
@@ -89,7 +89,7 @@ $queryStudent = "SELECT DISTINCT student.studentID, student.firstName, student.l
 
     if ($resultQuerySupportEducator) {
 
-        while ($row = $resultQuerySupportEducator->fetch_assoc()){
+        while ($row = $resultQuerySupportEducator->fetch_assoc()) {
 
             $supportEducatorID = $row["supportEducatorID"];
 
@@ -115,7 +115,7 @@ $queryStudent = "SELECT DISTINCT student.studentID, student.firstName, student.l
 
     if ($resultsParentGuardian) {
 
-        while ($row = $resultsParentGuardian->fetch_assoc()){
+        while ($row = $resultsParentGuardian->fetch_assoc()) {
 
             $guardianID = $row["guardianID"];
 

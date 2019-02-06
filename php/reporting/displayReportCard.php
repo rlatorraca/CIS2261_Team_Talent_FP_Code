@@ -68,11 +68,28 @@ include '../db/dbConn.php';
 <div class="jumbotron-fluid">
     <div class="container-fluid">
         <?php
-        //Variable to hold the requested info from the prior page
+
+        //In the event that a user reaches this page before requesting a student's report card from the prior page.
+        if (!isset($_POST["selectStudent"])) {
+
+            echo "<p>Please request a student's report card before accessing this page.</p>";
+            exit();
+
+        }
+
+        //Variables to hold the requested info from the prior page
         $studentIDFromForm = $_POST["selectStudent"];
         $schoolYearFromForm = $_POST["selectYear"];
         $semesterNumFromForm = $_POST["selectSemester"];
 
+        //Initial variables to hold student report card data.
+        $studentFirstName = "";
+        $studentLastName = "";
+        $schoolYear = "";
+        $reportCardNum = 0;
+        $isRead = 0;
+        $studID = 0;
+        $semesterNum = "";
 
         //SQL to pull overall report card details (Report card to identify a student before the extraction of enrollment data).
         //Be sure to pull the selected student from the requestReportCard.php page to extract the correct student information
@@ -207,32 +224,29 @@ include '../db/dbConn.php';
                         <?php //echo $educatorFirstName . " " . $educatorLastName; ?><!--</td>-->
                     </tr>
                 <?php } ?>
-
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td> <?php
-                    } else {
-                        echo "<p>No results</p>";
-                    }
+                        } else {
+                            echo "<p>No results</p>";
+                        }
 
-                    //Close connection
-                    $result2->free();
+                        //Close connection
+                        $result2->free();
 
-                    //Close connection to database
-                    $database->close();
+                        //Close connection to database
+                        $database->close();
 
-                    echo "<a href='viewIEP.php?studentID=" . $studentIDFromForm . "'>View IEP</a>";
+                        echo "<a href='viewIEP.php?studentID=" . $studentIDFromForm . "'>View IEP</a>";
 
-                    ?>
+                        ?>
                     <td>
                 </tr>
                 </tbody>
             </table>
         </div>
-
-
     </div>
 </div>
 </form>
@@ -240,7 +254,6 @@ include '../db/dbConn.php';
 if (isset($error)) {
     echo "<div class='alert alert-danger'>$error</div>";
 }
-
 
 ?>
 </div>
@@ -255,7 +268,6 @@ if (isset($error)) {
         </ul>
     </div>
 </div>
-
 </body>
 </html>
 
