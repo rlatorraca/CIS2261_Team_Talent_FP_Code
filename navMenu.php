@@ -103,7 +103,6 @@ switch ($accessCode) {
             <li class = "titleNav">Student
                 <ul class = "dropupMenu">
                         <a href="php/reporting/requestReportCard.php"><li>Report Card</li></a>  
-                        <a href="php/reporting/enterMark.php"><li>Enter Mark</li></a>
                         <a href="php/admin/searchStudent.php"><li>Search Student</li></a>
                         <a href="php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
                 </ul>

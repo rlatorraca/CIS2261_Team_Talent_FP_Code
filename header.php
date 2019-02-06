@@ -88,17 +88,29 @@ switch ($access) {
             echo "<li role='presentation'>Welcome " . $loggedUser . "!";
 
 
-            $logout = new Button();
+                $logout = new Button();
 
-            $logout->buttonName = "logout";
-            $logout->buttonID = "logout";
-            $logout->buttonValue = "Logout";
-            $logout->buttonStyle = "font-family:sans-serif";
-            $logout->buttonWeb = 'location.href="php/login/logout.php"';
-            $logout->display();
+                $logout->buttonName = "logout";
+                $logout->buttonID = "logout";
+                $logout->buttonValue = "Logout";
+                $logout->buttonStyle = "font-family:sans-serif";
+                $logout->buttonWeb = 'location.href="php/login/logout.php"';
+                $logout->display();
             echo "</li>";
         } else {
-            echo "<li role='presentation'><a href='login.php'>Login</a></li>";
+            echo "<li role='presentation'>";
+
+                $login = new Button();
+
+                $login->buttonName = "login";
+                $login->buttonID = "login";
+                $login->buttonValue = "Login";
+                $login->buttonStyle = "font-family:sans-serif";
+                $login->buttonWeb = 'location.href="php/login/login.php"';
+                $login->display();
+
+
+            echo "</li>";
         }
         ?>
     </ul>
