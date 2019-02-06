@@ -96,7 +96,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="orderBy">Order By</label>
-                                <select type="text" class="form-control year" id="orderBy" name="orderBy">
+                                <select type="text" class="form-control" id="orderBy" name="orderBy">
                                     <option value="studentID">Student ID</option>
                                     <option value="firstName">First Name</option>
                                     <option value="lastName" selected>Last Name</option>
@@ -133,5 +133,6 @@
                     <?php include("../../navMenu.php"); ?>
                 </div>
             </div>
+        </div>
     </body>
 </html>
