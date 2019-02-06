@@ -63,8 +63,7 @@
 
                     <!--Search form items-->
                     <form action="searchResults.php" method="get">
-                        <!--                        <fieldset class="border p-2">-->
-                        <h2>Student Search</h2>
+                      <h2>Student Search</h2>
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="firstName">First Name</label>

@@ -60,7 +60,7 @@ include "../db/dbConn.php";
 <?php
 
 //Get and Sanitize user inputs to prepare for database insert query.
-$studentID = $database->real_escape_string($_POST["studentID"]);
+//$studentID = $database->real_escape_string($_POST["studentID"]);
 $firstName = $database->real_escape_string($_POST["firstName"]);
 $middleName = $database->real_escape_string($_POST["middleName"]);
 $lastName = $database->real_escape_string($_POST["lastName"]);
