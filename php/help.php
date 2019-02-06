@@ -49,11 +49,11 @@
 
 
         <div class="jumbotron-fluid">
-            <div class="container-fluid">
+            <div class="container-fluid container-sizer">
 
 
-                <div class="home">
-                    <h1 class="homeTitle">Welcome to STARS</h1>
+                <div>
+                    <h1 class="homeTitle">Help</h1>
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
                         ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
                         tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
@@ -63,12 +63,7 @@
                         nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim
                         assum.</p>
                 </div>
-                <!--                Login button-->
-                <!--                <div class="col-md-12">-->
-                <!---->
-                <!--                    <a href="php/login/login.php" class="btn button2 button" role="button">Login</a>-->
-                <!---->
-                <!--                </div>-->
+
             </div>
         </div>
 

@@ -38,43 +38,33 @@
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                 crossorigin="anonymous"></script>
 
-
         <title>STARS</title>
     </head>
     <body>
 
-
-
         <?php include "../header.php"; ?>
-
-
         <div class="jumbotron-fluid">
-            <div class="container-fluid">
+            <div class="container-fluid container-sizer">
+                <div>
+                    <h1 class="homeTitle">About STARS</h1>
+                    <p class="p2">Scholastic Tracking and Records System - STARS is an information system
+                        developed to replace the current paper-based report card system used by the
+                        Provincial School Board and include additional functionality to track other
+                        aspects of a student’s education such as speech therapy, additional tutoring
+                        in literacy and numeracy, Individual Education Plans and more.
+                        The aim of STARS is to improve operations, decrease costs, lower the
+                        environmental impact, and provide better educational tracking for educators,
+                        guardians and students. </p>
+                    <p>STARS Beta Version 1.0</p>
+                    <p>Copywright © 2019 Team Talent 2.0</p>
 
-
-                <div class="home">
-                    <h1 class="homeTitle">Welcome to STARS</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-                        tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
-                        iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
-                        feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
-                        luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta
-                        nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim
-                        assum.</p>
                 </div>
-                <!--                Login button-->
-                <!--                <div class="col-md-12">-->
-                <!---->
-                <!--                    <a href="php/login/login.php" class="btn button2 button" role="button">Login</a>-->
-                <!---->
-                <!--                </div>-->
             </div>
         </div>
-
         <div class="bottom">
             <div id="footer">
                 <?php include("../navMenu.php"); ?>
+
             </div>
         </div>
     </body>

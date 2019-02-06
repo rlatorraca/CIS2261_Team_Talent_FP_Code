@@ -60,6 +60,7 @@
                         feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
                         luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta
                         nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim
+                        assum.Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim
                         assum.</p>
                 </div>
 <!--                Login button-->

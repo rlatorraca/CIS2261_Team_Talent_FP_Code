@@ -355,3 +355,7 @@ h1, h2 {
     margin-right: 0px;
 
 }
+
+.p2::first-line {
+    font-weight: bold;
+}
