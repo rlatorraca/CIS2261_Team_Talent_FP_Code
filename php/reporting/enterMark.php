@@ -136,8 +136,10 @@ if (isset($_POST['enter'])) {
     <!-- Calendar Date Picker !-->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../../js/main.js"></script>
 
     <link href="../../css/stars.css" rel="stylesheet">
+
 
     <!--function to go back to your incomplete album form without losing previously filled fields-->
     <script>
@@ -224,6 +226,7 @@ if (isset($_POST['enter'])) {
                             <textarea class="form-control" id="teacherNotes" name="teacherNotes"
                                       placeholder="Enter notes" cols="75"
                                       rows="4"></textarea>
+                            <span class="charactersTeacherNotes">500</span> characters remaining
                         </div>
                     </div>
                     <br>

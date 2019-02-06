@@ -26,24 +26,24 @@ switch ($accessCode) {
             <a href="index.php"><li class = "titleNav">Home</li></a>
                 <li class = "titleNav">Admin
                     <ul class = "dropupMenu">
-                            <a href="php/admin/addUser.php"><li>Add User</li></a>
-                            <a href="php/reporting/requestSchoolSubAvg.php"><li>School Average</li></a>
-                            <a href="php/admin/editStudent.php"><li>Edit Student</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/admin/addUser.php"><li>Add User</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestSchoolSubAvg.php"><li>School Average</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/admin/editStudent.php"><li>Edit Student</li></a>
                             
                     </ul>
                 </li>
                 <li class = "titleNav">Student
                     <ul class = "dropupMenu">
-                            <a href="php/reporting/requestReportCard.php"><li>Report Card</li></a>  
-                            <a href="php/reporting/enterMark.php"><li>Enter Mark</li></a>
-                            <a href="php/admin/searchStudent.php"><li>Search Student</li></a>
-                            <a href="php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestReportCard.php"><li>Report Card</li></a>  
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/enterMark.php"><li>Enter Mark</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/admin/searchStudent.php"><li>Search Student</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
                     </ul>
                 </li>
                 <li class = "titleNav">Enrollment
                     <ul class = "dropupMenu">
-                            <a href="php/admin/searchCourses.php"><li>Un-enroll</li></a>
-                            <a href="php/admin/assignCourse.php"><li>Assign Course</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/admin/searchCourses.php"><li>Un-enroll</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/admin/assignCourse.php"><li>Assign Course</li></a>
                     </ul>
                 </li>   
         </ul>';
@@ -56,24 +56,24 @@ switch ($accessCode) {
             <a href="index.php"><li class = "titleNav">Home</li></a>
                 <li class = "titleNav">Admin
                     <ul class = "dropupMenu">
-                            <a href="php/admin/addUser.php"><li>Add User</li></a>
-                            <a href="php/reporting/requestSchoolSubAvg.php"><li>School Average</li></a>
-                            <a href="php/admin/editStudent.php"><li>Edit Student</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/admin/addUser.php"><li>Add User</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestSchoolSubAvg.php"><li>School Average</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/admin/editStudent.php"><li>Edit Student</li></a>
                             
                     </ul>
                 </li>
                 <li class = "titleNav">Student
                     <ul class = "dropupMenu">
-                            <a href="php/reporting/requestReportCard.php"><li>Report Card</li></a>  
-                            <a href="php/reporting/enterMark.php"><li>Enter Mark</li></a>
-                            <a href="php/admin/searchStudent.php"><li>Search Student</li></a>
-                            <a href="php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestReportCard.php"><li>Report Card</li></a>  
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/enterMark.php"><li>Enter Mark</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/admin/searchStudent.php"><li>Search Student</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
                     </ul>
                 </li>
                 <li class = "titleNav">Enrollment
                     <ul class = "dropupMenu">
-                            <a href="php/admin/searchCourses.php"><li>Un-enroll</li></a>
-                            <a href="php/admin/assignCourse.php"><li>Assign Course</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/admin/searchCourses.php"><li>Un-enroll</li></a>
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/admin/assignCourse.php"><li>Assign Course</li></a>
                     </ul>
                 </li>   
         </ul>';
@@ -86,10 +86,10 @@ switch ($accessCode) {
             <a href="index.php"><li class = "titleNav">Home</li></a>
             <li class = "titleNav">Student
                 <ul class = "dropupMenu">
-                        <a href="php/reporting/requestReportCard.php"><li>Report Card</li></a>  
-                        <a href="php/reporting/enterMark.php"><li>Enter Mark</li></a>
-                        <a href="php/admin/searchStudent.php"><li>Search Student</li></a>
-                        <a href="php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
+                        <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestReportCard.php"><li>Report Card</li></a>  
+                        <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/enterMark.php"><li>Enter Mark</li></a>
+                        <a href="/CIS2261_Team_Talent_FP_Code/php/admin/searchStudent.php"><li>Search Student</li></a>
+                        <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
                 </ul>
             </li>  
         </ul>';
@@ -102,9 +102,9 @@ switch ($accessCode) {
             <a href="index.php"><li class = "titleNav">Home</li></a>
             <li class = "titleNav">Student
                 <ul class = "dropupMenu">
-                        <a href="php/reporting/requestReportCard.php"><li>Report Card</li></a>  
-                        <a href="php/admin/searchStudent.php"><li>Search Student</li></a>
-                        <a href="php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
+                        <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestReportCard.php"><li>Report Card</li></a>  
+                        <a href="/CIS2261_Team_Talent_FP_Code/php/admin/searchStudent.php"><li>Search Student</li></a>
+                        <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
                 </ul>
             </li>  
         </ul>';
@@ -115,8 +115,8 @@ switch ($accessCode) {
 
         echo '<ul id="footerMenu">
             <a href="index.php"><li class = "titleNav">Home</li></a>
-            <a href="php/reporting/requestReportCard.php"><li class = "titleNav">Report Card</li></a>  
-            <a href="php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>     
+            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestReportCard.php"><li class = "titleNav">Report Card</li></a>  
+            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>     
         </ul>';
         break;
 
@@ -124,16 +124,16 @@ switch ($accessCode) {
     case 6:
 
         echo '<ul id="footerMenu">
-            <a href="index.php"><li class = "titleNav">Home</li></a>
-            <a href="php/reporting/requestReportCard.php"><li class = "titleNav">Report Card</li></a>  
-            <a href="php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>      
+            <a href="/CIS2261_Team_Talent_FP_Code/index.php"><li class = "titleNav">Home</li></a>
+            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestReportCard.php"><li class = "titleNav">Report Card</li></a>  
+            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>      
         </ul>';
         break;
 
     default:
 
         echo '<ul id="footerMenu">
-            <a href="../../index.php"><li class = "titleNav">Home</li></a>
+            <a href="/CIS2261_Team_Talent_FP_Code/index.php"><li class = "titleNav">Home</li></a>
         </ul>';
         break;
 }
