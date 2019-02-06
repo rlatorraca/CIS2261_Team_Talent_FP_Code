@@ -12,9 +12,9 @@ include "php/login/checkLoggedIn.php";
 include 'php/db/dbConn.php';
 
 
-$loggedUser = $_SESSION['userID']
+$loggedUser = $_SESSION['userID'];
 
-$access =$_SESSION['accessCode']
+$access = $_SESSION['accessCode'];
 
 
 
