@@ -93,9 +93,5 @@ if ($resultIEP->num_rows > 0) {
 }
 ?>
 </body>
-<!-- To Add an IEP to a student's report card. -->
-<!--<form action="addIEP.php" method="post">-->
-<!--    <input type="hidden" name="studentID" value="--><?php //echo $studentIDFromForm; ?><!--">-->
-<!--    <button name="edit">Add IEP</button>-->
 </form>
 </html>
