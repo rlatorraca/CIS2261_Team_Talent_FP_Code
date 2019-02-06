@@ -347,3 +347,7 @@ h1, h2 {
     margin-right: inherit;
 
 }
+
+.p2::first-line {
+    font-weight: bold;
+}
