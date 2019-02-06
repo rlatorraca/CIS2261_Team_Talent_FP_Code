@@ -139,9 +139,13 @@ include '../db/dbConn.php';
                             echo "Is Read";
                         } ?>" readonly></td>
                     <td><?php if (!$isRead) {
-                        echo "<form action='updateReportCard.php?reportCardNum=".$reportCardNum."'
+                            //Ensure only admin, parent/guardians and the student can update the report card.
+                            if ($_SESSION["accessCode"] == 1 || $_SESSION["accessCode"] == 2
+                                || $_SESSION["accessCode"] == 5 || $_SESSION["accessCode"] == 6) {
+                                echo "<form action='updateReportCard.php?reportCardNum=" . $reportCardNum . "'
                               method='post'><input type='checkbox' name='signReportCard'>
                             <input type='submit' name='Submit' value='Update'></form>";
+                            }
                         }?></td>
                     <td><input type="hidden" value="<?php echo $studID; ?>"></td>
                 </tr>
@@ -273,4 +277,3 @@ if (isset($error)) {
 </div>
 </body>
 </html>
-

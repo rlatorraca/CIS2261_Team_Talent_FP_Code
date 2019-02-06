@@ -33,7 +33,8 @@ if ($resultUpdateReportCard) {
 
 } else {
 
-    echo "<p>Could not update Report card at this time</p>";
+    //To handle regarding a failed report card update query.
+    echo "<p>Could not update Report Card at this time</p>";
 
 }
 ?>
