@@ -63,12 +63,10 @@ if (isset($_POST['enter'])) {
     //$database->close();
 
 } else {
-
     //Get logged in user's userID
     $userID = $_SESSION['userID'];
 
     //query to find the courses (and semester Number)
-    //If statement to detect whether the logged in user is an Administrator or an Educator type user.
     $queryCourse = "";
 
     //If statement structure to choose SELECT query to use based on logged in user's access level
@@ -85,9 +83,7 @@ if (isset($_POST['enter'])) {
             while ($row = $resultSchoolID->fetch_assoc()) {
 
                 $schoolID = $row["schoolID"];
-
             }
-
         }
 
         $queryCourse = "SELECT DISTINCT courseoffering.classID, course.courseName, courseoffering.semesterNum
@@ -105,7 +101,6 @@ if (isset($_POST['enter'])) {
                     AND courseoffering.educatorID = educator.educatorID 
                     AND user.userID = educator.userID 
                     AND course.courseID = courseoffering.courseID;";
-
     }
 
     //query to find the students in the selected course
@@ -139,7 +134,6 @@ if (isset($_POST['enter'])) {
     <script src="../../js/main.js"></script>
 
     <link href="../../css/stars.css" rel="stylesheet">
-
 
     <!--function to go back to your incomplete album form without losing previously filled fields-->
     <script>

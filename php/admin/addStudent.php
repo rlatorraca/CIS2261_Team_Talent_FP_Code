@@ -58,6 +58,12 @@
                 });
             });
         </script>
+        <!--Tool Tips-->
+        <script>
+            $( function() {
+                $( document ).tooltip();
+            } );
+        </script>
         <!--function to go back to your incomplete form without losing previously filled fields-->
         <script>
             function goBack() {
@@ -143,7 +149,7 @@
                             <div class="form-group col-sm-6">
                                 <label for="allergies">Allergies</label><br/>
                                 <textarea class="form-control" id="allergies" name="allergies"
-                                          placeholder="List allergies and any details" cols="40"
+                                          placeholder="Allergies" title="a practice tool tip"cols="40"
                                           rows="2"></textarea>
                             </div>
                         </div>
