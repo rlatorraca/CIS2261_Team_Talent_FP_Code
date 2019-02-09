@@ -23,6 +23,7 @@
     //Get the school from the logged in administrator
     $userID = $_SESSION["userID"];
     $schoolID = 0;
+    $schoolName = "";
 
     $querySchoolID = "SELECT administrator.schoolID FROM administrator WHERE administrator.userID = $userID";
 
@@ -70,11 +71,13 @@
             if ($resultSetSubjectAverageQuery) {
 
                 //Create array to store values of school years and averages
-                $array[]=0;
+                //$array[]=0;
 
-                //$array = [];
+             
 
                 while ($row = $resultSetSubjectAverageQuery->fetch_assoc()) {
+
+                    $schoolName = $row['name'];
 
                     //$array[$schoolYear] = $row['average'];
 
@@ -114,7 +117,7 @@
         }
 
     }
-
+var_dump($array);
 
 
 ?>
@@ -144,7 +147,7 @@
                 // Create the data table.
                 var data = new google.visualization.DataTable();
                 data.addColumn('string', 'Year');
-                data.addColumn('number', 'Mark');
+                data.addColumn('number', 'Average');
                 data.addRows([
                     <?php
                     foreach ($array as $key=>$value) {
@@ -154,8 +157,8 @@
 
                 // Set chart options
                 var options = {
-                    'title': 'School Subject Average',
-                    'width': 500,
+                    'title': '<?php echo $schoolName . " " . $subject; ?> Average',
+                    'width': 600,
                     'height': 300
                 };
 
