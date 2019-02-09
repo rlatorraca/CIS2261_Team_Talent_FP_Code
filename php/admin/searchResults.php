@@ -100,8 +100,7 @@
     $result = $database->query($query);
 
     //Check/validate if there are items in the database object
-    if ($result->num_rows > 0)
-    {
+
     //Validation passed, display search results to a table
 ?>
 <!doctype html>
@@ -144,7 +143,9 @@
         <?php include "../../header.php"; ?>
         <div class="jumbotron-fluid">
             <div class="container-fluid">
-
+	            <?php if ($result->num_rows > 0)
+	            {
+	            ?>
 
                 <h2 class="centerStuff">Search Results</h2>
                 <!--The table-->
