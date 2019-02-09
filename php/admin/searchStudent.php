@@ -7,6 +7,9 @@
      * Time: 12:09 AM
      */
 
+    //Lock down page
+    include "../login/checkLoggedIn.php";
+
     include("../button.class.php");
     $confirm = new Button();
 
@@ -54,7 +57,7 @@
 
         <?php include "../../header.php"; ?>
 
-        
+
         <div class="jumbotron-fluid">
             <div class="container-fluid">
 
