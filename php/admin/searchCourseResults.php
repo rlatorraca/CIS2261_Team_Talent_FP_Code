@@ -37,11 +37,6 @@ $query = "SELECT student.studentID, student.firstName, student.lastName
 
 // Use $db object created above and run the query() method.
 $resultCourseSearch = $database->query($query);
-
-//Check/validate if there are items in the database object
-if ($resultCourseSearch->num_rows > 0)
-{
-//Validation passed, display search results to a table
 ?>
 
 <!doctype html>
@@ -87,6 +82,12 @@ if ($resultCourseSearch->num_rows > 0)
 
 
         <h2 class="centerStuff">Search Results</h2>
+
+        <!--Check/validate if there are items in the database object-->
+	    <?php if ($resultCourseSearch->num_rows > 0)
+	    {
+	    //Validation passed, display search results to a table
+	    ?>
         <!--The table-->
         <table class="table table-striped">
             <thead>
@@ -116,6 +117,7 @@ if ($resultCourseSearch->num_rows > 0)
             // if no results display message to advise user
             } else {
                 echo "<h5 class='centerStuff'>Sorry there are no results for your search.</h5>";
+
             }
             //Reset link
             echo "<br><h5 class = 'centerStuff'>Start a new <a href='searchCourses.php'>Search?</a></h5>";
