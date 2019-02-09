@@ -6,6 +6,11 @@
  * Time: 8:45 PM
  */
 
+include "../login/checkLoggedIn.php";
+
+include "../login/authenticateAdminPages.php";
+
+
 include("../button.class.php");
 $confirm = new Button();
 
@@ -122,7 +127,7 @@ if ($resultCourseSearch->num_rows > 0)
             <!--The bottom navbar/footer section-->
                 <div class="bottom">
                     <div id="footer">
-                        <?php include("navMenu.php"); ?>
+	                    <?php include("../../navMenu.php"); ?>
                     </div>
                 </div>
     </div>
