@@ -360,7 +360,15 @@ h1, h2 {
     font-weight: bold;
 }
 
-g {
+.row {
+    margin:0 !important;
+}
 
+.chart-container {
+    min-height:150px;
+    max-width: 650px;
+}
 
+.chart-sizer {
+    max-width: 55%;
 }
