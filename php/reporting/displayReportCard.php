@@ -62,9 +62,7 @@ include '../db/dbConn.php';
     </script>
 </head>
 <body>
-<div class="header">
-    <img src="../../img/StarsWhiteFIN.jpg">
-</div>
+    <?php include "../../header.php"; ?>
 <div class="jumbotron-fluid">
     <div class="container-fluid">
         <?php
@@ -267,12 +265,7 @@ if (isset($error)) {
 </div>
 <div class="bottom">
     <div id="footer">
-        <ul id="footerMenu">
-            <?php
-            echo '<a href="#"><li class = "titleNav">Home</li></a>';
-
-            ?>
-        </ul>
+        <?php include("../../navMenu.php"); ?>
     </div>
 </div>
 </body>

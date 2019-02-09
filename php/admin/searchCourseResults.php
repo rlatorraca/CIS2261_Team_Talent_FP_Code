@@ -76,9 +76,7 @@ if ($resultCourseSearch->num_rows > 0)
 </head>
 
 <body>
-<div class="header">
-    <img src="../../img/StarsWhiteFIN.jpg">
-</div>
+    <?php include "../../header.php"; ?>
 <div class="jumbotron-fluid">
     <div class="container-fluid">
 

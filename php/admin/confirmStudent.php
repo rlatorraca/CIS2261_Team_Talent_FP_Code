@@ -56,7 +56,9 @@ include "../db/dbConn.php";
         <title>STARS - Confirm Student</title>
     </head>
 <body>
-<div>
+<?php include "../../header.php"; ?>
+    <div class="jumbotron-fluid">
+    <div class="container-fluid">
 <?php
 
 //Get and Sanitize user inputs to prepare for database insert query.
@@ -84,7 +86,15 @@ if ($_POST["firstName"] == "" || $_POST["middleName"] == "" || $_POST["lastName"
     echo "<h2>Error. Form fields must not be empty before registering new student in STARS.</h2><br>";
     echo "<div class='col-md-12'><button class='btn btn-primary' onclick='goBack()'>Go Back</button>";
     echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
-    exit("</div></body</html>");
+    exit("        </div>
+    </div>
+    <div class='bottom'>
+        <div id='footer'>
+            <?php include('navMenu.php'); ?>
+        </div>
+    </div>
+        </body>
+    </html>");
 }
 
 echo "You have entered the following student details:  Name: " . $firstName . " " . $middleName . " " . $lastName .
@@ -110,6 +120,15 @@ echo "You have entered the following student details:  Name: " . $firstName . " 
         <input type="submit" name="register" value="Register Student">
     </form>
 <?php echo "<div class='col-md-12'><button class='btn btn-primary' onclick='goBack()'>Go Back</button>"; ?>
+    </div>
+    </div>
+    <div class='bottom'>
+        <div id='footer'>
+            <?php include('navMenu.php'); ?>
+        </div>
+    </div>
+</body>
+</html>");
 <?php
 
 //$usernameFromForm = $database->real_escape_string($_SESSION["username"]);

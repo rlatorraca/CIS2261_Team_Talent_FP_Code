@@ -61,9 +61,7 @@
         </script>
     </head>
     <body>
-        <div class="header">
-            <img src="../../img/StarsWhiteFIN.jpg">
-        </div>
+        <?php include "../../header.php"; ?>
         <div class="jumbotron-fluid">
             <div class="container-fluid login">
                 <!--Form to request to view a student's report card.  Requires student name, student ID?(how to incorporate), year & semester-->
@@ -252,16 +250,5 @@
                 <?php include("../../navMenu.php"); ?>
             </div>
         </div>
-        <!--<div class="bottom">-->
-        <!--    <div id="footer">-->
-        <!--        <ul id="footerMenu">-->
-        <!--            --><?php
-            //            echo '<a href="#"><li class = "titleNav">Home</li></a>';
-            //
-            //            ?>
-        <!--        </ul>-->
-        <!--    </div>-->
-        <!--</div>-->
-
     </body>
 </html>

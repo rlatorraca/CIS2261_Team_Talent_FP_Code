@@ -60,9 +60,7 @@
         $resultCourse = $database->query($queryCourse);
     ?>
     <body>
-        <div class="header">
-            <img src="../../img/StarsWhiteFIN.jpg">
-        </div>
+        <?php include "../../header.php"; ?>
 
 
         <div class="jumbotron-fluid">

@@ -75,9 +75,7 @@
     </head>
     <body>
 
-        <div class="header">
-            <img src="../../img/StarsWhiteFIN.jpg">
-        </div>
+        <?php include "../../header.php"; ?>
 
         <div class="jumbotron-fluid">
             <div class="container-fluid">
@@ -243,7 +241,7 @@
             <div class="bottom">
                 <div id="footer">
                     <?php include("../../navMenu.php"); ?>
-                </div>
+            </div>
             </div>
         </div>
     </body>

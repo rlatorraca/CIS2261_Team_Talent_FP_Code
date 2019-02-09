@@ -71,9 +71,7 @@ include "../db/dbConn.php";
         <title>STARS - Edit User</title>
     </head>
     <body>
-        <div class="header">
-            <img src="../../img/StarsWhiteFIN.jpg">
-        </div>
+        <?php include "../../header.php"; ?>
         <div class="jumbotron-fluid">
             <div class="container-fluid">
 
@@ -114,24 +112,7 @@ include "../db/dbConn.php";
 
         <div class="bottom">
             <div id="footer">
-                <ul id="footerMenu">
-                    <li class="titleNav">List One
-                        <ul class="dropupMenu">
-                            <li><a>List 1:1</a></li>
-                            <li><a>List 1:2</a></li>
-                            <li><a>List 1:3</a></li>
-                            <li><a>List 1:4</a></li>
-                        </ul>
-                    </li>
-                    <li class="titleNav">List Two
-                        <ul class="dropupMenu">
-                            <li><a>List 2:1</a></li>
-                            <li><a>List 2:2</a></li>
-                            <li><a>List 2:3</a></li>
-                            <li><a>List 2:4</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                <?php include("navMenu.php"); ?>
             </div>
         </div>
     </body>

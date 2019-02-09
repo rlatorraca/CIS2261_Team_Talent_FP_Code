@@ -128,18 +128,9 @@ if (isset($_POST["updateStudent"])) {
         <title>STARS - Edit Student</title>
     </head>
     <body>
-    <div class="header">
-        <img src="../../img/StarsWhiteFIN.jpg">
-    </div>
+        <?php include "../../header.php"; ?>
     <div class="jumbotron-fluid">
         <div class="container-fluid">
-
-            <div class="row">
-                <div class="col-sm-6">Testing</div>
-                <div class="col-sm-6">Testing 2</div>
-
-            </div>
-
             <form action="editStudent.php" method="post">
                 <h2>Student Details</h2>
                 <p>**Please ensure all fields are filled before editing a Student's details.</p>
@@ -268,24 +259,7 @@ if (isset($_POST["updateStudent"])) {
     </div>
     <div class="bottom">
         <div id="footer">
-            <ul id="footerMenu">
-                <li class="titleNav">List One
-                    <ul class="dropupMenu">
-                        <li><a>List 1:1</a></li>
-                        <li><a>List 1:2</a></li>
-                        <li><a>List 1:3</a></li>
-                        <li><a>List 1:4</a></li>
-                    </ul>
-                </li>
-                <li class="titleNav">List Two
-                    <ul class="dropupMenu">
-                        <li><a>List 2:1</a></li>
-                        <li><a>List 2:2</a></li>
-                        <li><a>List 2:3</a></li>
-                        <li><a>List 2:4</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <?php include("navMenu.php"); ?>
         </div>
     </div>
     </body>
