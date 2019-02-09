@@ -49,6 +49,8 @@
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                 crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <!--Link to custom style sheet-->
+        <link href="../../css/stars.css" rel="stylesheet">
         <!--Datepicker-->
         <script>
             $(function () {

@@ -359,3 +359,16 @@ h1, h2 {
 .p2::first-line {
     font-weight: bold;
 }
+
+.row {
+    margin:0 !important;
+}
+
+.chart-container {
+    min-height:150px;
+    max-width: 650px;
+}
+
+.chart-sizer {
+    max-width: 55%;
+}

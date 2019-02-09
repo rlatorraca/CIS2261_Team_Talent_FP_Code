@@ -10,11 +10,12 @@
     //Lock down page
     include "../login/checkLoggedIn.php";
 
+    //Lock down page for only admin staff
+    include "../login/authenticateAdminPages.php";
+
+    //Importing button
     include("../button.class.php");
     $confirm = new Button();
-
-    session_start();
-
 
 ?>
 
@@ -54,7 +55,6 @@
     <body>
 
 
-
         <?php include "../../header.php"; ?>
 
 
@@ -66,7 +66,7 @@
 
                     <!--Search form items-->
                     <form action="searchResults.php" method="get">
-                      <h2>Student Search</h2>
+                        <h2>Student Search</h2>
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="firstName">First Name</label>
