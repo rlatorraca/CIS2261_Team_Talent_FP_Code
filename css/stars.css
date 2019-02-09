@@ -366,9 +366,22 @@ h1, h2 {
 
 .chart-container {
     min-height:150px;
-    max-width: 650px;
+    max-width: 645px;
 }
 
 .chart-sizer {
     max-width: 55%;
+}
+
+
+.tableHeads {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #328cc1;
+}
+
+.tableInfo {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
 }
