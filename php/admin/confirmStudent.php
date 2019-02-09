@@ -86,7 +86,7 @@
 
                         //If details are empty, display a message and give redirect links. Otherwise, proceed.
                         if ($_POST["firstName"] == "" || $_POST["middleName"] == "" || $_POST["lastName"] == "") {
-                            echo "<h2>Error. Form fields must not be empty before registering new student in STARS.</h2><br>";
+                            echo "<h2>Error</h2><p> Form fields must not be empty before registering new student in STARS.</p><br>";
                             echo "<div class='col-md-12'><button class='btn btn-primary' onclick='goBack()'>Go Back</button>";
                             echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
                             exit("        </div>

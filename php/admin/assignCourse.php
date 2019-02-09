@@ -39,8 +39,7 @@
         <!-- Fonts !-->
         <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
 
-        <!--Link to custom style sheet-->
-        <link href="../../css/stars.css" rel="stylesheet">
+
 
         <!-- JQuery Links !-->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -53,6 +52,9 @@
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                 crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+        <!--Link to custom style sheet-->
+        <link href="../../css/stars.css" rel="stylesheet">
 
         <!--function to go back to your incomplete form without losing previously filled fields-->
         <script>
@@ -223,7 +225,7 @@
                         <div class="col-md-6">
                             <label for="subjectsAssignCourse">Subjects</label>
                             <select class="form-control" id="subjectsAssignCourse" name="subjectsAssignCourse">
-                                <option value=''>------- Select --------</option>
+                                <option value=''>Select</option>
                                 <!-- Using SQL to populate dropdown list of students -->
                                 <?php if ($resultSubject->num_rows > 0) {
                                     while ($row = $resultSubject->fetch_assoc()) {
@@ -241,7 +243,7 @@
                             <label for="yearAsscourseSemesterYearAssignCourseignCourse">School Year</label>
                             <select class="form-control" id="yearAsscourseSemesterYearAssignCourseignCourse"
                                     name="yearAsscourseSemesterYearAssignCourseignCourse">
-                                <option value=''>------- Select --------</option>
+                                <option value=''>Select</option>
                                 <!-- Using SQL to populate dropdown list of students -->
                                 <?php if ($resultSemester->num_rows > 0) {
                                     $count = 1;
@@ -277,7 +279,7 @@
                             <label for="semesterYearAssignCourse">Semester</label>
                             <select class="form-control" id="semesterYearAssignCourse"
                                     name="semesterYearAssignCourse">
-                                <option value=0>------- Select --------</option>
+                                <option value=0>Select</option>
                                 <option value="01">1st Semester</option>
                                 <option value="02">2nd Semester</option>
                             </select>
@@ -291,13 +293,13 @@
                             <label for="courseSemesterYearAssignCourse">Course</label> <select class="form-control"
                                                                                                name="courseSemesterYearAssignCourse"
                                                                                                id="courseSemesterYearAssignCourse">
-                                <option>------- Select --------</option>
+                                <option>Select</option>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="studentAssignCourse">Student</label>
                             <select class="form-control" id="studentAssignCourse" name="studentAssignCourse">
-                                <option value=''>------- Select --------</option>
+                                <option value=''>Select</option>
                                 <!-- Using SQL to populate dropdown list of students -->
                                 <?php if ($resultStudent->num_rows > 0) {
                                     while ($row = $resultStudent->fetch_assoc()) {
