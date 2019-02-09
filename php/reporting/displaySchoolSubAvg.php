@@ -80,6 +80,7 @@ if ($resultSetInitialQuery) {
 
                 $schoolName = $row['name'];
 
+
                 //$array[$schoolYear] = $row['average'];
 
                 //array_push($array, array($schoolYear => $row['average']));
@@ -195,11 +196,24 @@ if ($resultSetInitialQuery) {
 
                 var options = {
                     'title': '<?php echo $schoolName . " " . $subject; ?> Average',
-                    'width': 600,
-                    'height': 300
-                };
+                    chart:{
 
-                // Instantiate and draw our chart, passing in some options.
+                    'title': '<?php echo $schoolName . " " . $subject; ?> Average',
+                    //'width': 600,
+                    //'height': 300
+                }, vAxis: {
+                    viewWindowMode: 'explicit',
+                        viewWindow: {
+                        max: 0,
+                            min: 100
+                    }
+                },
+                bars: 'horizontal', // Required for Material Bar Charts.
+                    width: 625,
+                    height: 300
+            };
+
+            // Instantiate and draw our chart, passing in some options.
                 var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
                 chart.draw(data, options);
             }
@@ -214,12 +228,24 @@ if ($resultSetInitialQuery) {
 
                 <div class="container chart-container">
                     <h2>School Subject Average</h2>
+                <br>
+
                     <div class="row">
                         <div class="col-sm-12 " id="chart_div">
                         </div>
                     </div>
                 </div>
+                <?php
+                $goBack = new Button();
 
+                $goBack->buttonName = "goBack";
+                $goBack->buttonID = "goBack";
+                $goBack->buttonValue = "Go Back";
+                $goBack->buttonStyle = "font-family:sans-serif";
+                $goBack->buttonWeb = 'goBack()';
+                $goBack->display();
+
+                ?>
             </div>
         </div>
 
