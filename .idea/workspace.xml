@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d665968c-2a54-4ef4-a752-38485972bd29" name="Default Changelist" comment="Added files and started forms">
-      <change beforePath="$PROJECT_DIR$/css/stars.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/stars.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/reporting/displaySchoolSubAvg.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/displaySchoolSubAvg.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -61,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/reporting/displaySchoolSubAvg.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="119" column="17" selection-start-line="119" selection-start-column="17" selection-end-line="119" selection-end-column="17" />
+            <state relative-caret-position="67">
+              <caret line="119" column="2" selection-start-line="119" selection-start-column="2" selection-end-line="119" selection-end-column="2" />
               <folding>
                 <element signature="e#6#116#0#PHP" expanded="true" />
               </folding>
@@ -164,10 +163,11 @@
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="Xampp" />
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="y" value="21" />
-    <option name="width" value="1866" />
-    <option name="height" value="575" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="867" />
+    <option name="y" value="67" />
+    <option name="width" value="1011" />
+    <option name="height" value="576" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -316,7 +316,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190351000" />
+    <option name="totallyTimeSpent" value="190724000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -678,8 +678,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/reporting/displaySchoolSubAvg.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="119" column="17" selection-start-line="119" selection-start-column="17" selection-end-line="119" selection-end-column="17" />
+        <state relative-caret-position="67">
+          <caret line="119" column="2" selection-start-line="119" selection-start-column="2" selection-end-line="119" selection-end-column="2" />
           <folding>
             <element signature="e#6#116#0#PHP" expanded="true" />
           </folding>

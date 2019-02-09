@@ -73,7 +73,7 @@
                 //Create array to store values of school years and averages
                 //$array[]=0;
 
-             
+
 
                 while ($row = $resultSetSubjectAverageQuery->fetch_assoc()) {
 
@@ -117,7 +117,7 @@
         }
 
     }
-var_dump($array);
+//var_dump($array);
 
 
 ?>
