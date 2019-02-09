@@ -62,10 +62,10 @@ $result = $database->query($query);
 //Check if query executed successfully and that the result contains data.
 if ($result) {
 
-    echo "<h2>Student has been successfully added to the database</h2><br>";
+    echo "<h2>Student has been successfully added to the database</h2>";
 
 } else {
-    echo "<h2>Sorry, student could not be added to the database at this time</h2><br>";
+    echo "<h2>Sorry, student could not be added to the database at this time</h2>";
 }
 
 //Clear username session variable

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d665968c-2a54-4ef4-a752-38485972bd29" name="Default Changelist" comment="Added files and started forms">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/admin/confirmStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/confirmStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/editStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/editStudent.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -63,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/admin/confirmStudent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="104" column="79" lean-forward="true" selection-start-line="104" selection-start-column="79" selection-end-line="104" selection-end-column="79" />
+            <state relative-caret-position="351">
+              <caret line="120" column="71" lean-forward="true" selection-start-line="120" selection-start-column="71" selection-end-line="120" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -283,7 +280,7 @@
       <workItem from="1549376391270" duration="1759000" />
       <workItem from="1549459406341" duration="3322000" />
       <workItem from="1549463180842" duration="5798000" />
-      <workItem from="1549738530781" duration="9848000" />
+      <workItem from="1549738530781" duration="10764000" />
     </task>
     <task id="LOCAL-00001" summary="Added database sql file and inserted sql code to create database.">
       <created>1548210945438</created>
@@ -303,7 +300,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200572000" />
+    <option name="totallyTimeSpent" value="201488000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -671,8 +668,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/confirmStudent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="104" column="79" lean-forward="true" selection-start-line="104" selection-start-column="79" selection-end-line="104" selection-end-column="79" />
+        <state relative-caret-position="351">
+          <caret line="120" column="71" lean-forward="true" selection-start-line="120" selection-start-column="71" selection-end-line="120" selection-end-column="71" />
         </state>
       </provider>
     </entry>

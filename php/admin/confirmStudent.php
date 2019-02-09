@@ -82,7 +82,7 @@
                         $supportEducatorID = $database->real_escape_string($_POST["selectSupportEducator"]);
 
                         //To trigger when user submits request to add new Student to stars database
-                        // if (isset($_POST["register"])) {
+                        //if (isset($_POST["register"])) {
 
                         //If details are empty, display a message and give redirect links. Otherwise, proceed.
                         if ($_POST["firstName"] == "" || $_POST["middleName"] == "" || $_POST["lastName"] == "") {
@@ -100,9 +100,9 @@
     </html>");
                         }
 
-                        echo "You have entered the following student details:  Name: " . $firstName . " " . $middleName . " " . $lastName .
-                            "\n" . "Gender: " . $gender . "\n" . "Date of Birth: " . $dob . "\n " . "Address: $address" . "\n" . "Phone Number: " . $phoneNum . "\n" . "Email: "
-                            . $emailAddress . "\n" . "Grade: " . $grade . "\n";
+                        echo "<p>You have entered the following student details:</p><p>Name: " . $firstName . " " . $middleName . " " . $lastName
+                            . "</p><p>Gender: " . $gender . "</p><p>" . "Date of Birth: " . $dob . "</p><p>" . "Address: $address" . "</p><p>" . "Phone Number: " . $phoneNum .
+                            "</p><p>" . "Email: " . $emailAddress . "</p><p>" . "Grade: " . $grade . "</p>";
                     ?>
                     <form action="insertStudent.php" method="post">
                         <input name="firstName" hidden value="<?php echo $firstName; ?>">
