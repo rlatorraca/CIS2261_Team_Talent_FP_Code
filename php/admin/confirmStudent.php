@@ -50,8 +50,8 @@
 
             <script src="../../js/main.js"></script>
 
-            <!--            <!--function to go back to your incomplete form without losing previously filled fields-->
-            -->
+            <!--           function to go back to your incomplete form without losing previously filled fields-->
+
             <!--            <script>-->
             <!--                function goBack() {-->
             <!--                    window.history.back();-->
