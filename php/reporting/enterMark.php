@@ -50,14 +50,15 @@ if (isset($_POST['enter'])) {
     //Check if query executed successfully and that the result contains data.
     if ($result == 1) {
 
-        $msg = "<h2>Student Record has been successfully updated.</h2><br>";
+	    $msg = "<h4>Student Record has been successfully updated.</h4>";
 
 
     } else {
 
-        $msg = "<h2>Sorry, student record could not be updated to the database at this time</h2><br>";
+	    $msg = "<h4>Sorry, student record could not be updated to the database at this time</h4>";
 
     }
+
 
     //Close database connection
     //$database->close();
@@ -155,7 +156,6 @@ if (isset($_POST['enter'])) {
             <form action="enterMark.php" method="post">
                 <h2>Assign Mark</h2>
                 <div class="form-group">
-
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="students">Select Course - Semester</label>
@@ -184,7 +184,7 @@ if (isset($_POST['enter'])) {
                             </select>
                         </div>
                     </div>
-                    <br>
+
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="markInput">Mark</label>
@@ -212,20 +212,20 @@ if (isset($_POST['enter'])) {
                             </select>
                         </div>
                     </div>
-                    <br>
+
                     <div class="row">
                         <div class="col-sm-12">
                             <label for="teacherNotes">Teacher´s notes</label><br/>
                             <textarea class="form-control" id="teacherNotes" name="teacherNotes"
                                       placeholder="Enter notes" cols="75"
-                                      rows="4"></textarea>
+                                      rows="3"></textarea>
                             <span class="charactersTeacherNotes">500</span> characters remaining
                         </div>
                     </div>
                     <br>
                     <!--Search button-->
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <?php
                             $confirm = new Button();
 
@@ -236,7 +236,7 @@ if (isset($_POST['enter'])) {
                             $confirm->display(); ?>
 
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <?php
                             $confirm = new Button();
 
@@ -250,12 +250,7 @@ if (isset($_POST['enter'])) {
 
 
             </form>
-            <?php
-            if (isset($msg)) {
-                echo "<div>$msg</div>";
-            }
-
-            ?>
+            <div><?php echo $msg ?></div>
         </div>
     </div>
 </div>
