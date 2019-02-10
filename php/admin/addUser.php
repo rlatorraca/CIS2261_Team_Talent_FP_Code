@@ -45,29 +45,30 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <link href="../../css/stars.css" rel="stylesheet">
+        <script src="../../js/main.js"></script>
 
-        <!--function to go back to your incomplete album form without losing previously filled fields-->
-        <script>
-            function goBack() {
-                window.history.back();
-            }
-
-            // This function shows the date picker.
-            $(function () {
-                $("#datepicker").datepicker();
-            });
-
-            // This function shows the note.
-            // Will need to add a variable to get the notes to then call.
-            $(function () {
-                $(document).tooltip();
-            });
-
-            // This function manages the drop downs on the main menu.
-            $(function () {
-                $("#menu").menu();
-            });
-        </script>
+        <!--        <!--function to go back to your incomplete album form without losing previously filled fields-->-->
+        <!--        <script>-->
+        <!--            function goBack() {-->
+        <!--                window.history.back();-->
+        <!--            }-->
+        <!---->
+        <!--            // This function shows the date picker.-->
+        <!--            $(function () {-->
+        <!--                $("#datepicker").datepicker();-->
+        <!--            });-->
+        <!---->
+        <!--            // This function shows the note.-->
+        <!--            // Will need to add a variable to get the notes to then call.-->
+        <!--            $(function () {-->
+        <!--                $(document).tooltip();-->
+        <!--            });-->
+        <!---->
+        <!--            // This function manages the drop downs on the main menu.-->
+        <!--            $(function () {-->
+        <!--                $("#menu").menu();-->
+        <!--            });-->
+        <!--        </script>-->
     </head>
     <body>
         <div><?php
@@ -128,7 +129,9 @@
                 <div class="jumbotron-fluid">
                     <div class="container-fluid">
                         <?php echo "<h2>User has successfully been added to the database</h2><br>";
-                            echo "<a href='addStudent.php?username=" . $username . "'>Register new Student</a>";
+                        if ($accessCode == 5) {
+	                        echo "<a href='addStudent.php?username=" . $username . "'>Register new Student</a>";
+                        }
                         ?>
                     </div>
                 </div>

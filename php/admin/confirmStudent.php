@@ -48,12 +48,15 @@
                     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                     crossorigin="anonymous"></script>
 
-            <!--function to go back to your incomplete form without losing previously filled fields-->
-            <script>
-                function goBack() {
-                    window.history.back();
-                }
-            </script>
+            <script src="../../js/main.js"></script>
+
+            <!--            <!--function to go back to your incomplete form without losing previously filled fields-->
+            -->
+            <!--            <script>-->
+            <!--                function goBack() {-->
+            <!--                    window.history.back();-->
+            <!--                }-->
+            <!--            </script>-->
 
 
             <title>STARS - Confirm Student</title>

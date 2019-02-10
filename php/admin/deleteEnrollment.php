@@ -49,28 +49,30 @@ include "../db/dbConn.php";
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
 
-    <!--function to go back to your incomplete form without losing previously filled fields-->
-    <script>
-        function goBack() {
-            window.history.back();
-        }
+    <script src="../../js/main.js"></script>
 
-        // This function shows the date picker.
-        $(function () {
-            $("#datepicker").datepicker();
-        });
-
-        // This function shows the note.
-        // Will need to add a variable to get the notes to then call.
-        $(function () {
-            $(document).tooltip();
-        });
-
-        // This function manages the drop downs on the main menu.
-        $(function () {
-            $("#menu").menu();
-        });
-    </script>
+    <!--    <!--function to go back to your incomplete form without losing previously filled fields-->-->
+    <!--    <script>-->
+    <!--        function goBack() {-->
+    <!--            window.history.back();-->
+    <!--        }-->
+    <!---->
+    <!--        // This function shows the date picker.-->
+    <!--        $(function () {-->
+    <!--            $("#datepicker").datepicker();-->
+    <!--        });-->
+    <!---->
+    <!--        // This function shows the note.-->
+    <!--        // Will need to add a variable to get the notes to then call.-->
+    <!--        $(function () {-->
+    <!--            $(document).tooltip();-->
+    <!--        });-->
+    <!---->
+    <!--        // This function manages the drop downs on the main menu.-->
+    <!--        $(function () {-->
+    <!--            $("#menu").menu();-->
+    <!--        });-->
+    <!--    </script>-->
     <title>STARS - Enrollment Removed</title>
 </head>
 <body>

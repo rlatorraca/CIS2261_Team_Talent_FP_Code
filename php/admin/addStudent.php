@@ -51,27 +51,29 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <!--Link to custom style sheet-->
         <link href="../../css/stars.css" rel="stylesheet">
+
+        <script src="../../js/main.js"></script>
         <!--Datepicker-->
-        <script>
-            $(function () {
-                $("#datepicker").datepicker({
-                    changeMonth: true,
-                    changeYear: true
-                });
-            });
-        </script>
-        <!--Tool Tips-->
-        <script>
-            $( function() {
-                $( document ).tooltip();
-            } );
-        </script>
-        <!--function to go back to your incomplete form without losing previously filled fields-->
-        <script>
-            function goBack() {
-                window.history.back();
-            }
-        </script>
+        <!--        <script>-->
+        <!--            $(function () {-->
+        <!--                $("#datepicker").datepicker({-->
+        <!--                    changeMonth: true,-->
+        <!--                    changeYear: true-->
+        <!--                });-->
+        <!--            });-->
+        <!--        </script>-->
+        <!--        <!--Tool Tips-->-->
+        <!--        <script>-->
+        <!--            $( function() {-->
+        <!--                $( document ).tooltip();-->
+        <!--            } );-->
+        <!--        </script>-->
+        <!--        <!--function to go back to your incomplete form without losing previously filled fields-->-->
+        <!--        <script>-->
+        <!--            function goBack() {-->
+        <!--                window.history.back();-->
+        <!--            }-->
+        <!--        </script>-->
 
         <title>STARS - Add Student</title>
     </head>

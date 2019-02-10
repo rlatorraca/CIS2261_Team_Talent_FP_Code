@@ -45,12 +45,14 @@
 
         <link href="../../css/stars.css" rel="stylesheet">
 
-        <!--function to go back to your incomplete album form without losing previously filled fields-->
-        <script>
-            function goBack() {
-                window.history.back();
-            }
-        </script>
+        <script src="../../js/main.js"></script>
+
+        <!--        <!--function to go back to your incomplete album form without losing previously filled fields-->-->
+        <!--        <script>-->
+        <!--            function goBack() {-->
+        <!--                window.history.back();-->
+        <!--            }-->
+        <!--        </script>-->
     </head>
     <body>
 

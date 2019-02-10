@@ -39,23 +39,24 @@ include "../button.class.php" ;
 
 
     <link href="/CIS2261_Team_Talent_FP_Code/css/stars.css" rel="stylesheet">
-    <script>
-        // This function shows the date picker.
-        $(function () {
-            $("#datepicker").datepicker();
-        });
-
-        // This function shows the note.
-        // Will need to add a variable to get the notes to then call.
-        $(function () {
-            $(document).tooltip();
-        });
-
-        // This function manages the drop downs on the main menu.
-        $(function () {
-            $("#menu").menu();
-        });
-    </script>
+    <script src="../../js/main.js"></script>
+    <!--    <script>-->
+    <!--        // This function shows the date picker.-->
+    <!--        $(function () {-->
+    <!--            $("#datepicker").datepicker();-->
+    <!--        });-->
+    <!---->
+    <!--        // This function shows the note.-->
+    <!--        // Will need to add a variable to get the notes to then call.-->
+    <!--        $(function () {-->
+    <!--            $(document).tooltip();-->
+    <!--        });-->
+    <!---->
+    <!--        // This function manages the drop downs on the main menu.-->
+    <!--        $(function () {-->
+    <!--            $("#menu").menu();-->
+    <!--        });-->
+    <!--    </script>-->
 </head>
 
 <body>
