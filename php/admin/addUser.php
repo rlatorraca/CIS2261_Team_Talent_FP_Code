@@ -128,7 +128,9 @@
                 <div class="jumbotron-fluid">
                     <div class="container-fluid">
                         <?php echo "<h2>User has successfully been added to the database</h2><br>";
-                            echo "<a href='addStudent.php?username=" . $username . "'>Register new Student</a>";
+                        if ($accessCode == 5) {
+	                        echo "<a href='addStudent.php?username=" . $username . "'>Register new Student</a>";
+                        }
                         ?>
                     </div>
                 </div>
