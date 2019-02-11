@@ -304,6 +304,13 @@ h1, h2 {
     border-bottom: 3px solid #252525;
 }
 
+.reportSignOff {
+    width: 100%;
+    padding-top: 2%;
+    border-top: 3px solid #252525;
+    text-align: justify;
+}
+
 .reportCardSide {
     width: 100%;
     padding: 0px;
@@ -339,6 +346,7 @@ h1, h2 {
 
 .reportNote {
     text-align: justify;
+    width: 99%;
     padding: 2%;
 }
 
