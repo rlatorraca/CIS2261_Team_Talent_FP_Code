@@ -28,6 +28,9 @@ $userID = $_SESSION["userID"];
 $schoolID = 0;
 $schoolName = "";
 
+//Declare array variable
+$array = array();
+
 $querySchoolID = "SELECT administrator.schoolID FROM administrator WHERE administrator.userID = $userID";
 
 $resultSchoolID = $database->query($querySchoolID);
@@ -75,11 +78,9 @@ if ($resultSetInitialQuery) {
             //Create array to store values of school years and averages
             //$array[]=0;
 
-
             while ($row = $resultSetSubjectAverageQuery->fetch_assoc()) {
 
                 $schoolName = $row['name'];
-
 
                 //$array[$schoolYear] = $row['average'];
 
@@ -87,19 +88,14 @@ if ($resultSetInitialQuery) {
 
                 //If the results of the average calculation is empty, show the provided message to the user.
                 //This would happen if there is no data to pull from between the selected dates or selected subject.
-                if ($row["average"] == "") {
+                if ($row["average"] == null) {
 
                     $row["average"] = 0;
-                    $array[$schoolYear] = $row["average"];
-
-
-                } else {
-
-
-                    $array[$schoolYear] = $row['average'];
-
 
                 }
+
+                echo $row['average'];
+                $array[$schoolYear] = $row['average'];
 
             }
 
@@ -112,8 +108,7 @@ if ($resultSetInitialQuery) {
     }
 
 }
-//var_dump($array);
-
+var_dump($array);
 
 ?>
 <!doctype html>
