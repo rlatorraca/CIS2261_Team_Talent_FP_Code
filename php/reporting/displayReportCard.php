@@ -89,9 +89,9 @@ include "../button.class.php";
         }
 
         //Variables to hold the requested info from the prior page
-        $studentIDFromForm = $_POST["selectStudent"];
-        $schoolYearFromForm = $_POST["selectYear"];
-        $semesterNumFromForm = $_POST["selectSemester"];
+        $studentIDFromForm = $_GET["selectStudent"];
+        $schoolYearFromForm = $_GET["selectYear"];
+        $semesterNumFromForm = $_GET["selectSemester"];
 
         //Initial variables to hold student report card data.
         $studentFirstName = "";
@@ -131,7 +131,8 @@ include "../button.class.php";
                 <thead>
                 <tr>
                     <td><h2><?php echo $studentFirstName . " " . $studentLastName; ?></h2></td>
-                    <td width="50%"></td>
+                    <td width="35%"></td>
+                    <td></td>
                     <td><h2><?php echo $schoolYear; ?></h2></td>
                 </tr>
                 </thead>
@@ -257,7 +258,15 @@ include "../button.class.php";
                         $database->close();
 
                         if (!isset($msg)) {
-                            echo "<a href='viewIEP.php?studentID=" . $studentIDFromForm . "'>View IEP</a>";
+                            $iep = new Button();
+
+                            $iep->buttonName = "iep";
+                            $iep->buttonID = "iep";
+                            $iep->buttonValue = "Individual Educational Plan";
+                            $iep->buttonStyle = "font-family:sans-serif";
+                            //Back button works. Does not use the main.js file however.
+                            $iep->buttonWeb = 'location.href="viewIEP.php?studentID=' . $studentIDFromForm . '"';
+                            $iep->display();
                         }
 
                         ?>

@@ -70,7 +70,7 @@ include "../button.class.php";
 <div class="jumbotron-fluid">
     <div class="container-fluid login">
         <!--Form to request to view a student's report card.  Requires student name, student ID?(how to incorporate), year & semester-->
-        <form action="displayReportCard.php" method="post">
+        <form action="displayReportCard.php" method="get">
             <h2>Report Cards</h2>
             <div class="form-group">
                 <div class="form-row">
