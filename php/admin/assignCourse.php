@@ -26,7 +26,6 @@ include "../db/dbConn.php";
 // Button class
 include("../button.class.php");
 
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -163,13 +162,14 @@ include("../button.class.php");
                                 </div>
                             </form>";
             } else {
+                $studentName = $_SESSION["studentNameForAssignToCourse"];
                 echo "<h2>Student Assigned</h2>
-                                <p>Student with an ID of " . $studentID . " " . $_SESSION['studentNameForAssignToCourse'] . " assigned to " . $subject . " course (year:" . $schoolYear . ", semester: " . $semesterNum . ")</p>
+                                <p>$studentName with an ID of " . $studentID . " " . " has been assigned to " . $subject . " course (year: " . $schoolYear . ", semester: " . $semesterNum . ")</p>
                                 <br>
                                 <form action='assignCourse.php' method='post'>
                                 <div class='row'>
                                     <div class='col-md-6'>
-                                        <button class='button button2'>Try Again</button>
+                                        <button class='button button2'>Assign New</button>
                                     </div>
                                 </form>
                                 <form action='../../index.php' method='post'>
@@ -210,7 +210,7 @@ include("../button.class.php");
 
                     //If successful, reload page
 
-                    //header("Location: assignCourse.php");
+                    header("Location: assignCourse.php");
 
                 } else {
 
@@ -220,9 +220,8 @@ include("../button.class.php");
 
             } else {
 
-
                 //If no report card is generated, refresh the page.
-                //header("Location: assignCourse.php");
+                header("Location: assignCourse.php");
 
             }
 
@@ -280,7 +279,7 @@ include("../button.class.php");
         <form action="assignCourse.php" method="post">
 
             <h2>Student Details</h2>
-            <p>**Please ensure all fields are filled before registering a new Student.</p>
+            <p><span style="color: red">*Please ensure all fields are filled before registering a new Student.</span></p>
             <div class="row">
                 <div class="col-md-12">
                     <label for="subjectsAssignCourse">Subjects</label>
