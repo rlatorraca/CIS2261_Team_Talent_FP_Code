@@ -27,9 +27,7 @@ switch ($accessCode) {
                 <li class = "titleNav">Admin
                     <ul class = "dropupMenu">
                             <a href="/CIS2261_Team_Talent_FP_Code/php/admin/addUser.php"><li>Add User</li></a>
-                            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestSchoolSubAvg.php"><li>School Average</li></a>
-                            <a href="/CIS2261_Team_Talent_FP_Code/php/admin/editStudent.php"><li>Edit Student</li></a>
-                            
+                            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestSchoolSubAvg.php"><li>School Average</li></a>   
                     </ul>
                 </li>
                 <li class = "titleNav">Student
@@ -58,8 +56,6 @@ switch ($accessCode) {
                     <ul class = "dropupMenu">
                             <a href="/CIS2261_Team_Talent_FP_Code/php/admin/addUser.php"><li>Add User</li></a>
                             <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestSchoolSubAvg.php"><li>School Average</li></a>
-                            <a href="/CIS2261_Team_Talent_FP_Code/php/admin/editStudent.php"><li>Edit Student</li></a>
-                            
                     </ul>
                 </li>
                 <li class = "titleNav">Student
