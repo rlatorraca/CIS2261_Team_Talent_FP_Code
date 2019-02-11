@@ -131,6 +131,16 @@ include "../button.class.php";
                 } else {
                     echo "<p>This student has no IEP listed in the system</p>";
                 }
+                //Back button
+                $goBack = new Button();
+
+                $goBack->buttonName = "goBack";
+                $goBack->buttonID = "goBack";
+                $goBack->buttonValue = "Go Back";
+                $goBack->buttonStyle = "font-family:sans-serif";
+                //Back button works. Does not use the main.js file however.
+                $goBack->buttonWeb = "history.back();";
+                $goBack->display();
                 ?>
             </div>
         </div>

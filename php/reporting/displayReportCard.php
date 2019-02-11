@@ -44,9 +44,11 @@ include "../button.class.php";
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-
     <link href="../../css/stars.css" rel="stylesheet">
     <script src="../../js/main.js"></script>
+    <!--    <script>function goBack() {-->
+    <!--            window.history.back();-->
+    <!--        }</script>-->
     <!--        <script>-->
     <!--            // This function shows the date picker.-->
     <!--            $(function () {-->
@@ -74,8 +76,13 @@ include "../button.class.php";
         //In the event that a user reaches this page before requesting a student's report card from the prior page, handle this.
         if (!isset($_POST["selectStudent"])) {
 
+            //Show message and bottom nav bar.
             echo "<p>Please request a student's report card before accessing this page.</p>";
-            exit();
+            echo "</div></div>";
+            ?>
+            <div class='bottom'>
+            <div id='footer'><?php include('../../navMenu.php'); ?></div></div><?php
+            exit("</body</html>");
 
         }
 
@@ -101,7 +108,7 @@ include "../button.class.php";
                     WHERE reportcard.studentID = $studentIDFromForm
                     AND student.studentID = reportcard.studentID
                     AND reportCard.schoolYear = '$schoolYearFromForm'
-                    AND reportCard.semesterNum = '$semesterNumFromForm';"; // is this it? No, this one works fine. Below
+                    AND reportCard.semesterNum = '$semesterNumFromForm';";
 
         $result1 = $database->query($query1);
 
@@ -262,14 +269,15 @@ include "../button.class.php";
             if (isset($msg)) {
                 echo "<br><div class='alert alert-danger'>$msg</div>";
 
+                //Back button
                 $goBack = new Button();
 
                 $goBack->buttonName = "goBack";
                 $goBack->buttonID = "goBack";
                 $goBack->buttonValue = "Go Back";
                 $goBack->buttonStyle = "font-family:sans-serif";
-                //Back button does not work
-                $goBack->buttonWeb = "goBack()";
+                //Back button works. Does not use the main.js file however.
+                $goBack->buttonWeb = "javascript:history.back(-1);";
                 $goBack->display();
             }
             ?>
