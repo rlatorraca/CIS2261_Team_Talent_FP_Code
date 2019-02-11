@@ -39,8 +39,7 @@ include("../button.class.php");
     <!-- Fonts !-->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
 
-    <!--Link to custom style sheet-->
-    <link href="../../css/stars.css" rel="stylesheet">
+
 
     <!-- JQuery Links !-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -54,7 +53,11 @@ include("../button.class.php");
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
+
     <script src="../../js/main.js"></script>
+
+    <!--Link to custom style sheet-->
+    <link href="../../css/stars.css" rel="stylesheet">
 
     <!--   function to go back to your incomplete form without losing previously filled fields-->
     <!--    <script>-->
@@ -128,8 +131,8 @@ include("../button.class.php");
 			//Check if query executed successfully and that the result contains data.
 			if (!$result) {
 				echo "<h2>Error</h2><p>Sorry, student could not be registered in this course at this time.</p><br>";
-				echo "<form action='assignCourse.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Try Again</button></div></div></form>";
-				echo "<form action='../../index.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Return Home</button></div></div></form>";
+				echo "<form action='assignCourse.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Try Again</button></div></form>";
+				echo "<form action='../../index.php' method='post'><div class='col-md-6'><button class='button button2'>Return Home</button></div></div></form>";
 			} else {
 				echo "<h2>Student Assigned</h2><p>Student " . $studentID . " assigned to " . $subject . " course (year:" . $schoolYear . ", semester: " . $semesterNum . ")</p><br>";
 				echo "<form action='assignCourse.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Try Again</button></div></form>";
@@ -229,12 +232,12 @@ include("../button.class.php");
         <form action="assignCourse.php" method="post">
 
             <h2>Student Details</h2>
-            <span>**Please ensure all fields are filled before registering a new Student.</span>
+            <p>**Please ensure all fields are filled before registering a new Student.</p>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="subjectsAssignCourse">Subjects</label>
                     <select class="form-control" id="subjectsAssignCourse" name="subjectsAssignCourse">
-                        <option value=''>------- Select --------</option>
+                        <option value=''> Select </option>
                         <!-- Using SQL to populate dropdown list of students -->
 						<?php if ($resultSubject->num_rows > 0) {
 							while ($row = $resultSubject->fetch_assoc()) {
@@ -248,11 +251,12 @@ include("../button.class.php");
 						?>
                     </select>
                 </div>
-                <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
                     <label for="yearAsscourseSemesterYearAssignCourseignCourse">School Year</label>
                     <select class="form-control" id="yearAsscourseSemesterYearAssignCourseignCourse"
                             name="yearAsscourseSemesterYearAssignCourseignCourse">
-                        <option value=''>------- Select --------</option>
+                        <option value=''> Select </option>
                         <!-- Using SQL to populate dropdown list of students -->
 						<?php if ($resultSemester->num_rows > 0) {
 							$count = 1;
@@ -269,6 +273,7 @@ include("../button.class.php");
 						}
 						?>
                     </select>
+                </div>
                 </div>
 
 
@@ -288,7 +293,7 @@ include("../button.class.php");
                     <label for="semesterYearAssignCourse">Semester</label>
                     <select class="form-control" id="semesterYearAssignCourse"
                             name="semesterYearAssignCourse">
-                        <option value=0>------- Select --------</option>
+                        <option value=0> Select </option>
                         <option value="01">1st Semester</option>
                         <option value="02">2nd Semester</option>
                     </select>
@@ -297,18 +302,20 @@ include("../button.class.php");
 
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
 
                     <label for="courseSemesterYearAssignCourse">Course</label> <select class="form-control"
                                                                                        name="courseSemesterYearAssignCourse"
                                                                                        id="courseSemesterYearAssignCourse">
-                        <option>------- Select --------</option>
+                        <option> Select </option>
                     </select>
                 </div>
-                <div class="col-md-6">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <label for="studentAssignCourse">Student</label>
                     <select class="form-control" id="studentAssignCourse" name="studentAssignCourse">
-                        <option value=''>------- Select --------</option>
+                        <option value=''> Select </option>
                         <!-- Using SQL to populate dropdown list of students -->
 						<?php if ($resultStudent->num_rows > 0) {
 							while ($row = $resultStudent->fetch_assoc()) {
@@ -323,7 +330,7 @@ include("../button.class.php");
 						?>
                     </select>
                 </div>
-            </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <br>
