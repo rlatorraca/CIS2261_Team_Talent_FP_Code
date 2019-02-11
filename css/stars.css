@@ -415,3 +415,7 @@ h4{
     font-weight: bold;
     color: #0b3c5d;
 }
+
+.alert-danger {
+    text-align: center;
+}
