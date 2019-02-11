@@ -150,7 +150,7 @@
                     <div class="container-fluid">
                         <form action="editStudent.php" method="post">
                             <h2>Student Details</h2>
-                            <p>**Please ensure all fields are filled before editing a Student's details.</p>
+                            <p>*Please ensure all fields are filled before editing a Student's details.</p>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label for="studentID">Student ID</label>
@@ -162,7 +162,7 @@
                                     <input type="text" name="firstName" class="form-control"
                                            value="<?php echo $firstName; ?>">
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label for="middlename">Middle Name</label>
@@ -174,24 +174,25 @@
                                     <input type="text" name="lastName" class="form-control"
                                            value="<?php echo $lastName; ?>">
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label for="title">Gender</label>
                                     <input type="text" name="gender" class="form-control"
                                            value="<?php echo $gender; ?>">
                                 </div>
+
                                 <!-- Add proper date picker to allow for a date in proper format to be selected-->
                                 <div class="col-sm-6">
                                     <label for="title">Date of Birth</label>
-                                    <input type="text" name="dob" class="form-control"
+                                    <input type="text" id="datepicker" class="form-control" name="dob"
                                            value="<?php echo $dob; ?>">
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label for="title">Grade</label>
-                                    <select name="grade">
+                                    <select name="grade" class="form-control">
                                         <option value="10">10</option>
                                         <option value="11">11</option>
                                         <option value="12">12</option>
@@ -202,7 +203,7 @@
                                     <input type="text" name="address" class="form-control"
                                            value="<?php echo $address; ?>">
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label for="title">Phone Number</label>
@@ -214,7 +215,7 @@
                                     <input type="text" name="emailAddress" class="form-control"
                                            value="<?php echo $emailAddress; ?>">
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label for="title">Allergies</label>
@@ -223,7 +224,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="selectSchool">School</label>
-                                    <select name="selectSchool">
+                                    <select name="selectSchool" class="form-control">
                                         <?php
                                             //Needs work done
                                             $querySchools = "SELECT schoolID, name FROM school";
@@ -240,11 +241,11 @@
                                         ?>
                                     </select>
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label for="selectParentGuardian">Parent/Guardian</label>
-                                    <select name="selectParentGuardian">
+                                    <select name="selectParentGuardian" class="form-control">
                                         <option value=NULL>None</option>
                                         <?php
                                             //Currently working on this here (to also handle if the student has no parent/guardian listed).
@@ -267,11 +268,22 @@
                                         ?>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="col-3">
+<br>
+                                    <div class="col-sm-6">
+                                        <?php
+                                           $confirm = new Button();
+
+                                            $confirm->buttonName = "edit";
+                                            $confirm->buttonID = "edit";
+                                            $confirm->buttonValue = "Edit Student";
+                                            $confirm->buttonStyle = "font-family:sans-serif";
+                                            $confirm->display(); ?>
+                                    </div>
+                                </div>
+
                                 <!-- <input type="submit" id="btn" name="submitUpdateRecord" class="btn btn-info text-center" value="submitUpdateRecord">-->
-                                <button type="submit" id="updateStudent" name="updateStudent">Update Student</button>
-                            </div>
+<!--                                <button type="submit" id="updateStudent" name="updateStudent">Update Student</button>-->
+
                         </form>
                     </div>
                 </div>

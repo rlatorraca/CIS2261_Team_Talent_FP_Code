@@ -105,7 +105,7 @@
                     <img src="../../img/StarsWhiteFIN.jpg">
                 </div>
                 <div class="jumbotron-fluid">
-                    <div class="container-fluid">
+                    <div class="container-fluid container-sizer">
                         <?php echo "<h2>User has successfully been added to the database</h2><br>";
                         if ($accessCode == 5) {
 	                        echo "<a href='addStudent.php?username=" . $username . "'>Register new Student</a>";
@@ -156,12 +156,12 @@
         </div>
         <?php include "../../header.php"; ?>
         <div class="jumbotron-fluid">
-            <div class="container-fluid">
+            <div class="container-fluid login">
 
                 <form action="addUser.php" method="POST">
                     <div class="form-group">
                         <h2>User Details</h2>
-                        <p>*Please ensure all fields are completed before adding a new User.</p>
+                        <p>*All fields are required and username must be unique.</p>
                         <!--            <div class="col-md-12 form-inline customDiv">-->
                         <!--                <label for="isbn" class="col-md-6">User ID</label>-->
                         <!--                <input type="text" name="userID" class="col-md-6 form-control">-->
@@ -171,21 +171,21 @@
                         <div class="container"
                         ">
                         <div class="row">
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="author" class="col-md-6">Username</label>
+                            <div class="col-md-12 form-inline">
+                                <label for="username" class="col-md-6">Username</label>
                                 <input type="text" name="username" class="col-md-6 form-control">
                             </div>
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-12 form-inline customDiv">
-                                <label for="title" class="col-md-6">Password</label>
+                            <div class="col-md-12 form-inline">
+                                <label for="password" class="col-md-6">Password</label>
                                 <input type="text" name="password" class="col-md-6 form-control">
                             </div>
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-12 form-inline customDiv">
+                            <div class="col-md-12 form-inline">
                                 <label for="price" class="col-md-6">Access Code</label>
                                 <select name="accessCode" class="form-control">
                                     <option value="1">1: System Administrator</option>
@@ -199,7 +199,7 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-sm-9">
+                            <div class="col-sm-12">
                                 <?php
 
 
@@ -210,24 +210,14 @@
                                     $confirm->buttonValue = "Add User";
                                     $confirm->buttonStyle = "font-family:sans-serif";
                                     $confirm->display(); ?>
+                            </div>
+                        </div>
 
 
                 </form>
             </div>
 
-            <div class="col-sm-3">
-                <form action="../../index.php" method="post">
-                    <?php
-                        $return = new Button();
 
-                        $return->buttonName = "customBtn";
-                        $return->buttonName = "custom";
-                        $return->buttonValue = "Return Home";
-                        $return->buttonStyle = "font-family:sans-serif";
-                        //                    $return->buttonWeb = 'location.href="../../index.php"';
-                        $return->display();
-                    ?>
-                    <!-- <button id="customBtn">Return Home</button> -->
                 </form>
             </div>
         </div>

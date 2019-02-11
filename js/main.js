@@ -1,19 +1,19 @@
 $(document).ready(function () {
-	//Counter of characters
-  $("#teacherNotes").on("input", function() {
+    //Counter of characters
+    $("#teacherNotes").on("input", function () {
 
-          var limit = 500;
-          var charactersTyped = $(this).val().length;
-          var charactersRemaining = limit - charactersTyped;
-		  
-          if (charactersRemaining <= 0) {
-              var comments = $("#teacherNotes").val();
-              $("#teacherNotes").val(comments.substr(0, limit));
-              $(".charactersTeacherNotes").text("0 ");
-          } else {
-              $(".charactersTeacherNotes").text(charactersRemaining);
-          }
-  });
+        var limit = 500;
+        var charactersTyped = $(this).val().length;
+        var charactersRemaining = limit - charactersTyped;
+
+        if (charactersRemaining <= 0) {
+            var comments = $("#teacherNotes").val();
+            $("#teacherNotes").val(comments.substr(0, limit));
+            $(".charactersTeacherNotes").text("0 ");
+        } else {
+            $(".charactersTeacherNotes").text(charactersRemaining);
+        }
+    });
 
     function goBack() {
         window.history.back();
@@ -21,7 +21,10 @@ $(document).ready(function () {
 
     // This function shows the date picker.
     $(function () {
-        $("#datepicker").datepicker();
+        $("#datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
     });
 
     // This function shows the note.

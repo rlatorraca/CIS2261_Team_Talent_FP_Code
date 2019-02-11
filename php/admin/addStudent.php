@@ -55,12 +55,12 @@
         <script src="../../js/main.js"></script>
         <!--Datepicker-->
         <!--        <script>-->
-        <!--            $(function () {-->
-        <!--                $("#datepicker").datepicker({-->
-        <!--                    changeMonth: true,-->
-        <!--                    changeYear: true-->
-        <!--                });-->
-        <!--            });-->
+                    $(function () {
+                        $("#datepicker").datepicker({
+                            changeMonth: true,
+                            changeYear: true
+                        });
+                    });
         <!--        </script>-->
         <!--        -Tool Tips-->
         <!--        <script>-->

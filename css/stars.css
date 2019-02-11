@@ -1,8 +1,10 @@
+
+
 * {
     box-sizing: border-box;
 }
 
-
+/*body stylings*/
 html, body {
     margin: 0;
     padding: 0;
@@ -42,8 +44,7 @@ html, body {
     overflow: auto;
 }
 
-
-
+/*custom container size for smaller forms*/
 .container-sizer {
     max-width: 40%;
 }
@@ -58,7 +59,7 @@ html, body {
     border-bottom: 10px solid #1D2731;
     height: 115px;
 }
-
+/*Welcome page column stylings*/
 .home{
  column-count: 2;
 }
@@ -69,6 +70,7 @@ html, body {
     color: #328cc1;
     }
 
+/*Font stylings for forms*/
 label {
     font-family: Helvetica;
     color: #1D2731;
