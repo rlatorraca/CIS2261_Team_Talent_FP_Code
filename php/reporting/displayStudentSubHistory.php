@@ -99,7 +99,7 @@
                 window.history.back();
             }
         </script>
-        
+
         <!---->
         <!--            // This function shows the date picker.-->
         <!--            $(function () {-->
