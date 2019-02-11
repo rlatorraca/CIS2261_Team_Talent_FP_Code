@@ -98,16 +98,14 @@
                     //If details are empty, display a message and give redirect links. Otherwise, proceed.
                     if ($_POST["subjectsAssignCourse"] == "" || $_POST["yearAsscourseSemesterYearAssignCourseignCourse"] == "" || $_POST["semesterYearAssignCourse"] == "" || $_POST["courseSemesterYearAssignCourse"] == "" || $_POST["studentAssignCourse"] == "") {
                         echo "<h2>Error</h2><p>Form fields must not be empty before registering new student in a course.</p><br>";
-                        echo "<form action='assignCourse.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Try Again</button></div></form>";
-                        echo "<form action='../../index.php' method='post'><div class='col-md-6'><button class='button button2'>Return Home</button></div></div></form>";
-                        echo "</div><div class='bottom'
-    <div id='footer'>";
-
+                        echo "<form action='assignCourse.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Try Again</button>
+                                </div></form>";
+                        echo "<form action='../../index.php' method='post'><div class='col-md-6'><button class='button button2'>Return Home</button>
+                              </div></form>";
+                        echo "</div></div><div class='bottom'><div id='footer'>";
                         include('../../navMenu.php');
-                        exit("
-</div></div></body</html>");
+                        exit("</div></div></body></html>");
                     }
-
 
                     $queryClassID = "SELECT classID FROM courseoffering WHERE courseID=" . mysqli_real_escape_string($database, $_POST['courseSemesterYearAssignCourse']) . " and schoolYear = '" . mysqli_real_escape_string($database, $_POST['yearAsscourseSemesterYearAssignCourseignCourse']) . "' and semesterNum = " . mysqli_real_escape_string($database, $_POST['semesterYearAssignCourse']) . ";";
                     //var_dump($queryClassID);
@@ -141,10 +139,14 @@
                     } else {
                         echo "<h2>Student Assigned</h2><p>Student with an ID of " . $studentID . " " . $_SESSION['studentNameForAssignToCourse'] . " assigned to " . $subject . " course (year:" . $schoolYear . ", semester: " . $semesterNum . ")</p><br>";
                         echo "<form action='assignCourse.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Try Again</button></div></form>";
-                        echo "<form action='../../index.php' method='post'><div class='col-md-6'><button class='button button2'>Return Home</button></div></div></form>";
+                        echo "<form action='../../index.php' method='post'><div class='col-md-6'><button class='button button2'>Return Home</button>
+                        </div></div></form>";
+                        echo "</div></div><div class='bottom'><div id='footer'>";
+                        include('../../navMenu.php');
+                        exit("</div></div></body></html>");
 
 
-                        exit("</div></div></body</html>");
+
 
                     }
 
@@ -358,7 +360,7 @@
                 <div><?php echo $msg ?></div>
             </div>
         </div>
-        </div>
+
 
         <div class="bottom">
             <div id="footer">
