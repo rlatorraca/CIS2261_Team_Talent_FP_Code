@@ -50,12 +50,17 @@ if (isset($_POST['enter'])) {
     //Check if query executed successfully and that the result contains data.
     if ($result == 1) {
 
-	    $msg = "<h4>Student Record has been successfully updated.</h4>";
+        $msg = "<h4>Student Record has been successfully updated. Page will refresh automatically for you.</h4>";
 
+        //Refresh page automatically (5 seconds).
+        header("Refresh:5");
 
     } else {
 
-	    $msg = "<h4>Sorry, student record could not be updated to the database at this time</h4>";
+        $msg = "<h4>Sorry, student record could not be updated to the database at this time. Page will refresh automatically for you.</h4>";
+
+        //Refresh page automatically (5 seconds).
+        header("Refresh:5");
 
     }
 
@@ -67,7 +72,7 @@ if (isset($_POST['enter'])) {
     //Get logged in user's userID
     $userID = $_SESSION['userID'];
 
-    //query to find the courses (and semester Number)
+    //query to find the courses (and semester number)
     $queryCourse = "";
 
     //If statement structure to choose SELECT query to use based on logged in user's access level
@@ -145,7 +150,6 @@ if (isset($_POST['enter'])) {
     <!--    </script>-->
 
 </head>
-
 <body>
 <?php include "../../header.php"; ?>
 <div class="jumbotron-fluid">
@@ -154,6 +158,7 @@ if (isset($_POST['enter'])) {
         <!--Main container and contents-->
         <div class="container main-container" id="studentSearch">
             <form action="enterMark.php" method="post">
+                <div><?php if (isset($msg)) { echo $msg; } ?></div>
                 <h2>Assign Mark</h2>
                 <div class="form-group">
                     <div class="row">
@@ -247,10 +252,7 @@ if (isset($_POST['enter'])) {
                             $confirm->display(); ?>
                         </div>
                     </div>
-
-
             </form>
-            <div><?php echo $msg ?></div>
         </div>
     </div>
 </div>
