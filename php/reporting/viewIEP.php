@@ -52,7 +52,7 @@ include "../button.class.php";
 <body>
 <?php include "../../header.php"; ?>
 <div class="jumbotron-fluid">
-    <div class="container-fluid login">
+    <div class="container-fluid">
         <?php
 
         //Check to ensure that a studentID was selected from the report card page before user can access this page.
@@ -75,7 +75,7 @@ include "../button.class.php";
         $studentIDFromForm = $_GET["studentID"];
 
         //To ensure studentID is the accurate one
-        echo $studentIDFromForm;
+        //echo $studentIDFromForm;
 
         //Need to work out issue with first/last name of student and support educator
         $querySelectIEP = "SELECT planID, reason, dateIssued, comments, supportEducator.supFName, supportEducator.supLName, student.firstName, student.lastName  
@@ -89,17 +89,6 @@ include "../button.class.php";
         if ($resultIEP->num_rows > 0) {
 
             ?>
-            <table>
-            <thead>
-            <tr>
-                <td>Plan ID</td>
-                <td>Reason for IEP</td>
-                <td>Date Issued</td>
-                <td>Comments</td>
-                <td>Support Educator Name</td>
-                <td>Student Name</td>
-            </tr>
-            </thead>
             <?php
 
             while ($rowIEP = $resultIEP->fetch_assoc()) {
@@ -114,19 +103,32 @@ include "../button.class.php";
                 $studentLastName = $rowIEP["lastName"];
 
                 ?>
+        <h2>Individual Education Plan for <?php echo $studentFirstName." ".$studentLastName; ?></h2>
+        <table class = "table table-striped">
+            <thead class="tableHeadsIEP">
+                <tr class="viewHeader">
+
+                    <td>Reason for IEP</td>
+                    <td>Date Issued</td>
+                    <td>Plan Details</td>
+                    <td>Support Educator</td>
+
+                </tr>
+            </thead>
+
                 <tbody>
-                <tr>
-                    <td><?php echo $planID; ?></td>
+                <tr class="tableInfo">
+
                     <td><?php echo $reason; ?></td>
                     <td><?php echo $dateIssued; ?></td>
                     <td><?php echo $comments; ?></td>
-                    <td><?php echo $supportEducatorFirstName; ?></td>
-                    <td><?php echo $supportEducatorLastName; ?></td>
-                    <td><?php echo $studentFirstName; ?></td>
-                    <td><?php echo $studentLastName; ?></td>
+                    <td><?php echo $supportEducatorFirstName." ".$supportEducatorLastName; ?></td>
+
+
                 </tr>
                 </tbody>
                 </table>
+
             <?php }
         } else {
             $msg = "This student has no IEP listed in the system";
