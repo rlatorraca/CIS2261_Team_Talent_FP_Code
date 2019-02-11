@@ -46,9 +46,11 @@ include "../button.class.php";
 
     <link href="../../css/stars.css" rel="stylesheet">
     <script src="../../js/main.js"></script>
-    <!--    <script>function goBack() {-->
-    <!--            window.history.back();-->
-    <!--        }</script>-->
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
     <!--        <script>-->
     <!--            // This function shows the date picker.-->
     <!--            $(function () {-->
@@ -84,7 +86,7 @@ include "../button.class.php";
             ?>
             <div class='bottom'>
             <div id='footer'><?php include('../../navMenu.php'); ?></div></div><?php
-            exit("</body</html>");
+            exit("</body></html>");
 
         }
 
@@ -132,7 +134,6 @@ include "../button.class.php";
                 <tr>
                     <td><h2><?php echo $studentFirstName . " " . $studentLastName; ?></h2></td>
                     <td width="25%"></td>
-                    <td></td>
                     <td><h2><?php echo $schoolYear; ?></h2></td>
                 </tr>
                 </thead>
@@ -144,20 +145,7 @@ include "../button.class.php";
                                 echo "1st ";
                             }; ?>Semester</p></td>
                     <td><input type="hidden" value="<?php echo $reportCardNum; ?>"></td>
-                    <td><input value="<?php if (!$isRead) {
-                            echo "Unread";
-                        } else {
-                            echo "Is Read";
-                        } ?>" readonly></td>
-                    <td><?php if (!$isRead) {
-                            //Ensure only admin, parent/guardians and the student can update the report card.
-                            if ($_SESSION["accessCode"] == 1 || $_SESSION["accessCode"] == 2
-                                || $_SESSION["accessCode"] == 5 || $_SESSION["accessCode"] == 6) {
-                                echo "<form action='updateReportCard.php?reportCardNum=" . $reportCardNum . "'
-                              method='post'><input type='checkbox' name='signReportCard'>
-                            <input type='submit' name='Submit' value='Update'></form>";
-                            }
-                        } ?></td>
+                    <td></td>
                     <td><input type="hidden" value="<?php echo $studID; ?>"></td>
                 </tr>
                 </tbody>
@@ -190,137 +178,178 @@ include "../button.class.php";
 
         if ($result2->num_rows > 0) {
 
+
         ?>
-        <div>
-            <table class="reportCardSide" >
-                <thead>
-                <tr>
-                    <td class="cardMenu">Course Name</td>
-                    <!--            <td>Subject</td>-->
-                    <td class="cardMenu">Mark</td>
-                    <td class="cardMenu">Days Missed</td>
-                    <td>Notes</td>
-                    <!--            <td>Teacher Name</td>-->
-                </tr>
-                </thead>
-                <tbody>
+        <table class="reportCardSide">
+            <thead>
+            <tr>
+                <td class="cardMenu">Course Name</td>
+                <!--            <td>Subject</td>-->
+                <td class="cardMenu">Mark</td>
+                <td class="cardMenu">Days Missed</td>
+                <td>Notes</td>
+                <!--            <td>Teacher Name</td>-->
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            $rowCount = 0;
+            while ($rowEnrollment = $result2->fetch_assoc()) {
+
+
+            $courseName = $rowEnrollment["courseName"];
+            $subjectCode = $rowEnrollment["subjectCode"];
+            $mark = $rowEnrollment["mark"];
+            $daysMissed = $rowEnrollment["attendance"];
+            $notes = $rowEnrollment["notes"];
+            $educatorFirstName = $rowEnrollment["educatorFName"];
+            $educatorLastName = $rowEnrollment["educatorLName"];
+
+            ?>
+            <tr>
+                <td><label title="<?php if ($notes == "") {
+                        echo "Empty";
+                    } else {
+                        echo $notes;
+                    } ?>"><?php echo $courseName; ?></label></td>
+                <!--                <td> --><?php //echo $subjectCode; ?><!--</td>-->
+                <td><p> <?php if ($mark == "") {
+                            echo "0";
+                        } else {
+                            echo $mark . "%";
+                        } ?></p></td>
+                <td><p><?php if ($daysMissed == "") {
+                            echo "0 days";
+                        } else {
+                            echo $daysMissed . " days";
+                        }
+                        $rowCount++;
+                        ?></p></td>
+
+
                 <?php
-                $rowCount = 0;
-                while ($rowEnrollment = $result2->fetch_assoc()) {
 
+                if ($rowCount == 1) {
+                    echo '<td rowspan="' . $result2->num_rows . '"><div class="reportNote"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.<p></div></td>';
+                }
+                ?>
 
-
-                    $courseName = $rowEnrollment["courseName"];
-                    $subjectCode = $rowEnrollment["subjectCode"];
-                    $mark = $rowEnrollment["mark"];
-                    $daysMissed = $rowEnrollment["attendance"];
-                    $notes = $rowEnrollment["notes"];
-                    $educatorFirstName = $rowEnrollment["educatorFName"];
-                    $educatorLastName = $rowEnrollment["educatorLName"];
-
-                    ?>
-                    <tr>
-                        <td><label title="<?php if ($notes == "") {
-                                echo "Empty";
-                            } else {
-                                echo $notes;
-                            } ?>"><?php echo $courseName; ?></label></td>
-                        <!--                <td> --><?php //echo $subjectCode; ?><!--</td>-->
-                        <td><p> <?php if ($mark == "") {
-                                    echo "0";
-                                } else {
-                                    echo $mark . "%";
-                                } ?></p></td>
-                        <td><p><?php if ($daysMissed == "") {
-                                    echo "0 days";
-                                } else {
-                                    echo $daysMissed . " days";
-                                }
-                                $rowCount++;
-                                ?></p></td>
-
-
-                        <?php if ($rowCount == 1) {
-                            echo '<td class="reportNote" rowspan="'.$rowCount.'"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.<p></td>';
-                            } else {
-                            echo "<td></td>";
-                        } ?>
-
-                        <!--                <td> --><?php //if ($notes == "") {
-                        //                        echo "Empty";
-                        //                    } else {
-                        //                        echo $notes;
-                        //                    } ?><!--</td>-->
-                        <!--                <td> -->
-                        <?php //echo $educatorFirstName . " " . $educatorLastName; ?><!--</td>-->
+                <!--                <td> --><?php //if ($notes == "") {
+                //                        echo "Empty";
+                //                    } else {
+                //                        echo $notes;
+                //                    } ?><!--</td>-->
+                <!--                <td> -->
+                <?php //echo $educatorFirstName . " " . $educatorLastName; ?><!--</td>-->
 
                 <?php }
                 ?>
 
-                    </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="reportNote">
-                        <?php
-                        } else {
-                            $msg .= "<h4>This student is not enrolled in any courses for this school year.</h4>";
-                        }
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="reportNote">
+                    <?php
+                    } else {
+                        $msg .= "<h4>This student is not enrolled in any courses for this school year.</h4>";
+                    }
 
-                        //Close connection
-                        $result2->free();
+                    //Close connection
+                    $result2->free();
 
-                        //Close connection to database
-                        $database->close();
-
-
-                        if (!isset($msg)) {
-                            $iep = new Button();
-
-                            $iep->buttonName = "iep";
-                            $iep->buttonID = "iep";
-                            $iep->buttonValue = "Individual Educational Plan";
-                            $iep->buttonStyle = "font-family:sans-serif";
-                            //Back button works. Does not use the main.js file however.
-                            $iep->buttonWeb = 'location.href="viewIEP.php?studentID=' . $studentIDFromForm . '"';
-                            $iep->display();
-                        }
+                    //Close connection to database
+                    $database->close();
 
 
+                    if (!isset($msg)) {
+                        $iep = new Button();
 
-                        ?>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-            <?php
-            //If the error message is set, display it along with a back button.
-            if (isset($msg)) {
-                echo "<br><div class='alert alert-danger'>$msg</div>";
+                        $iep->buttonName = "iep";
+                        $iep->buttonID = "iep";
+                        $iep->buttonValue = "Individual Educational Plan";
+                        $iep->buttonStyle = "font-family:sans-serif";
+                        //Back button works. Does not use the main.js file however.
+                        $iep->buttonWeb = 'location.href="viewIEP.php?studentID=' . $studentIDFromForm . '"';
+                        $iep->display();
+                    }
 
-                //Back button
-                $goBack = new Button();
 
-                $goBack->buttonName = "goBack";
-                $goBack->buttonID = "goBack";
-                $goBack->buttonValue = "Go Back";
-                $goBack->buttonStyle = "font-family:sans-serif";
-                //Back button works. Does not use the main.js file however.
-                $goBack->buttonWeb = "javascript:history.back(-1);";
-                $goBack->display();
-            }
-            ?>
-        </div>
+                    ?>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="reportSignOff">
+
+                    <?php
+
+                    if (!$isRead && $semesterNum >= 1) {
+                      echo "<div class='row'>
+                        <div class='col-md-7'>
+                            <p>I acknowledge that I have reviewed this report card details.</p>
+                        </div>
+                        <div class='col-md-2'>";
+
+                            //Ensure only admin, parent/guardians and the student can update the report card.
+                            if ($_SESSION["accessCode"] == 1 || $_SESSION["accessCode"] == 2
+                                || $_SESSION["accessCode"] == 5 || $_SESSION["accessCode"] == 6) {
+                                echo "<form action='updateReportCard.php?reportCardNum=" . $reportCardNum . "'
+                              method='post'><input type='checkbox' name='signReportCard' class='form-control'></div><div class='col-md-3'>";
+
+                                $confirm = new Button();
+
+                                $confirm->buttonName = "confirm";
+                                $confirm->buttonID = "addID";
+                                $confirm->buttonValue = "Confirm";
+                                $confirm->buttonStyle = "font-family:sans-serif";
+                                $confirm->display();
+                                echo "</form></div>";
+                            }
+                            echo "</div></div>";
+                            }
+
+
+                            ?>
+                </td>
+
+
+            </tr>
+            </tbody>
+        </table>
+
+        <?php
+        //If the error message is set, display it along with a back button.
+        if (isset($msg)) {
+            echo "<br><div class='alert alert-danger'>$msg</div>";
+
+            //Back button
+            $goBack = new Button();
+
+            $goBack->buttonName = "goBack";
+            $goBack->buttonID = "goBack";
+            $goBack->buttonValue = "Go Back";
+            $goBack->buttonStyle = "font-family:sans-serif";
+            //Back button works. Does not use the main.js file however.
+            $goBack->buttonWeb = "javascript:history.back(-1);";
+            $goBack->display();
+        }
+        ?>
     </div>
 </div>
-</form>
-</div>
-</div>
+<!--</div>-->
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
 <div class="bottom">
     <div id="footer">
         <?php include("../../navMenu.php"); ?>
     </div>
 </div>
+
+
 </body>
 </html>
