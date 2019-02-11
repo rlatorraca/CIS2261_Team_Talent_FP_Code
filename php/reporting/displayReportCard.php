@@ -131,7 +131,7 @@ include "../button.class.php";
                 <thead>
                 <tr>
                     <td><h2><?php echo $studentFirstName . " " . $studentLastName; ?></h2></td>
-                    <td width="35%"></td>
+                    <td width="25%"></td>
                     <td></td>
                     <td><h2><?php echo $schoolYear; ?></h2></td>
                 </tr>
@@ -192,20 +192,23 @@ include "../button.class.php";
 
         ?>
         <div>
-            <table class="reportCardSide">
+            <table class="reportCardSide" >
                 <thead>
                 <tr>
-                    <td>Course Name</td>
+                    <td class="cardMenu">Course Name</td>
                     <!--            <td>Subject</td>-->
-                    <td>Mark</td>
-                    <td>Days Missed</td>
-                    <!--            <td>Notes</td>-->
+                    <td class="cardMenu">Mark</td>
+                    <td class="cardMenu">Days Missed</td>
+                    <td>Notes</td>
                     <!--            <td>Teacher Name</td>-->
                 </tr>
                 </thead>
                 <tbody>
                 <?php
+                $rowCount = 0;
                 while ($rowEnrollment = $result2->fetch_assoc()) {
+
+
 
                     $courseName = $rowEnrollment["courseName"];
                     $subjectCode = $rowEnrollment["subjectCode"];
@@ -232,7 +235,17 @@ include "../button.class.php";
                                     echo "0 days";
                                 } else {
                                     echo $daysMissed . " days";
-                                } ?></p></td>
+                                }
+                                $rowCount++;
+                                ?></p></td>
+
+
+                        <?php if ($rowCount == 1) {
+                            echo '<td class="reportNote" rowspan="'.$rowCount.'"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.<p></td>';
+                            } else {
+                            echo "<td></td>";
+                        } ?>
+
                         <!--                <td> --><?php //if ($notes == "") {
                         //                        echo "Empty";
                         //                    } else {
@@ -240,13 +253,17 @@ include "../button.class.php";
                         //                    } ?><!--</td>-->
                         <!--                <td> -->
                         <?php //echo $educatorFirstName . " " . $educatorLastName; ?><!--</td>-->
+
+                <?php }
+                ?>
+
                     </tr>
-                <?php } ?>
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td> <?php
+                    <td class="reportNote">
+                        <?php
                         } else {
                             $msg .= "<h4>This student is not enrolled in any courses for this school year.</h4>";
                         }
@@ -256,6 +273,7 @@ include "../button.class.php";
 
                         //Close connection to database
                         $database->close();
+
 
                         if (!isset($msg)) {
                             $iep = new Button();
@@ -269,8 +287,10 @@ include "../button.class.php";
                             $iep->display();
                         }
 
+
+
                         ?>
-                    <td>
+                    </td>
                 </tr>
                 </tbody>
             </table>
