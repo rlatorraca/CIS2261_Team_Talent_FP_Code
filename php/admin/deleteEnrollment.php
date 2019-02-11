@@ -60,6 +60,7 @@ $confirm = new Button();
                 function goBack() {
                     window.history.back();
                 }
+            </script>
 
         <!--         This function shows the date picker.-->
         <!--        $(function () {-->
@@ -76,7 +77,7 @@ $confirm = new Button();
         <!--        $(function () {-->
         <!--            $("#menu").menu();-->
         <!--        });-->
-        </script>
+
         <title>STARS - Enrollment Removed</title>
     </head>
     <body>

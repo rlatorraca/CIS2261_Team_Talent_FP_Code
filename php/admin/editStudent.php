@@ -121,11 +121,11 @@
                 <script src="../../js/main.js"></script>
 
                 <!--                function to go back to your incomplete form without losing previously filled fields-->
-                <!--                <script>-->
-                <!--                    function goBack() {-->
-                <!--                        window.history.back();-->
-                <!--                    }-->
-                <!---->
+                <script>
+                    function goBack() {
+                        window.history.back();
+                    }
+                </script>
                 <!--                    // This function shows the date picker.-->
                 <!--                    $(function () {-->
                 <!--                        $("#datepicker").datepicker();-->
