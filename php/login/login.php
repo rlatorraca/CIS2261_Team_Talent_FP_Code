@@ -157,12 +157,7 @@ if (isset($_POST['username'])) {
 </div>
 <div class="bottom">
     <div id="footer">
-        <ul id="footerMenu">
-            <?php
-            echo '<a href="../../index.php"><li class = "titleNav">Home</li></a>';
-
-            ?>
-        </ul>
+        <?php include("../../navMenu.php"); ?>
     </div>
 </div>
 </body>
