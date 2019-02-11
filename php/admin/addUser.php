@@ -106,9 +106,17 @@
                 </div>
                 <div class="jumbotron-fluid">
                     <div class="container-fluid container-sizer">
-                        <?php echo "<h2>User has successfully been added to the database</h2><br>";
+                        <?php echo "<h2>Success</h2><p>User has successfully been added to the database</p><br>";
                             if ($accessCode == 5) {
-                                echo "<a href='addStudent.php?username=" . $username . "'>Register new Student</a>";
+
+                                $register = new Button();
+
+                                $register->buttonName = "add";
+                                $register->buttonID = "addID";
+                                $register->buttonValue = "Add User";
+                                $register->buttonStyle = "font-family:sans-serif";
+                                $register->buttonWeb = 'location.href="addStudent.php?username=' . $username . '"';
+                                $register->display();
                             }
                         ?>
                     </div>
@@ -223,5 +231,3 @@
     </body>
 </html>
 <?php } ?>
-
-
