@@ -129,7 +129,8 @@ include "../button.class.php";
                 </table>
             <?php }
         } else {
-            echo "<p>This student has no IEP listed in the system</p>";
+            $msg = "This student has no IEP listed in the system";
+            echo "<div class='alert alert-danger'>$msg</div>";
         }
         //Back button
         $goBack = new Button();
