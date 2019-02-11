@@ -74,7 +74,7 @@ include "../button.class.php";
         <?php
 
         //In the event that a user reaches this page before requesting a student's report card from the prior page, handle this.
-        if (!isset($_POST["selectStudent"])) {
+        if (!isset($_GET["selectStudent"])) {
 
             //Show message and bottom nav bar.
             $msg = "Please request a student's report card before accessing this page. 
