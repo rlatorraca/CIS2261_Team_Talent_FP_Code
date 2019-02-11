@@ -94,10 +94,12 @@
 
         <script src="../../js/main.js"></script>
 
-        <!--        <script>-->
-        <!--            function goBack() {-->
-        <!--                window.history.back();-->
-        <!--            }-->
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+        
         <!---->
         <!--            // This function shows the date picker.-->
         <!--            $(function () {-->
