@@ -117,6 +117,17 @@ include "../../header.php"; ?>
 
             echo $msg;
 
+            //Back Button
+            $goBack = new Button();
+
+            $goBack->buttonName = "goBack";
+            $goBack->buttonID = "goBack";
+            $goBack->buttonValue = "Add another User";
+            $goBack->buttonStyle = "font-family:sans-serif";
+            //Back button works. Does not use the main.js file however.
+            $goBack->buttonWeb = 'location.href = "addUser.php"';
+            $goBack->display();
+
         }
         ?>
     </div>

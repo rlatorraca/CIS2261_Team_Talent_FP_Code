@@ -1,98 +1,105 @@
 <?php
-    /**
-     * Created by PhpStorm
-     * Edited by: John Gaudet
-     * Date: 2019-01-27
-     * Time: 8:49 PM
-     *
-     * 2019/01/28: Functionality mostly there. Able to pull user ID from prior screen but cannot use to insert into database.
-     *
-     * Changed functionality approach to use username instead of userID
-     */
+/**
+ * Created by PhpStorm
+ * Edited by: John Gaudet
+ * Date: 2019-01-27
+ * Time: 8:49 PM
+ *
+ * 2019/01/28: Functionality mostly there. Able to pull user ID from prior screen but cannot use to insert into database.
+ *
+ * Changed functionality approach to use username instead of userID
+ */
 
 //Lock down page
-    include "../login/checkLoggedIn.php";
+include "../login/checkLoggedIn.php";
 
 //Ensure only admin/system admin staff can view this page.
-    include "../login/authenticateAdminPages.php";
+include "../login/authenticateAdminPages.php";
 
 //Database connection
-    include "../db/dbConn.php";
+include "../db/dbConn.php";
 
 //Button class
-    include "../button.class.php";
+include "../button.class.php";
 ?>
     <!doctype html>
     <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport"
-                  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-            <!-- Fonts !-->
-            <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
+        <!-- Fonts !-->
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
 
-            <!--Link to custom style sheet-->
-            <link href="../../css/stars.css" rel="stylesheet">
+        <!--Link to custom style sheet-->
+        <link href="../../css/stars.css" rel="stylesheet">
 
-            <!-- JQuery Links !-->
-            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-            <link rel="stylesheet" href="/resources/demos/style.css">
-            <!-- JQuery Calendar Date Picker !-->
-            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <!-- JQuery Links !-->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <!-- JQuery Calendar Date Picker !-->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-            <!-- Here is where we call bootstrap. !-->
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-                    crossorigin="anonymous"></script>
+        <!-- Here is where we call bootstrap. !-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
 
-            <script src="../../js/main.js"></script>
+        <script src="../../js/main.js"></script>
 
-            <!--           function to go back to your incomplete form without losing previously filled fields-->
+        <!--           function to go back to your incomplete form without losing previously filled fields-->
 
-            <!--            <script>-->
-            <!--                function goBack() {-->
-            <!--                    window.history.back();-->
-            <!--                }-->
-            <!--            </script>-->
+        <!--            <script>-->
+        <!--                function goBack() {-->
+        <!--                    window.history.back();-->
+        <!--                }-->
+        <!--            </script>-->
 
 
-            <title>STARS - Confirm Student</title>
-        </head>
-        <body>
-            <?php include "../../header.php"; ?>
-            <div class="jumbotron-fluid">
-                <div class="container-fluid">
-                    <?php
+        <title>STARS - Confirm Student</title>
+    </head>
+    <body>
+    <?php include "../../header.php"; ?>
+    <div class="jumbotron-fluid">
+        <div class="container-fluid">
+            <?php
 
-                        //Get and Sanitize user inputs to prepare for database insert query.
-                        //$studentID = $database->real_escape_string($_POST["studentID"]);
-                        $firstName = $database->real_escape_string($_POST["firstName"]);
-                        $middleName = $database->real_escape_string($_POST["middleName"]);
-                        $lastName = $database->real_escape_string($_POST["lastName"]);
-                        $gender = $database->real_escape_string($_POST["gender"]);
-                        $dob = $database->real_escape_string($_POST["dob"]);
-                        $grade = $database->real_escape_string($_POST["grade"]);
-                        $address = $database->real_escape_string($_POST["address"]);
-                        $phoneNum = $database->real_escape_string($_POST["phoneNum"]);
-                        $emailAddress = $database->real_escape_string($_POST["emailAddress"]);
-                        $allergies = $database->real_escape_string($_POST["allergies"]);
-                        $schoolID = $database->real_escape_string($_POST["selectSchool"]);
-                        $guardianID = $database->real_escape_string($_POST["selectParentGuardian"]);
-                        //$username = $database->real_escape_string($_POST["username"]);
-                        $supportEducatorID = $database->real_escape_string($_POST["selectSupportEducator"]);
+            //Get and Sanitize user inputs to prepare for database insert query.
+            //$studentID = $database->real_escape_string($_POST["studentID"]);
+            $firstName = $database->real_escape_string($_POST["firstName"]);
+            $middleName = $database->real_escape_string($_POST["middleName"]);
+            $lastName = $database->real_escape_string($_POST["lastName"]);
+            $gender = $database->real_escape_string($_POST["gender"]);
+            $dob = $database->real_escape_string($_POST["dob"]);
+            $grade = $database->real_escape_string($_POST["grade"]);
+            $address = $database->real_escape_string($_POST["address"]);
+            $phoneNum = $database->real_escape_string($_POST["phoneNum"]);
+            $emailAddress = $database->real_escape_string($_POST["emailAddress"]);
+            $allergies = $database->real_escape_string($_POST["allergies"]);
+            $schoolID = $database->real_escape_string($_POST["selectSchool"]);
+            $guardianID = $database->real_escape_string($_POST["selectParentGuardian"]);
+            //$username = $database->real_escape_string($_POST["username"]);
+            $supportEducatorID = $database->real_escape_string($_POST["selectSupportEducator"]);
 
-                        //To trigger when user submits request to add new Student to stars database
-                        //if (isset($_POST["register"])) {
+            //To trigger when user submits request to add new Student to stars database
+            //if (isset($_POST["register"])) {
 
-                        //If details are empty, display a message and give redirect links. Otherwise, proceed.
-                        if ($_POST["firstName"] == "" || $_POST["middleName"] == "" || $_POST["lastName"] == "") {
-                            echo "<h2>Error</h2><p> Form fields must not be empty before registering new student in STARS.</p><br>";
-                            echo "<div class='col-md-12'><button class='btn btn-primary' onclick='goBack()'>Go Back</button>";
-                            echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
-                            exit("        </div>
+            //If details are empty, display a message and give redirect links. Otherwise, proceed.
+            if ($_POST["firstName"] == "" || $_POST["middleName"] == "" || $_POST["lastName"] == "") {
+                echo "<h2>Error</h2><p> Form fields must not be empty before registering new student in STARS.</p><br>";
+                //Back Button
+                $goBack = new Button();
+                $goBack->buttonName = "goBack";
+                $goBack->buttonID = "goBack";
+                $goBack->buttonValue = "Go Back";
+                $goBack->buttonStyle = "font-family:sans-serif";
+                $goBack->buttonWeb = "javascript:history.back(-1);";
+                $goBack->display();
+                echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
+                exit("        </div>
     </div>
     <div class='bottom'>
         <div id='footer'>
@@ -101,39 +108,65 @@
     </div>
         </body>
     </html>");
-                        }
+            }
 
-                        echo "<p>You have entered the following student details:</p><p>Name: " . $firstName . " " . $middleName . " " . $lastName
-                            . "</p><p>Gender: " . $gender . "</p><p>" . "Date of Birth: " . $dob . "</p><p>" . "Address: $address" . "</p><p>" . "Phone Number: " . $phoneNum .
-                            "</p><p>" . "Email: " . $emailAddress . "</p><p>" . "Grade: " . $grade . "</p>";
-                    ?>
-                    <form action="insertStudent.php" method="post">
-                        <input name="firstName" hidden value="<?php echo $firstName; ?>">
-                        <input name="middleName" hidden value="<?php echo $middleName; ?>">
-                        <input name="lastName" hidden value="<?php echo $lastName; ?>">
-                        <input name="gender" hidden value="<?php echo $gender; ?>">
-                        <input name="dob" hidden value="<?php echo $dob; ?>">
-                        <input name="grade" hidden value="<?php echo $grade; ?>">
-                        <input name="address" hidden value="<?php echo $address; ?>">
-                        <input name="phoneNum" hidden value="<?php echo $phoneNum; ?>">
-                        <input name="emailAddress" hidden value="<?php echo $emailAddress; ?>">
-                        <input name="allergies" hidden value="<?php echo $allergies; ?>">
-                        <input name="schoolID" hidden value="<?php echo $schoolID; ?>">
-                        <input name="guardianID" hidden value="<?php echo $guardianID; ?>">
-                        <input name="username" hidden value="<?php echo $_SESSION["username"]; ?>">
-                        <input name="supportEducatorID" hidden value="<?php echo $supportEducatorID; ?>">
+            echo "<div class='alert alert-info'>
+                    <h2>You have entered the following student details:</h2>
+                    <h4>Name: " . $firstName . " " . $middleName . " " . $lastName . "</h4>
+                    <h4>Gender: " . $gender . "</h4>
+                    <h4>" . "Date of Birth: " . $dob . "</h4>
+                    <h4>" . "Grade: " . $grade . "</h4>
+                    <h4>" . "Address: $address" . "</h4>
+                    <h4>" . "Phone Number: " . $phoneNum . "</h4>
+                    <h4>" . "Email: " . $emailAddress . "</h4>
+                    <h4>" . "Allergies: " . $allergies . "</h4>
+                    <h4>" . "Username: " . $_SESSION['username'] . "</h4></div>";
+            ?>
 
-                        <input type="submit" name="register" value="Register Student">
-                    </form>
-                    <?php echo "<div class='col-md-12'><button class='btn btn-primary' onclick='goBack()'>Go Back</button>"; ?>
-                </div>
-            </div>
-            <div class='bottom'>
-                <div id='footer'>
-                    <?php include('../../navMenu.php'); ?>
-                </div>
-            </div>
-        </body>
+            <form action="insertStudent.php" method="post">
+                <input name="firstName" hidden value="<?php echo $firstName; ?>">
+                <input name="middleName" hidden value="<?php echo $middleName; ?>">
+                <input name="lastName" hidden value="<?php echo $lastName; ?>">
+                <input name="gender" hidden value="<?php echo $gender; ?>">
+                <input name="dob" hidden value="<?php echo $dob; ?>">
+                <input name="grade" hidden value="<?php echo $grade; ?>">
+                <input name="address" hidden value="<?php echo $address; ?>">
+                <input name="phoneNum" hidden value="<?php echo $phoneNum; ?>">
+                <input name="emailAddress" hidden value="<?php echo $emailAddress; ?>">
+                <input name="allergies" hidden value="<?php echo $allergies; ?>">
+                <input name="schoolID" hidden value="<?php echo $schoolID; ?>">
+                <input name="guardianID" hidden value="<?php echo $guardianID; ?>">
+                <input name="username" hidden value="<?php echo $_SESSION["username"]; ?>">
+                <input name="supportEducatorID" hidden value="<?php echo $supportEducatorID; ?>">
+                <?php
+                //Confirm Button
+                $confirm = new Button();
+
+                $confirm->buttonName = "register";
+                $confirm->buttonID = "register";
+                $confirm->buttonValue = "Register Student";
+                $confirm->buttonStyle = "font-family:sans-serif";
+                $confirm->display(); ?>
+            </form>
+            <?php
+            //Back Button
+            $goBack = new Button();
+
+            $goBack->buttonName = "goBack";
+            $goBack->buttonID = "goBack";
+            $goBack->buttonValue = "Go Back";
+            $goBack->buttonStyle = "font-family:sans-serif";
+            //Back button works. Does not use the main.js file however.
+            $goBack->buttonWeb = "javascript:history.back(-1);";
+            $goBack->display(); ?>
+        </div>
+    </div>
+    <div class='bottom'>
+        <div id='footer'>
+            <?php include('../../navMenu.php'); ?>
+        </div>
+    </div>
+    </body>
     </html>
 <?php
 
