@@ -107,9 +107,9 @@
                 <div class="jumbotron-fluid">
                     <div class="container-fluid container-sizer">
                         <?php echo "<h2>User has successfully been added to the database</h2><br>";
-                        if ($accessCode == 5) {
-	                        echo "<a href='addStudent.php?username=" . $username . "'>Register new Student</a>";
-                        }
+                            if ($accessCode == 5) {
+                                echo "<a href='addStudent.php?username=" . $username . "'>Register new Student</a>";
+                            }
                         ?>
                     </div>
                 </div>
@@ -161,15 +161,9 @@
                 <form action="addUser.php" method="POST">
                     <div class="form-group">
                         <h2>User Details</h2>
-                        <p>*All fields are required and username must be unique.</p>
-                        <!--            <div class="col-md-12 form-inline customDiv">-->
-                        <!--                <label for="isbn" class="col-md-6">User ID</label>-->
-                        <!--                <input type="text" name="userID" class="col-md-6 form-control">-->
-                        <!--            </div>-->
-                        <!--            <br>-->
+                        <p><span style="color:red">*All fields are required and username must be unique.</span></p>
                         <br>
-                        <div class="container"
-                        ">
+                        <div class="container">
                         <div class="row">
                             <div class="col-md-12 form-inline">
                                 <label for="username" class="col-md-6">Username</label>
@@ -218,8 +212,8 @@
             </div>
 
 
-                </form>
-            </div>
+            </form>
+        </div>
         </div>
         <div class="bottom">
             <div id="footer">

@@ -150,7 +150,7 @@
                     <div class="container-fluid">
                         <form action="editStudent.php" method="post">
                             <h2>Student Details</h2>
-                            <p>*Please ensure all fields are filled before editing a Student's details.</p>
+                            <p><span style="color:red">*Please ensure all fields are filled</span></p>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label for="studentID">Student ID</label>

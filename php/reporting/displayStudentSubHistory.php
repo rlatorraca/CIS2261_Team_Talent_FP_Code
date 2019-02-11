@@ -145,8 +145,7 @@ while ($row = $resultSubHistory->fetch_assoc()) {
             // Set a callback to run when the Google Visualization API is loaded.
             google.charts.setOnLoadCallback(drawChart);
 
-            // Callback that creates and populates a data table,
-            // instantiates the pie chart, passes in the data and
+            // Callback that creates and populates a data table, instantiates the pie chart, passes in the data and
             // draws it.
             function drawChart() {
 
