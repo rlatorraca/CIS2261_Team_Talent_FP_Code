@@ -18,6 +18,10 @@ include "../login/authenticateAdminPages.php";
 //Database connection
 include "../db/dbConn.php";
 
+    //Importing button
+    include("../button.class.php");
+    $confirm = new Button();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -103,7 +107,7 @@ if ($deleteQueryForStudentEnrollment == 1) {
     </div>
     <div class="bottom">
         <div id="footer">
-            <?php include("navMenu.php"); ?>
+            <?php include("../../navMenu.php"); ?>
         </div>
     </div>
 </body>
