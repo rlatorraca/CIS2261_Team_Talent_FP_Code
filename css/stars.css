@@ -90,6 +90,9 @@ h1, h2 {
     color: #328cc1;
 
 }
+h4{
+    display: inline;
+}
 
 .starnav {
     position: relative;

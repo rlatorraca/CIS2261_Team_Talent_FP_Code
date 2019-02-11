@@ -112,15 +112,15 @@ include "../button.class.php";
 
             echo "<div class='alert alert-info'>
                     <h2>You have entered the following student details:</h2>
-                    <h4>Name: " . $firstName . " " . $middleName . " " . $lastName . "</h4>
-                    <h4>Gender: " . $gender . "</h4>
-                    <h4>" . "Date of Birth: " . $dob . "</h4>
-                    <h4>" . "Grade: " . $grade . "</h4>
-                    <h4>" . "Address: $address" . "</h4>
-                    <h4>" . "Phone Number: " . $phoneNum . "</h4>
-                    <h4>" . "Email: " . $emailAddress . "</h4>
-                    <h4>" . "Allergies: " . $allergies . "</h4>
-                    <h4>" . "Username: " . $_SESSION['username'] . "</h4></div>";
+                    <h4>Name:</h4><p style='display: inline'> " . $firstName . " " . $middleName . " " . $lastName . "</p><br>
+                    <h4>Gender: </h4><p style='display: inline'>" . $gender . "</p><br>
+                    <h4>" . "Date of Birth: </h4><p style='display: inline'>" . $dob . "</p><br>
+                    <h4>" . "Grade: </h4><p style='display: inline'>" . $grade . "</p><br>
+                    <h4>" . "Address: </h4><p style='display: inline'>".$address . "</p><br>
+                    <h4>" . "Phone Number: </h4><p style='display: inline'>" . $phoneNum . "</p><br>
+                    <h4>" . "Email: </h4><p style='display: inline'>" . $emailAddress . "</p><br>
+                    <h4>" . "Allergies: </h4><p style='display: inline'>" . $allergies . "</p><br>
+                    <h4>" . "Username: </h4><p style='display: inline'>" . $_SESSION['username'] . "</p></div>";
             ?>
 
             <form action="insertStudent.php" method="post">
