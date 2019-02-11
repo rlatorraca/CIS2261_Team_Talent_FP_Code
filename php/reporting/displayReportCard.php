@@ -77,7 +77,9 @@ include "../button.class.php";
         if (!isset($_POST["selectStudent"])) {
 
             //Show message and bottom nav bar.
-            echo "<p>Please request a student's report card before accessing this page.</p>";
+            $msg = "Please request a student's report card before accessing this page. 
+            You can do this by selecting 'Request Report Card' from the Navigation Bar.";
+            echo "<br><div class='alert alert-danger'>$msg</div>";
             echo "</div></div>";
             ?>
             <div class='bottom'>
@@ -99,7 +101,6 @@ include "../button.class.php";
         $isRead = 0;
         $studID = 0;
         $semesterNum = "";
-        //$msg = "";
 
         //SQL to pull overall report card details (Report card to identify a student before the extraction of enrollment data).
         //Be sure to pull the selected student from the requestReportCard.php page to extract the correct student information

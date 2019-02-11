@@ -15,64 +15,116 @@ include "../login/authenticateAdminPages.php";
 //Database connection
 include "../db/dbConn.php";
 
-//$usernameFromForm = $database->real_escape_string($_SESSION["username"]);
-$usernameFromSession = $_SESSION["username"];
+//Button Class
+include "../button.class.php";
 
-//Query database to get the User ID based on entered username
-$queryUsername = "SELECT userID FROM user WHERE username = '$usernameFromSession' LIMIT 1";
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Fonts !-->
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
 
-$resultUsernameFromQuery = $database->query($queryUsername);
-$userID = "";
+    <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
+    <!-- Here is where we call bootstrap. !-->
+    <title>STARS - Insert Student into Database</title>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-if ($resultUsernameFromQuery->num_rows > 0) {
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
 
-    while ($resultSet = $resultUsernameFromQuery->fetch_assoc()) {
+    <!-- Calendar Date Picker !-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../../js/main.js"></script>
 
-        //Get userID from result set and apply to a variable to use in the following insert query.
-        $userID = $resultSet["userID"];
+    <link href="../../css/stars.css" rel="stylesheet">
+    <script src="../../js/main.js"></script>
+</head>
+<body>
+<?php
+include "../../header.php"; ?>
+<div class="jumbotron-fluid">
+    <div class="container-fluid">
+        <?php
+        //$usernameFromForm = $database->real_escape_string($_SESSION["username"]);
+        $usernameFromSession = $_SESSION["username"];
 
-    }
-}
+        //Query database to get the User ID based on entered username
+        $queryUsername = "SELECT userID FROM user WHERE username = '$usernameFromSession' LIMIT 1";
 
-$firstName = $_POST["firstName"];
-$middleName = $_POST["middleName"];
-$lastName = $_POST["lastName"];
-$gender = $_POST["gender"];
-$dob = $_POST["dob"];
-$grade = $_POST["grade"];
-$address = $_POST["address"];
-$phoneNum = $_POST["phoneNum"];
-$emailAddress = $_POST["emailAddress"];
-$allergies = $_POST["allergies"];
-$schoolID = $_POST["schoolID"];
-$guardianID = $_POST["guardianID"];
-$supportEducatorID = $_POST["supportEducatorID"];
+        $resultUsernameFromQuery = $database->query($queryUsername);
+        $userID = "";
 
-//To trigger when user submits request to add new Student to stars database
+        if ($resultUsernameFromQuery->num_rows > 0) {
 
-//Create initial SQL query to insert form data into database
-$query = "INSERT INTO student(firstName, middleName, lastName, gender, dob, grade, address,
+            while ($resultSet = $resultUsernameFromQuery->fetch_assoc()) {
+
+                //Get userID from result set and apply to a variable to use in the following insert query.
+                $userID = $resultSet["userID"];
+
+            }
+        }
+
+        $firstName = $_POST["firstName"];
+        $middleName = $_POST["middleName"];
+        $lastName = $_POST["lastName"];
+        $gender = $_POST["gender"];
+        $dob = $_POST["dob"];
+        $grade = $_POST["grade"];
+        $address = $_POST["address"];
+        $phoneNum = $_POST["phoneNum"];
+        $emailAddress = $_POST["emailAddress"];
+        $allergies = $_POST["allergies"];
+        $schoolID = $_POST["schoolID"];
+        $guardianID = $_POST["guardianID"];
+        $supportEducatorID = $_POST["supportEducatorID"];
+
+        //To trigger when user submits request to add new Student to stars database
+
+        //Create initial SQL query to insert form data into database
+        $query = "INSERT INTO student(firstName, middleName, lastName, gender, dob, grade, address,
                   phoneNum, emailAddress, allergies, schoolID, guardianID, userID, supportEducatorID)
                   VALUES ('$firstName', '$middleName', '$lastName', '$gender', '$dob', '$grade', '$address',
                   '$phoneNum', '$emailAddress', '$allergies', $schoolID, $guardianID, $userID, $supportEducatorID);";
 
-//Execute query and store result.
-$result = $database->query($query);
+        //Execute query and store result.
+        $result = $database->query($query);
 
-//Check if query executed successfully and that the result contains data.
-if ($result) {
+        //Check if query executed successfully and that the result contains data.
+        if ($result) {
 
-    echo "<h2>Student has been successfully added to the database</h2>";
+            $msg = "<br><div class='alert alert-info'><h4>Student has been successfully added to the database</h4></div>";
 
-} else {
-    echo "<h2>Sorry, student could not be added to the database at this time</h2>";
-}
+        } else {
+            $msg = "<br><div class='alert alert-danger'><h4>Sorry, student could not be added to the database at this time</h4></div>";
+        }
 
-//Clear username session variable
-$_SESSION["username"] = "";
+        //Clear username session variable
+        $_SESSION["username"] = "";
 
-//Close database connection
-$database->close();
+        //Close database connection
+        $database->close();
 
+        if (isset($msg)) {
 
-?>
+            echo $msg;
+
+        }
+        ?>
+    </div>
+</div>
+<div class="bottom">
+    <div id="footer">
+        <?php include("../../navMenu.php"); ?>
+    </div>
+</div>
+</body>
+</html>
