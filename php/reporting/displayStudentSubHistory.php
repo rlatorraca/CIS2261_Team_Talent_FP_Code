@@ -1,68 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: sahra
- * Date: 2019-01-27
- * Time: 9:00 PM
- */
-
-// Button Class
-include("../button.class.php");
-
-//Lock down page
-include "../login/checkLoggedIn.php";
-
-//Database connection
-include "../db/dbConn.php";
-
-//Selected info from request page
-$student = $_POST["students"];
-$subject = $_POST["subjects"];
-$yearStart = $_POST["yearStart"];
-$yearEnd = $_POST["yearEnd"];
-
-$queryStudentHistory = "SELECT student.studentID, student.firstName, student.lastName, course.courseName, 
-          subject.subjectCode, subject.subjectName, enrollment.mark, enrollment.schoolYear, enrollment.semesterNum 
-          FROM student, enrollment, course, courseoffering, subject 
-          WHERE student.studentID = $student 
-          AND enrollment.schoolYear BETWEEN '$yearStart' AND '$yearEnd'
-          AND enrollment.studentID = student.studentID 
-          AND enrollment.classID = courseoffering.classID 
-          AND courseoffering.courseID = course.courseID 
-          AND subject.subjectCode = '$subject'
-          AND course.subjectCode = subject.subjectCode ORDER BY enrollment.schoolYear ";
-
-$resultSubHistory = $database->query($queryStudentHistory);
-$resultSubHistory2 = $database->query($queryStudentHistory);
-$resultSubName = $database->query($queryStudentHistory);
-
-//Check/validate if there are items in the database object
-if ($resultSubHistory->num_rows > 0) {
-
-//Display results to a table
-//Create array to store values of school years and averages
-$array = array();
-
-
-while ($row = $resultSubHistory->fetch_assoc()) {
-
-    //If the results of the average calculation is empty, show the provided message to the user.
-    //This would happen if there is no data to pull from between the selected dates or selected subject.
-    if ($row["mark"] == null) {
-
-        $row["mark"] = 0;
-        $array[$row["schoolYear"] . " - " . $row["semesterNum"]] = $row["mark"];
-
-    } else {
-
-        $array[$row["schoolYear"] . " - " . $row["semesterNum"]] = $row['mark'];
-
-    }
-
-}
-
-
-?>
 <!DOCTYPE HTML>
 <html lang="en">
 
@@ -93,30 +28,79 @@ while ($row = $resultSubHistory->fetch_assoc()) {
 
     <script src="../../js/main.js"></script>
 
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
+	<?php
+/**
+ * Created by PhpStorm.
+ * User: sahra
+ * Date: 2019-01-27
+ * Time: 9:00 PM
+ */
 
-    <!---->
-    <!--            // This function shows the date picker.-->
-    <!--            $(function () {-->
-    <!--                $("#datepicker").datepicker();-->
-    <!--            });-->
-    <!---->
-    <!--            // This function shows the note.-->
-    <!--            // Will need to add a variable to get the notes to then call.-->
-    <!--            $(function () {-->
-    <!--                $(document).tooltip();-->
-    <!--            });-->
-    <!---->
-    <!--            // This function manages the drop downs on the main menu.-->
-    <!--            $(function () {-->
-    <!--                $("#menu").menu();-->
-    <!--            });-->
-    <!--        </script>-->
+	// Button Class
+include("../button.class.php");
 
+	//Lock down page
+include "../login/checkLoggedIn.php";
+
+	//Database connection
+include "../db/dbConn.php";
+	?>
+
+
+	<?php
+//Selected info from request page
+$student = $_POST["students"];
+$subject = $_POST["subjects"];
+$yearStart = $_POST["yearStart"];
+$yearEnd = $_POST["yearEnd"];
+
+	$queryStudentHistory = "SELECT student.studentID, student.firstName, student.lastName, course.courseName, 
+          subject.subjectCode, subject.subjectName, enrollment.mark, enrollment.schoolYear, enrollment.semesterNum 
+          FROM student, enrollment, course, courseoffering, subject 
+          WHERE student.studentID = $student 
+          AND enrollment.schoolYear BETWEEN '$yearStart' AND '$yearEnd'
+          AND enrollment.studentID = student.studentID 
+          AND enrollment.classID = courseoffering.classID 
+          AND courseoffering.courseID = course.courseID 
+          AND subject.subjectCode = '$subject'
+          AND course.subjectCode = subject.subjectCode ORDER BY enrollment.schoolYear ";
+
+	$resultSubHistory = $database->query($queryStudentHistory);
+$resultSubHistory2 = $database->query($queryStudentHistory);
+$resultSubName = $database->query($queryStudentHistory);
+	?>
+
+
+
+
+	<?php
+//Check/validate if there are items in the database object
+if ($resultSubHistory->num_rows > 0) {
+
+	//Display results to a table
+//Create array to store values of school years and averages
+$array = array();
+
+
+	while ($row = $resultSubHistory->fetch_assoc()) {
+
+		//If the results of the average calculation is empty, show the provided message to the user.
+		//This would happen if there is no data to pull from between the selected dates or selected subject.
+		if ($row["mark"] == null) {
+
+			$row["mark"] = 0;
+			$array[$row["schoolYear"] . " - " . $row["semesterNum"]] = $row["mark"];
+
+		} else {
+
+			$array[$row["schoolYear"] . " - " . $row["semesterNum"]] = $row['mark'];
+
+		}
+
+	}
+
+
+	?>
 
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -137,10 +121,10 @@ while ($row = $resultSubHistory->fetch_assoc()) {
             data.addColumn('string', 'Year');
             data.addColumn('number', 'Mark');
             data.addRows([
-                <?php
-                foreach ($array as $key=>$value) {
-                ?> ['<?php echo $key; ?>', <?php echo $value; ?>], <?php
-                } ?>
+				<?php
+				foreach ($array as $key=>$value) {
+				?> ['<?php echo $key; ?>', <?php echo $value; ?>], <?php
+				} ?>
             ]);
 
             // Set chart options
@@ -167,6 +151,26 @@ while ($row = $resultSubHistory->fetch_assoc()) {
             chart.draw(data, options);
         }
     </script>
+
+    <!---->
+    <!--            // This function shows the date picker.-->
+    <!--            $(function () {-->
+    <!--                $("#datepicker").datepicker();-->
+    <!--            });-->
+    <!---->
+    <!--            // This function shows the note.-->
+    <!--            // Will need to add a variable to get the notes to then call.-->
+    <!--            $(function () {-->
+    <!--                $(document).tooltip();-->
+    <!--            });-->
+    <!---->
+    <!--            // This function manages the drop downs on the main menu.-->
+    <!--            $(function () {-->
+    <!--                $("#menu").menu();-->
+    <!--            });-->
+    <!--        </script>-->
+
+
 </head>
 
 <body>
@@ -177,15 +181,15 @@ while ($row = $resultSubHistory->fetch_assoc()) {
     <div class="container-fluid chart-sizer">
 
         <div class="container chart-container">
-            <?php
-            //Display results or message
-            if ($row = $resultSubName->fetch_assoc()) {
-                ?>
+			<?php
+			//Display results or message
+			if ($row = $resultSubName->fetch_assoc()) {
+				?>
                 <h2><?php echo $row["firstName"] . " " . $row["lastName"] . "'s History for " . $row["subjectName"]; ?></h2>
-                <?php
-            } else {
-                echo "<p>Empty</p>";
-            } ?>
+				<?php
+			} else {
+				echo "<p>Empty</p>";
+			} ?>
             <br>
 
             <div class="row">
@@ -202,45 +206,54 @@ while ($row = $resultSubHistory->fetch_assoc()) {
                     </tr>
                     </thead>
                     <tbody>
-                    <?php
-                    while ($row2 = $resultSubHistory2->fetch_assoc()) {
-                        ?>
+					<?php
+					while ($row2 = $resultSubHistory2->fetch_assoc()) {
+						?>
                         <tr class="tableInfo">
                             <td><?php echo $row2['courseName'] ?></td>
                             <td><?php if ($row2['mark'] == null) { echo 0; } else { echo $row2['mark']; } ?></td>
                             <td><?php echo $row2['schoolYear'] ?></td>
                             <td><?php echo $row2['semesterNum'] ?></td>
                         </tr>
-                        <?php
-                    }
-                    } else {
-                        $error = "Sorry, there are no marks in STARS to view in the selected subject";
-                    }
-                    ?>
+						<?php
+					}
+					} else {
+						$error = "<h5>Sorry, there are no marks in STARS to view in the selected subject.</h5>";
+					}
+					?>
                     </tbody>
                 </table>
-                <?php
-                if (isset($error)) {
-                    echo "<div class='alert alert-danger'>$error</div>";
-                }
+				<?php
+				if (isset($error)) {
+					include "../../header.php";
+					echo "<div class='jumbotron-fluid'>";
+					echo "<div class='container-fluid chart-sizer'>";
+					echo "<div class='container chart-container'>";
+					echo "<br><div class='alert alert-danger'>$error</div>";
+				}
 
-                $goBack = new Button();
+				$button = new Button();
 
-                $goBack->buttonName = "goBack";
-                $goBack->buttonID = "goBack";
-                $goBack->buttonValue = "Go Back";
-                $goBack->buttonStyle = "font-family:sans-serif";
-                $goBack->buttonWeb = 'goBack()';
-                $goBack->display();
+				$button->buttonName = "goBack";
+				$button->buttonID = "goBack";
+				$button->buttonValue = "Go Back";
+				$button->buttonStyle = "font-family:sans-serif";
+				$button->buttonWeb = "goBack()";
+				$button->display();
 
-                ?>
+				?>
             </div>
+            <script>
+                function goBack() {
+                    window.history.back();
+                }
+            </script>
         </div>
     </div>
 </div>
 <div class="bottom">
     <div id="footer">
-        <?php include("../../navMenu.php"); ?>
+		<?php include("../../navMenu.php"); ?>
     </div>
 </div>
 </body>

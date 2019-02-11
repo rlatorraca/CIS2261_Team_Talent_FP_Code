@@ -158,12 +158,7 @@
         <link href="../../css/stars.css" rel="stylesheet">
         <script src="../../js/main.js"></script>
 
-        <!--function to go back to your incomplete album form without losing previously filled fields-->
-        <script>
-            function goBack() {
-                window.history.back();
-            }
-        </script>
+
 
     </head>
     <body>
@@ -258,6 +253,12 @@
                     </form>
                 </div>
             </div>
+            <!--function to go back to your incomplete album form without losing previously filled fields-->
+            <script>
+                function goBack() {
+                    window.history.back();
+                }
+            </script>
         </div>
         <!--The bottom navbar/footer section-->
         <div class="bottom">
