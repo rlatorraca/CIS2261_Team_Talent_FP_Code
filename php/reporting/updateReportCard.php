@@ -13,10 +13,10 @@ include "../login/checkLoggedIn.php";
 include "../db/dbConn.php";
 
 //Ensure report card number is set before proceeding
-if (!isset($_GET["reportCardNum"])){
+if (!isset($_GET["reportCardNum"])) {
 
     //If not, redirect them
-    header("Location: ../../index.php");
+    header("Location: requestReportCard.php");
 
 }
 
@@ -29,12 +29,12 @@ $resultUpdateReportCard = $database->query($updateReportCardQuery);
 if ($resultUpdateReportCard) {
 
     $database->close();
-    header("Location: ../../index.php");
+    header("Location: requestReportCard.php");
 
 } else {
 
     //To handle regarding a failed report card update query.
-    echo "<p>Could not update Report Card at this time</p>";
+    $msg = "Could not update Report Card at this time";
 
 }
 ?>
@@ -48,7 +48,9 @@ if ($resultUpdateReportCard) {
     <title>Update Report Card</title>
 </head>
 <body>
-
+<div><?php if (isset($msg)) {
+        echo $msg;
+    } ?></div>
 </body>
 </html>
 
