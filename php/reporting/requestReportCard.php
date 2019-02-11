@@ -181,13 +181,12 @@ include "../button.class.php";
                         <label for="selectYear">Select School Year</label>
                         <select class="form-control" id="selectYear" name="selectYear">
                             <!-- Using SQL to populate dropdown list of school years recorded in database-->
-                            <?php $query = "SELECT DISTINCT schoolYear FROM semester;";
+                            <?php $query = "SELECT DISTINCT schoolYear FROM semester ORDER BY schoolYear DESC";
                             $resultYear = $database->query($query);
                             if ($resultYear->num_rows > 0) {
                                 while ($row = $resultYear->fetch_assoc()) {
                                     ?>
-                                    <option
-                                    value="<?php echo $row["schoolYear"]; ?>"><?php echo $row["schoolYear"]; ?></option><?php
+                                    <option value="<?php echo $row["schoolYear"]; ?>"><?php echo $row["schoolYear"]; ?></option><?php
                                 }
                             } else {
                                 echo "<option>No School Years recorded in STARS database</option>";

@@ -65,10 +65,11 @@ include "../db/dbConn.php";
         <!---->
         <!---->
         <!--        function to go back to your incomplete form without losing previously filled fields-->
-        <!--            function goBack() {-->
-        <!--                window.history.back();-->
-        <!--            }-->
-        <!--        </script>-->
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
 
         <title>STARS - Edit User</title>
     </head>

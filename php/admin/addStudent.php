@@ -69,11 +69,11 @@
         <!--            } );-->
         <!--        </script>-->
         <!--       function to go back to your incomplete form without losing previously filled fields-->
-        <!--        <script>-->
-        <!--            function goBack() {-->
-        <!--                window.history.back();-->
-        <!--            }-->
-        <!--        </script>-->
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
 
         <title>STARS - Add Student</title>
     </head>
