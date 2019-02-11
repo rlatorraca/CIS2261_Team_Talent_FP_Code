@@ -1,20 +1,20 @@
 <?php
-    /**
-     * Created by PhpStorm.
-     * Firm: Team Talent 2.0
-     * Members: Sara, John, Rodrigo, Steve
-     * Date: 2019-01-14
-     * Time: 12:09 AM
-     */
+/**
+ * Created by PhpStorm.
+ * Firm: Team Talent 2.0
+ * Members: Sara, John, Rodrigo, Steve
+ * Date: 2019-01-14
+ * Time: 12:09 AM
+ */
 
-    //Lock down page
-    include "../login/checkLoggedIn.php";
+//Lock down page
+include "../login/checkLoggedIn.php";
 
-    //Ensure only admin/system admin staff can view and use page
-    include "../login/authenticateAdminPages.php";
+//Ensure only admin/system admin staff can view and use page
+include "../login/authenticateAdminPages.php";
 
-    include("../button.class.php");
-    $confirm = new Button();
+include("../button.class.php");
+$confirm = new Button();
 
 ?>
 
@@ -48,16 +48,16 @@
 
     </head>
     <?php
-        include '../db/dbConn.php';
-        //create query to get courses
-        $queryCourse = "SELECT course.courseName, courseoffering.schoolYear, courseoffering.semesterNum, 
+    include '../db/dbConn.php';
+    //create query to get courses
+    $queryCourse = "SELECT course.courseName, courseoffering.schoolYear, courseoffering.semesterNum, 
                 courseoffering.classID FROM course, courseoffering, semester 
                 WHERE course.courseID = courseoffering.courseID
                 AND courseoffering.schoolYear = semester.schoolYear
                 AND courseoffering.semesterNum = semester.semesterNum;";
 
-        //Execute queries and store results.
-        $resultCourse = $database->query($queryCourse);
+    //Execute queries and store results.
+    $resultCourse = $database->query($queryCourse);
     ?>
     <body>
         <?php include "../../header.php"; ?>
@@ -70,40 +70,40 @@
                 <div class="container main-container scaler" id="courseSearch">
                     <form action="searchCourseResults.php" method="get">
                         <div class="form-group">
-                        <h2>Search Courses</h2>
+                            <h2>Search Courses</h2>
 
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <label for="courses">Select Course & Semester</label><br>
-                                <select type="text" class="form-control" id="courses" name="subjects">
-                                    <!-- Using SQL to populate dropdown list of subjects -->
-                                    <?php if ($resultCourse->num_rows > 0) {
-                                        while ($row = $resultCourse->fetch_assoc()) {
-                                            ?>
-                                            <option
-                                            value="<?php echo $row["classID"]; ?>"><?php echo $row["courseName"] . " - " . $row["schoolYear"] . "-" . $row["semesterNum"]; ?></option><?php
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label for="courses">Select Course & Semester</label><br>
+                                    <select type="text" class="form-control" id="courses" name="subjects">
+                                        <!-- Using SQL to populate dropdown list of subjects -->
+                                        <?php if ($resultCourse->num_rows > 0) {
+                                            while ($row = $resultCourse->fetch_assoc()) {
+                                                ?>
+                                                <option
+                                                value="<?php echo $row["classID"]; ?>"><?php echo $row["courseName"] . " - " . $row["schoolYear"] . "-" . $row["semesterNum"]; ?></option><?php
+                                            }
+                                        } else {
+                                            echo "<option>No Courses registered in STARS</option>";
                                         }
-                                    } else {
-                                        echo "<option>No Courses registered in STARS</option>";
-                                    }
-                                    ?>
-                                </select><br>
+                                        ?>
+                                    </select><br>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <label for="sort">Sort</label>
-                                <select type="text" class="form-control" id="sort" name="sort">
-                                    <option value="ASC" selected>Ascending</option>
-                                    <option value="DESC">Descending</option>
-                                </select><br>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label for="sort">Sort</label>
+                                    <select type="text" class="form-control" id="sort" name="sort">
+                                        <option value="ASC" selected>Ascending</option>
+                                        <option value="DESC">Descending</option>
+                                    </select><br>
+                                </div>
                             </div>
-                        </div>
 
-                        <!--Search button-->
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <?php
+                            <!--Search button-->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <?php
                                     $confirm = new Button();
 
                                     $confirm->buttonName = "search";
@@ -111,8 +111,8 @@
                                     $confirm->buttonValue = "Search";
                                     $confirm->buttonStyle = "font-family:sans-serif";
                                     $confirm->display(); ?>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </form>
                 </div>
