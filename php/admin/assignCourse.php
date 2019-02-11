@@ -40,7 +40,6 @@ include("../button.class.php");
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
 
 
-
     <!-- JQuery Links !-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- JQuery Calendar Date Picker !-->
@@ -91,144 +90,143 @@ include("../button.class.php");
 <div class="jumbotron-fluid">
     <div class="container-fluid container-sizer">
 
-		<?php
-		$msg = "";
-		//To trigger when user submits request to add new Student to stars database
-		if (isset($_POST["register"])) {
+        <?php
+        $msg = "";
+        //To trigger when user submits request to add new Student to stars database
+        if (isset($_POST["register"])) {
 
-			//If details are empty, display a message and give redirect links. Otherwise, proceed.
-			if ($_POST["subjectsAssignCourse"] == "" || $_POST["yearAsscourseSemesterYearAssignCourseignCourse"] == "" || $_POST["semesterYearAssignCourse"] == "" || $_POST["courseSemesterYearAssignCourse"] == "" || $_POST["studentAssignCourse"] == "") {
-				echo "<h2>Error</h2><p>Form fields must not be empty before registering new student in a course.</p><br>";
-				echo "<form action='assignCourse.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Try Again</button></div></form>";
-				echo "<form action='../../index.php' method='post'><div class='col-md-6'><button class='button button2'>Return Home</button></div></div></form>";
-				exit("</div></div></body</html>");
-			}
+            //If details are empty, display a message and give redirect links. Otherwise, proceed.
+            if ($_POST["subjectsAssignCourse"] == "" || $_POST["yearAsscourseSemesterYearAssignCourseignCourse"] == "" || $_POST["semesterYearAssignCourse"] == "" || $_POST["courseSemesterYearAssignCourse"] == "" || $_POST["studentAssignCourse"] == "") {
+                echo "<h2>Error</h2><p>Form fields must not be empty before registering new student in a course.</p><br>";
+                echo "<form action='assignCourse.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Try Again</button></div></form>";
+                echo "<form action='../../index.php' method='post'><div class='col-md-6'><button class='button button2'>Return Home</button></div></div></form>";
+                exit("</div></div></body</html>");
+            }
 
-			$queryClassID = "SELECT classID FROM courseoffering WHERE courseID=" . mysqli_real_escape_string($database, $_POST['courseSemesterYearAssignCourse']) . " and schoolYear = '" . mysqli_real_escape_string($database, $_POST['yearAsscourseSemesterYearAssignCourseignCourse']) . "' and semesterNum = " . mysqli_real_escape_string($database, $_POST['semesterYearAssignCourse']) . ";";
-			//var_dump($queryClassID);
-			$resultClassID = $database->query($queryClassID);
-			//var_dump($resultClassID);
+            $queryClassID = "SELECT classID FROM courseoffering WHERE courseID=" . mysqli_real_escape_string($database, $_POST['courseSemesterYearAssignCourse']) . " and schoolYear = '" . mysqli_real_escape_string($database, $_POST['yearAsscourseSemesterYearAssignCourseignCourse']) . "' and semesterNum = " . mysqli_real_escape_string($database, $_POST['semesterYearAssignCourse']) . ";";
+            //var_dump($queryClassID);
+            $resultClassID = $database->query($queryClassID);
+            //var_dump($resultClassID);
 
-			if ($resultClassID->num_rows > 0) {
-				$row = $resultClassID->fetch_assoc();
-			}
+            if ($resultClassID->num_rows > 0) {
+                $row = $resultClassID->fetch_assoc();
+            }
 
-			//*******will need to pull the classID and StudentID somewhere
-			//Sanitize user inputs to prepare for database insert query.
-			$subject = $database->real_escape_string($_POST["subjectsAssignCourse"]);
-			$schoolYear = $database->real_escape_string($_POST["yearAsscourseSemesterYearAssignCourseignCourse"]);
-			$semesterNum = $database->real_escape_string($_POST["semesterYearAssignCourse"]);
-			$classID = $database->real_escape_string($row['classID']);
-			$studentID = $database->real_escape_string($_POST["studentAssignCourse"]);
+            //*******will need to pull the classID and StudentID somewhere
+            //Sanitize user inputs to prepare for database insert query.
+            $subject = $database->real_escape_string($_POST["subjectsAssignCourse"]);
+            $schoolYear = $database->real_escape_string($_POST["yearAsscourseSemesterYearAssignCourseignCourse"]);
+            $semesterNum = $database->real_escape_string($_POST["semesterYearAssignCourse"]);
+            $classID = $database->real_escape_string($row['classID']);
+            $studentID = $database->real_escape_string($_POST["studentAssignCourse"]);
 
-			//Create initial SQL query to insert form data into database
-			$queryEnrollment = "INSERT INTO enrollment(classID,schoolYear, semesterNum, studentID) 
+            //Create initial SQL query to insert form data into database
+            $queryEnrollment = "INSERT INTO enrollment(classID,schoolYear, semesterNum, studentID) 
                                         VALUES ('$classID', '$schoolYear', '$semesterNum', '$studentID');";
 
-			//Execute query and store result.
-			$result = $database->query($queryEnrollment);
+            //Execute query and store result.
+            $result = $database->query($queryEnrollment);
 
-			//Check if query executed successfully and that the result contains data.
-			if (!$result) {
-				echo "<h2>Error</h2><p>Sorry, student could not be registered in this course at this time.</p><br>";
-				echo "<form action='assignCourse.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Try Again</button></div></form>";
-				echo "<form action='../../index.php' method='post'><div class='col-md-6'><button class='button button2'>Return Home</button></div></div></form>";
-			} else {
-				echo "<h2>Student Assigned</h2><p>Student " . $studentID . " assigned to " . $subject . " course (year:" . $schoolYear . ", semester: " . $semesterNum . ")</p><br>";
-				echo "<form action='assignCourse.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Try Again</button></div></form>";
-				echo "<form action='../../index.php' method='post'><div class='col-md-6'><button class='button button2'>Return Home</button></div></div></form>";
-				exit("</div></div></body</html>");
+            //Check if query executed successfully and that the result contains data.
+            if (!$result) {
+                echo "<h2>Error</h2><p>Sorry, student could not be registered in this course at this time.</p><br>";
+                echo "<form action='assignCourse.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Try Again</button></div></form>";
+                echo "<form action='../../index.php' method='post'><div class='col-md-6'><button class='button button2'>Return Home</button></div></div></form>";
+            } else {
+                echo "<h2>Student Assigned</h2><p>Student with an ID of " . $studentID . " " . $_SESSION['studentNameForAssignToCourse'] . " assigned to " . $subject . " course (year:" . $schoolYear . ", semester: " . $semesterNum . ")</p><br>";
+                echo "<form action='assignCourse.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Try Again</button></div></form>";
+                echo "<form action='../../index.php' method='post'><div class='col-md-6'><button class='button button2'>Return Home</button></div></div></form>";
+                exit("</div></div></body</html>");
 
-			}
+            }
 
-
-			//Take details used in assign student to a course to generate/search for report cards
-			//Report card query
-			$queryReportCard = "SELECT * FROM reportcard WHERE studentID = $studentID 
+            //Take details used in assign student to a course to generate/search for report cards
+            //Report card query
+            $queryReportCard = "SELECT * FROM reportcard WHERE studentID = $studentID 
                     AND schoolYear = '$schoolYear' AND semesterNum = '$semesterNum';";
 
-			$resultReportCard = $database->query($queryReportCard);
+            $resultReportCard = $database->query($queryReportCard);
 
-			//If no report card is returned from the query, add one using the information.
-			//Otherwise, proceed is normally and bypass the insert query.
-			if ($resultReportCard->num_rows == 0) {
+            //If no report card is returned from the query, add one using the information.
+            //Otherwise, proceed is normally and bypass the insert query.
+            if ($resultReportCard->num_rows == 0) {
 
-				$queryAddReportCard = "INSERT INTO reportcard (isRead, studentID, schoolYear, semesterNum) 
+                $queryAddReportCard = "INSERT INTO reportcard (isRead, studentID, schoolYear, semesterNum) 
                             VALUES (0, $studentID, '$schoolYear', '$semesterNum')";
 
-				$resultAddReportCard = $database->query($queryAddReportCard);
+                $resultAddReportCard = $database->query($queryAddReportCard);
 
-				if ($resultAddReportCard) {
+                if ($resultAddReportCard) {
 
-					//If successful, reload page
+                    //If successful, reload page
 
-					//header("Location: assignCourse.php");
+                    //header("Location: assignCourse.php");
 
-				} else {
+                } else {
 
-					echo "<p>Issue adding a report card to STARS for Student $studentIDFromAssignToCourse</p>";
+                    echo "<p>Issue adding a report card to STARS for Student $studentIDFromAssignToCourse</p>";
 
-				}
+                }
 
-			} else {
+            } else {
 
 
-				//If no report card is generated, refresh the page.
-				//header("Location: assignCourse.php");
+                //If no report card is generated, refresh the page.
+                //header("Location: assignCourse.php");
 
-			}
+            }
 
-			//Close database connection
-			$database->close();
+            //Close database connection
+            $database->close();
 
-		} else {
+        } else {
 
-		$querySubject = "SELECT * FROM subject;";
-		$resultSubject = $database->query($querySubject);
+        $querySubject = "SELECT * FROM subject;";
+        $resultSubject = $database->query($querySubject);
 
-		$queryYearSemester = "SELECT * FROM courseoffering;";
-		$resultYearSemester = $database->query($queryYearSemester);
+        $queryYearSemester = "SELECT * FROM courseoffering;";
+        $resultYearSemester = $database->query($queryYearSemester);
 
-		//Initialize variables to hold the queries and results for students.
-		$queryStudent = "";
-		$resultStudent = "";
+        //Initialize variables to hold the queries and results for students.
+        $queryStudent = "";
+        $resultStudent = "";
 
-		//Get school ID to populate student's dropdown
-		if ($_SESSION["accessCode"] == 1) {
+        //Get school ID to populate student's dropdown
+        if ($_SESSION["accessCode"] == 1) {
 
-			$queryStudent = "SELECT studentID, firstName, lastName FROM student;";
-			$resultStudent = $database->query($queryStudent);
+            $queryStudent = "SELECT studentID, firstName, lastName FROM student;";
+            $resultStudent = $database->query($queryStudent);
 
-		} else if ($_SESSION["accessCode"] == 2) {
+        } else if ($_SESSION["accessCode"] == 2) {
 
-			$userID = $_SESSION["userID"];
-			$schoolID = 0;
-			$querySchoolID = "SELECT schoolID FROM administrator WHERE userID = $userID;";
+            $userID = $_SESSION["userID"];
+            $schoolID = 0;
+            $querySchoolID = "SELECT schoolID FROM administrator WHERE userID = $userID;";
 
-			$resultSchoolID = $database->query($querySchoolID);
+            $resultSchoolID = $database->query($querySchoolID);
 
-			if ($resultSchoolID) {
+            if ($resultSchoolID) {
 
-				while ($row = $resultSchoolID->fetch_assoc()) {
+                while ($row = $resultSchoolID->fetch_assoc()) {
 
-					$schoolID = $row["schoolID"];
+                    $schoolID = $row["schoolID"];
 
-				}
+                }
 
-			}
+            }
 
-			$queryStudent = "SELECT studentID, firstName, lastName FROM student WHERE schoolID = $schoolID;";
-			$resultStudent = $database->query($queryStudent);
+            $queryStudent = "SELECT studentID, firstName, lastName FROM student WHERE schoolID = $schoolID;";
+            $resultStudent = $database->query($queryStudent);
 
-		}
+        }
 
-		$querySemester = "SELECT * FROM semester;";
-		$resultSemester = $database->query($querySemester);
+        $querySemester = "SELECT * FROM semester;";
+        $resultSemester = $database->query($querySemester);
 
-		//Close database connection
-		$database->close();
+        //Close database connection
+        $database->close();
 
-		?>
+        ?>
         <form action="assignCourse.php" method="post">
 
             <h2>Student Details</h2>
@@ -237,43 +235,43 @@ include("../button.class.php");
                 <div class="col-md-12">
                     <label for="subjectsAssignCourse">Subjects</label>
                     <select class="form-control" id="subjectsAssignCourse" name="subjectsAssignCourse">
-                        <option value=''> Select </option>
+                        <option value=''> Select</option>
                         <!-- Using SQL to populate dropdown list of students -->
-						<?php if ($resultSubject->num_rows > 0) {
-							while ($row = $resultSubject->fetch_assoc()) {
-								?>
+                        <?php if ($resultSubject->num_rows > 0) {
+                            while ($row = $resultSubject->fetch_assoc()) {
+                                ?>
                                 <option
                                 value= <?php echo $row["subjectCode"] ?> ><?php echo $row["subjectCode"] . " - " . $row["subjectName"]; ?></option><?php
-							}
-						} else {
-							echo "<option>No Subjects</option>";
-						}
-						?>
+                            }
+                        } else {
+                            echo "<option>No Subjects</option>";
+                        }
+                        ?>
                     </select>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                    <label for="yearAsscourseSemesterYearAssignCourseignCourse">School Year</label>
-                    <select class="form-control" id="yearAsscourseSemesterYearAssignCourseignCourse"
-                            name="yearAsscourseSemesterYearAssignCourseignCourse">
-                        <option value=''> Select </option>
-                        <!-- Using SQL to populate dropdown list of students -->
-						<?php if ($resultSemester->num_rows > 0) {
-							$count = 1;
-							while ($row = $resultSemester->fetch_assoc()) {
-								if (($count % 2) == 0) {
-									?>
-                                    <option
-                                    value= <?php echo $row["schoolYear"] ?>><?php echo $row["schoolYear"] ?></option><?php
-								}
-								$count++;
-							}
-						} else {
-							echo "<option>No Subjects</option>";
-						}
-						?>
-                    </select>
-                </div>
+                        <label for="yearAsscourseSemesterYearAssignCourseignCourse">School Year</label>
+                        <select class="form-control" id="yearAsscourseSemesterYearAssignCourseignCourse"
+                                name="yearAsscourseSemesterYearAssignCourseignCourse">
+                            <option value=''> Select</option>
+                            <!-- Using SQL to populate dropdown list of students -->
+                            <?php if ($resultSemester->num_rows > 0) {
+                                $count = 1;
+                                while ($row = $resultSemester->fetch_assoc()) {
+                                    if (($count % 2) == 0) {
+                                        ?>
+                                        <option
+                                        value= <?php echo $row["schoolYear"] ?>><?php echo $row["schoolYear"] ?></option><?php
+                                    }
+                                    $count++;
+                                }
+                            } else {
+                                echo "<option>No Subjects</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
                 </div>
 
 
@@ -293,7 +291,7 @@ include("../button.class.php");
                     <label for="semesterYearAssignCourse">Semester</label>
                     <select class="form-control" id="semesterYearAssignCourse"
                             name="semesterYearAssignCourse">
-                        <option value=0> Select </option>
+                        <option value=0> Select</option>
                         <option value="01">1st Semester</option>
                         <option value="02">2nd Semester</option>
                     </select>
@@ -307,7 +305,7 @@ include("../button.class.php");
                     <label for="courseSemesterYearAssignCourse">Course</label> <select class="form-control"
                                                                                        name="courseSemesterYearAssignCourse"
                                                                                        id="courseSemesterYearAssignCourse">
-                        <option> Select </option>
+                        <option> Select</option>
                     </select>
                 </div>
             </div>
@@ -315,38 +313,38 @@ include("../button.class.php");
                 <div class="col-md-12">
                     <label for="studentAssignCourse">Student</label>
                     <select class="form-control" id="studentAssignCourse" name="studentAssignCourse">
-                        <option value=''> Select </option>
+                        <option value=''> Select</option>
                         <!-- Using SQL to populate dropdown list of students -->
-						<?php if ($resultStudent->num_rows > 0) {
-							while ($row = $resultStudent->fetch_assoc()) {
-								?>
-                                <option
-                                value= <?php echo $row["studentID"] ?> ><?php echo $row["studentID"] . " - "
-									. $row["firstName"] . " " . $row["lastName"]; ?></option><?php
-							}
-						} else {
-							echo "<option>No Students</option>";
-						}
-						?>
+                        <?php if ($resultStudent->num_rows > 0) {
+                            while ($row = $resultStudent->fetch_assoc()) {
+                                ?>
+                                <option value= <?php echo $row["studentID"] ?> ><?php echo $row["studentID"] . " - "
+                                    . $row["firstName"] . " " . $row["lastName"]; ?></option><?php
+                                $_SESSION["studentNameForAssignToCourse"] = $row['firstName'] . " " . $row['lastName'];
+                            }
+                        } else {
+                            echo "<option>No Students</option>";
+                        }
+                        ?>
                     </select>
                 </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <br>
-                    <!--                            <input type="submit" name="register" value="Register Student in Course">-->
-					<?php
-					$assignCourse = new Button();
+                <div class="row">
+                    <div class="col-md-12">
+                        <br>
+                        <!--                            <input type="submit" name="register" value="Register Student in Course">-->
+                        <?php
+                        $assignCourse = new Button();
 
-					$assignCourse->buttonName = "register";
-					$assignCourse->buttonID = "register";
-					$assignCourse->buttonValue = "Register Student in Course";
-					$assignCourse->buttonStyle = "font-family:sans-serif";
-					$assignCourse->display();
-					?>
+                        $assignCourse->buttonName = "register";
+                        $assignCourse->buttonID = "register";
+                        $assignCourse->buttonValue = "Register Student in Course";
+                        $assignCourse->buttonStyle = "font-family:sans-serif";
+                        $assignCourse->display();
+                        ?>
 
+                    </div>
                 </div>
-            </div>
         </form>
         <div><?php echo $msg ?></div>
     </div>
@@ -355,7 +353,7 @@ include("../button.class.php");
 
 <div class="bottom">
     <div id="footer">
-		<?php include("../../navMenu.php"); ?>
+        <?php include("../../navMenu.php"); ?>
     </div>
 </div>
 </body>
