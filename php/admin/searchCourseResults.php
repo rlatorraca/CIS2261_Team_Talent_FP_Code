@@ -33,7 +33,7 @@ $query = "SELECT student.studentID, student.firstName, student.lastName
             AND courseoffering.classID = enrollment.classID
             AND courseoffering.courseID = course.courseID
             AND enrollment.studentID = student.studentID
-          ORDER By lastName ASC";
+          ORDER By lastName $cleanSort";
 
 // Use $db object created above and run the query() method.
 $resultCourseSearch = $database->query($query);
