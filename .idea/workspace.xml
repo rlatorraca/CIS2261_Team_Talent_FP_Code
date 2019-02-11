@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d665968c-2a54-4ef4-a752-38485972bd29" name="Default Changelist" comment="Added files and started forms">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeedsFixNow.docx" beforeDir="false" afterPath="$PROJECT_DIR$/NeedsFixNow.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/admin/assignCourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/assignCourse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/displayReportCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/displayReportCard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/reporting/viewIEP.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/viewIEP.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -46,29 +43,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/reporting/enterMark.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
+            <state>
               <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/reporting/requestReportCard.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
               <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/php/admin/assignCourse.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
-              <folding>
-                <element signature="e#375#489#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -85,17 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/reporting/viewIEP.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="140" column="75" lean-forward="true" selection-start-line="140" selection-start-column="75" selection-end-line="140" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+            <state relative-caret-position="-935">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -169,7 +145,6 @@
         <option value="$PROJECT_DIR$/navMenu.php" />
         <option value="$PROJECT_DIR$/php/login/login.php" />
         <option value="$PROJECT_DIR$/php/reporting/requestStudentSubHistory.php" />
-        <option value="$PROJECT_DIR$/php/reporting/viewIEP.php" />
         <option value="$PROJECT_DIR$/php/admin/addReportCard.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/php/about.php" />
@@ -193,6 +168,7 @@
         <option value="$PROJECT_DIR$/php/admin/editStudent.php" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/php/reporting/displayReportCard.php" />
+        <option value="$PROJECT_DIR$/php/reporting/viewIEP.php" />
         <option value="$PROJECT_DIR$/php/admin/assignCourse.php" />
       </list>
     </option>
@@ -350,7 +326,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224630000" />
+    <option name="totallyTimeSpent" value="225411000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -547,13 +523,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/reporting/viewIEP.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="140" column="75" lean-forward="true" selection-start-line="140" selection-start-column="75" selection-end-line="140" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/reporting/requestSchoolSubAvg.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="731">
@@ -643,7 +612,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/reporting/enterMark.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
+        <state>
           <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
         </state>
       </provider>
@@ -683,13 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/reporting/requestReportCard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -714,13 +676,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/php/reporting/viewIEP.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-935">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/assignCourse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
-          <folding>
-            <element signature="e#375#489#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="519">
+          <caret line="141" column="148" selection-start-line="141" selection-start-column="148" selection-end-line="141" selection-end-column="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/reporting/requestReportCard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>

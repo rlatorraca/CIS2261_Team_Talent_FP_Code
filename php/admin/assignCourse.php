@@ -138,8 +138,8 @@ include("../button.class.php");
                 echo "<form action='../../index.php' method='post'><div class='col-md-6'><button class='button button2'>Return Home</button></div></div></form>";
             } else {
                 $studentName = $_SESSION["studentNameForAssignToCourse"];
-                echo "<h2>Student Assigned. </h2><p>$studentName with an ID of " . $studentID . " " . " has been assigned to " . $subject . " course (year:" . $schoolYear . ", semester: " . $semesterNum . ")</p><br>";
-                echo "<form action='assignCourse.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Try Again</button></div></form>";
+                echo "<h2>Student Assigned. </h2><p>$studentName with an ID of " . $studentID . " " . " has been assigned to " . $subject . " course (year: " . $schoolYear . ", semester: " . $semesterNum . ")</p><br>";
+                echo "<form action='assignCourse.php' method='post'><div class='row'><div class='col-md-6'><button class='button button2'>Assign New</button></div></form>";
                 echo "<form action='../../index.php' method='post'><div class='col-md-6'><button class='button button2'>Return Home</button>
                         </div></div></form>";
                 echo "</div></div><div class='bottom'><div id='footer'>";
