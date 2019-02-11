@@ -46,9 +46,11 @@ include "../button.class.php";
 
     <link href="../../css/stars.css" rel="stylesheet">
     <script src="../../js/main.js"></script>
-    <!--    <script>function goBack() {-->
-    <!--            window.history.back();-->
-    <!--        }</script>-->
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
     <!--        <script>-->
     <!--            // This function shows the date picker.-->
     <!--            $(function () {-->
