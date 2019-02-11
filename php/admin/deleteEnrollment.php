@@ -55,28 +55,28 @@ $confirm = new Button();
 
         <script src="../../js/main.js"></script>
 
-        <!--    function to go back to your incomplete form without losing previously filled fields-->
-        <!--    <script>-->
-        <!--        function goBack() {-->
-        <!--            window.history.back();-->
-        <!--        }-->
-        <!---->
-        <!--        // This function shows the date picker.-->
+            <!--function to go back to your incomplete form without losing previously filled fields-->
+            <script>
+                function goBack() {
+                    window.history.back();
+                }
+
+        <!--         This function shows the date picker.-->
         <!--        $(function () {-->
         <!--            $("#datepicker").datepicker();-->
         <!--        });-->
         <!---->
-        <!--        // This function shows the note.-->
-        <!--        // Will need to add a variable to get the notes to then call.-->
+        <!--        This function shows the note.-->
+        <!--        Will need to add a variable to get the notes to then call.-->
         <!--        $(function () {-->
         <!--            $(document).tooltip();-->
         <!--        });-->
         <!---->
-        <!--        // This function manages the drop downs on the main menu.-->
+        <!--        This function manages the drop downs on the main menu.-->
         <!--        $(function () {-->
         <!--            $("#menu").menu();-->
         <!--        });-->
-        <!--    </script>-->
+        </script>
         <title>STARS - Enrollment Removed</title>
     </head>
     <body>
@@ -92,10 +92,10 @@ $confirm = new Button();
                     header('Location: ../../php/admin/searchCourses.php');
                 }
 
-                echo "studentID:" . $studentID;
+                //echo "studentID:" . $studentID;
 
                 $deleteStudentEnrollment = "DELETE FROM enrollment WHERE enrollment.studentID = $studentID AND enrollment.classID = $classID;";
-                echo $deleteStudentEnrollment;
+                //echo $deleteStudentEnrollment;
 
                 $deleteQueryForStudentEnrollment = $database->query($deleteStudentEnrollment);
 
@@ -106,8 +106,16 @@ $confirm = new Button();
                 } else {
 
                     echo "<p>Student could not be un-enrolled from this course.</p>";
-
                 }
+
+                $return = new Button();
+
+                $return->buttonName = "return";
+                $return->buttonID = "return";
+                $return->buttonValue = "Return";
+                $return->buttonStyle = "font-family:sans-serif";
+                $return->buttonWeb = 'goBack()';
+                $return->display();
 
                 ?>
             </div>
