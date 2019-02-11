@@ -186,7 +186,7 @@ if (isset($_POST['enter'])) {
 
                             <select name="studentMark" id="studentMark" class="form-control">
                                 <option>Select</option>
-                            </select>
+                            </select><br>
                         </div>
                     </div>
 
@@ -214,7 +214,7 @@ if (isset($_POST['enter'])) {
                                     <?php
                                 }
                                 ?>
-                            </select>
+                            </select><br>
                         </div>
                     </div>
 
@@ -230,7 +230,7 @@ if (isset($_POST['enter'])) {
                     <br>
                     <!--Search button-->
                     <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-md-10">
                             <?php
                             $confirm = new Button();
 
@@ -241,7 +241,7 @@ if (isset($_POST['enter'])) {
                             $confirm->display(); ?>
 
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-2">
                             <?php
                             $confirm = new Button();
 
