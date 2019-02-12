@@ -87,7 +87,7 @@ include "../button.class.php";
         </div>
     </body>
 </html>";
-            exit();
+
 
 
         //StudentID pulled from the report card page.
