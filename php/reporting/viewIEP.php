@@ -56,10 +56,29 @@ include "../button.class.php";
         <?php
 
         //Check to ensure that a studentID was selected from the report card page before user can access this page.
-        if (!isset($_GET["studentID"])) {
-
-            echo "<p><h2>Error</h2>Please request a student's report card first before viewing an Individual Education Plan.</p>
-            </div>
+        if (!isset($_POST["studentID"])) {
+        ?>
+        <form method="post" action="displayReportCard.php">
+            <input type="hidden" id="selectStudent" name="selectStudent"
+                   value="<?php echo $_POST['selectStudent']; ?>">
+            <input type="hidden" id="selectYear" name="selectYear"
+                   value="<?php echo $_POST['selectYear'];
+		           } ?>">
+            <input type="hidden" id="selectSemester" name="selectSemester"
+                   value="<?php echo $_POST['selectSemester']; ?>">
+		    <?php
+		    echo "<p><h2>Error</h2>Please request a student's report card first before viewing an Individual Education Plan.</p>";
+		    $goBack1 = new Button();
+		    $goBack1->buttonName = 'goBack';
+		    $goBack1->buttonID = 'goBack';
+		    $goBack1->buttonValue = 'Go Back';
+		    $goBack1->buttonStyle = 'font-family:sans-serif';
+		    //Back button works. Does not use the main.js file however. Requires that the page be reloaded.
+		    $goBack1->display();
+		    ?>
+        </form>
+	    <?php
+	    echo "</div>
         </div>
         <div class='bottom'>
             <div id='footer'>";
@@ -69,10 +88,10 @@ include "../button.class.php";
     </body>
 </html>";
             exit();
-        }
+
 
         //StudentID pulled from the report card page.
-        $studentIDFromForm = $_GET["studentID"];
+	    $studentIDFromForm = $_POST["studentID"];
 
         //To ensure studentID is the accurate one
         //echo $studentIDFromForm;
@@ -136,7 +155,6 @@ include "../button.class.php";
         }
         //Back button
         $goBack = new Button();
-
         $goBack->buttonName = "goBack";
         $goBack->buttonID = "goBack";
         $goBack->buttonValue = "Go Back";

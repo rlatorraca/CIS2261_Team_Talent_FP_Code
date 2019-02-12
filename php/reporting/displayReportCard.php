@@ -74,9 +74,9 @@ include "../button.class.php";
 <div class="jumbotron-fluid">
     <div class="container-fluid">
         <?php
-
+        //$msg="";
         //In the event that a user reaches this page before requesting a student's report card from the prior page, handle this.
-        if (!isset($_GET["selectStudent"])) {
+        if (!isset($_POST["selectStudent"])) {
 
             //Show message and bottom nav bar.
             $msg = "Please request a student's report card before accessing this page. 
@@ -90,10 +90,17 @@ include "../button.class.php";
 
         }
 
-        //Variables to hold the requested info from the prior page
-        $studentIDFromForm = $_GET["selectStudent"];
-        $schoolYearFromForm = $_GET["selectYear"];
-        $semesterNumFromForm = $_GET["selectSemester"];
+        if (isset($_POST['studentID'])) {
+	        $studentIDFromForm = $_POST["studentID"];
+	        $schoolYearFromForm = $_POST["selectYear"];
+	        $semesterNumFromForm = $_POST["selectSemester"];
+        } else {
+	        //Variables to hold the requested info from the prior page
+	        $studentIDFromForm = $_POST["selectStudent"];
+	        $schoolYearFromForm = $_POST["selectYear"];
+	        $semesterNumFromForm = $_POST["selectSemester"];
+        }
+
 
         //Initial variables to hold student report card data.
         $studentFirstName = "";
@@ -253,7 +260,7 @@ include "../button.class.php";
                 <td class="reportNote">
                     <?php
                     } else {
-                        $msg .= "<h4>This student is not enrolled in any courses for this school year.</h4>";
+	                    $msg = "<h4>This student is not enrolled in any courses for this school year.</h4>";
                     }
 
                     //Close connection
@@ -261,19 +268,39 @@ include "../button.class.php";
 
                     //Close connection to database
                     $database->close();
+                    ?>
+                    <form method="post" action="viewIEP.php">
+                        <input type="hidden" id="selectStudent" name="selectStudent"
+                               value="<?php echo $studentIDFromForm; ?>">
+                        <input type="hidden" id="selectYear" name="selectYear"
+                               value="<?php echo $schoolYearFromForm; ?>">
+                        <input type="hidden" id="selectSemester" name="selectSemester"
+                               value="<?php echo $semesterNumFromForm; ?>">
+		                <?php
+		                if (!isset($msg)) {
+			                $iep = new Button();
+			                $iep->buttonName = "iep";
+			                $iep->buttonID = "iep";
+			                $iep->buttonValue = "Individual Educational Plan";
+			                $iep->buttonStyle = "font-family:sans-serif";
+			                $iep->display();
+		                }
+		                ?>
+                    </form>
+	                <?php
 
 
-                    if (!isset($msg)) {
-                        $iep = new Button();
-
-                        $iep->buttonName = "iep";
-                        $iep->buttonID = "iep";
-                        $iep->buttonValue = "Individual Educational Plan";
-                        $iep->buttonStyle = "font-family:sans-serif";
-                        //Back button works. Does not use the main.js file however.
-                        $iep->buttonWeb = 'location.href="viewIEP.php?studentID=' . $studentIDFromForm . '"';
-                        $iep->display();
-                    }
+	                //                    if (!isset($msg)) {
+	                //                        $iep = new Button();
+	                //
+	                //                        $iep->buttonName = "iep";
+	                //                        $iep->buttonID = "iep";
+	                //                        $iep->buttonValue = "Individual Educational Plan";
+	                //                        $iep->buttonStyle = "font-family:sans-serif";
+	                //                        //Back button works. Does not use the main.js file however.
+	                //                        $iep->buttonWeb = 'location.href="viewIEP.php?studentID=' . $studentIDFromForm . '"';
+	                //                        $iep->display();
+	                //                    }
 
 
                     ?>
