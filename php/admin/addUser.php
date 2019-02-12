@@ -113,7 +113,7 @@
 
                                 $register->buttonName = "add";
                                 $register->buttonID = "addID";
-                                $register->buttonValue = "Add User";
+	                            $register->buttonValue = "Add Student";
                                 $register->buttonStyle = "font-family:sans-serif";
                                 $register->buttonWeb = 'location.href="addStudent.php?username=' . $username . '"';
                                 $register->display();
@@ -182,7 +182,7 @@
                         <div class="row">
                             <div class="col-md-12 form-inline">
                                 <label for="password" class="col-md-6">Password</label>
-                                <input type="text" name="password" class="col-md-6 form-control">
+                                <input type="password" name="password" class="col-md-6 form-control">
                             </div>
                         </div>
                         <br>
