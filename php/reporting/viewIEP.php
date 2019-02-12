@@ -24,7 +24,7 @@ include "../button.class.php";
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Fonts !-->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
 
     <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
@@ -56,14 +56,13 @@ include "../button.class.php";
         <?php
 
         //Check to ensure that a studentID was selected from the report card page before user can access this page.
-        if (!isset($_POST["studentID"])) {
+        if (!isset($_POST["selectStudent"])) {
         ?>
         <form method="post" action="displayReportCard.php">
             <input type="hidden" id="selectStudent" name="selectStudent"
                    value="<?php echo $_POST['selectStudent']; ?>">
             <input type="hidden" id="selectYear" name="selectYear"
-                   value="<?php echo $_POST['selectYear'];
-		           } ?>">
+                   value="<?php echo $_POST['selectYear']; ?>">
             <input type="hidden" id="selectSemester" name="selectSemester"
                    value="<?php echo $_POST['selectSemester']; ?>">
 		    <?php
@@ -87,11 +86,12 @@ include "../button.class.php";
         </div>
     </body>
 </html>";
+        }
 
 
 
         //StudentID pulled from the report card page.
-	    $studentIDFromForm = $_POST["studentID"];
+        $studentIDFromForm = $_POST["selectStudent"];
 
         //To ensure studentID is the accurate one
         //echo $studentIDFromForm;
@@ -153,15 +153,34 @@ include "../button.class.php";
             $msg = "This student has no IEP listed in the system";
             echo "<div class='alert alert-danger'>$msg</div>";
         }
-        //Back button
-        $goBack = new Button();
-        $goBack->buttonName = "goBack";
-        $goBack->buttonID = "goBack";
-        $goBack->buttonValue = "Go Back";
-        $goBack->buttonStyle = "font-family:sans-serif";
-        //Back button works. Does not use the main.js file however. Requires that the page be reloaded.
-        $goBack->buttonWeb = "javascript:history.back(-1);";
-        $goBack->display();
+        //        //Back button
+        //        $goBack = new Button();
+        //        $goBack->buttonName = "goBack";
+        //        $goBack->buttonID = "goBack";
+        //        $goBack->buttonValue = "Go Back";
+        //        $goBack->buttonStyle = "font-family:sans-serif";
+        //        //Back button works. Does not use the main.js file however. Requires that the page be reloaded.
+        //        $goBack->buttonWeb = "javascript:history.back(-1);";
+        //        $goBack->display();
+        ?>
+        <form method="post" action="displayReportCard.php">
+            <input type="hidden" id="selectStudent" name="selectStudent"
+                   value="<?php echo $_POST['selectStudent']; ?>">
+            <input type="hidden" id="selectYear" name="selectYear"
+                   value="<?php echo $_POST['selectYear']; ?>">
+            <input type="hidden" id="selectSemester" name="selectSemester"
+                   value="<?php echo $_POST['selectSemester']; ?>">
+		    <?php
+
+		    $goBack1 = new Button();
+		    $goBack1->buttonName = 'goBack';
+		    $goBack1->buttonID = 'goBack';
+		    $goBack1->buttonValue = 'Go Back';
+		    $goBack1->buttonStyle = 'font-family:sans-serif';
+		    //Back button works. Does not use the main.js file however. Requires that the page be reloaded.
+		    $goBack1->display();
+
+
         ?>
     </div>
 </div>
