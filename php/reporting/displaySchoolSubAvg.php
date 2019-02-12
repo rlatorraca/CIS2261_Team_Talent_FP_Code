@@ -123,6 +123,7 @@ if ($resultSetInitialQuery) {
 
                     $array[$schoolYear] = $emptyAverage;
 
+
                 } else {
 
                     $array[$schoolYear] = $average;
@@ -241,7 +242,33 @@ if ($resultSetInitialQuery) {
 
             // Instantiate and draw our chart, passing in some options.
             var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+	        <?php
+	        if ( $array[$schoolYear] != $emptyAverage) {
+	        ?>
             chart.draw(data, options);
+	        <?php
+	        }
+	        else {
+		        $error = "<p>Could not display subject average at this time.</p>";
+//				if (isset($error)) {
+//					include "../../header.php";
+//					echo "<div class='jumbotron-fluid'>";
+//					echo "<div class='container-fluid chart-sizer'>";
+//					echo "<div class='container chart-container'>";
+//					echo "<br><div class='alert alert-danger'>$error</div>";
+//				}
+//
+//				$button = new Button();
+//
+//				$button->buttonName = "goBack";
+//				$button->buttonID = "goBack";
+//				$button->buttonValue = "Go Back";
+//				$button->buttonStyle = "font-family:sans-serif";
+//				$button->buttonWeb = "goBack()";
+//				$button->display();
+
+	        }
+	        ?>
         }
     </script>
 </head>
@@ -254,28 +281,30 @@ if ($resultSetInitialQuery) {
 
         <div class="container chart-container">
             <h2>School Subject Average</h2>
-            <br>
 
+	        <?php
+	        if (isset($error)) {
+		        echo "<div class='alert alert-danger'>$error</div>";
+	        }
+	        ?>
             <div class="row">
                 <div class="col-sm-12 " id="chart_div">
                 </div>
             </div>
+	        <?php
+
+	        $goBack = new Button();
+
+	        $goBack->buttonName = "goBack";
+	        $goBack->buttonID = "goBack";
+	        $goBack->buttonValue = "Go Back";
+	        $goBack->buttonStyle = "font-family:sans-serif";
+	        $goBack->buttonWeb = 'goBack()';
+	        $goBack->display();
+	        ?>
+
         </div>
-        <?php
-        if (isset($msg)){
-            echo "<div class='alert alert-danger'>$msg</div>";
-        }
 
-        $goBack = new Button();
-
-        $goBack->buttonName = "goBack";
-        $goBack->buttonID = "goBack";
-        $goBack->buttonValue = "Go Back";
-        $goBack->buttonStyle = "font-family:sans-serif";
-        $goBack->buttonWeb = 'goBack()';
-        $goBack->display();
-
-        ?>
     </div>
 </div>
 <div class="bottom">
