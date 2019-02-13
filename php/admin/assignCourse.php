@@ -312,7 +312,7 @@ include("../button.class.php");
                                         ?>
                                         <option
                                         value= <?php echo $row["schoolYear"] ?><?php if ($row["schoolYear"] == '2018/2019') {
-		                                    echo "selected";
+		                                    echo " selected";
 	                                    } ?>><?php echo $row["schoolYear"] ?></option><?php
                                     }
                                     $count++;
