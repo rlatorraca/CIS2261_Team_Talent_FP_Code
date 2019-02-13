@@ -380,8 +380,19 @@ include("../button.class.php");
                 </div>
 
                 <div class="row">
-                    <div class="col-md-12">
-                        <br>
+                    <div class="col-md-4">
+		                <?php
+		                $confirm = new Button();
+
+		                $confirm->buttonName = "reset";
+		                $confirm->buttonID = "reset";
+		                $confirm->buttonValue = "Reset";
+		                $confirm->buttonStyle = "font-family:sans-serif";
+		                $confirm->display(); ?>
+
+                    </div>
+                    <div class="col-md-8">
+                      
                         <!--                            <input type="submit" name="register" value="Register Student in Course">-->
                         <?php
                         $assignCourse = new Button();

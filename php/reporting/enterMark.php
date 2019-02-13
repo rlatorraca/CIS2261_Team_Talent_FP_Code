@@ -98,6 +98,8 @@ if (isset($_POST['enter'])) {
                     AND educator.schoolID = school.schoolID
                     AND courseoffering.educatorID = educator.educatorID
                     AND course.courseID = courseoffering.courseID;";
+	    //query to find the students in the selected course
+	    $resultCourse = $database->query($queryCourse);
 
     } else if ($_SESSION["accessCode"] == 3) {
 
@@ -107,10 +109,11 @@ if (isset($_POST['enter'])) {
                     AND courseoffering.educatorID = educator.educatorID 
                     AND user.userID = educator.userID 
                     AND course.courseID = courseoffering.courseID;";
+	    //query to find the students in the selected course
+	    $resultCourse = $database->query($queryCourse);
     }
 
-    //query to find the students in the selected course
-    $resultCourse = $database->query($queryCourse);
+
 }
 ?>
 <!doctype html>
