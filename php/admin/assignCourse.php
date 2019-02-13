@@ -311,7 +311,9 @@ include("../button.class.php");
                                     if (($count % 2) == 0) {
                                         ?>
                                         <option
-                                        value= <?php echo $row["schoolYear"] ?>><?php echo $row["schoolYear"] ?></option><?php
+                                        value= <?php echo $row["schoolYear"] ?><?php if ($row["schoolYear"] == '2018/2019') {
+		                                    echo "selected";
+	                                    } ?>><?php echo $row["schoolYear"] ?></option><?php
                                     }
                                     $count++;
                                 }
@@ -392,7 +394,7 @@ include("../button.class.php");
 
                     </div>
                     <div class="col-md-8">
-                      
+
                         <!--                            <input type="submit" name="register" value="Register Student in Course">-->
                         <?php
                         $assignCourse = new Button();
