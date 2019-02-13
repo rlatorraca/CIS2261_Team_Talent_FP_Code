@@ -14,7 +14,7 @@
 include("../db/dbConn.php");
 
 if (isset($_POST['schoolYear'])) {
-	$sql = "select courseoffering.courseID, course.courseName from courseoffering, course where courseoffering.schoolYear='" . mysqli_real_escape_string($database, $_POST['schoolYear']) . "' and  courseoffering.semesterNum = " . mysqli_real_escape_string($database, $_POST['semesterNum']) . " and course.subjectCode='" . mysqli_real_escape_string($database, $_POST['subjectCode']) . "' and course.courseID = courseoffering.courseID ;";
+	$sql = "select distinct courseoffering.courseID, course.courseName from courseoffering, course where courseoffering.schoolYear='" . mysqli_real_escape_string($database, $_POST['schoolYear']) . "' and  courseoffering.semesterNum = " . mysqli_real_escape_string($database, $_POST['semesterNum']) . " and course.subjectCode='" . mysqli_real_escape_string($database, $_POST['subjectCode']) . "' and course.courseID = courseoffering.courseID ;";
 //	$sql = "select courseoffering.courseID, course.courseName from courseoffering, course where courseoffering.schoolYear='" . mysqli_real_escape_string($database, $_POST['schoolYear']).'" and  courseoffering.semesterNum = ". mysqli_real_escape_string($database, $_POST['semesterNum'])." and course.courseID = courseoffering.courseID ;";
 	$res = mysqli_query($database, $sql);
 	if (mysqli_num_rows($res) > 0) {
