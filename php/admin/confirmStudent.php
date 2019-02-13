@@ -33,9 +33,6 @@ include "../button.class.php";
             <!-- Fonts !-->
             <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
 
-            <!--Link to custom style sheet-->
-            <link href="../../css/stars.css" rel="stylesheet">
-
             <!-- JQuery Links !-->
             <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
             <link rel="stylesheet" href="/resources/demos/style.css">
@@ -48,6 +45,9 @@ include "../button.class.php";
                     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                     crossorigin="anonymous"></script>
 
+            <!--Link to custom style sheet-->
+            <link href="../../css/stars.css" rel="stylesheet">
+
             <script src="../../js/main.js"></script>
 
             <!--           function to go back to your incomplete form without losing previously filled fields-->
@@ -57,7 +57,6 @@ include "../button.class.php";
                     window.history.back();
                 }
             </script>
-
 
             <title>STARS - Confirm Student</title>
         </head>
@@ -81,16 +80,15 @@ include "../button.class.php";
                     $allergies = $database->real_escape_string($_POST["allergies"]);
                     $schoolID = $database->real_escape_string($_POST["selectSchool"]);
                     $guardianID = $database->real_escape_string($_POST["selectParentGuardian"]);
-                    //$username = $database->real_escape_string($_POST["username"]);
                     $supportEducatorID = $database->real_escape_string($_POST["selectSupportEducator"]);
 
                     //To trigger when user submits request to add new Student to stars database
                     //if (isset($_POST["register"])) {
 
-                    //If details are empty, display a message and give redirect links. Otherwise, proceed.
-                    if ($firstName == "" || $middleName == "" || $lastName == "" || $dob = "" || $address = "" || $phoneNum == "" || $emailAddress == "") {
+                    //If details are empty, display a message and show redirect buttons. Otherwise, proceed.
+                    if (($firstName == "") || ($middleName == "") || ($lastName == "") || ($dob == "") || ($address == "") || ($phoneNum == "") || ($emailAddress == "")) {
                         $msg = "Form fields must not be empty before registering new student in STARS.";
-                        echo "<br><span style='color: red'>$msg</span><br><br>";
+                        echo "<br><div class='alert alert-danger' style='color: red'><h4>$msg</h4></div><br><br>";
 
                         //Back Button
                         $goBack = new Button();
@@ -101,7 +99,7 @@ include "../button.class.php";
                         $goBack->buttonWeb = "javascript:history.back(-1);";
                         $goBack->display();
 
-                        //Back Button
+                        //Home Button
                         $homeBtn = new Button();
                         $homeBtn->buttonName = "returnHome";
                         $homeBtn->buttonID = "returnHome";

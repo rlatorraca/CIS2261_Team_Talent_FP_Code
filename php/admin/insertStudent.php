@@ -63,7 +63,7 @@ include "../../header.php"; ?>
         $resultUsernameFromQuery = $database->query($queryUsername);
         $userID = "";
 
-        if ($resultUsernameFromQuery->num_rows > 0) {
+        if ($resultUsernameFromQuery) {
 
             while ($resultSet = $resultUsernameFromQuery->fetch_assoc()) {
 
@@ -104,29 +104,31 @@ include "../../header.php"; ?>
             $msg = "<br><div class='alert alert-info'><h4>Student has been successfully added to the database</h4></div>";
 
         } else {
-            $msg = "<br><div class='alert alert-danger'><h4>Sorry, student could not be added to the database at this time</h4></div>";
-        }
 
-        //Clear username session variable
-        $_SESSION["username"] = "";
+            $msg = "<br><div class='alert alert-danger'><h4>Sorry, student could not be added to the database at this time</h4></div>";
+
+        }
 
         //Close database connection
         $database->close();
+
+        //Clear username session variable
+        $_SESSION["username"] = "";
 
         if (isset($msg)) {
 
             echo $msg;
 
-            //Back Button
-            $goBack = new Button();
+            //Add new User Button
+            $addUser = new Button();
 
-            $goBack->buttonName = "goBack";
-            $goBack->buttonID = "goBack";
-            $goBack->buttonValue = "Add another User";
-            $goBack->buttonStyle = "font-family:sans-serif";
+            $addUser->buttonName = "addUser";
+            $addUser->buttonID = "addUser";
+            $addUser->buttonValue = "Add another User";
+            $addUser->buttonStyle = "font-family:sans-serif";
             //Back button works. Does not use the main.js file however.
-            $goBack->buttonWeb = 'location.href = "addUser.php"';
-            $goBack->display();
+            $addUser->buttonWeb = 'location.href = "addUser.php"';
+            $addUser->display();
 
         }
         ?>

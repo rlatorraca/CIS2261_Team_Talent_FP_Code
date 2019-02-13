@@ -151,7 +151,7 @@
                             <div class="form-group col-sm-6">
                                 <label for="allergies">Allergies</label><br/>
                                 <textarea class="form-control" id="allergies" name="allergies"
-                                          placeholder="Allergies" title="a practice tool tip"cols="40"
+                                          placeholder="Allergies" title="a practice tool tip" cols="40"
                                           rows="2"></textarea>
                             </div>
                         </div>
