@@ -19,8 +19,8 @@
     include("../button.class.php");
 
 ?>
-<!doctype html>
-<html lang="en">
+    <!doctype html>
+    <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -49,116 +49,133 @@
 
     </head>
     <body>
-        <div><?php
+    <div><?php
 
-                //To trigger when user submits request to add new User
-                if (isset($_POST["add"])) {
+    //To trigger when user submits request to add new User
+    if (isset($_POST["add"])) {
 
-                //If details are empty, display a message and give redirect links. Otherwise, proceed.
-
-                if ($_POST["username"] == "" || $_POST["password"] == "" || $_POST["accessCode"] == "") {
+        //If details are empty, display a message and give redirect links. Otherwise, proceed.
+        if ($_POST["username"] == "" || $_POST["password"] == "" || $_POST["accessCode"] == "") {
             ?>
-        </div>
-        <div class="header">
-            <img src="../../img/StarsWhiteFIN.jpg">
-        </div>
-        <div class="jumbotron-fluid">
-            <div class="container-fluid">
-                <?php
-                    echo "<h2>Error. Form fields must not be empty before submitting</h2><br>";
-                    echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button class='btn  button button2' onclick='goBack()'>Go Back</button></div></fieldset></form>";
-                    echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button class = 'btn button button2' id='customBtn'>Return Home</button></div></fieldset></form>";
-                ?>
             </div>
-        </div>
-        </div>
-        <div class="bottom">
-            <div id="footer">
-                <?php include("../../navMenu.php"); ?>
+            <div class="header">
+                <img src="../../img/StarsWhiteFIN.jpg">
             </div>
-        </div>
-
-        <?php
+            <div class="jumbotron-fluid">
+                <div class="container-fluid">
+                    <?php
+                        echo "<h2>Error. Form fields must not be empty before submitting</h2><br>";
+                        echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button class='btn  button button2' onclick='goBack()'>Go Back</button></div></fieldset></form>";
+                        echo "<form action='../../index.php' method='post'><fieldset><div class='col-md-12'><button class = 'btn button button2' id='customBtn'>Return Home</button></div></fieldset></form>";
+                    ?>
+                </div>
+            </div>
+            </div>
+            <div class="bottom">
+                <div id="footer">
+                    <?php include("../../navMenu.php"); ?>
+                </div>
+            </div>
+            <?php
 
             exit("</div></body</html>");
-            }
+        }
 
-            //Sanitize user inputs to prepare for database insert query.
-            //$userID = $database->real_escape_string($_POST["userID"]);
-            $username = $database->real_escape_string($_POST["username"]);
-            $password = (md5($database->real_escape_string($_POST["password"])));
-            $accessCode = $database->real_escape_string($_POST["accessCode"]);
+        //Sanitize user inputs to prepare for database insert query.
+        //$userID = $database->real_escape_string($_POST["userID"]);
+        $username = $database->real_escape_string($_POST["username"]);
+        $password = (md5($database->real_escape_string($_POST["password"])));
+        $accessCode = $database->real_escape_string($_POST["accessCode"]);
 
-            $_SESSION['username'] = $username;
+        $_SESSION['username'] = $username;
 
-            //Create initial SQL query to insert form data into database
-            $query = "INSERT INTO user(username, password, accessCode) VALUES ('$username', '$password', '$accessCode');";
+        //Create initial SQL query to insert form data into database
+        $query = "INSERT INTO user(username, password, accessCode) VALUES ('$username', '$password', '$accessCode');";
 
-            //Execute query and store result.
-            $result = $database->query($query);
+        //Execute query and store result.
+        $result = $database->query($query);
 
-            //Check if query executed successfully and that the result contains data.
-            if ($result) {
-                ?>
+        //Check if query executed successfully and that the result contains data.
+        if ($result) {
+            ?>
+            </div>
+            <div class="header">
+                <img src="../../img/StarsWhiteFIN.jpg">
+            </div>
+            <div class="jumbotron-fluid">
+                <div class="container-fluid container-sizer">
+                    <?php echo "<h2>Success</h2><p>User has successfully been added to the database</p><br>";
+                        if ($accessCode == 5) {
+
+                            $register = new Button();
+
+                            $register->buttonName = "add";
+                            $register->buttonID = "addID";
+                            $register->buttonValue = "Add Student";
+                            $register->buttonStyle = "font-family:sans-serif";
+                            $register->buttonWeb = 'location.href="addStudent.php?username=' . $username . '"';
+                            $register->display();
+                        }
+                    ?>
                 </div>
-                <div class="header">
-                    <img src="../../img/StarsWhiteFIN.jpg">
+            </div>
+            </div>
+            <div class="bottom">
+                <div id="footer">
+                    <?php include("../../navMenu.php"); ?>
                 </div>
-                <div class="jumbotron-fluid">
-                    <div class="container-fluid container-sizer">
-                        <?php echo "<h2>Success</h2><p>User has successfully been added to the database</p><br>";
-                            if ($accessCode == 5) {
+            </div>
+            <!--        --><?php
+            //            echo "<h2>User has successfully been added to the database</h2><br>";
+            //            echo "<a href='addStudent.php?username=" . $username . "'>Register new Student</a>";
+            //echo "<form action='addStudent.php?userID=" . $userID . "' method='get'><fieldset><div class='col-md-12'><button>Register Student with this Information</button></div></fieldset></form>";
+            //echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'>Add Another User</button></div></fieldset></form>";
 
-                                $register = new Button();
+        } else {
 
-                                $register->buttonName = "add";
-                                $register->buttonID = "addID";
-	                            $register->buttonValue = "Add Student";
-                                $register->buttonStyle = "font-family:sans-serif";
-                                $register->buttonWeb = 'location.href="addStudent.php?username=' . $username . '"';
-                                $register->display();
-                            }
+            ?>
+            </div>
+            <?php include "../../header.php"; ?>
+            <div class="jumbotron-fluid">
+                <div class="container-fluid chart-sizer">
+                    <div class="container "><br>
+                        <div class="alert-danger">
+                            <?php echo "<br><h5>Sorry, User could not be added to the database at this time</h5><br>";
+
+                            ?>
+                        </div><br>
+                        <?php
+                            $button = new Button();
+
+                            $button->buttonName = "goBack";
+                            $button->buttonID = "goBack";
+                            $button->buttonValue = "Go Back";
+                            $button->buttonStyle = "font-family:sans-serif";
+                            $button->buttonWeb = "goBack()";
+                            $button->display();
                         ?>
                     </div>
+                    <script>
+                        function goBack() {
+                            window.history.back();
+                        }
+                    </script>
                 </div>
-                </div>
-                <div class="bottom">
-                    <div id="footer">
-                        <?php include("../../navMenu.php"); ?>
-                    </div>
-                </div>
-                <!--        --><?php
-                //            echo "<h2>User has successfully been added to the database</h2><br>";
-                //            echo "<a href='addStudent.php?username=" . $username . "'>Register new Student</a>";
-                //echo "<form action='addStudent.php?userID=" . $userID . "' method='get'><fieldset><div class='col-md-12'><button>Register Student with this Information</button></div></fieldset></form>";
-                //echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'>Add Another User</button></div></fieldset></form>";
+            </div>
 
-            } else {
 
-                ?>
+            <div class="bottom">
+                <div id="footer">
+                    <?php include("../../navMenu.php"); ?>
                 </div>
-                <?php include "../../header.php"; ?>
-                <div class="jumbotron-fluid">
-                    <div class="container-fluid">
-                        <?php echo "<h2>Sorry, User could not be added to the database at this time</h2><br>";
-                            echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button class='btn btn-primary' onclick='goBack()'>Go Back</button></div></fieldset></form>";
-                            echo "<form action='/index.php' method='post'><fieldset><div class='col-md-12'><button id='customBtn'>Return Home</button></div></fieldset></form>";
-                        ?>
-                    </div>
-                </div>
-                </div>
-                <div class="bottom">
-                    <div id="footer">
-                        <?php include("../../navMenu.php"); ?>
-                    </div>
-                </div>
+            </div>
 
-                <?php
-            }
+            <?php
+        }
 
-            //Close database connection
-            $database->close();
-            } else {
+        //Close database connection
+        $database->close();
+    } else {
 
         ?>
         </div>
@@ -172,48 +189,47 @@
                         <p><span style="color:red">*All fields are required and username must be unique.</span></p>
                         <br>
                         <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 form-inline">
-                                <label for="username" class="col-md-6">Username</label>
-                                <input type="text" name="username" class="col-md-6 form-control">
+                            <div class="row">
+                                <div class="col-md-12 form-inline">
+                                    <label for="username" class="col-md-6">Username</label>
+                                    <input type="text" name="username" class="col-md-6 form-control">
+                                </div>
                             </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-12 form-inline">
-                                <label for="password" class="col-md-6">Password</label>
-                                <input type="password" name="password" class="col-md-6 form-control">
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12 form-inline">
+                                    <label for="password" class="col-md-6">Password</label>
+                                    <input type="password" name="password" class="col-md-6 form-control">
+                                </div>
                             </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-12 form-inline">
-                                <label for="price" class="col-md-6">Access Code</label>
-                                <select name="accessCode" class="form-control">
-                                    <option value="1">1: System Administrator</option>
-                                    <option value="2">2: Administrator</option>
-                                    <option value="3">3: Educator</option>
-                                    <option value="4">4: Support Educator</option>
-                                    <option value="5" selected>5: Student</option>
-                                    <option value="6">6: Parent/Guardian</option>
-                                </select>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12 form-inline">
+                                    <label for="price" class="col-md-6">Access Code</label>
+                                    <select name="accessCode" class="form-control">
+                                        <option value="1">1: System Administrator</option>
+                                        <option value="2">2: Administrator</option>
+                                        <option value="3">3: Educator</option>
+                                        <option value="4">4: Support Educator</option>
+                                        <option value="5" selected>5: Student</option>
+                                        <option value="6">6: Parent/Guardian</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <?php
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <?php
 
+                                        $confirm = new Button();
 
-                                    $confirm = new Button();
-
-                                    $confirm->buttonName = "add";
-                                    $confirm->buttonID = "addID";
-                                    $confirm->buttonValue = "Add User";
-                                    $confirm->buttonStyle = "font-family:sans-serif";
-                                    $confirm->display(); ?>
+                                        $confirm->buttonName = "add";
+                                        $confirm->buttonID = "addID";
+                                        $confirm->buttonValue = "Add User";
+                                        $confirm->buttonStyle = "font-family:sans-serif";
+                                        $confirm->display(); ?>
+                                </div>
                             </div>
-                        </div>
 
 
                 </form>
@@ -228,6 +244,6 @@
                 <?php include("../../navMenu.php"); ?>
             </div>
         </div>
-    </body>
-</html>
-<?php } ?>
+        </body>
+        </html>
+    <?php } ?>
