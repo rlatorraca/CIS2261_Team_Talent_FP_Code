@@ -14,7 +14,12 @@
 include("../db/dbConn.php");
 
 if (isset($_POST['schoolYear'])) {
-	$sql = "select distinct courseoffering.courseID, course.courseName from courseoffering, course where courseoffering.schoolYear='" . mysqli_real_escape_string($database, $_POST['schoolYear']) . "' and  courseoffering.semesterNum = '" . mysqli_real_escape_string($database, $_POST['semesterNum']) . "' and course.subjectCode='" . mysqli_real_escape_string($database, $_POST['subjectCode']) . "' and course.courseID = courseoffering.courseID ;";
+	$sql = "SELECT distinct courseoffering.courseID, course.courseName 
+            FROM courseoffering, course 
+            WHERE courseoffering.schoolYear='" . mysqli_real_escape_string($database, $_POST['schoolYear']) . "' 
+            AND  courseoffering.semesterNum = '" . mysqli_real_escape_string($database, $_POST['semesterNum']) . "' 
+            AND course.subjectCode='" . mysqli_real_escape_string($database, $_POST['subjectCode']) . "' 
+            AND course.courseID = courseoffering.courseID ;";
 //	$sql = "select courseoffering.courseID, course.courseName from courseoffering, course where courseoffering.schoolYear='" . mysqli_real_escape_string($database, $_POST['schoolYear']).'" and  courseoffering.semesterNum = ". mysqli_real_escape_string($database, $_POST['semesterNum'])." and course.courseID = courseoffering.courseID ;";
 	$res = mysqli_query($database, $sql);
 	if (mysqli_num_rows($res) > 0) {

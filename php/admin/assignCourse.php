@@ -79,8 +79,7 @@ include("../button.class.php");
     <!--            $("#menu").menu();-->
     <!--        });-->
     <!--    </script>-->
-    <title>Assign Student to a Course/Enrollment</title>
-
+    <title>STARS - Assign Student to a Course/Enrollment</title>
 
 </head>
 <body>
@@ -139,7 +138,7 @@ include("../button.class.php");
             $studentID = $database->real_escape_string($_POST["studentAssignCourse"]);
 
             //Create initial SQL query to insert form data into database
-            $queryEnrollment = "INSERT INTO enrollment(classID,schoolYear, semesterNum, studentID) 
+            $queryEnrollment = "INSERT INTO enrollment(classID, schoolYear, semesterNum, studentID) 
                                         VALUES ('$classID', '$schoolYear', '$semesterNum', '$studentID');";
 
             //Execute query and store result.
@@ -162,9 +161,9 @@ include("../button.class.php");
                                 </div>
                             </form>";
             } else {
-                $studentName = $_SESSION["studentNameForAssignToCourse"];
+                //$studentName = $_SESSION["studentNameForAssignToCourse"];
                 echo "<h2>Student Assigned</h2>
-                                <p>$studentName with an ID of " . $studentID . " " . " has been assigned to " . $subject . " course (year: " . $schoolYear . ", semester: " . $semesterNum . ")</p>
+                                <p>with an ID of " . $studentID . " " . " has been assigned to " . $subject . " course (year: " . $schoolYear . ", semester: " . $semesterNum . ")</p>
                                 <br>
                                 <form action='assignCourse.php' method='post'>
                                 <div class='row'>
@@ -189,6 +188,8 @@ include("../button.class.php");
                     </html>");
 
             }
+
+            $_SESSION['studentNameForAssignToCourse'] = "";
 
             //Take details used in assign student to a course to generate/search for report cards
             //Report card query
@@ -279,7 +280,8 @@ include("../button.class.php");
         <form action="assignCourse.php" method="post">
 
             <h2>Student Details</h2>
-            <p><span style="color: red">*Please ensure all fields are filled before registering a new Student.</span></p>
+            <p><span style="color: red">*Please ensure all fields are filled before registering a new Student.</span>
+            </p>
             <div class="row">
                 <div class="col-md-12">
                     <label for="subjectsAssignCourse">Subjects</label>
@@ -312,8 +314,8 @@ include("../button.class.php");
                                         ?>
                                         <option
                                         value= <?php echo $row["schoolYear"] ?><?php if ($row["schoolYear"] == '2018/2019') {
-		                                    echo " selected";
-	                                    } ?>><?php echo $row["schoolYear"] ?></option><?php
+                                            echo " selected";
+                                        } ?>><?php echo $row["schoolYear"] ?></option><?php
                                     }
                                     $count++;
                                 }
@@ -356,7 +358,7 @@ include("../button.class.php");
                     <label for="courseSemesterYearAssignCourse">Course</label> <select class="form-control"
                                                                                        name="courseSemesterYearAssignCourse"
                                                                                        id="courseSemesterYearAssignCourse">
-                        <option> Select</option>
+                        <option>Select</option>
                     </select>
                 </div>
             </div>
@@ -372,7 +374,7 @@ include("../button.class.php");
                                 <option
                                 value= <?php echo $row["studentID"] ?> ><?php echo $row["studentID"] . " - "
                                     . $row["firstName"] . " " . $row["lastName"]; ?></option><?php
-                                $_SESSION["studentNameForAssignToCourse"] = $row['firstName'] . " " . $row['lastName'];
+                                //$_SESSION["studentNameForAssignToCourse"] = $row['firstName'] . " " . $row['lastName'];
                             }
                         } else {
                             echo "<option>No Students</option>";
@@ -383,14 +385,14 @@ include("../button.class.php");
 
                 <div class="row">
                     <div class="col-md-4">
-		                <?php
-		                $confirm = new Button();
+                        <?php
+                        $confirm = new Button();
 
-		                $confirm->buttonName = "reset";
-		                $confirm->buttonID = "reset";
-		                $confirm->buttonValue = "Reset";
-		                $confirm->buttonStyle = "font-family:sans-serif";
-		                $confirm->display(); ?>
+                        $confirm->buttonName = "reset";
+                        $confirm->buttonID = "reset";
+                        $confirm->buttonValue = "Reset";
+                        $confirm->buttonStyle = "font-family:sans-serif";
+                        $confirm->display(); ?>
 
                     </div>
                     <div class="col-md-8">

@@ -54,7 +54,8 @@ $confirm = new Button();
                 courseoffering.classID FROM course, courseoffering, semester 
                 WHERE course.courseID = courseoffering.courseID
                 AND courseoffering.schoolYear = semester.schoolYear
-                AND courseoffering.semesterNum = semester.semesterNum;";
+                AND courseoffering.semesterNum = semester.semesterNum
+                ORDER BY courseoffering.schoolYear DESC;";
 
     //Execute queries and store results.
     $resultCourse = $database->query($queryCourse);
