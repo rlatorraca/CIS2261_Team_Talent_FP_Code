@@ -34,11 +34,11 @@ if ($_SESSION["accessCode"] == 4 || $_SESSION["accessCode"] == 5 || $_SESSION["a
 //Database connection
 include '../db/dbConn.php';
 ?>
-<!--Form to update a students mark-->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-<script type="text/javascript" src="ajax.js"></script>
+    <!--Form to update a students mark-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="ajax.js"></script>
 
 <?php
 
@@ -89,11 +89,12 @@ if (isset($_POST['enter'])) {
     //If statement structure to choose SELECT query to use based on logged in user's access level
     if ($_SESSION["accessCode"] == 1) {
 
-        $queryCourse = "SELECT DISTINCT courseoffering.classID, course.courseName, 
+        $queryCourse = "SELECT DISTINCT courseoffering.classID, course.courseName, courseoffering.schoolYear,
                     courseoffering.semesterNum, educator.educatorFName, educator.educatorLName
                     FROM course, educator, courseoffering, school
                     WHERE courseoffering.educatorID = educator.educatorID
-                    AND course.courseID = courseoffering.courseID;";
+                    AND course.courseID = courseoffering.courseID
+                    ORDER BY courseoffering.schoolYear DESC;";
 
         //query to find the students in the selected course
         $resultCourse = $database->query($queryCourse);
@@ -114,173 +115,178 @@ if (isset($_POST['enter'])) {
             }
         }
 
-        $queryCourse = "SELECT DISTINCT courseoffering.classID, course.courseName, 
-                    courseoffering.semesterNum, educator.educatorFname, educator.educatorLName
+        $queryCourse = "SELECT DISTINCT courseoffering.classID, course.courseName, courseoffering.schoolYear,
+                    courseoffering.semesterNum, educator.educatorFName, educator.educatorLName
                     FROM course, educator, courseoffering, school
                     WHERE school.schoolID = $schoolID
                     AND educator.schoolID = school.schoolID
                     AND courseoffering.educatorID = educator.educatorID
-                    AND course.courseID = courseoffering.courseID;";
+                    AND course.courseID = courseoffering.courseID
+                    ORDER BY courseoffering.schoolYear DESC;";
 
         //query to find the students in the selected course
         $resultCourse = $database->query($queryCourse);
 
     } else if ($_SESSION["accessCode"] == 3) {
 
-        $queryCourse = "SELECT courseoffering.classID, course.courseName, 
+        $queryCourse = "SELECT courseoffering.classID, course.courseName, courseoffering.schoolYear,
                     courseoffering.semesterNum, educator.educatorFName, educator.educatorLName
                     FROM course, user, educator, courseoffering 
                     WHERE educator.userID = $userID
                     AND courseoffering.educatorID = educator.educatorID 
                     AND user.userID = educator.userID 
-                    AND course.courseID = courseoffering.courseID;";
+                    AND course.courseID = courseoffering.courseID
+                    ORDER BY courseoffering.schoolYear DESC;";
 
         //query to find the students in the selected course
         $resultCourse = $database->query($queryCourse);
     }
 }
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Fonts !-->
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
-    <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
-    <!-- Here is where we call bootstrap. !-->
-    <title>STARS - Assign Mark</title>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <!-- Calendar Date Picker !-->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="../../js/main.js"></script>
-    <link href="../../css/stars.css" rel="stylesheet">
-    <script src="../../js/main.js"></script>
-    <!--function to go back to your incomplete album form without losing previously filled fields-->
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
-</head>
-<body>
-<?php include "../../header.php"; ?>
-<div class="jumbotron-fluid">
-    <div class="container-fluid">
-        <!--Main container and contents-->
-        <div class="container main-container" id="studentSearch">
-            <form action="enterMark.php" method="post">
-                <div><?php if (isset($msg)) { echo $msg; } ?></div>
-                <h2>Assign Mark</h2>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="students">Select Course - Semester</label>
-                            <select class="form-control" id="courseSemester" name="courseSemester">
-                                <option value=''>Select</option>
-                                <!-- Using SQL to populate dropdown list of students -->
-                                <?php if ($resultCourse->num_rows > 0) {
-                                    while ($row = $resultCourse->fetch_assoc()) {
-                                        ?>
-                                        <option
-                                        value= <?php echo $row["classID"] ?> ><?php echo $row["courseName"] . " - "
-                                            . $row["semesterNum"];
-                                        if ($_SESSION["accessCode"] == 1 || $_SESSION["accessCode"] == 2) {
-                                            echo " " . $row["educatorFName"] . " " . $row["educatorLName"];
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Fonts !-->
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
+        <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
+        <!-- Here is where we call bootstrap. !-->
+        <title>STARS - Assign Mark</title>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <!-- Calendar Date Picker !-->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="../../js/main.js"></script>
+        <link href="../../css/stars.css" rel="stylesheet">
+        <script src="../../js/main.js"></script>
+        <!--function to go back to your incomplete album form without losing previously filled fields-->
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+    </head>
+    <body>
+    <?php include "../../header.php"; ?>
+    <div class="jumbotron-fluid">
+        <div class="container-fluid">
+            <!--Main container and contents-->
+            <div class="container main-container" id="studentSearch">
+                <form action="enterMark.php" method="post">
+                    <div><?php if (isset($msg)) {
+                            echo $msg;
+                        } ?></div>
+                    <h2>Assign Mark</h2>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="students">Select Course - Semester</label>
+                                <select class="form-control" id="courseSemester" name="courseSemester">
+                                    <option value=''>Select</option>
+                                    <!-- Using SQL to populate dropdown list of students -->
+                                    <?php if ($resultCourse->num_rows > 0) {
+                                        while ($row = $resultCourse->fetch_assoc()) {
+                                            ?>
+                                            <option
+                                            value= <?php echo $row["classID"]; ?> ><?php echo $row["courseName"] . ": " . $row["schoolYear"] . " - "
+                                                . $row["semesterNum"] . ": " . $row["educatorFName"] . " " . $row["educatorLName"]; ?></option><?php
                                         }
-                                    ; ?></option><?php
+                                    } else {
+                                        echo "<option>No Students</option>";
                                     }
-                                } else {
-                                    echo "<option>No Students</option>";
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="studentMark">Student</label>
-                            <!--            $queryCourse =-->
-
-                            <select name="studentMark" id="studentMark" class="form-control">
-                                <option>Select</option>
-                            </select><br>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="markInput">Mark</label>
-                            <select class="form-control" id="markInput" name="markInput">
-                                <?php
-                                for ($i = 0; $i <= 100; $i++) {
                                     ?>
-                                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                    <?php
-                                }
-                                ?>
-                            </select>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="studentMark">Student</label>
+                                <!--            $queryCourse =-->
+
+                                <select name="studentMark" id="studentMark" class="form-control">
+                                    <option>Select</option>
+                                </select><br>
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <label for="attendance">Days missed</label>
-                            <select class="form-control" id="attendance" name="attendance">
-                                <?php
-                                for ($i = 0; $i <= 60; $i++) {
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="markInput">Mark</label>
+                                <select class="form-control" id="markInput" name="markInput">
+                                    <?php
+                                    for ($i = 0; $i <= 100; $i++) {
+                                        ?>
+                                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                        <?php
+                                    }
                                     ?>
-                                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="attendance">Days missed</label>
+                                <select class="form-control" id="attendance" name="attendance">
                                     <?php
-                                }
-                                ?>
-                            </select><br>
+                                    for ($i = 0; $i <= 60; $i++) {
+                                        ?>
+                                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select><br>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label for="teacherNotes">Teacher´s notes</label><br/>
-                            <textarea class="form-control" id="teacherNotes" name="teacherNotes"
-                                      placeholder="Enter notes" cols="75"
-                                      rows="3"></textarea>
-                            <span class="charactersTeacherNotes">500</span> characters remaining
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label for="teacherNotes">Teacher´s notes</label><br/>
+                                <textarea class="form-control" id="teacherNotes" name="teacherNotes"
+                                          placeholder="Enter notes" cols="75"
+                                          rows="3"></textarea>
+                                <span class="charactersTeacherNotes">500</span> characters remaining
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <!--Search button-->
-                    <div class="row">
-                        <div class="col-md-10">
-                            <?php
-                            $confirm = new Button();
+                        <br>
+                        <!--Search button-->
+                        <div class="row">
+                            <div class="col-md-10">
+                                <?php
+                                $confirm = new Button();
 
-                            $confirm->buttonName = "reset";
-                            $confirm->buttonID = "reset";
-                            $confirm->buttonValue = "Reset";
-                            $confirm->buttonStyle = "font-family:sans-serif";
-                            $confirm->display(); ?>
-                        </div>
-                        <div class="col-md-2">
-                            <?php
-                            $confirm = new Button();
+                                $confirm->buttonName = "reset";
+                                $confirm->buttonID = "reset";
+                                $confirm->buttonValue = "Reset";
+                                $confirm->buttonStyle = "font-family:sans-serif";
+                                $confirm->display(); ?>
+                            </div>
+                            <div class="col-md-2">
+                                <?php
+                                $confirm = new Button();
 
-                            $confirm->buttonName = "enter";
-                            $confirm->buttonID = "enter";
-                            $confirm->buttonValue = "Enter";
-                            $confirm->buttonStyle = "font-family:sans-serif";
-                            $confirm->display(); ?>
+                                $confirm->buttonName = "enter";
+                                $confirm->buttonID = "enter";
+                                $confirm->buttonValue = "Enter";
+                                $confirm->buttonStyle = "font-family:sans-serif";
+                                $confirm->display(); ?>
+                            </div>
                         </div>
-                    </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-<!--The bottom navbar/footer section-->
-<div class="bottom">
-    <div id="footer">
-        <?php include("../../navMenu.php"); ?>
+    <!--The bottom navbar/footer section-->
+    <div class="bottom">
+        <div id="footer">
+            <?php include("../../navMenu.php"); ?>
+        </div>
     </div>
-</div>
-</body>
-</html>
+    </body>
+    </html>
+<?php
+
+//Close database connection
+$database->close();
+?>
