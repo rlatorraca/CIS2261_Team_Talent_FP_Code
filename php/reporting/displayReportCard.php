@@ -1,8 +1,13 @@
 <?php
     /**
      * Created by PhpStorm.
-     * Edited by: John Gaudet
-     * Date: 2019-01-29
+     * Company: Team Talent 2.0
+     * Authors: John, Rodrigo, Sara, Steve
+     * Date: 2/14/2019
+     *
+     * This is the page used to display a requested reportcard
+     *
+     * This page requires: stars.css, index.php, login.php, checkLoggedIn.php, dbConn.php, requestReportCard.php
      */
 
     //Lock down page
@@ -33,13 +38,13 @@
                 crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
+        <!--JS/JQuery links-->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/demos/style.css">
-
-        <!-- Calendar Date Picker !-->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+        <!--Custom CSS link-->
         <link href="../../css/stars.css" rel="stylesheet">
         <script src="../../js/main.js"></script>
         <script>
@@ -49,6 +54,7 @@
         </script>
         <title>STARS: View Report Card</title>
     </head>
+
     <body>
         <?php include "../../header.php"; ?>
         <div class="jumbotron-fluid">
@@ -190,7 +196,6 @@
                             $notes = $rowEnrollment["notes"];
                             $educatorFirstName = $rowEnrollment["educatorFName"];
                             $educatorLastName = $rowEnrollment["educatorLName"];
-
                         ?>
                         <tr>
                             <td><label title="<?php if ($notes == "") {
@@ -211,8 +216,6 @@
                                     }
                                         $rowCount++;
                                     ?></p></td>
-
-
                             <?php
 
                                 if ($rowCount == 1) {
@@ -222,7 +225,6 @@
 
                             <?php }
                             ?>
-
                         </tr>
                         <tr>
                             <td></td>
@@ -262,7 +264,6 @@
                             <td></td>
                             <td></td>
                             <td class="reportSignOff">
-
                                 <?php
                                     //Ensure only admin, parent/guardians and the student view this message
                                     if ((!$isRead && $semesterNum >= 1) && ($_SESSION["accessCode"] == 1 || $_SESSION["accessCode"] == 2
@@ -320,6 +321,7 @@
                 ?>
             </div>
         </div>
+        <!--Bottom Navbar-->
         <div class="bottom">
             <div id="footer">
                 <?php include("../../navMenu.php"); ?>
