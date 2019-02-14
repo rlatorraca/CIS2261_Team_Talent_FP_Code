@@ -7,7 +7,7 @@
  *
  * Page to edit a student's details. User is directed to this page from the search results of students when they wish to edit a student.
  *
- * Required pages: login.php, checkLoggedIn.php, dbConn.php, searchStudents.php, addUser.php, addStudent.php, confirmStudent.php, insertStudent.php
+ * Required pages: stars.css, login.php, checkLoggedIn.php, dbConn.php, searchStudents.php, addUser.php, addStudent.php, confirmStudent.php, insertStudent.php
  */
 
 //Lock down page

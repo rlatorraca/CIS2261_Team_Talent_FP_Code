@@ -8,7 +8,7 @@
  * Page to remove a student from a course. This page handles the database connection and query to delete the enrollment
  * To be done in case a student is added to the wrong course or the student dropped out before completing, or any other reason.
  *
- * Required pages: login.php, checkLoggedIn.php, autheticateAdminPages.php, dbConn.php, searchCourses.php, searchCourseResults.php
+ * Required pages: stars.css, login.php, checkLoggedIn.php, autheticateAdminPages.php, dbConn.php, searchCourses.php, searchCourseResults.php
  */
 
 //Lock down page

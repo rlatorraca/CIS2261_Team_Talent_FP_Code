@@ -3,8 +3,13 @@
  * Created by PhpStorm.
  * Firm: Team Talent 2.0
  * Members: Sara, John, Rodrigo, Steve
- * Date: 2019-01-14
- * Time: 12:09 AM
+ * Date: 2/14/2019
+ *
+ * Page allowing users to search courses and return a list of students enrolled.
+ * Users must select the course they wish to view to populate a table on the searchCourseResults.php page.
+ *
+ * Required pages: stars.css, login.php, checkLoggedIn.php, dbConn.php, addUser.php, addStudent.php, confirmStudent.php, insertStudent.php,
+ * assignCourse.php.
  */
 
 //Lock down page
@@ -13,11 +18,11 @@ include "../login/checkLoggedIn.php";
 //Ensure only admin/system admin staff can view and use page
 include "../login/authenticateAdminPages.php";
 
+//Button class
 include("../button.class.php");
 $confirm = new Button();
 
 ?>
-
 <!doctype html>
 <html lang="en">
     <head>
@@ -62,8 +67,6 @@ $confirm = new Button();
     ?>
     <body>
         <?php include "../../header.php"; ?>
-
-
         <div class="jumbotron-fluid">
             <div class="container-fluid container-sizer">
 
@@ -127,3 +130,9 @@ $confirm = new Button();
         </div>
     </body>
 </html>
+<?php
+
+//Close database
+$database->close();
+
+?>
