@@ -1,26 +1,26 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jgaudet109873
- * Date: 2/4/2019
- * Time: 11:21 AM
- *
- * Page to remove a student from a course.
- * To be done in case a student is added to the wrong course or the student dropped out before completing
- */
+    /**
+     * Created by PhpStorm.
+     * User: jgaudet109873
+     * Date: 2/4/2019
+     * Time: 11:21 AM
+     *
+     * Page to remove a student from a course.
+     * To be done in case a student is added to the wrong course or the student dropped out before completing
+     */
 
-//Lock down page
-include "../login/checkLoggedIn.php";
+    //Lock down page
+    include "../login/checkLoggedIn.php";
 
-//Ensure only admin level staff can view and use this page
-include "../login/authenticateAdminPages.php";
+    //Ensure only admin level staff can view and use this page
+    include "../login/authenticateAdminPages.php";
 
-//Database connection
-include "../db/dbConn.php";
+    //Database connection
+    include "../db/dbConn.php";
 
-//Importing button
-include("../button.class.php");
-$confirm = new Button();
+    //Importing button
+    include("../button.class.php");
+    $confirm = new Button();
 
 ?>
 <!doctype html>
@@ -44,7 +44,7 @@ $confirm = new Button();
         <!-- JQuery Links !-->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/demos/style.css">
-        <!-- JQuery Calendar Date Picker !-->
+
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -55,72 +55,55 @@ $confirm = new Button();
 
         <script src="../../js/main.js"></script>
 
-            <!--function to go back to your incomplete form without losing previously filled fields-->
-            <script>
-                function goBack() {
-                    window.history.back();
-                }
-            </script>
-
-        <!--         This function shows the date picker.-->
-        <!--        $(function () {-->
-        <!--            $("#datepicker").datepicker();-->
-        <!--        });-->
-        <!---->
-        <!--        This function shows the note.-->
-        <!--        Will need to add a variable to get the notes to then call.-->
-        <!--        $(function () {-->
-        <!--            $(document).tooltip();-->
-        <!--        });-->
-        <!---->
-        <!--        This function manages the drop downs on the main menu.-->
-        <!--        $(function () {-->
-        <!--            $("#menu").menu();-->
-        <!--        });-->
+        <!--function to go back to your incomplete form without losing previously filled fields-->
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
 
         <title>STARS - Enrollment Removed</title>
     </head>
+
     <body>
         <?php include "../../header.php"; ?>
         <div class="jumbotron-fluid">
             <div class="container-fluid">
                 <?php
 
-                $studentID = htmlspecialchars($_GET["studentID"]);
-                $classID = htmlspecialchars($_GET["classID"]);
+                    $studentID = htmlspecialchars($_GET["studentID"]);
+                    $classID = htmlspecialchars($_GET["classID"]);
 
-                if ($_GET["studentID"] = "" || $_GET["classID"] == "") {
-                    header('Location: ../../php/admin/searchCourses.php');
-                }
+                    if ($_GET["studentID"] = "" || $_GET["classID"] == "") {
+                        header('Location: ../../php/admin/searchCourses.php');
+                    }
 
-                //echo "studentID:" . $studentID;
+                    $deleteStudentEnrollment = "DELETE FROM enrollment WHERE enrollment.studentID = $studentID AND enrollment.classID = $classID;";
 
-                $deleteStudentEnrollment = "DELETE FROM enrollment WHERE enrollment.studentID = $studentID AND enrollment.classID = $classID;";
-                //echo $deleteStudentEnrollment;
+                    $deleteQueryForStudentEnrollment = $database->query($deleteStudentEnrollment);
 
-                $deleteQueryForStudentEnrollment = $database->query($deleteStudentEnrollment);
+                    if ($deleteQueryForStudentEnrollment) {
 
-                if ($deleteQueryForStudentEnrollment) {
+                        echo "<p>Student enrollment record has been successfully removed from the database.</p>";
 
-                    echo "<p>Student enrollment record has been successfully removed from the database.</p>";
+                    } else {
 
-                } else {
+                        echo "<p>Student could not be un-enrolled from this course.</p>";
+                    }
 
-                    echo "<p>Student could not be un-enrolled from this course.</p>";
-                }
+                    $return = new Button();
 
-                $return = new Button();
-
-                $return->buttonName = "return";
-                $return->buttonID = "return";
-                $return->buttonValue = "Return";
-                $return->buttonStyle = "font-family:sans-serif";
-                $return->buttonWeb = 'goBack()';
-                $return->display();
+                    $return->buttonName = "return";
+                    $return->buttonID = "return";
+                    $return->buttonValue = "Return";
+                    $return->buttonStyle = "font-family:sans-serif";
+                    $return->buttonWeb = 'goBack()';
+                    $return->display();
 
                 ?>
             </div>
         </div>
+        <!--Bottom navbar-->
         <div class="bottom">
             <div id="footer">
                 <?php include("../../navMenu.php"); ?>
