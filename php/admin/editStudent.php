@@ -44,9 +44,9 @@ if ($resultSetFromQueryStudent->num_rows == 1) {
         $phoneNumber = $row["phoneNum"];
         $emailAddress = $row["emailAddress"];
         $allergies = $row["allergies"];
-
     }
 }
+
 
 ?>
 <!doctype html>
