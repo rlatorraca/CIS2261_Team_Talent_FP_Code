@@ -1,9 +1,4 @@
 
-/*Width and height apply to all parts of the element: content, padding and borders:*/
-/** {*/
-    /*box-sizing: border-box;*/
-/*}*/
-
 /* body stylings */
 html, body {
     margin: 0;
@@ -54,6 +49,7 @@ html, body {
     border-bottom: 10px solid #1D2731;
     height: 115px;
 }
+
 /* Index page column styling. */
 .home{
  column-count: 2;
@@ -80,15 +76,12 @@ input, select, textarea{
 
 p {
     font-family: 'Arial', sans-serif;
-
 }
 
 /* Titles in menus will use this colour across the site.  */
 h1, h2 {
     color: #328cc1;
-
 }
-
 
 h4{
     display: inline;
@@ -110,9 +103,7 @@ h4{
     float: right;
     height: 115px;
     padding-top: 25px;
-    /*border: 10px solid #912b88;*/
-
-}
+ }
 
 /* 3.  Navbar settings for the top menu. Include Welcome message and login button. Font styling and colour. */
 .welcome {
@@ -121,9 +112,6 @@ h4{
     font-size: 25px;
     color: #fffbfb;
 }
-
-
-
 
 /* The Foot elements take care of the bottom navbar and all style functionality therein. */
 #footer {
@@ -144,7 +132,6 @@ h4{
     list-style: none;
     padding: 0px;
     margin-bottom: 20px;
-
 }
 
 #footerMenu {
@@ -156,7 +143,6 @@ h4{
 
 /* Removes the underline from <a> tags in the navbar. */
 #footerMenu a {
-
     text-decoration: none;
 }
 
@@ -215,7 +201,6 @@ h4{
     right: 0px;
     width: 100%;
     height: 40px;
-    /*border-top: 1px solid rgba(0, 0, 0, 0.3);*/
     background: #328cc1;
     z-index: 2;
 }
@@ -239,14 +224,16 @@ h4{
     transition-duration: 0.4s;
     cursor: pointer;
     box-shadow: 5px 7px 4px #0c0c0c;
-
 }
+
 .button:focus{
     outline: none;
 }
+
 .button2:focus{
     outline: none;
 }
+
 /*Applies specific button colorings*/
 .button2 {
     background-color: #d9b310;
@@ -303,14 +290,14 @@ h4{
 .reportCardHead {
     width: 100%;
     padding: 0px;
-    border-bottom: 3px solid #252525;
+    border-bottom: 2px solid #328cc1;
 }
 
 /* At the bottom of the page is a section for the parent to sign off that they have viewed the report car. The confirm button will update the database. This governs this section. */
 .reportSignOff {
     width: 100%;
     padding-top: 2%;
-    border-top: 3px solid #252525;
+    border-top: 2px solid #328cc1;
     text-align: justify;
 }
 
@@ -320,15 +307,16 @@ h4{
     padding: 0px;
     border-collapse: collapse;
     text-align: center;
-
 }
+
 /* Table rows within the report card side will not have borders. */
 .reportCardSide tr {
     border: none;
 }
+
 /* Table column will have some borders. */
 .reportCardSide td {
-    border-right: 3px solid #252525;
+    border-right: 2px solid #328cc1;
 }
 
 /* The table head on the side where the marks and days missed will be styled here. */
@@ -359,14 +347,6 @@ h4{
     padding: 0;
 }
 
-
-/*@media only screen and (max-width:620px) {*/
-    /*!* For mobile phones: *!*/
-    /*.container-fluid, .spacer {*/
-        /*width: 100%;*/
-    /*}*/
-/*}*/
-
 /* Custom container size for the login form. */
 .login {
     width: 40%;
@@ -384,13 +364,12 @@ h4{
 /* Custom container size for larger forms Containing the H2 tag. */
 .container-larger h2{
     color: #328cc1;
-
 }
+
 /* The Header.php uses this for the header items as noted above. */
 .row-header {
     margin-left: 0px;
     margin-right: 0px;
-
 }
 
 /* Implemented on the About.php page. The first line in the p tag is bolded. */
@@ -412,7 +391,6 @@ h4{
 .chart-sizer {
     max-width: 55%;
 }
-
 
 .tableHeads {
     font-family: 'Roboto', sans-serif;
