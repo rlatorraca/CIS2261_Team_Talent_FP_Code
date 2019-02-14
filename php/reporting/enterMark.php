@@ -50,14 +50,14 @@ if (isset($_POST['enter'])) {
     //Check if query executed successfully and that the result contains data.
     if ($result == 1) {
 
-        $msg = "<h4>Student Record has been successfully updated. Page will refresh automatically for you.</h4>";
+        $msg = "<br><div class='alert alert-danger'>>Student Record has been successfully updated. Page will refresh automatically for you.</div>";
 
         //Refresh page automatically (5 seconds).
         header("Refresh:5");
 
     } else {
 
-        $msg = "<h4>Sorry, student record could not be updated to the database at this time. Page will refresh automatically for you.</h4>";
+        $msg = "<br><div class='alert alert-danger'>Sorry, student record could not be updated to the database at this time. Page will refresh automatically for you.</div>";
 
         //Refresh page automatically (5 seconds).
         header("Refresh:5");
