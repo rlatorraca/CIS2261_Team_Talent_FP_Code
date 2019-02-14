@@ -188,7 +188,7 @@ include("../button.class.php");
                     </html>");
 
             }
-            
+
             //Take details used in assign student to a course to generate/search for report cards
             //Report card query
             $queryReportCard = "SELECT * FROM reportcard WHERE studentID = $studentID 
