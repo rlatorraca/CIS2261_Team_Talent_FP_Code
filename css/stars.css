@@ -44,11 +44,6 @@ html, body {
     overflow: auto;
 }
 
-/* Custom container size for smaller forms */
-.container-sizer {
-    max-width: 40%;
-}
-
 /* Top of the page. Logo and login button will be found here. */
 .header {
     background-color: #328cc1;
@@ -304,13 +299,6 @@ h4{
     border-bottom-color: white;
 }
 
-
-/* Sizes the div used for the login div on the login.php page. */
-.login {
-
-    width: 40%;
-}
-
 /* The displayed report cards top is organized here. */
 .reportCardHead {
     width: 100%;
@@ -338,68 +326,84 @@ h4{
 .reportCardSide tr {
     border: none;
 }
-
+/* Table column will have some borders. */
 .reportCardSide td {
     border-right: 3px solid #252525;
 }
 
+/* The table head on the side where the marks and days missed will be styled here. */
 .reportCardSide thead {
     font-family: inherit;
     font-size: medium;
 }
 
-.reportCardSide label {
+.reportCardSide label, p{
     margin: auto;
 }
 
-.reportCardSide p {
-    margin: auto;
-}
-
+/* The columns that make up the course name, mark and days missed are all spaced at 10% so borders are not right up against the words. */
 .cardMenu {
     width: 10%;
 }
 
+/* The note section to the right of the course name, marks and days missed contains some notes concerning the grading process and basic information every parent would be expected to see. This governs the formatting of this section of the report card. */
 .reportNote {
     text-align: justify;
     width: 99%;
     padding: 2%;
 }
 
+/* Further refining of the container div. This is used in several spots across the site.  */
 .container {
     width: 100%;
     padding: 0;
 }
 
-@media only screen and (max-width:620px) {
-    /* For mobile phones: */
-    .container-fluid, .spacer {
-        width: 100%;
-    }
+
+/*@media only screen and (max-width:620px) {*/
+    /*!* For mobile phones: *!*/
+    /*.container-fluid, .spacer {*/
+        /*width: 100%;*/
+    /*}*/
+/*}*/
+
+/* Custom container size for the login form. */
+.login {
+    width: 40%;
 }
 
+/* Custom container size for smaller forms. */
+.container-sizer {
+    max-width: 40%;
+}
+/* Custom container size for larger forms. */
 .container-larger {
     max-width: 100%;
 }
+
+/* Custom container size for larger forms Containing the H2 tag. */
 .container-larger h2{
     color: #328cc1;
 
 }
-
+/* The Header.php uses this for the header items as noted above. */
 .row-header {
     margin-left: 0px;
     margin-right: 0px;
 
 }
 
+/* Implemented on the About.php page. The first line in the p tag is bolded. */
 .p2::first-line {
     font-weight: bold;
 }
 
+/* Row classes will not use any margins. */
 .row {
     margin:0 !important;
 }
 
+/* These chart classes will govern the size of the charts that are displayed in the Student History page and subject history pages. */
 .chart-container {
     min-height:150px;
     max-width: 645px;
