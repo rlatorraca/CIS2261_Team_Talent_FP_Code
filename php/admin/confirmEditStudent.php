@@ -1,3 +1,17 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * Company: Team Talent 2.0
+ * Members: John, Rodrigo, Sara, Steve
+ * Date: 2/14/2019
+ *
+ * Page which confirms the database update query and handles errors for the user. Also handles refreshes and redirects.
+ *
+ * Required pages: stars.css, login.php, checkLoggedIn.php, autheticateAdminPages.php, searchStudent.php, editStudent.php.
+ */
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
