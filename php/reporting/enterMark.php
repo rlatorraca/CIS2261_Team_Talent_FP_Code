@@ -1,23 +1,34 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: sahra
- * Date: 2019-01-27
- * Time: 9:05 PM
+ * Authors: Team Talent 2.0
+ * Date: 2/14/2019
+ *
+ * Page to allow Educators and Administrators to update student grades,
+ * attendance and add any relevant notes to give feedback on the students performance.
+ *
+ * Page is locked down for only Admin and Educator level users to access and make changes against the database.
+ * Administrators are able to see a list of courses with the assigned educator's name showing up alongside,
+ * where educators only may see the courses they teach
+ *
+ * Required pages: login.php, checkLoggedIn.php, assignCourse.php, addUser.php, addStudent.php, confirmStudent.php, insertStudent.php, dbConn.php
+ *
  */
 
 //Lock down page
 include "../login/checkLoggedIn.php";
 
+//Button class includes
 include("../button.class.php");
 $confirm = new Button();
 
-//Locks down page for non-admin or educational staff.
+//Locks down page for non-admin or main educational staff.
 //Parent/Guardians, Support Educators and Students are not able to view this page.
 if ($_SESSION["accessCode"] == 4 || $_SESSION["accessCode"] == 5 || $_SESSION["accessCode"] == 6) {
 
     //Redirect unauthorized user back to Home page
     header("Location: ../../index.php");
+
 }
 
 //Database connection
@@ -50,7 +61,7 @@ if (isset($_POST['enter'])) {
     //Check if query executed successfully and that the result contains data.
     if ($result == 1) {
 
-        $msg = "<br><div class='alert alert-danger'>>Student Record has been successfully updated. Page will refresh automatically for you.</div>";
+        $msg = "<br><div class='alert alert-info'>Student Record has been successfully updated. Page will refresh automatically for you.</div>";
 
         //Refresh page automatically (5 seconds).
         header("Refresh:5");
@@ -64,11 +75,11 @@ if (isset($_POST['enter'])) {
 
     }
 
-
     //Close database connection
     //$database->close();
 
 } else {
+
     //Get logged in user's userID
     $userID = $_SESSION['userID'];
 
@@ -76,7 +87,18 @@ if (isset($_POST['enter'])) {
     $queryCourse = "";
 
     //If statement structure to choose SELECT query to use based on logged in user's access level
-    if ($_SESSION["accessCode"] == 2) {
+    if ($_SESSION["accessCode"] == 1) {
+
+        $queryCourse = "SELECT DISTINCT courseoffering.classID, course.courseName, 
+                    courseoffering.semesterNum, educator.educatorFName, educator.educatorLName
+                    FROM course, educator, courseoffering, school
+                    WHERE courseoffering.educatorID = educator.educatorID
+                    AND course.courseID = courseoffering.courseID;";
+
+        //query to find the students in the selected course
+        $resultCourse = $database->query($queryCourse);
+
+    } else if ($_SESSION["accessCode"] == 2) {
 
         //Get logged in user's schoolID
         $querySchool = "SELECT schoolID FROM administrator WHERE userID = $userID";
@@ -92,28 +114,30 @@ if (isset($_POST['enter'])) {
             }
         }
 
-        $queryCourse = "SELECT DISTINCT courseoffering.classID, course.courseName, courseoffering.semesterNum
+        $queryCourse = "SELECT DISTINCT courseoffering.classID, course.courseName, 
+                    courseoffering.semesterNum, educator.educatorFname, educator.educatorLName
                     FROM course, educator, courseoffering, school
                     WHERE school.schoolID = $schoolID
                     AND educator.schoolID = school.schoolID
                     AND courseoffering.educatorID = educator.educatorID
                     AND course.courseID = courseoffering.courseID;";
-	    //query to find the students in the selected course
-	    $resultCourse = $database->query($queryCourse);
+
+        //query to find the students in the selected course
+        $resultCourse = $database->query($queryCourse);
 
     } else if ($_SESSION["accessCode"] == 3) {
 
-        $queryCourse = "SELECT courseoffering.classID, course.courseName, courseoffering.semesterNum 
+        $queryCourse = "SELECT courseoffering.classID, course.courseName, 
+                    courseoffering.semesterNum, educator.educatorFName, educator.educatorLName
                     FROM course, user, educator, courseoffering 
                     WHERE educator.userID = $userID
                     AND courseoffering.educatorID = educator.educatorID 
                     AND user.userID = educator.userID 
                     AND course.courseID = courseoffering.courseID;";
-	    //query to find the students in the selected course
-	    $resultCourse = $database->query($queryCourse);
+
+        //query to find the students in the selected course
+        $resultCourse = $database->query($queryCourse);
     }
-
-
 }
 ?>
 <!doctype html>
@@ -125,7 +149,6 @@ if (isset($_POST['enter'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Fonts !-->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
-
     <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
     <!-- Here is where we call bootstrap. !-->
     <title>STARS - Assign Mark</title>
@@ -133,35 +156,31 @@ if (isset($_POST['enter'])) {
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
-
     <!-- Calendar Date Picker !-->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="../../js/main.js"></script>
-
     <link href="../../css/stars.css" rel="stylesheet">
     <script src="../../js/main.js"></script>
-
     <!--function to go back to your incomplete album form without losing previously filled fields-->
     <script>
         function goBack() {
             window.history.back();
         }
     </script>
-
 </head>
 <body>
 <?php include "../../header.php"; ?>
 <div class="jumbotron-fluid">
     <div class="container-fluid">
-
         <!--Main container and contents-->
         <div class="container main-container" id="studentSearch">
             <form action="enterMark.php" method="post">
-                <div><?php if (isset($msg)) { echo $msg; } ?></div>
+                <div><?php if (isset($msg)) {
+                        echo $msg;
+                    } ?></div>
                 <h2>Assign Mark</h2>
                 <div class="form-group">
                     <div class="row">
@@ -174,7 +193,12 @@ if (isset($_POST['enter'])) {
                                     while ($row = $resultCourse->fetch_assoc()) {
                                         ?>
                                         <option
-                                        value= <?php echo $row["classID"] ?> ><?php echo $row["courseName"] . " - " . $row["semesterNum"]; ?></option><?php
+                                        value= <?php echo $row["classID"] ?> ><?php echo $row["courseName"] . " - "
+                                            . $row["semesterNum"];
+                                        if ($_SESSION["accessCode"] == 1 || $_SESSION["accessCode"] == 2) {
+                                            echo " " . $row["educatorFName"] . " " . $row["educatorLName"];
+                                        }
+                                    ; ?></option><?php
                                     }
                                 } else {
                                     echo "<option>No Students</option>";
@@ -182,7 +206,6 @@ if (isset($_POST['enter'])) {
                                 ?>
                             </select>
                         </div>
-
                         <div class="col-sm-6">
                             <label for="studentMark">Student</label>
                             <!--            $queryCourse =-->
@@ -192,7 +215,6 @@ if (isset($_POST['enter'])) {
                             </select><br>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="markInput">Mark</label>
@@ -206,7 +228,6 @@ if (isset($_POST['enter'])) {
                                 ?>
                             </select>
                         </div>
-
                         <div class="col-sm-6">
                             <label for="attendance">Days missed</label>
                             <select class="form-control" id="attendance" name="attendance">
@@ -220,7 +241,6 @@ if (isset($_POST['enter'])) {
                             </select><br>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-sm-12">
                             <label for="teacherNotes">Teacher´s notes</label><br/>
@@ -242,7 +262,6 @@ if (isset($_POST['enter'])) {
                             $confirm->buttonValue = "Reset";
                             $confirm->buttonStyle = "font-family:sans-serif";
                             $confirm->display(); ?>
-
                         </div>
                         <div class="col-md-2">
                             <?php
@@ -267,6 +286,3 @@ if (isset($_POST['enter'])) {
 </div>
 </body>
 </html>
-
-
-
