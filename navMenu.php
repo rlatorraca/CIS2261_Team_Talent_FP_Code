@@ -88,7 +88,6 @@ switch ($accessCode) {
                 <ul class = "dropupMenu">
                         <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestReportCard.php"><li>Report Card</li></a>  
                         <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/enterMark.php"><li>Enter Mark</li></a>
-                        <a href="/CIS2261_Team_Talent_FP_Code/php/admin/searchStudent.php"><li>Search/Edit Student</li></a>
                         <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
                 </ul>
             </li> 
@@ -106,7 +105,6 @@ switch ($accessCode) {
             <li class = "titleNav">Student
                 <ul class = "dropupMenu">
                         <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestReportCard.php"><li>Report Card</li></a>  
-                        <a href="/CIS2261_Team_Talent_FP_Code/php/admin/searchStudent.php"><li>Search/Edit Student</li></a>
                         <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
                 </ul>
             </li>
