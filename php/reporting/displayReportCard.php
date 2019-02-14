@@ -27,11 +27,7 @@
         <!-- Fonts !-->
         <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
 
-        <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
-
         <!-- Here is where we call bootstrap. !-->
-
-        <title>STARS: View Report Card</title>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                 crossorigin="anonymous"></script>
@@ -51,30 +47,13 @@
                 window.history.back();
             }
         </script>
-        <!--        <script>-->
-        <!--            // This function shows the date picker.-->
-        <!--            $(function () {-->
-        <!--                $("#datepicker").datepicker();-->
-        <!--            });-->
-        <!---->
-        <!--            // This function shows the note.-->
-        <!--            // Will need to add a variable to get the notes to then call.-->
-        <!--            $(function () {-->
-        <!--                $(document).tooltip();-->
-        <!--            });-->
-        <!---->
-        <!--            // This function manages the drop downs on the main menu.-->
-        <!--            $(function () {-->
-        <!--                $("#menu").menu();-->
-        <!--            });-->
-        <!--        </script>-->
+        <title>STARS: View Report Card</title>
     </head>
     <body>
         <?php include "../../header.php"; ?>
         <div class="jumbotron-fluid">
             <div class="container-fluid">
                 <?php
-                    //$msg="";
                     //In the event that a user reaches this page before requesting a student's report card from the prior page, handle this.
                     if (!isset($_POST["selectStudent"])) {
 
@@ -87,7 +66,6 @@
                         <div class='bottom'>
                         <div id='footer'><?php include('../../navMenu.php'); ?></div></div><?php
                         exit("</body></html>");
-
                     }
 
                     if (isset($_POST['studentID'])) {
@@ -100,7 +78,6 @@
                         $schoolYearFromForm = $_POST["selectYear"];
                         $semesterNumFromForm = $_POST["selectSemester"];
                     }
-
 
                     //Initial variables to hold student report card data.
                     $studentFirstName = "";
@@ -143,7 +120,6 @@
                             $semesterNum = $rowReportCard["semesterNum"];
                             $studentFirstName = $rowReportCard["firstName"];
                             $studentLastName = $rowReportCard["lastName"];
-
                         }
                         ?>
                         <table class="reportCardHead">
@@ -188,31 +164,24 @@
                     AND courseoffering.educatorID = educator.educatorID
                     AND course.subjectCode = subject.subjectCode;";
 
-                    //May be needed in query
-                    //AND semester.schoolYear = enrollment.schoolYear
-                    //AND semester.semesterNum = enrollment.semesterNum
                     $result2 = $database->query($query2);
 
                     if ($result2->num_rows > 0) {
-
 
                 ?>
                 <table class="reportCardSide">
                     <thead>
                         <tr>
                             <td class="cardMenu">Course Name</td>
-                            <!--            <td>Subject</td>-->
                             <td class="cardMenu">Mark</td>
                             <td class="cardMenu">Days Missed</td>
                             <td>Notes</td>
-                            <!--            <td>Teacher Name</td>-->
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                             $rowCount = 0;
                             while ($rowEnrollment = $result2->fetch_assoc()) {
-
 
                             $courseName = $rowEnrollment["courseName"];
                             $subjectCode = $rowEnrollment["subjectCode"];
@@ -251,14 +220,6 @@
                                 }
                             ?>
 
-                            <!--                <td> --><?php //if ($notes == "") {
-                                //                        echo "Empty";
-                                //                    } else {
-                                //                        echo $notes;
-                                //                    } ?><!--</td>-->
-                            <!--                <td> -->
-                            <?php //echo $educatorFirstName . " " . $educatorLastName; ?><!--</td>-->
-
                             <?php }
                             ?>
 
@@ -270,11 +231,11 @@
                             <td class="reportNote">
 
                                 <?php
-                                //Close connection
-                                $result2->free();
+                                    //Close connection
+                                    $result2->free();
 
-                                //Close connection to database
-                                $database->close();
+                                    //Close connection to database
+                                    $database->close();
                                 ?>
                                 <form method="post" action="viewIEP.php">
                                     <input type="hidden" id="selectStudent" name="selectStudent"
@@ -284,33 +245,16 @@
                                     <input type="hidden" id="selectSemester" name="selectSemester"
                                            value="<?php echo $semesterNumFromForm; ?>">
                                     <?php
-                                    if ($iepMsg > 0) {
-                                        $iep = new Button();
-                                        $iep->buttonName = "iep";
-                                        $iep->buttonID = "iep";
-                                        $iep->buttonValue = "Individual Educational Plan";
-                                        $iep->buttonStyle = "font-family:sans-serif";
-                                        $iep->display();
-                                    }
+                                        if ($iepMsg > 0) {
+                                            $iep = new Button();
+                                            $iep->buttonName = "iep";
+                                            $iep->buttonID = "iep";
+                                            $iep->buttonValue = "Individual Educational Plan";
+                                            $iep->buttonStyle = "font-family:sans-serif";
+                                            $iep->display();
+                                        }
                                     ?>
                                 </form>
-                                <?php
-
-
-                                //                    if (!isset($msg)) {
-                                //                        $iep = new Button();
-                                //
-                                //                        $iep->buttonName = "iep";
-                                //                        $iep->buttonID = "iep";
-                                //                        $iep->buttonValue = "Individual Educational Plan";
-                                //                        $iep->buttonStyle = "font-family:sans-serif";
-                                //                        //Back button works. Does not use the main.js file however.
-                                //                        $iep->buttonWeb = 'location.href="viewIEP.php?studentID=' . $studentIDFromForm . '"';
-                                //                        $iep->display();
-                                //                    }
-
-
-                                ?>
                             </td>
                         </tr>
                         <tr>
@@ -320,42 +264,39 @@
                             <td class="reportSignOff">
 
                                 <?php
-
-                                if (!$isRead && $semesterNum >= 1) {
-                                    echo "<div class='row'>
+                                    //Ensure only admin, parent/guardians and the student view this message
+                                    if ((!$isRead && $semesterNum >= 1) && ($_SESSION["accessCode"] == 1 || $_SESSION["accessCode"] == 2
+                                            || $_SESSION["accessCode"] == 5 || $_SESSION["accessCode"] == 6)) {
+                                        echo "<div class='row'>
                         <div class='col-md-7'>
-                            <p>I acknowledge that I have reviewed this report card details.</p>
+                            <p>I acknowledge that I have reviewed this report card.</p>
                         </div>
                         <div class='col-md-2'>";
 
-                                    //Ensure only admin, parent/guardians and the student can update the report card.
-                                    if ($_SESSION["accessCode"] == 1 || $_SESSION["accessCode"] == 2
-                                        || $_SESSION["accessCode"] == 5 || $_SESSION["accessCode"] == 6) {
-                                        echo "<form action='updateReportCard.php?reportCardNum=" . $reportCardNum . "'
+                                        //Ensure only admin, parent/guardians and the student can update the report card.
+                                        if ($_SESSION["accessCode"] == 1 || $_SESSION["accessCode"] == 2
+                                            || $_SESSION["accessCode"] == 5 || $_SESSION["accessCode"] == 6) {
+                                            echo "<form action='updateReportCard.php?reportCardNum=" . $reportCardNum . "'
                               method='post'><input type='checkbox' name='signReportCard' class='form-control'></div><div class='col-md-3'>";
 
-                                        $confirm = new Button();
+                                            $confirm = new Button();
 
-                                        $confirm->buttonName = "confirm";
-                                        $confirm->buttonID = "addID";
-                                        $confirm->buttonValue = "Confirm";
-                                        $confirm->buttonStyle = "font-family:sans-serif";
-                                        $confirm->display();
-                                        echo "</form></div>";
+                                            $confirm->buttonName = "confirm";
+                                            $confirm->buttonID = "addID";
+                                            $confirm->buttonValue = "Confirm";
+                                            $confirm->buttonStyle = "font-family:sans-serif";
+                                            $confirm->display();
+                                            echo "</form></div>";
+                                        }
+                                        echo "</div></div>";
                                     }
-                                    echo "</div></div>";
-                                }
-
-
                                 ?>
                             </td>
-
-                                <?php
-                                    } else {
-                                    $msg = "<h4>This student is not enrolled in any courses for this school year.</h4>";
-                                }
-
-                                ?>
+                            <?php
+                                } else {
+                                $msg = "<h4>This student is not enrolled in any courses for this school year.</h4>";
+                            }
+                            ?>
                         </tr>
                     </tbody>
                 </table>
@@ -379,16 +320,10 @@
                 ?>
             </div>
         </div>
-        <!--</div>-->
-        <!--</form>-->
-        <!--</div>-->
-        <!--</div>-->
         <div class="bottom">
             <div id="footer">
                 <?php include("../../navMenu.php"); ?>
             </div>
         </div>
-
-
     </body>
 </html>
