@@ -16,7 +16,6 @@ $(document).ready(function () {
         }
     });
 
-
     $("#semesterYearAssignCourse").change(function () {
         var semesterNum = $(this).val();
         var schoolYear = $("#yearAsscourseSemesterYearAssignCourseignCourse option:selected").val();
@@ -36,8 +35,4 @@ $(document).ready(function () {
             $("#semesterYearAssignCourse").html("<option value=''>No Semester</option>");
         }
     });
-
-
-
-
 });

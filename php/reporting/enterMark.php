@@ -1,7 +1,8 @@
 <?php
 /**
  * Created by PhpStorm.
- * Authors: Team Talent 2.0
+ * Company: Team Talent 2.0
+ * Authors: John, Rodrigo, Sara, Steve
  * Date: 2/14/2019
  *
  * Page to allow Educators and Administrators to update student grades,
@@ -39,7 +40,6 @@ include '../db/dbConn.php';
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="ajax.js"></script>
-
 <?php
 
 //Message declaration
@@ -74,9 +74,6 @@ if (isset($_POST['enter'])) {
         header("Refresh:5");
 
     }
-
-    //Close database connection
-    //$database->close();
 
 } else {
 
@@ -152,19 +149,19 @@ if (isset($_POST['enter'])) {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- Fonts !-->
         <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
-        <!-- Instructions to replicate can be found here:  https://getbootstrap.com/docs/4.1/getting-started/introduction/ !-->
+
         <!-- Here is where we call bootstrap. !-->
-        <title>STARS - Assign Mark</title>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                 crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/demos/style.css">
-        <!-- Calendar Date Picker !-->
+        <!-- JS/JQuery links-->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="../../js/main.js"></script>
+        <!--Custom CSS link-->
         <link href="../../css/stars.css" rel="stylesheet">
         <script src="../../js/main.js"></script>
         <!--function to go back to your incomplete album form without losing previously filled fields-->
@@ -173,7 +170,9 @@ if (isset($_POST['enter'])) {
                 window.history.back();
             }
         </script>
+        <title>STARS - Assign Mark</title>
     </head>
+
     <body>
     <?php include "../../header.php"; ?>
     <div class="jumbotron-fluid">
@@ -214,6 +213,7 @@ if (isset($_POST['enter'])) {
                                 </select><br>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="markInput">Mark</label>
@@ -240,6 +240,7 @@ if (isset($_POST['enter'])) {
                                 </select><br>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-sm-12">
                                 <label for="teacherNotes">Teacher´s notes</label><br/>
