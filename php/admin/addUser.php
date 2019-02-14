@@ -56,7 +56,7 @@ include "../../header.php";
 if (isset($_POST["add"])) {
 
     //If details are empty, display a message and give redirect links. Otherwise, proceed.
-    if ($_POST["username"] == "" || $_POST["password"] == "" || $_POST["accessCode"] == "") {
+    if ($_POST["username"] == "" || $_POST["password"] == "" || $_POST["password2"] == "" || $_POST["accessCode"] == "" ||($_POST["password"] != $_POST["password2"])) {
         ?>
         </div>
         <div class="header">
@@ -65,7 +65,7 @@ if (isset($_POST["add"])) {
         <div class="jumbotron-fluid">
             <div class="container-fluid">
                 <?php
-                echo "<br><div class='container'><div class=\"alert-danger\"><br><h4>Error. Form fields must not be empty.</h4><br></div></div>";
+                echo "<br><div class='container'><div class=\"alert-danger\"><br><h4>Error. Form fields must correct.</h4><br><br></div></div><br>";
                 echo "<form action='addUser.php' method='post'><fieldset><div class='col-md-12'><button class='btn button button2' onclick='goBack()'>Go Back</button></div></fieldset></form>";
                 ?>
             </div>
@@ -104,7 +104,7 @@ if (isset($_POST["add"])) {
         </div>
         <div class="jumbotron-fluid">
             <div class="container-fluid container-sizer">
-                <?php echo "<h4>Success</h4><p>User has successfully been added to the database</p><br>";
+                <?php echo "<br><h2>Success</h2><p>User has successfully been added to the database</p><br>";
                 if ($accessCode == 5) {
 
                     $register = new Button();
@@ -185,7 +185,7 @@ if (isset($_POST["add"])) {
             <form action="addUser.php" method="POST">
                 <div class="form-group">
                     <h2>User Details</h2>
-                    <p><span style="color:red">*All fields are required and username must be unique.</span></p>
+                    <p><span style="color:red">*Username must be unique & passwords must match.</span></p>
                     <br>
                     <div class="container">
                         <div class="row">
@@ -199,6 +199,13 @@ if (isset($_POST["add"])) {
                             <div class="col-md-12 form-inline">
                                 <label for="password" class="col-md-6">Password</label>
                                 <input type="password" name="password" class="col-md-6 form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12 form-inline">
+                                <label for="password2" class="col-md-6">Password</label>
+                                <input type="password" name="password2" class="col-md-6 form-control">
                             </div>
                         </div>
                         <br>

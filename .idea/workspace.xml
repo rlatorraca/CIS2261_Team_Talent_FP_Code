@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d665968c-2a54-4ef4-a752-38485972bd29" name="Default Changelist" comment="Added files and started forms">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/stars.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/stars.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/admin/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/assignCourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/assignCourse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/getCourseSchoolYearAssignCourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/getCourseSchoolYearAssignCourse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/getCourseSchoolYearAssignCourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/getCourseSchoolYearAssignCourse.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,14 +40,66 @@
     </checked>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/addUser.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="184" column="53" lean-forward="true" selection-start-line="184" selection-start-column="53" selection-end-line="184" selection-end-column="53" />
+              <folding>
+                <element signature="e#6#99#0#PHP" expanded="true" />
+                <element signature="e#6865#6882#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/confirmStudent.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="117" column="14" lean-forward="true" selection-start-line="117" selection-start-column="14" selection-end-line="117" selection-end-column="14" />
+              <folding>
+                <element signature="e#6#295#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/insertStudent.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="388">
+              <caret line="111" column="35" lean-forward="true" selection-start-line="111" selection-start-column="35" selection-end-line="111" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/stars.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="264" selection-start-line="264" selection-end-line="264" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/reporting/displayReportCard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="451">
+              <caret line="337" column="19" lean-forward="true" selection-start-line="337" selection-start-column="19" selection-end-line="337" selection-end-column="19" />
+              <folding>
+                <element signature="e#15178#15219#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>studentID</find>
-      <find>input</find>
-      <find>li</find>
-      <find>ul</find>
       <find>titl</find>
       <find>lock</find>
       <find>&gt;try again?</find>
@@ -73,9 +123,13 @@
       <find>error</find>
       <find>form fields</find>
       <find>msg</find>
-      <find>alert</find>
       <find>sorry</find>
       <find>succ</find>
+      <find>add user</find>
+      <find>alert</find>
+      <find>i have</find>
+      <find>pass</find>
+      <find>but</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,14 +178,14 @@
         <option value="$PROJECT_DIR$/php/admin/deleteEnrollment.php" />
         <option value="$PROJECT_DIR$/php/admin/assignCourse.php" />
         <option value="$PROJECT_DIR$/php/reporting/viewIEP.php" />
-        <option value="$PROJECT_DIR$/php/reporting/displayReportCard.php" />
         <option value="$PROJECT_DIR$/php/reporting/displayStudentSubHistory.php" />
         <option value="$PROJECT_DIR$/php/admin/addStudent.php" />
         <option value="$PROJECT_DIR$/navMenu.php" />
-        <option value="$PROJECT_DIR$/php/admin/addUser.php" />
-        <option value="$PROJECT_DIR$/css/stars.css" />
         <option value="$PROJECT_DIR$/php/admin/confirmStudent.php" />
         <option value="$PROJECT_DIR$/php/admin/insertStudent.php" />
+        <option value="$PROJECT_DIR$/php/admin/addUser.php" />
+        <option value="$PROJECT_DIR$/css/stars.css" />
+        <option value="$PROJECT_DIR$/php/reporting/displayReportCard.php" />
       </list>
     </option>
   </component>
@@ -156,6 +210,21 @@
             <path>
               <item name="CIS2261_Team_Talent_FP_Code" type="b2602c69:ProjectViewProjectNode" />
               <item name="CIS2261_Team_Talent_FP_Code" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CIS2261_Team_Talent_FP_Code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CIS2261_Team_Talent_FP_Code" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CIS2261_Team_Talent_FP_Code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CIS2261_Team_Talent_FP_Code" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CIS2261_Team_Talent_FP_Code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CIS2261_Team_Talent_FP_Code" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CIS2261_Team_Talent_FP_Code" type="b2602c69:ProjectViewProjectNode" />
@@ -185,6 +254,10 @@
               <item name="CIS2261_Team_Talent_FP_Code" type="462c0819:PsiDirectoryNode" />
               <item name="php" type="462c0819:PsiDirectoryNode" />
               <item name="reporting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CIS2261_Team_Talent_FP_Code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
             </path>
           </expand>
           <select />
@@ -273,7 +346,7 @@
       <workItem from="1550002166662" duration="2595000" />
       <workItem from="1550151610367" duration="937000" />
       <workItem from="1550152819527" duration="80000" />
-      <workItem from="1550153039981" duration="4340000" />
+      <workItem from="1550153039981" duration="6368000" />
     </task>
     <task id="LOCAL-00001" summary="Added database sql file and inserted sql code to create database.">
       <created>1548210945438</created>
@@ -300,7 +373,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251511000" />
+    <option name="totallyTimeSpent" value="252922000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -312,9 +385,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20630373" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21538462" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.3285968" />
@@ -558,16 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/reporting/displayReportCard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="288" column="39" selection-start-line="288" selection-start-column="39" selection-end-line="288" selection-end-column="39" />
-          <folding>
-            <element signature="e#12180#12221#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/reporting/requestSchoolSubAvg.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -641,13 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/stars.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="422" column="26" selection-start-line="422" selection-start-column="26" selection-end-line="422" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/confirmStudent.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
@@ -660,15 +717,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/insertStudent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="105" column="16" lean-forward="true" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/addUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        <state relative-caret-position="388">
+          <caret line="111" column="35" lean-forward="true" selection-start-line="111" selection-start-column="35" selection-end-line="111" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -676,6 +726,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/addUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="184" column="53" lean-forward="true" selection-start-line="184" selection-start-column="53" selection-end-line="184" selection-end-column="53" />
+          <folding>
+            <element signature="e#6#99#0#PHP" expanded="true" />
+            <element signature="e#6865#6882#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/stars.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="264" selection-start-line="264" selection-end-line="264" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/reporting/displayReportCard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="337" column="19" lean-forward="true" selection-start-line="337" selection-start-column="19" selection-end-line="337" selection-end-column="19" />
+          <folding>
+            <element signature="e#15178#15219#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

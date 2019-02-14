@@ -415,7 +415,7 @@ h4{
     font-weight: bold;
     color: #0b3c5d;
 }
-
+/*Error message formatting*/
 .alert-danger {
     text-align: center;
     color: #a94442;
