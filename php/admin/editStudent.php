@@ -51,7 +51,7 @@
 
             $resultSetFromUpdateStudent = $database->query($updateStudentQuery);
 
-            if ($resultSetFromUpdateStudent == 1) {
+            if ($resultSetFromUpdateStudent) {
 
                 $msg = "<h2>Student $studentID has been successfully updated in STARS.</h2><br>";
 

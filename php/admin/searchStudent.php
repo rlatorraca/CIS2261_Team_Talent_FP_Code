@@ -93,7 +93,7 @@
                                     <option value="5" selected>5</option>
                                     <option value="10">10</option>
                                     <option value="15">15</option>
-                                    <option value="9999999999999999999999999999999">All</option>
+                                    <option value="All">All</option>
                                 </select>
                             </div>
                         </div>
