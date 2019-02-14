@@ -163,7 +163,7 @@ include("../button.class.php");
             } else {
                 //$studentName = $_SESSION["studentNameForAssignToCourse"];
                 echo "<h2>Student Assigned</h2>
-                                <p>with an ID of " . $studentID . " " . " has been assigned to " . $subject . " course (year: " . $schoolYear . ", semester: " . $semesterNum . ")</p>
+                                <p>Student with an ID of " . $studentID . " " . " has been assigned to " . $subject . " course (year: " . $schoolYear . ", semester: " . $semesterNum . ")</p>
                                 <br>
                                 <form action='assignCourse.php' method='post'>
                                 <div class='row'>
@@ -188,9 +188,7 @@ include("../button.class.php");
                     </html>");
 
             }
-
-            $_SESSION['studentNameForAssignToCourse'] = "";
-
+            
             //Take details used in assign student to a course to generate/search for report cards
             //Report card query
             $queryReportCard = "SELECT * FROM reportcard WHERE studentID = $studentID 
@@ -215,7 +213,7 @@ include("../button.class.php");
 
                 } else {
 
-                    echo "<p>Issue adding a report card to STARS for Student $studentIDFromAssignToCourse</p>";
+                    echo "<p>Issue adding a report card to STARS for Student $studentID</p>";
 
                 }
 
@@ -326,8 +324,6 @@ include("../button.class.php");
                         </select>
                     </div>
                 </div>
-
-
                 <!--                    <label for="yearAsscourseSemesterYearAssignCourseignCourse">Year</label>-->
                 <!--                    <select class="g" id="yearAsscourseSemesterYearAssignCourseignCourse"-->
                 <!--                            name="yearAsscourseSemesterYearAssignCourseignCourse">-->
@@ -350,11 +346,8 @@ include("../button.class.php");
                     </select>
                 </div>
             </div>
-
-
             <div class="row">
                 <div class="col-md-12">
-
                     <label for="courseSemesterYearAssignCourse">Course</label> <select class="form-control"
                                                                                        name="courseSemesterYearAssignCourse"
                                                                                        id="courseSemesterYearAssignCourse">
@@ -374,7 +367,6 @@ include("../button.class.php");
                                 <option
                                 value= <?php echo $row["studentID"] ?> ><?php echo $row["studentID"] . " - "
                                     . $row["firstName"] . " " . $row["lastName"]; ?></option><?php
-                                //$_SESSION["studentNameForAssignToCourse"] = $row['firstName'] . " " . $row['lastName'];
                             }
                         } else {
                             echo "<option>No Students</option>";
@@ -397,7 +389,7 @@ include("../button.class.php");
                     </div>
                     <div class="col-md-8">
 
-                        <!--                            <input type="submit" name="register" value="Register Student in Course">-->
+                        <!--<input type="submit" name="register" value="Register Student in Course">-->
                         <?php
                         $assignCourse = new Button();
 
@@ -414,8 +406,6 @@ include("../button.class.php");
         <div><?php echo $msg ?></div>
     </div>
 </div>
-
-
 <div class="bottom">
     <div id="footer">
         <?php include("../../navMenu.php"); ?>
@@ -423,6 +413,4 @@ include("../button.class.php");
 </div>
 </body>
 </html>
-<?php
-}
-?>
+<?php } ?>
