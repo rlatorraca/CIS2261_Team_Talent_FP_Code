@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * Users: Team Talent 2.0
+ * Authors: Team Talent 2.0
  * Date: 2/14/2019
  *
  * This page enforces that only admin-level users (system administrators and school administrators)
