@@ -52,7 +52,7 @@ include "../button.class.php";
 <?php
 include "../../header.php"; ?>
 <div class="jumbotron-fluid">
-    <div class="container-fluid">
+    <div class="container-fluid container-sizer">
         <?php
         //$usernameFromForm = $database->real_escape_string($_SESSION["username"]);
         $usernameFromSession = $_SESSION["username"];
@@ -101,7 +101,7 @@ include "../../header.php"; ?>
         //Check if query executed successfully and that the result contains data.
         if ($result) {
 
-            $msg = "<br><div class='alert alert-info'><h4>Student has been successfully added to the database</h4></div>";
+            $msg = "<br><h2>Success</h2><p>User has successfully been added to the database</p><br><br>";
 
         } else {
 

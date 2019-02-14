@@ -87,8 +87,11 @@ include "../button.class.php";
 
                     //If details are empty, display a message and show redirect buttons. Otherwise, proceed.
                     if (($firstName == "") || ($middleName == "") || ($lastName == "") || ($dob == "") || ($address == "") || ($phoneNum == "") || ($emailAddress == "")) {
-                        $msg = "Form fields must not be empty before registering new student in STARS.";
-                        echo "<br><div class='alert alert-danger' style='color: red'><h4>$msg</h4></div><br><br>";
+                        echo "<br><div class='alert-danger'>";
+                        echo "<br><h4>Sorry, looks like you missed a required field.  Try again.</h4><br><br></div><br>";
+
+//                        $msg = "Form fields must not be empty before registering new student in STARS.";
+//                        echo "<br><div class='alert alert-danger' style='color: red'><h4>$msg</h4></div><br><br>";
 
                         //Back Button
                         $goBack = new Button();
@@ -107,16 +110,17 @@ include "../button.class.php";
                         $homeBtn->buttonStyle = "font-family:sans-serif";
                         $homeBtn->buttonWeb = 'location.href = "../../index.php"';
                         $homeBtn->display();
-                        exit("        </div>
-    </div>
+                      echo "</div></div>
     <div class='bottom'>
-        <div id='footer'>
-            <?php include('navMenu.php'); ?>
+        <div id='footer'>";
+              include '../../navMenu.php'; ?>
+<?php exit("
         </div>
     </div>
+
         </body>
     </html>");
-                    }
+                         }
 
                     echo "<div class='alert alert-info'>
                     <h2>You have entered the following student details:</h2>
