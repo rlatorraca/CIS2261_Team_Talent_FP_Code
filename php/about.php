@@ -7,7 +7,7 @@
      *
      * This is a simple about page to give details on system and developers
      *
-     * This page requires: index.php.
+     * This page requires: stars.css, index.php.
      *
      */
 
@@ -62,7 +62,7 @@
                         environmental impact, and provide better educational tracking for educators,
                         guardians and students. </p>
                     <p>STARS Beta Version 1.0</p>
-                    <p>Copywright © 2019 Team Talent 2.0</p>
+                    <p>Copyright © 2019 Team Talent 2.0</p>
 
                 </div>
             </div>

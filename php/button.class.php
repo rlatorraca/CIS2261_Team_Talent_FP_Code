@@ -7,7 +7,7 @@
      *
      * This is a button class, used in a variety of places to maintain consistency with buttons
      *
-     * This page requires: index.php.
+     * This page requires: stars.css, index.php.
      *
      */
 

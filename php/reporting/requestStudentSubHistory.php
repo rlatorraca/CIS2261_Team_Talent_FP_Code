@@ -1,9 +1,14 @@
 <?php
     /**
      * Created by PhpStorm.
-     * User: sahra
-     * Date: 2019-01-27
-     * Time: 8:58 PM
+     * Company: Team Talent 2.0
+     * Authors: John, Rodrigo, Sara, Steve
+     * Date: 2/14/2019
+     *
+     * This is the page used request a student's history in a particular subject.
+     *
+     * This page requires: stars.css, index.php, login.php, checkLoggedIn.php, dbConn.php, displayStudentSubHistory.php
+     *
      */
 ?>
 
@@ -27,7 +32,7 @@
     $supportEducatorID = 0;
     $guardianID = 0;
 
-    //Massive if statement to determine the SQL to select student(s) according to logged in user accessing the page.
+    //If statement to determine the SQL to select student(s) according to logged in user accessing the page.
     if ($_SESSION["accessCode"] == 1) {
 
         $queryStudent = "SELECT DISTINCT student.studentID, student.firstName, student.lastName FROM user, student, enrollment, 
@@ -118,7 +123,6 @@
 
     //create the query to get subjects
     //Don't need to select by school, all subjects should be available across the school system.
-
     $querySubject = "SELECT * FROM subject";
 
     //query to pull all available school years
@@ -140,27 +144,26 @@
         <!-- Fonts !-->
         <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
 
-        <!-- Here is where we call bootstrap. !-->
-        <title>STARS - Assign Mark</title>
+        <!-- Here is where we call bootstrap-->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                 crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
+        <!-- JS/JQuery links-->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/demos/style.css">
 
-        <!-- Calendar Date Picker !-->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="../../js/main.js"></script>
-
+        <!--Custom css link-->
         <link href="../../css/stars.css" rel="stylesheet">
         <script src="../../js/main.js"></script>
 
-
-
+        <title>STARS - Assign Mark</title>
     </head>
+
     <body>
         <?php include "../../header.php"; ?>
         <div class="jumbotron-fluid">
@@ -174,7 +177,7 @@
                             <div class="form-row">
                                 <div class="col-sm-6">
                                     <label for="students">Select Student</label>
-                                    <select class="form-control"id="students" name="students">
+                                    <select class="form-control" id="students" name="students">
                                         <!-- Using SQL to populate dropdown list of students -->
                                         <?php if ($resultStudent->num_rows > 0) {
                                             while ($row = $resultStudent->fetch_assoc()) {
@@ -191,7 +194,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="subjects">Select Subject</label>
-                                <select class="form-control"id="subjects" name="subjects">
+                                <select class="form-control" id="subjects" name="subjects">
                                     <!-- Using SQL to populate dropdown list of subjects -->
                                     <?php if ($resultSubject->num_rows > 0) {
                                         while ($row = $resultSubject->fetch_assoc()) {

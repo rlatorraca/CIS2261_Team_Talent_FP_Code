@@ -1,9 +1,14 @@
 <?php
     /**
      * Created by PhpStorm.
-     * User: sahra
-     * Date: 2019-01-30
-     * Time: 2:07 PM
+     * Company: Team Talent 2.0
+     * Authors: John, Rodrigo, Sara, Steve
+     * Date: 2/14/2019
+     *
+     * This is the page used to request the school average in a particular subject.  Only available to admin users & sysAdmin.
+     *
+     * This page requires: stars.css, index.php, login.php, checkLoggedIn.php, dbConn.php, displayStudentSubHistory.php
+     *
      */
 
     //Lock down page

@@ -7,7 +7,7 @@
      *
      * This is a simple help page to be further developed in next iteration
      *
-     * This page requires: index.php.
+     * This page requires: stars.css, index.php.
      *
      */
     session_start();

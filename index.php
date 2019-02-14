@@ -7,7 +7,7 @@
      *
      * This page is the home page. Users can login from this page.
      *
-     * This page requires: login.php.
+     * This page requires: stars.css, login.php.
      *
      */
 

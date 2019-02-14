@@ -8,7 +8,7 @@
      * This page handles navbar functionality. Navbar displayed is based upon logged in user access level.
      *
      *
-     * This page requires: login.php, index.php.
+     * This page requires: stars.css, login.php, index.php.
      *
      */
 

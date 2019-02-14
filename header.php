@@ -8,7 +8,7 @@
      * This page determines what is seen on top bar of page.  If user is not logged in they will see a login button, if
      * user is logged in they will see their name and a logout button.
      *
-     * This page requires: Login.php, index.php.
+     * This page requires: stars.css, Login.php, index.php.
      *
      */
 

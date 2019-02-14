@@ -1,10 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jgaudet109873
- * Date: 2/6/2019
- * Time: 2:21 PM
- */
+    /**
+     * Created by PhpStorm.
+     * Company: Team Talent 2.0
+     * Authors: John, Rodrigo, Sara, Steve
+     * Date: 2/14/2019
+     *
+     * This is the page used when parent/guardian or student confirms that they have viewed the report card
+     *
+     * This page requires: stars.css, index.php, login.php, checkLoggedIn.php, dbConn.php, requestReportCard.php, displayReportCard.php .
+     *
+     */
 
 //Lock down page
 include "../login/checkLoggedIn.php";
@@ -45,9 +50,11 @@ if ($resultUpdateReportCard) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Update Report Card</title>
+    <title>STARS - Update Report Card</title>
 </head>
-<body>
+
+<body>\
+<!--Message displayed if cannot be updated.-->
 <div><?php if (isset($msg)) {
         echo $msg;
     } ?></div>
