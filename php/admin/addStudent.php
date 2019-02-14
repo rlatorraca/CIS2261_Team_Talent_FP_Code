@@ -53,22 +53,7 @@
         <link href="../../css/stars.css" rel="stylesheet">
 
         <script src="../../js/main.js"></script>
-        <!--Datepicker-->
-        <!--        <script>-->
-<!--                    $(function () {-->
-<!--                        $("#datepicker").datepicker({-->
-<!--                            changeMonth: true,-->
-<!--                            changeYear: true-->
-<!--                        });-->
-<!--                    });-->
-        <!--        </script>-->
-        <!--        -Tool Tips-->
-        <!--        <script>-->
-        <!--            $( function() {-->
-        <!--                $( document ).tooltip();-->
-        <!--            } );-->
-        <!--        </script>-->
-        <!--       function to go back to your incomplete form without losing previously filled fields-->
+        <!-- goBack button function-->
         <script>
             function goBack() {
                 window.history.back();
@@ -77,15 +62,16 @@
 
         <title>STARS - Add Student</title>
     </head>
-    <body>
 
+    <body>
+        <!--Header login/logout page-->
         <?php include "../../header.php"; ?>
 
         <div class="jumbotron-fluid">
             <div class="container-fluid">
                 <!--Main container and contents-->
                 <div class="container container-larger" id="addStudent">
-
+                    <!--Student details form-->
                     <form action="confirmStudent.php" method="post">
                         <h2>Student Details</h2>
                         <p><span style="color:red">*Please ensure all form fields are filled</span></p>
@@ -200,12 +186,13 @@
                         <div class="row">
                             <div class="form-group col-sm-6">
                                 <label for="username">Username</label>
+                                <!--Populates the user name entered in previous screen, addUser.php-->
                                 <input type="text" name="username" class="form-control"
                                        value="<?php echo $_SESSION['username'] ?>" readonly>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label for="selectSupportEducator">Support Educator</label>
-                                <select class = "form-control" name="selectSupportEducator">
+                                <select class="form-control" name="selectSupportEducator">
                                     <option value=NULL>None</option>
                                     <?php
                                         $querySupportEducators = "SELECT supportEducatorID, supFName, supLName FROM supporteducator";
@@ -245,7 +232,7 @@
             <div class="bottom">
                 <div id="footer">
                     <?php include("../../navMenu.php"); ?>
-            </div>
+                </div>
             </div>
         </div>
     </body>
