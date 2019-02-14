@@ -4,7 +4,11 @@
  * Users: Team Talent 2.0
  * Date: 2/14/2019
  *
- * This page handles login functionality. STARS requires that users be logged in before accessing all/their level of access
+ * This page handles login functionality. STARS requires that users be logged in before accessing the main pages of the system.
+ *
+ * This login page takes a user's username and password, hashes the password and compares it and the username to the database user table.
+ *
+ * This page requires: checkLoggedIn.php, index.php.
  *
  */
 
