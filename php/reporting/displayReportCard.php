@@ -268,16 +268,13 @@
                             <td></td>
                             <td></td>
                             <td class="reportNote">
+
                                 <?php
-                                    } else {
-                                    $msg = "<h4>This student is not enrolled in any courses for this school year.</h4>";
-                                }
+                                //Close connection
+                                $result2->free();
 
-                                    //Close connection
-                                    $result2->free();
-
-                                    //Close connection to database
-                                    $database->close();
+                                //Close connection to database
+                                $database->close();
                                 ?>
                                 <form method="post" action="viewIEP.php">
                                     <input type="hidden" id="selectStudent" name="selectStudent"
@@ -287,30 +284,30 @@
                                     <input type="hidden" id="selectSemester" name="selectSemester"
                                            value="<?php echo $semesterNumFromForm; ?>">
                                     <?php
-                                        if ($iepMsg > 0) {
-                                            $iep = new Button();
-                                            $iep->buttonName = "iep";
-                                            $iep->buttonID = "iep";
-                                            $iep->buttonValue = "Individual Educational Plan";
-                                            $iep->buttonStyle = "font-family:sans-serif";
-                                            $iep->display();
-                                        }
+                                    if ($iepMsg > 0) {
+                                        $iep = new Button();
+                                        $iep->buttonName = "iep";
+                                        $iep->buttonID = "iep";
+                                        $iep->buttonValue = "Individual Educational Plan";
+                                        $iep->buttonStyle = "font-family:sans-serif";
+                                        $iep->display();
+                                    }
                                     ?>
                                 </form>
                                 <?php
 
 
-                                    //                    if (!isset($msg)) {
-                                    //                        $iep = new Button();
-                                    //
-                                    //                        $iep->buttonName = "iep";
-                                    //                        $iep->buttonID = "iep";
-                                    //                        $iep->buttonValue = "Individual Educational Plan";
-                                    //                        $iep->buttonStyle = "font-family:sans-serif";
-                                    //                        //Back button works. Does not use the main.js file however.
-                                    //                        $iep->buttonWeb = 'location.href="viewIEP.php?studentID=' . $studentIDFromForm . '"';
-                                    //                        $iep->display();
-                                    //                    }
+                                //                    if (!isset($msg)) {
+                                //                        $iep = new Button();
+                                //
+                                //                        $iep->buttonName = "iep";
+                                //                        $iep->buttonID = "iep";
+                                //                        $iep->buttonValue = "Individual Educational Plan";
+                                //                        $iep->buttonStyle = "font-family:sans-serif";
+                                //                        //Back button works. Does not use the main.js file however.
+                                //                        $iep->buttonWeb = 'location.href="viewIEP.php?studentID=' . $studentIDFromForm . '"';
+                                //                        $iep->display();
+                                //                    }
 
 
                                 ?>
@@ -324,36 +321,41 @@
 
                                 <?php
 
-                                    if (!$isRead && $semesterNum >= 1) {
-                                        echo "<div class='row'>
+                                if (!$isRead && $semesterNum >= 1) {
+                                    echo "<div class='row'>
                         <div class='col-md-7'>
                             <p>I acknowledge that I have reviewed this report card details.</p>
                         </div>
                         <div class='col-md-2'>";
 
-                                        //Ensure only admin, parent/guardians and the student can update the report card.
-                                        if ($_SESSION["accessCode"] == 1 || $_SESSION["accessCode"] == 2
-                                            || $_SESSION["accessCode"] == 5 || $_SESSION["accessCode"] == 6) {
-                                            echo "<form action='updateReportCard.php?reportCardNum=" . $reportCardNum . "'
+                                    //Ensure only admin, parent/guardians and the student can update the report card.
+                                    if ($_SESSION["accessCode"] == 1 || $_SESSION["accessCode"] == 2
+                                        || $_SESSION["accessCode"] == 5 || $_SESSION["accessCode"] == 6) {
+                                        echo "<form action='updateReportCard.php?reportCardNum=" . $reportCardNum . "'
                               method='post'><input type='checkbox' name='signReportCard' class='form-control'></div><div class='col-md-3'>";
 
-                                            $confirm = new Button();
+                                        $confirm = new Button();
 
-                                            $confirm->buttonName = "confirm";
-                                            $confirm->buttonID = "addID";
-                                            $confirm->buttonValue = "Confirm";
-                                            $confirm->buttonStyle = "font-family:sans-serif";
-                                            $confirm->display();
-                                            echo "</form></div>";
-                                        }
-                                        echo "</div></div>";
+                                        $confirm->buttonName = "confirm";
+                                        $confirm->buttonID = "addID";
+                                        $confirm->buttonValue = "Confirm";
+                                        $confirm->buttonStyle = "font-family:sans-serif";
+                                        $confirm->display();
+                                        echo "</form></div>";
                                     }
+                                    echo "</div></div>";
+                                }
 
 
                                 ?>
                             </td>
 
+                                <?php
+                                    } else {
+                                    $msg = "<h4>This student is not enrolled in any courses for this school year.</h4>";
+                                }
 
+                                ?>
                         </tr>
                     </tbody>
                 </table>

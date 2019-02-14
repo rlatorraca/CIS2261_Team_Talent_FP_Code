@@ -1,10 +1,10 @@
 
+/*Width and height apply to all parts of the element: content, padding and borders:*/
+/** {*/
+    /*box-sizing: border-box;*/
+/*}*/
 
-* {
-    box-sizing: border-box;
-}
-
-/*body stylings*/
+/* body stylings */
 html, body {
     margin: 0;
     padding: 0;
@@ -26,7 +26,7 @@ html, body {
     z-index: 3;
     }
 
-/* This governs the forms or reports. */
+/* This governs the the content that the user will want to view or interact with. */
 .container-fluid {
     background: #d9d9d9;
     opacity: 0.9;
@@ -44,12 +44,12 @@ html, body {
     overflow: auto;
 }
 
-/*custom container size for smaller forms*/
+/* Custom container size for smaller forms */
 .container-sizer {
     max-width: 40%;
 }
 
-/* Top of the page */
+/* Top of the page. Logo and login button will be found here. */
 .header {
     background-color: #328cc1;
     padding-left: 2%;
@@ -59,25 +59,27 @@ html, body {
     border-bottom: 10px solid #1D2731;
     height: 115px;
 }
-/*Welcome page column stylings*/
+/* Index page column styling. */
 .home{
  column-count: 2;
 }
 
+/* Title on index page styling. */
 .homeTitle {
     text-align:  center;
     column-span: all;
     color: #328cc1;
     }
 
-/*Font stylings for forms*/
+/* Governs the font and colour used on the label tag. */
 label {
     font-family: Helvetica;
     color: #1D2731;
 }
 
-input, select{
-    border: 1px solid #1D2731;
+/* Styles the input fields, selects and textarea tags with the same font family. */
+input, select, textarea{
+    /*border: 1px solid #1D2731;*/
     font-family: 'Arial', sans-serif;
 }
 
@@ -86,10 +88,13 @@ p {
 
 }
 
+/* Titles in menus will use this colour across the site.  */
 h1, h2 {
     color: #328cc1;
 
 }
+
+
 h4{
     display: inline;
 }
