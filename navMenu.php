@@ -43,7 +43,9 @@ switch ($accessCode) {
                             <a href="/CIS2261_Team_Talent_FP_Code/php/admin/searchCourses.php"><li>Un-enroll</li></a>
                             <a href="/CIS2261_Team_Talent_FP_Code/php/admin/assignCourse.php"><li>Assign Course</li></a>
                     </ul>
-                </li>   
+                </li>
+                <a href="/CIS2261_Team_Talent_FP_Code/php/help.php"><li class = "titleNav">Help</li></a>
+                <a href="/CIS2261_Team_Talent_FP_Code/php/about.php"><li class = "titleNav">About</li></a>  
         </ul>';
         break;
 
@@ -71,7 +73,9 @@ switch ($accessCode) {
                             <a href="/CIS2261_Team_Talent_FP_Code/php/admin/searchCourses.php"><li>Un-enroll</li></a>
                             <a href="/CIS2261_Team_Talent_FP_Code/php/admin/assignCourse.php"><li>Assign Course</li></a>
                     </ul>
-                </li>   
+                </li> 
+                <a href="/CIS2261_Team_Talent_FP_Code/php/help.php"><li class = "titleNav">Help</li></a>
+                <a href="/CIS2261_Team_Talent_FP_Code/php/about.php"><li class = "titleNav">About</li></a>   
         </ul>';
         break;
 
@@ -87,8 +91,11 @@ switch ($accessCode) {
                         <a href="/CIS2261_Team_Talent_FP_Code/php/admin/searchStudent.php"><li>Search/Edit Student</li></a>
                         <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
                 </ul>
-            </li>  
-        </ul>';
+            </li> 
+            <a href="/CIS2261_Team_Talent_FP_Code/php/help.php"><li class = "titleNav">Help</li></a>
+            <a href="/CIS2261_Team_Talent_FP_Code/php/about.php"><li class = "titleNav">About</li></a>  
+        </ul>
+        ';
         break;
 
     // Support Educator
@@ -102,7 +109,9 @@ switch ($accessCode) {
                         <a href="/CIS2261_Team_Talent_FP_Code/php/admin/searchStudent.php"><li>Search/Edit Student</li></a>
                         <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
                 </ul>
-            </li>  
+            </li>
+            <a href="/CIS2261_Team_Talent_FP_Code/php/help.php"><li class = "titleNav">Help</li></a>
+            <a href="/CIS2261_Team_Talent_FP_Code/php/about.php"><li class = "titleNav">About</li></a>   
         </ul>';
         break;
 
@@ -112,7 +121,9 @@ switch ($accessCode) {
         echo '<ul id="footerMenu">
             <a href="/CIS2261_Team_Talent_FP_Code/index.php"><li class = "titleNav">Home</li></a>
             <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestReportCard.php"><li class = "titleNav">Report Card</li></a>  
-            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>     
+            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
+            <a href="/CIS2261_Team_Talent_FP_Code/php/help.php"><li class = "titleNav">Help</li></a>
+            <a href="/CIS2261_Team_Talent_FP_Code/php/about.php"><li class = "titleNav">About</li></a>     
         </ul>';
         break;
 
@@ -122,7 +133,9 @@ switch ($accessCode) {
         echo '<ul id="footerMenu">
             <a href="/CIS2261_Team_Talent_FP_Code/index.php"><li class = "titleNav">Home</li></a>
             <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestReportCard.php"><li class = "titleNav">Report Card</li></a>  
-            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>      
+            <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
+            <a href="/CIS2261_Team_Talent_FP_Code/php/help.php"><li class = "titleNav">Help</li></a>
+            <a href="/CIS2261_Team_Talent_FP_Code/php/about.php"><li class = "titleNav">About</li></a>      
         </ul>';
         break;
 
@@ -130,6 +143,8 @@ switch ($accessCode) {
 
         echo '<ul id="footerMenu">
             <a href="/CIS2261_Team_Talent_FP_Code/index.php"><li class = "titleNav">Home</li></a>
+            <a href="/CIS2261_Team_Talent_FP_Code/php/help.php"><li class = "titleNav">Help</li></a>
+            <a href="/CIS2261_Team_Talent_FP_Code/php/about.php"><li class = "titleNav">About</li></a>
         </ul>';
         break;
 }
