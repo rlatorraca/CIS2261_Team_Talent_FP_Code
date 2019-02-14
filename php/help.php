@@ -1,12 +1,15 @@
 <?php
     /**
      * Created by PhpStorm.
-     * Firm: Team Talent 2.0
-     * Members: Sara, John, Rodrigo, Steve
-     * Date: 2019-01-14
-     * Time: 12:09 AM
+     * Company: Team Talent 2.0
+     * Authors: John, Rodrigo, Sara, Steve
+     * Date: 2/14/2019
+     *
+     * This is a simple help page to be further developed in next iteration
+     *
+     * This page requires: index.php.
+     *
      */
-
     session_start();
     include "button.class.php";
     $confirm = new Button();

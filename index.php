@@ -1,11 +1,16 @@
 <?php
     /**
      * Created by PhpStorm.
-     * Firm: Team Talent 2.0
-     * Members: Sara, John, Rodrigo, Steve
-     * Date: 2019-01-14
-     * Time: 12:09 AM
+     * Company: Team Talent 2.0
+     * Authors: John, Rodrigo, Sara, Steve
+     * Date: 2/14/2019
+     *
+     * This page is the home page. Users can login from this page.
+     *
+     * This page requires: login.php.
+     *
      */
+
 
     session_start();
     include("../CIS2261_Team_Talent_FP_Code/php/button.class.php");
@@ -33,7 +38,6 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-
         <!-- Here is where we call bootstrap. !-->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 
@@ -41,7 +45,7 @@
                 crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-        <title>STARS</title>
+        <title>STARS - Home</title>
     </head>
     <body>
 
@@ -49,7 +53,6 @@
 
         <div class="jumbotron-fluid">
             <div class="container-fluid">
-
 
                 <div class="home">
                     <h1 class="homeTitle">Welcome to STARS</h1>
@@ -60,18 +63,13 @@
                         feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
                         luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta
                         nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim
-                        assum.Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim
+                        assum.Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod
+                        mazim placerat facer possim
                         assum.</p>
                 </div>
-<!--                Login button-->
-<!--                <div class="col-md-12">-->
-<!---->
-<!--                    <a href="php/login/login.php" class="btn button2 button" role="button">Login</a>-->
-<!---->
-<!--                </div>-->
             </div>
         </div>
-
+        <!--Bottom navbar-->
         <div class="bottom">
             <div id="footer">
                 <?php include("navMenu.php"); ?>

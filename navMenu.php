@@ -1,28 +1,32 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: smartin120712
- * Date: 2/4/2019
- * Time: 10:51 AM
- */
+    /**
+     * Created by PhpStorm.
+     * Company: Team Talent 2.0
+     * Authors: John, Rodrigo, Sara, Steve
+     * Date: 2/14/2019
+     *
+     * This page handles navbar functionality. Navbar displayed is based upon logged in user access level.
+     *
+     *
+     * This page requires: login.php, index.php.
+     *
+     */
 
 
+    //Get access level of logged in user
+    if (!isset($_SESSION['accessCode'])) {
+        $accessCode = 0;
+    } else {
+        $accessCode = $_SESSION['accessCode'];
+    }
 
+    //Switch to determine which navbar will be displayed based upon access level
+    switch ($accessCode) {
 
-if (!isset($_SESSION['accessCode'])){
-    $accessCode = 0;
-} else {
-    $accessCode = $_SESSION['accessCode'];
-}
+        // System Admin:
+        case 1:
 
-
-
-switch ($accessCode) {
-
-    // System Admin:
-    case 1:
-
-        echo '<ul id="footerMenu">
+            echo '<ul id="footerMenu">
             <a href="/CIS2261_Team_Talent_FP_Code/index.php"><li class = "titleNav">Home</li></a>
                 <li class = "titleNav">Admin
                     <ul class = "dropupMenu">
@@ -47,12 +51,12 @@ switch ($accessCode) {
                 <a href="/CIS2261_Team_Talent_FP_Code/php/help.php"><li class = "titleNav">Help</li></a>
                 <a href="/CIS2261_Team_Talent_FP_Code/php/about.php"><li class = "titleNav">About</li></a>  
         </ul>';
-        break;
+            break;
 
-    // Administrator:
-    case 2:
+        // Administrator:
+        case 2:
 
-        echo '<ul id="footerMenu">
+            echo '<ul id="footerMenu">
             <a href="/CIS2261_Team_Talent_FP_Code/index.php"><li class = "titleNav">Home</li></a>
                 <li class = "titleNav">Admin
                     <ul class = "dropupMenu">
@@ -77,12 +81,12 @@ switch ($accessCode) {
                 <a href="/CIS2261_Team_Talent_FP_Code/php/help.php"><li class = "titleNav">Help</li></a>
                 <a href="/CIS2261_Team_Talent_FP_Code/php/about.php"><li class = "titleNav">About</li></a>   
         </ul>';
-        break;
+            break;
 
-    // Educator
-    case 3:
+        // Educator
+        case 3:
 
-        echo '<ul id="footerMenu">
+            echo '<ul id="footerMenu">
             <a href="/CIS2261_Team_Talent_FP_Code/index.php"><li class = "titleNav">Home</li></a>
             <li class = "titleNav">Student
                 <ul class = "dropupMenu">
@@ -95,12 +99,12 @@ switch ($accessCode) {
             <a href="/CIS2261_Team_Talent_FP_Code/php/about.php"><li class = "titleNav">About</li></a>  
         </ul>
         ';
-        break;
+            break;
 
-    // Support Educator
-    case 4:
+        // Support Educator
+        case 4:
 
-        echo '<ul id="footerMenu">
+            echo '<ul id="footerMenu">
             <a href="/CIS2261_Team_Talent_FP_Code/index.php"><li class = "titleNav">Home</li></a>
             <li class = "titleNav">Student
                 <ul class = "dropupMenu">
@@ -111,42 +115,39 @@ switch ($accessCode) {
             <a href="/CIS2261_Team_Talent_FP_Code/php/help.php"><li class = "titleNav">Help</li></a>
             <a href="/CIS2261_Team_Talent_FP_Code/php/about.php"><li class = "titleNav">About</li></a>   
         </ul>';
-        break;
+            break;
 
-    // Student
-    case 5:
+        // Student
+        case 5:
 
-        echo '<ul id="footerMenu">
+            echo '<ul id="footerMenu">
             <a href="/CIS2261_Team_Talent_FP_Code/index.php"><li class = "titleNav">Home</li></a>
             <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestReportCard.php"><li class = "titleNav">Report Card</li></a>  
             <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
             <a href="/CIS2261_Team_Talent_FP_Code/php/help.php"><li class = "titleNav">Help</li></a>
             <a href="/CIS2261_Team_Talent_FP_Code/php/about.php"><li class = "titleNav">About</li></a>     
         </ul>';
-        break;
+            break;
 
-    // Parent or Guardian
-    case 6:
+        // Parent or Guardian
+        case 6:
 
-        echo '<ul id="footerMenu">
+            echo '<ul id="footerMenu">
             <a href="/CIS2261_Team_Talent_FP_Code/index.php"><li class = "titleNav">Home</li></a>
             <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestReportCard.php"><li class = "titleNav">Report Card</li></a>  
             <a href="/CIS2261_Team_Talent_FP_Code/php/reporting/requestStudentSubHistory.php"><li>Student History</li></a>
             <a href="/CIS2261_Team_Talent_FP_Code/php/help.php"><li class = "titleNav">Help</li></a>
             <a href="/CIS2261_Team_Talent_FP_Code/php/about.php"><li class = "titleNav">About</li></a>      
         </ul>';
-        break;
+            break;
 
-    default:
+        default:
 
-        echo '<ul id="footerMenu">
+            echo '<ul id="footerMenu">
             <a href="/CIS2261_Team_Talent_FP_Code/index.php"><li class = "titleNav">Home</li></a>
             <a href="/CIS2261_Team_Talent_FP_Code/php/help.php"><li class = "titleNav">Help</li></a>
             <a href="/CIS2261_Team_Talent_FP_Code/php/about.php"><li class = "titleNav">About</li></a>
         </ul>';
-        break;
-}
-
-
-
+            break;
+    }
 ?>
