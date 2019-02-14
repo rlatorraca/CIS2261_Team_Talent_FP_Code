@@ -178,9 +178,7 @@ if (isset($_POST['enter'])) {
         <!--Main container and contents-->
         <div class="container main-container" id="studentSearch">
             <form action="enterMark.php" method="post">
-                <div><?php if (isset($msg)) {
-                        echo $msg;
-                    } ?></div>
+                <div><?php if (isset($msg)) { echo $msg; } ?></div>
                 <h2>Assign Mark</h2>
                 <div class="form-group">
                     <div class="row">
