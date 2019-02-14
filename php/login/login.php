@@ -1,9 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * Edited by: John Gaudet
- * Date: 1/22/2019
- * Time: 5:37 PM
+ * Users: Team Talent 2.0
+ * Date: 2/14/2019
+ *
+ * This page handles login functionality. STARS requires that users be logged in before accessing all/their level of access
+ *
  */
 
 include "../button.class.php" ;
