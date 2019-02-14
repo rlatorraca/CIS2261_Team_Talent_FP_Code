@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * Created by PhpStorm.
  * Authors: Team Talent 2.0
@@ -12,7 +14,10 @@
  *
  */
 
+
+session_start();
 include "../button.class.php" ;
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -68,7 +73,7 @@ include "../button.class.php" ;
 <body>
 
 <?php
-session_start();
+
 
 //Login processing logic here
 if (isset($_POST['username'])) {
