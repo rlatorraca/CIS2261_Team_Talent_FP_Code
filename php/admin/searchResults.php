@@ -6,7 +6,6 @@
      * Time: 8:45 PM
      */
 
-
     //Lock down page
     include "../login/checkLoggedIn.php";
 

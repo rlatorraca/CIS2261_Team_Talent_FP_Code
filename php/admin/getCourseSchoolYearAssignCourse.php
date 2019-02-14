@@ -5,11 +5,15 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Rodrigo
- * Date: 2019-02-02
- * Time: 11:44 AM
+ * Company: Team Talent 2.0
+ * Members: John, Rodrigo, Sara, Steve
+ * Date: 2/14/2019
+ *
+ * Page which handles updating the list of courses on the
+ *
+ *
+ *
  */
-
 
 include("../db/dbConn.php");
 
@@ -19,7 +23,6 @@ if (isset($_POST['schoolYear'])) {
             AND  courseoffering.semesterNum = '" . mysqli_real_escape_string($database, $_POST['semesterNum']) . "' 
             AND course.subjectCode='" . mysqli_real_escape_string($database, $_POST['subjectCode']) . "' 
             AND course.courseID = courseoffering.courseID;";
-//	$sql = "select courseoffering.courseID, course.courseName from courseoffering, course where courseoffering.schoolYear='" . mysqli_real_escape_string($database, $_POST['schoolYear']).'" and  courseoffering.semesterNum = ". mysqli_real_escape_string($database, $_POST['semesterNum'])." and course.courseID = courseoffering.courseID ;";
 	$res = mysqli_query($database, $sql);
 	if (mysqli_num_rows($res) > 0) {
 		echo "<option value=''>Select</option>";

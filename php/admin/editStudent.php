@@ -1,7 +1,8 @@
 <?php
 /**
  * Created by PhpStorm.
- * Authors: Team Talent 2.0
+ * Company: Team Talent 2.0
+ * Members: John, Rodrigo, Sara, Steve
  * Date: 2/14/2019
  *
  * Page to edit a student's details. User is directed to this page from the search results of students when they wish to edit a student.
@@ -21,6 +22,7 @@ include "../db/dbConn.php";
 //Button class
 include "../button.class.php";
 
+//Header
 include "../../header.php";
 
 //Get studentID from list page of students from search page.
@@ -30,6 +32,7 @@ $queryStudent = "SELECT * FROM student WHERE studentID = $studentID;";
 
 $resultSetFromQueryStudent = $database->query($queryStudent);
 
+//Get query results
 if ($resultSetFromQueryStudent->num_rows == 1) {
 
     while ($row = $resultSetFromQueryStudent->fetch_assoc()) {
@@ -46,7 +49,6 @@ if ($resultSetFromQueryStudent->num_rows == 1) {
         $allergies = $row["allergies"];
     }
 }
-
 
 ?>
 <!doctype html>
@@ -217,6 +219,7 @@ if ($resultSetFromQueryStudent->num_rows == 1) {
                 <br>
                 <div class="col-sm-6">
                     <?php
+                    //Confirm button to send data to confirmEditStudent.php page
                     $confirm = new Button();
 
                     $confirm->buttonName = "updateStudent";

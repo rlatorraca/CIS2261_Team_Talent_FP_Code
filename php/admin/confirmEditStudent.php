@@ -1,12 +1,13 @@
 <?php
 /**
  * Created by PhpStorm.
- * Authors: Team Talent 2.0
+ * Company: Team Talent 2.0
+ * Members: John, Rodrigo, Sara, Steve
  * Date: 2/14/2019
  *
- * Page which confirms the database update query and handles errors for the user.
+ * Page which confirms the database update query and handles errors for the user. Also handles refreshes and redirects.
  *
- * Required pages: login.php, checkLoggedIn.php, autheticateAdminPages.php, searchStudent.php, editStudent.php
+ * Required pages: stars.css, login.php, checkLoggedIn.php, autheticateAdminPages.php, searchStudent.php, editStudent.php.
  */
 
 //Lock down page
@@ -137,4 +138,10 @@ if (isset($_POST["updateStudent"])) {
 </div>
 </body>
 </html>
+<?php
+
+//Closing Database connection
+$database->close();
+
+?>
 
