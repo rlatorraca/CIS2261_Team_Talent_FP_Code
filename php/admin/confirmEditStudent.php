@@ -113,7 +113,7 @@ if (isset($_POST["updateStudent"])) {
 
 		if ($resultSetFromUpdateStudent == 1) {
 
-			$msg = "<br><div class='alert alert-info'>Student $studentIDFromForm has been successfully updated in STARS. 
+			$msg = "<br><div class='alert alert-info'>$firstNameFromForm, Student ID $studentIDFromForm, has been successfully updated in STARS. 
                         You will be automatically redirected to the Search Student page momentarily.</div><br>";
 
 			header("Refresh:5; searchStudent.php", true, 303);

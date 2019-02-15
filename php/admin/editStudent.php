@@ -24,32 +24,6 @@ include "../button.class.php";
 
 //Header
 include "../../header.php";
-
-//Get studentID from list page of students from search page.
-$studentID = $_GET["studentID"];
-
-$queryStudent = "SELECT * FROM student WHERE studentID = $studentID;";
-
-$resultSetFromQueryStudent = $database->query($queryStudent);
-
-//Get query results
-if ($resultSetFromQueryStudent->num_rows == 1) {
-
-    while ($row = $resultSetFromQueryStudent->fetch_assoc()) {
-
-        $firstName = $row["firstName"];
-        $middleName = $row["middleName"];
-        $lastName = $row["lastName"];
-        $gender = $row["gender"];
-        $dob = $row["dob"];
-        $grade = $row["grade"];
-        $address = $row["address"];
-        $phoneNumber = $row["phoneNum"];
-        $emailAddress = $row["emailAddress"];
-        $allergies = $row["allergies"];
-    }
-}
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -87,6 +61,33 @@ if ($resultSetFromQueryStudent->num_rows == 1) {
     </script>
     <title>STARS - Edit Student</title>
 </head>
+<?php
+//Get studentID from list page of students from search page.
+$studentID = $_GET["studentID"];
+
+$queryStudent = "SELECT * FROM student WHERE studentID = $studentID;";
+
+$resultSetFromQueryStudent = $database->query($queryStudent);
+
+//Get query results
+if ($resultSetFromQueryStudent->num_rows == 1) {
+
+    while ($row = $resultSetFromQueryStudent->fetch_assoc()) {
+
+        $firstName = $row["firstName"];
+        $middleName = $row["middleName"];
+        $lastName = $row["lastName"];
+        $gender = $row["gender"];
+        $dob = $row["dob"];
+        $grade = $row["grade"];
+        $address = $row["address"];
+        $phoneNumber = $row["phoneNum"];
+        $emailAddress = $row["emailAddress"];
+        $allergies = $row["allergies"];
+    }
+}
+
+?>
 <body>
 <div class="jumbotron-fluid">
     <div class="container-fluid">

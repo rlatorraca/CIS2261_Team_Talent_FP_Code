@@ -129,7 +129,7 @@
 
             } else {
 
-                $msg = "<p>Could not display subject average at this time.</p>";
+                $msg = "<p>No data is available for your selection.</p>";
             }
         }
     }
