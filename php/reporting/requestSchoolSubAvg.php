@@ -1,6 +1,7 @@
 <?php
     /**
      * Created by PhpStorm.
+     * STARS Beta Version 1.0
      * Company: Team Talent 2.0
      * Authors: John, Rodrigo, Sara, Steve
      * Date: 2/14/2019
@@ -43,7 +44,6 @@
         <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto" rel="stylesheet">
 
         <!-- Here is where we call bootstrap. !-->
-        <title>STARS - School Avg</title>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                 crossorigin="anonymous"></script>
@@ -57,7 +57,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <link href="../../css/stars.css" rel="stylesheet">
-
+        <title>STARS - School Avg</title>
     </head>
     <body>
         <?php include "../../header.php"; ?>
@@ -128,16 +128,16 @@
                                 </select>
                             </div>
                             <!--View Report button-->
-                                <div class="col-sm-12">
-                                    <?php
-                                        $confirm = new Button();
+                            <div class="col-sm-12">
+                                <?php
+                                    $confirm = new Button();
 
-                                        $confirm->buttonName = "view";
-                                        $confirm->buttonID = "view";
-                                        $confirm->buttonValue = "View";
-                                        $confirm->buttonStyle = "font-family:sans-serif";
-                                        $confirm->display(); ?>
-                                </div>
+                                    $confirm->buttonName = "view";
+                                    $confirm->buttonID = "view";
+                                    $confirm->buttonValue = "View";
+                                    $confirm->buttonStyle = "font-family:sans-serif";
+                                    $confirm->display(); ?>
+                            </div>
                         </div>
                     </form>
                 </div>

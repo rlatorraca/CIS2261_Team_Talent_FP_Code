@@ -1,6 +1,7 @@
 <?php
     /**
      * Created by PhpStorm.
+     * STARS Beta Version 1.0
      * Company: Team Talent 2.0
      * Authors: John, Rodrigo, Sara, Steve
      * Date: 2/14/2019
@@ -17,12 +18,6 @@
         crossorigin="anonymous"></script>
 
 <?php
-/**
- * Created by PhpStorm.
- * User: Rodrigo
- * Date: 2019-02-02
- * Time: 11:44 AM
- */
 
 include("../db/dbConn.php");
 

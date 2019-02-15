@@ -1,6 +1,7 @@
 <?php
     /**
      * Created by PhpStorm.
+     * STARS Beta Version 1.0
      * Company: Team Talent 2.0
      * Authors: John, Rodrigo, Sara, Steve
      * Date: 2/14/2019
@@ -52,7 +53,7 @@
                 window.history.back();
             }
         </script>
-        <title>STARS: View Report Card</title>
+        <title>STARS - View Report Card</title>
     </head>
 
     <body>
@@ -219,7 +220,8 @@
                             <?php
 
                                 if ($rowCount == 1) {
-                                    echo '<td rowspan="' . $result2->num_rows . '"><div class="reportNote"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.<p></div></td>';
+                                    echo '<td rowspan="' . $result2->num_rows . '"><div class="reportNote"><p class = "p2">Please hover over the course name to view any teacher comments. 
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.<p></div></td>';
                                 }
                             ?>
 

@@ -1,6 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
+ * STARS Beta Version 1.0
  * Firm: Team Talent 2.0
  * Members: Sara, John, Rodrigo, Steve
  * Date: 2/14/2019

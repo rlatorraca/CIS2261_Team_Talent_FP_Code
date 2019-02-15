@@ -1,6 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
+ * STARS Beta Version 1.0
  * Authors: Team Talent 2.0
  * Date: 2/14/2019
  *
