@@ -1,47 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d665968c-2a54-4ef4-a752-38485972bd29" name="Default Changelist" comment="Added files and started forms">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/readme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/getCourseID.php" beforeDir="false" afterPath="$PROJECT_DIR$/getCourseID.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/readme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/navMenu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/about.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/assignCourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/assignCourse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/confirmEditStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/confirmEditStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/confirmStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/confirmStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/deleteEnrollment.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/deleteEnrollment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/editStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/editStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/insertStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/insertStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/searchCourseResults.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/searchCourseResults.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/searchCourses.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/searchCourses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/searchResults.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/searchResults.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/searchStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/searchStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/button.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/button.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/db/dbConn.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/db/dbConn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/help.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/help.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/login/authenticateAdminPages.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/login/authenticateAdminPages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/login/checkLoggedIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/login/checkLoggedIn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/login/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/login/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/login/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/login/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/login/setCookie.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/login/setCookie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/displayReportCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/displayReportCard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/displaySchoolSubAvg.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/displaySchoolSubAvg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/displayStudentSubHistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/displayStudentSubHistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/enterMark.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/enterMark.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/getCourseSchoolYearAssignCourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/getCourseSchoolYearAssignCourse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/getStudentEnterMark.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/getStudentEnterMark.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/requestReportCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/requestReportCard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/requestSchoolSubAvg.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/requestSchoolSubAvg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/requestStudentSubHistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/requestStudentSubHistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/updateReportCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/updateReportCard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/reporting/viewIEP.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/reporting/viewIEP.php" afterDir="false" />
-    </list>
+    <list default="true" id="d665968c-2a54-4ef4-a752-38485972bd29" name="Default Changelist" comment="Added files and started forms" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -420,7 +380,7 @@
       <workItem from="1550151610367" duration="937000" />
       <workItem from="1550152819527" duration="80000" />
       <workItem from="1550153039981" duration="7752000" />
-      <workItem from="1550256098034" duration="4982000" />
+      <workItem from="1550256098034" duration="5572000" />
     </task>
     <task id="LOCAL-00001" summary="Added database sql file and inserted sql code to create database.">
       <created>1548210945438</created>
@@ -447,7 +407,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271823000" />
+    <option name="totallyTimeSpent" value="272413000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -460,7 +420,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" />
